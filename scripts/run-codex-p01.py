@@ -1,4 +1,4 @@
-"""Run one Codex CLI P01 generation in a workspace-only Windows sandbox."""
+"""Run one Codex CLI pressure-plate generation in a workspace-only Windows sandbox."""
 import argparse
 import hashlib
 import json
@@ -10,6 +10,7 @@ import time
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("run_directory", type=Path)
+parser.add_argument("--task", choices=("P01", "P02"), default="P01")
 parser.add_argument("--budget-seconds", type=int, default=600)
 parser.add_argument("--model")
 args = parser.parse_args()
@@ -22,15 +23,19 @@ builder = root / "builder"
 builder.mkdir()
 temp = root / "temp"
 temp.mkdir()
-inputs = ["pilot/builder/P01.json", "pilot/builder/shared-runtime-interface.json",
-          "node_modules/three/build/three.module.js", "node_modules/three/build/three.core.js",
-          "node_modules/three/LICENSE"]
+contract = f"{args.task}.json"
+inputs = [f"pilot/builder/{contract}", "pilot/builder/shared-runtime-interface.json"]
+if args.task == "P01":
+    inputs.extend(["node_modules/three/build/three.module.js", "node_modules/three/build/three.core.js",
+                   "node_modules/three/LICENSE"])
 for path in inputs:
     shutil.copy2(repo / path, builder)
 
-prompt = """Build a playable browser-native 3D game for the public requirements in P01.json and shared-runtime-interface.json.
+dimension = "3D" if args.task == "P01" else "2D"
+library_note = "The supplied Three.js modules are optional. " if args.task == "P01" else ""
+prompt = f"""Build a playable browser-native {dimension} game for the public requirements in {contract} and shared-runtime-interface.json.
 Implement a complete artifact in this directory, with index.html as the entry point and all runtime dependencies local.
-The supplied Three.js modules are optional. The artifact will run on a static HTTP server.
+{library_note}The artifact will run on a static HTTP server.
 Implement the public runtime interface against the same game state that native keyboard input changes.
 Read both public specifications. Write the game files directly. Do not consult outside materials.
 """
@@ -47,7 +52,7 @@ codex = shutil.which("codex")
 if not codex:
     raise SystemExit("Install and authenticate Codex CLI before starting a baseline.")
 probe = (
-    "if (!(Test-Path -LiteralPath P01.json)) { exit 8 }; "
+    "if (!(Test-Path -LiteralPath " + contract + ")) { exit 8 }; "
     "try { Get-Content -LiteralPath '" + (repo / "scripts/p01-cases.mjs").as_posix().replace("'", "''") +
     "' -ErrorAction Stop | Out-Null; exit 3 } catch { }; "
     "Set-Content -LiteralPath sandbox-ok.txt -Value ok; "
@@ -73,7 +78,7 @@ with (root / "events.jsonl").open("wb") as stdout, (root / "stderr.log").open("w
     except subprocess.TimeoutExpired:
         timed_out = True
 metadata = {
-    "taskId": "P01",
+    "taskId": args.task,
     "cliVersion": subprocess.check_output([codex, "--version"], text=True).strip(),
     "modelRequested": args.model,
     "budgetSeconds": args.budget_seconds,

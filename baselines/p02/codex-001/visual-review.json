@@ -1,0 +1,40 @@
+{
+  "reviewKind": "manual_frame_review",
+  "runReportDigest": "acf2a3ad4ebc44fe82a87b3a63aedbfa8231080a640ed9a0092c06ef9eb00c24",
+  "checks": [
+    {
+      "caseId": "door_feedback",
+      "status": "pass",
+      "reason": "The gate artwork and HUD change from an orange sealed barrier to a teal open passage when both plates are engaged. The crossing is confirmed by the separate input replay.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/door_feedback/closed-gate.png",
+          "sha256": "8bd9f268c3e7cb162cab5c519fa904b5bc974bfe342b7f83ebef4992062ba488"
+        },
+        {
+          "path": "evidence/door_feedback/open-gate.png",
+          "sha256": "0c8141bae0b72407d203adc9b07125f753eb2710f89fd3218c2c045c573a4ca0"
+        }
+      ]
+    },
+    {
+      "caseId": "terminal_feedback",
+      "status": "pass",
+      "reason": "The fall displays a pit failure and a retry control. The next attempt clears the overlay, restores the start positions and returns the status to system online. The recovered run displays the exit reached overlay.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/recover_and_finish/failure.png",
+          "sha256": "38b2a2bb5a78bb917708aabadda0a7a95a180193cb7ee8d4c1d4e27e1888b336"
+        },
+        {
+          "path": "evidence/recover_and_finish/restart.png",
+          "sha256": "af91920845aa8033c990cfe622b816ca79fb60257232aaba0be114003303b246"
+        },
+        {
+          "path": "evidence/recover_and_finish/victory-hud.png",
+          "sha256": "660cca73229994ede1021394a1a00b51840c4e2e879f6d252c91edff1009b678"
+        }
+      ]
+    }
+  ]
+}

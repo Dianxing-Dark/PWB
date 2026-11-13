@@ -1,0 +1,148 @@
+{
+  "method": "Paired verdicts for the preregistered common checks. Dimension-specific counterexamples are separate.",
+  "pairs": [
+    {
+      "task3D": "A01",
+      "task2D": "A02",
+      "run3D": "A01",
+      "run2D": "A02",
+      "artifact3D": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/A01",
+      "artifact2D": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/A02",
+      "evaluator3D": "f32ca2d426b2aa4518902b96cbb58c43e836a552b5154d1181b06a54133d4c16",
+      "evaluator2D": "c9108b437942b08b5275c4a754d345c5e8c51976ab83cc1ef1b20ff240381bc3",
+      "shared": [
+        {
+          "id": "plate_contact",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "plate_feedback",
+          "3D": "pass",
+          "2D": "pass"
+        }
+      ],
+      "bothPassed": 2,
+      "specific": [
+        {
+          "id": "wrong_height",
+          "dimension": "3D",
+          "status": "pass"
+        },
+        {
+          "id": "no_contact_no_trigger",
+          "dimension": "2D",
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "task3D": "C01",
+      "task2D": "C02",
+      "run3D": "C01",
+      "run2D": "C02",
+      "artifact3D": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/C01",
+      "artifact2D": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/C02",
+      "evaluator3D": "ccd22a20b5d38eca56b65b4f1b2f950a875deeba9002cec99d06e72ed857863f",
+      "evaluator2D": "1fac29af779fe671c6a97a4e6d9ab3aa0a89e2f46fae5b88de924cb72dc93128",
+      "shared": [
+        {
+          "id": "single_plate",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "release_before_threshold",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "unlock_at_threshold",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "closed_collision",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "open_collision",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "door_feedback",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "finish",
+          "3D": "pass",
+          "2D": "pass"
+        }
+      ],
+      "bothPassed": 7,
+      "specific": []
+    },
+    {
+      "task3D": "P01",
+      "task2D": "P02",
+      "run3D": "reference",
+      "run2D": "P02",
+      "artifact3D": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465",
+      "artifact2D": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/P02",
+      "evaluator3D": "4f2fa1fa4dd8c1bde358f699f89966419a66bbf3ac77666ffd502e8771c2069c",
+      "evaluator2D": "e12b119c70fc215f61185511a21629e04c0f6520192d30cb4da477e585704516",
+      "shared": [
+        {
+          "id": "single_plate",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "release_before_threshold",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "unlock_at_threshold",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "closed_collision",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "open_collision",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "door_feedback",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "finish",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "recover_and_finish",
+          "3D": "pass",
+          "2D": "pass"
+        },
+        {
+          "id": "terminal_feedback",
+          "3D": "pass",
+          "2D": "pass"
+        }
+      ],
+      "bothPassed": 9,
+      "specific": []
+    }
+  ]
+}

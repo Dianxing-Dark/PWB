@@ -23,7 +23,7 @@ async function passGate(test) {
   await test.go(test.route.gateBefore);
   const movement = await test.go(test.route.gateAfter);
   const final = movement.at(-1);
-  requireCheck(final.goalCrossed && pastGate(test, final) &&
+  requireCheck(pastGate(test, final) &&
     final.avatar.position[1] >= test.route.upperHeight - 0.06, "Player could not cross the gate.", "cross_door");
   requireCheck(!pastGate(test, movement[0]) && movement.every((state, i) => {
     if (!i) return true;
@@ -56,7 +56,8 @@ async function normalJourney(test, initial) {
   await passGate(test);
   await test.capture("past-gate");
   await test.go(exit);
-  await test.until(state => state.outcome === "victory", 1000, "Exit did not produce victory.", "enter_goal");
+  const final = await test.until(state => state.outcome === "victory", 1000, "Exit did not produce victory.", "enter_goal");
+  requireCheck(final.goalCrossed && pastGate(test, final), "Victory did not include reaching the exit beyond the gate.", "enter_goal");
   await test.capture("victory");
 
   const events = (await test.events()).filter(event => event.attemptId === initial.attemptId);
@@ -65,7 +66,7 @@ async function normalJourney(test, initial) {
   const unlock = events.find(event => hasDoorEvent(event) && event.sequence > (b?.sequence ?? Infinity));
   const victory = events.find(event => event.type === "outcome_changed" && event.data.outcome === "victory");
   const crossed = test.trace.find(state => state.attemptId === initial.attemptId &&
-    state.goalCrossed && pastGate(test, state));
+    state.tick >= unlock?.tick && pastGate(test, state));
   requireCheck(a && b && unlock && crossed && victory && unlock.tick <= crossed.tick && crossed.tick <= victory.tick,
     "A required journey milestone is missing or out of order.");
   requireCheck(!(await test.events()).some(event => event.type === "scenario_loaded"),

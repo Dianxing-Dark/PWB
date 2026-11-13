@@ -1,0 +1,437 @@
+{
+  "schemaVersion": "pilot-0.1",
+  "recordKind": "run",
+  "taskId": "P02",
+  "runId": "submission",
+  "artifactVersion": "922d993e8a825088653eec970b3b2171116eb0da2c53ffcd53a23a2199d976d8",
+  "evaluatorVersion": "580d56a7d7b98bf419da0526dd16de8288cad91401cb4738c6eaecbdffdbb1e1",
+  "browserVersion": "157.0.8103.52",
+  "seed": null,
+  "cases": [
+    {
+      "caseId": "launch",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "launch/entry.png",
+        "launch/trace.json"
+      ]
+    },
+    {
+      "caseId": "probe",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "probe/trace.json"
+      ]
+    },
+    {
+      "caseId": "single_plate",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "single_plate/trace.json"
+      ]
+    },
+    {
+      "caseId": "release_before_threshold",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "release_before_threshold/trace.json"
+      ]
+    },
+    {
+      "caseId": "unlock_at_threshold",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "unlock_at_threshold/trace.json"
+      ]
+    },
+    {
+      "caseId": "closed_collision",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "closed_collision/blocked-by-closed-gate.png",
+        "closed_collision/trace.json"
+      ]
+    },
+    {
+      "caseId": "open_collision",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "open_collision/before-crossing.png",
+        "open_collision/after-crossing-attempt.png",
+        "open_collision/trace.json"
+      ]
+    },
+    {
+      "caseId": "door_feedback",
+      "status": "unverified",
+      "reason": "No reviewed visual anchors for the gate. Inspect closed-gate.png and open-gate.png.",
+      "evidenceRefs": [
+        "door_feedback/closed-gate.png",
+        "door_feedback/open-gate.png",
+        "door_feedback/trace.json"
+      ]
+    },
+    {
+      "caseId": "finish",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "finish/crate-on-lower-plate.png",
+        "finish/upper-plate.png",
+        "finish/gate-open.png",
+        "finish/past-gate.png",
+        "finish/victory.png",
+        "finish/trace.json"
+      ]
+    },
+    {
+      "caseId": "recover_and_finish",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "recover_and_finish/failure.png",
+        "recover_and_finish/restart.png",
+        "recover_and_finish/crate-on-lower-plate.png",
+        "recover_and_finish/upper-plate.png",
+        "recover_and_finish/gate-open.png",
+        "recover_and_finish/past-gate.png",
+        "recover_and_finish/victory.png",
+        "recover_and_finish/victory-hud.png",
+        "recover_and_finish/trace.json"
+      ]
+    },
+    {
+      "caseId": "terminal_feedback",
+      "status": "unverified",
+      "reason": "Inspect the failure, restart and victory frames for terminal feedback.",
+      "evidenceRefs": [
+        "recover_and_finish/failure.png",
+        "recover_and_finish/restart.png",
+        "recover_and_finish/victory-hud.png",
+        "terminal_feedback/trace.json"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "launch/entry.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "launch/entry.png",
+      "contentDigest": "29e66f6e6bd2cd4f9af2a652fec8b79c68efc06fa2e05b631ef12c4b806d05c1",
+      "browserMonotonicMs": 2782.5999999996275,
+      "simulationTick": 164,
+      "sequenceIndex": 0
+    },
+    {
+      "id": "launch/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "launch/trace.json",
+      "contentDigest": "e4176ac148dd2ebbd7b51fea302d3abce9b5665497f5cb35f28c33cdfd832f06",
+      "browserMonotonicMs": 2782.5999999996275,
+      "simulationTick": 164,
+      "sequenceIndex": 1
+    },
+    {
+      "id": "probe/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "probe/trace.json",
+      "contentDigest": "7bf13785efd47909e1457bb88d848e42c1cfa3a7ad1e064cb9b06d62d51a6ae6",
+      "browserMonotonicMs": 196.80000000074506,
+      "simulationTick": 9,
+      "sequenceIndex": 2
+    },
+    {
+      "id": "single_plate/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "single_plate/trace.json",
+      "contentDigest": "86b9bfb42e18eadf3e3b3227c83ba877d250cf2d9948c61db80ec74455e2cd40",
+      "browserMonotonicMs": 2686.7999999988824,
+      "simulationTick": 154,
+      "sequenceIndex": 3
+    },
+    {
+      "id": "release_before_threshold/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "release_before_threshold/trace.json",
+      "contentDigest": "b419b7b6bf206e7ffaedb5d1efa67ad0677957e03ff2980f018be9f2bc7956c7",
+      "browserMonotonicMs": 4128.300000000745,
+      "simulationTick": 233,
+      "sequenceIndex": 4
+    },
+    {
+      "id": "unlock_at_threshold/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "unlock_at_threshold/trace.json",
+      "contentDigest": "6e3e48f2b1f45afe0f969040c808bbc3ce187fdf715e2f8ffaff63cdf779afcc",
+      "browserMonotonicMs": 3113.5,
+      "simulationTick": 169,
+      "sequenceIndex": 5
+    },
+    {
+      "id": "closed_collision/blocked-by-closed-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "closed_collision/blocked-by-closed-gate.png",
+      "contentDigest": "9c149476c0fabb4b1128b982b76d7cfc7fd641fd0745d7e30186867bb0297ae7",
+      "browserMonotonicMs": 1555.4000000003725,
+      "simulationTick": 74,
+      "sequenceIndex": 6
+    },
+    {
+      "id": "closed_collision/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "closed_collision/trace.json",
+      "contentDigest": "b0facfaebec19d7035358fa90de5a232614410938535abdf79eecd1db530b25e",
+      "browserMonotonicMs": 1555.4000000003725,
+      "simulationTick": 74,
+      "sequenceIndex": 7
+    },
+    {
+      "id": "open_collision/before-crossing.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "open_collision/before-crossing.png",
+      "contentDigest": "709fb0bbb7a703ce377d1ac2f06ce9db067deabf43b6cd6a1879dc86bd717e46",
+      "browserMonotonicMs": 2674.10000000149,
+      "simulationTick": 141,
+      "sequenceIndex": 8
+    },
+    {
+      "id": "open_collision/after-crossing-attempt.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "open_collision/after-crossing-attempt.png",
+      "contentDigest": "d926bf054ca85475b49c0449c4748f7a0619be56430dc9ee2f3b1ea26bdf3414",
+      "browserMonotonicMs": 5984.9000000003725,
+      "simulationTick": 340,
+      "sequenceIndex": 9
+    },
+    {
+      "id": "open_collision/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "open_collision/trace.json",
+      "contentDigest": "276f0501ac11aeb0da82773bcbe3e0a71e4ec0e7ba13a68c953b32cf7e7c1d3e",
+      "browserMonotonicMs": 5984.9000000003725,
+      "simulationTick": 340,
+      "sequenceIndex": 10
+    },
+    {
+      "id": "door_feedback/closed-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "door_feedback/closed-gate.png",
+      "contentDigest": "8bd9f268c3e7cb162cab5c519fa904b5bc974bfe342b7f83ebef4992062ba488",
+      "browserMonotonicMs": 161.40000000037253,
+      "simulationTick": 1,
+      "sequenceIndex": 11
+    },
+    {
+      "id": "door_feedback/open-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "door_feedback/open-gate.png",
+      "contentDigest": "0c8141bae0b72407d203adc9b07125f753eb2710f89fd3218c2c045c573a4ca0",
+      "browserMonotonicMs": 2859.4000000003725,
+      "simulationTick": 162,
+      "sequenceIndex": 12
+    },
+    {
+      "id": "door_feedback/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "door_feedback/trace.json",
+      "contentDigest": "e13e669788f03c0969f78307f3abdb8a4ea462d488692299f2c3e3910694fa4c",
+      "browserMonotonicMs": 2859.4000000003725,
+      "simulationTick": 162,
+      "sequenceIndex": 13
+    },
+    {
+      "id": "finish/crate-on-lower-plate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish/crate-on-lower-plate.png",
+      "contentDigest": "6603331c5905a0d36a312483b2bad6ce6c285e993f632f1427e5f5d9e3eb6117",
+      "browserMonotonicMs": 1839.199999999255,
+      "simulationTick": 107,
+      "sequenceIndex": 14
+    },
+    {
+      "id": "finish/upper-plate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish/upper-plate.png",
+      "contentDigest": "bb867ebd60b6e5a8efda538eaf9326dd0912aad3f4b4355278f44749d7641942",
+      "browserMonotonicMs": 5934.0999999996275,
+      "simulationTick": 353,
+      "sequenceIndex": 15
+    },
+    {
+      "id": "finish/gate-open.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish/gate-open.png",
+      "contentDigest": "d600b55718e35d5bc00f912d60635b365d35cbc0347cb022a058d2ff08fe678b",
+      "browserMonotonicMs": 7662.699999999255,
+      "simulationTick": 456,
+      "sequenceIndex": 16
+    },
+    {
+      "id": "finish/past-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish/past-gate.png",
+      "contentDigest": "241a4a24976032f81df9a8eda5fdb4132c57098c6ff24fa419701e1969eafd0e",
+      "browserMonotonicMs": 10898.599999999627,
+      "simulationTick": 650,
+      "sequenceIndex": 17
+    },
+    {
+      "id": "finish/victory.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish/victory.png",
+      "contentDigest": "7d742292759b55ae01c5cc50d9c5a3ad10c0d60cf8c715109a02a28805f63d69",
+      "browserMonotonicMs": 11490.599999999627,
+      "simulationTick": 681,
+      "sequenceIndex": 18
+    },
+    {
+      "id": "finish/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "finish/trace.json",
+      "contentDigest": "2c5efa2951243674f3ad03719ac9bc4191d0c74b3db427ed7c069ac73983a807",
+      "browserMonotonicMs": 11490.599999999627,
+      "simulationTick": 681,
+      "sequenceIndex": 19
+    },
+    {
+      "id": "recover_and_finish/failure.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_finish/failure.png",
+      "contentDigest": "38b2a2bb5a78bb917708aabadda0a7a95a180193cb7ee8d4c1d4e27e1888b336",
+      "browserMonotonicMs": 2378.7999999988824,
+      "simulationTick": 134,
+      "sequenceIndex": 20
+    },
+    {
+      "id": "recover_and_finish/restart.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_finish/restart.png",
+      "contentDigest": "af91920845aa8033c990cfe622b816ca79fb60257232aaba0be114003303b246",
+      "browserMonotonicMs": 2867.2999999988824,
+      "simulationTick": 4,
+      "sequenceIndex": 21
+    },
+    {
+      "id": "recover_and_finish/crate-on-lower-plate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_finish/crate-on-lower-plate.png",
+      "contentDigest": "0b0ef7b97573dd87be7aa79be3c181d899c666748396f2af55b78289573d6c87",
+      "browserMonotonicMs": 4811.5,
+      "simulationTick": 121,
+      "sequenceIndex": 22
+    },
+    {
+      "id": "recover_and_finish/upper-plate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_finish/upper-plate.png",
+      "contentDigest": "4ad2bd007389c14e02f6d4f7d8d549db7125c1d5dd882b3fc68351d6e288edb1",
+      "browserMonotonicMs": 8160.299999998882,
+      "simulationTick": 321,
+      "sequenceIndex": 23
+    },
+    {
+      "id": "recover_and_finish/gate-open.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_finish/gate-open.png",
+      "contentDigest": "2174950ebf172dbca282e6c067f1565ec4ae813a2a6d79db26819ec01efc5992",
+      "browserMonotonicMs": 9905.799999998882,
+      "simulationTick": 425,
+      "sequenceIndex": 24
+    },
+    {
+      "id": "recover_and_finish/past-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_finish/past-gate.png",
+      "contentDigest": "d40436d00b06e737ab257c32dded26d346cf9b3eff341f745fe9183ec04c084f",
+      "browserMonotonicMs": 13064.299999998882,
+      "simulationTick": 616,
+      "sequenceIndex": 25
+    },
+    {
+      "id": "recover_and_finish/victory.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_finish/victory.png",
+      "contentDigest": "660cca73229994ede1021394a1a00b51840c4e2e879f6d252c91edff1009b678",
+      "browserMonotonicMs": 13897.699999999255,
+      "simulationTick": 649,
+      "sequenceIndex": 26
+    },
+    {
+      "id": "recover_and_finish/victory-hud.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_finish/victory-hud.png",
+      "contentDigest": "660cca73229994ede1021394a1a00b51840c4e2e879f6d252c91edff1009b678",
+      "browserMonotonicMs": 14317.39999999851,
+      "simulationTick": 649,
+      "sequenceIndex": 27
+    },
+    {
+      "id": "recover_and_finish/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "recover_and_finish/trace.json",
+      "contentDigest": "e51fbcd459e67cad9b420da8ea2fadee6a1e053a0ac919da08274c8a570c6a17",
+      "browserMonotonicMs": 14317.39999999851,
+      "simulationTick": 649,
+      "sequenceIndex": 28
+    },
+    {
+      "id": "terminal_feedback/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "terminal_feedback/trace.json",
+      "contentDigest": "617fc6f18b86d43114e4017615c99af2f2de90337beb7bd327cfbf5475964682",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 29
+    }
+  ],
+  "summary": {
+    "strictTaskSuccess": true,
+    "functionalInterval": [
+      1,
+      1
+    ],
+    "functionalCoverage": 1,
+    "visualCoverage": 0,
+    "journeys": {
+      "passed": 2,
+      "planned": 2
+    }
+  }
+}

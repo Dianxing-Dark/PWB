@@ -157,7 +157,7 @@
       "implementation": {
         "referenceLayouts": 1,
         "evaluator": "scripts/evaluate-p01.mjs",
-        "codexRuns": 0
+        "codexRuns": 1
       }
     }
   ],

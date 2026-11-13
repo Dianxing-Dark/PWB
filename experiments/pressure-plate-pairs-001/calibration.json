@@ -1,0 +1,568 @@
+[
+  {
+    "layout": "A01",
+    "fault": "projection_triggers_plate",
+    "runId": "A01-projection_triggers_plate",
+    "artifactVersion": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/A01/projection_triggers_plate",
+    "evaluatorVersion": "f32ca2d426b2aa4518902b96cbb58c43e836a552b5154d1181b06a54133d4c16",
+    "reportSha256": "bb8f61029e6f8c8003d1de647268ccea3b335f7e7a413a365eb8c62a8de8780e",
+    "expectedFailedCases": [
+      "wrong_height"
+    ],
+    "expectedPassedCases": [
+      "plate_contact"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "plate_contact": "pass",
+      "wrong_height": "fail",
+      "plate_feedback": "pass"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.5,
+        0.5
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 0
+      }
+    }
+  },
+  {
+    "layout": "A02",
+    "fault": "nearby_crate_triggers_plate",
+    "runId": "A02-nearby_crate_triggers_plate",
+    "artifactVersion": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/A02/nearby_crate_triggers_plate",
+    "evaluatorVersion": "c9108b437942b08b5275c4a754d345c5e8c51976ab83cc1ef1b20ff240381bc3",
+    "reportSha256": "bf6b8e2d36a6c13e27c557ac684c20f4ba6fc0a5d254292454901f95a1720235",
+    "expectedFailedCases": [
+      "no_contact_no_trigger"
+    ],
+    "expectedPassedCases": [
+      "plate_contact"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "plate_contact": "pass",
+      "no_contact_no_trigger": "fail",
+      "plate_feedback": "pass"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.5,
+        0.5
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 0
+      }
+    }
+  },
+  {
+    "layout": "reference",
+    "fault": "timer_keeps_partial_credit",
+    "runId": "reference-timer_keeps_partial_credit",
+    "artifactVersion": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/timer_keeps_partial_credit",
+    "evaluatorVersion": "5c0e696785893c5dd344af8a1b97d1148d245bed2e804dd041a2d1dde3aaa5fd",
+    "reportSha256": "ea0df24b8c8ad374cd15d225b883d1cfa93df18f3b4b065db7d4d82bb523a721",
+    "expectedFailedCases": [
+      "release_before_threshold"
+    ],
+    "expectedPassedCases": [
+      "single_plate",
+      "closed_collision"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "fail",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "pass",
+      "finish": "pass",
+      "recover_and_finish": "pass",
+      "terminal_feedback": "pass"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.8333333333333333,
+        0.8333333333333333
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "reference",
+    "fault": "closed_collider_after_animation",
+    "runId": "reference-closed_collider_after_animation",
+    "artifactVersion": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/closed_collider_after_animation",
+    "evaluatorVersion": "5c0e696785893c5dd344af8a1b97d1148d245bed2e804dd041a2d1dde3aaa5fd",
+    "reportSha256": "1c707a0fe515fdcfbd5a475e39c0a92d3a9a29776aab83b75ec27a9d436549fd",
+    "expectedFailedCases": [
+      "open_collision",
+      "finish"
+    ],
+    "expectedPassedCases": [
+      "unlock_at_threshold",
+      "door_feedback"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "fail",
+      "door_feedback": "pass",
+      "finish": "fail",
+      "recover_and_finish": "fail",
+      "terminal_feedback": "unverified"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.75,
+        0.75
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 0.5,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "reference",
+    "fault": "missing_door_feedback",
+    "runId": "reference-missing_door_feedback",
+    "artifactVersion": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/missing_door_feedback",
+    "evaluatorVersion": "5c0e696785893c5dd344af8a1b97d1148d245bed2e804dd041a2d1dde3aaa5fd",
+    "reportSha256": "91376cd0ad3d1fc0bedc6930a973339f1c70a4946f46233c333e2da81d36894b",
+    "expectedFailedCases": [
+      "door_feedback"
+    ],
+    "expectedPassedCases": [
+      "open_collision",
+      "finish"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "fail",
+      "finish": "pass",
+      "recover_and_finish": "pass",
+      "terminal_feedback": "pass"
+    },
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "reference",
+    "fault": "dead_goal_trigger",
+    "runId": "reference-dead_goal_trigger",
+    "artifactVersion": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/dead_goal_trigger",
+    "evaluatorVersion": "5c0e696785893c5dd344af8a1b97d1148d245bed2e804dd041a2d1dde3aaa5fd",
+    "reportSha256": "c3acfce594a4edc954f2c1ba4f49465cb67f01e68358a2cc9a399a50cb42ba5a",
+    "expectedFailedCases": [
+      "finish",
+      "recover_and_finish"
+    ],
+    "expectedPassedCases": [
+      "unlock_at_threshold",
+      "open_collision"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "pass",
+      "finish": "fail",
+      "recover_and_finish": "fail",
+      "terminal_feedback": "unverified"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 0.5,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "offset",
+    "fault": "timer_keeps_partial_credit",
+    "runId": "offset-timer_keeps_partial_credit",
+    "artifactVersion": "d4543a54ad4490ebddcce06286ee7df6d257b40cb04d7b5a87d348442428f303/timer_keeps_partial_credit",
+    "evaluatorVersion": "d633572d6cd3ffb10ff27d6e57dfdee6fdbbec4723d107d44b05642e47e53856",
+    "reportSha256": "256612d64deb20098c3ba165afa6f0a4249a723f48efc4bed8ca33e51ad1cc5c",
+    "expectedFailedCases": [
+      "release_before_threshold"
+    ],
+    "expectedPassedCases": [
+      "single_plate",
+      "closed_collision"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "fail",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "pass",
+      "finish": "pass",
+      "recover_and_finish": "pass",
+      "terminal_feedback": "pass"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.8333333333333333,
+        0.8333333333333333
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "offset",
+    "fault": "closed_collider_after_animation",
+    "runId": "offset-closed_collider_after_animation",
+    "artifactVersion": "d4543a54ad4490ebddcce06286ee7df6d257b40cb04d7b5a87d348442428f303/closed_collider_after_animation",
+    "evaluatorVersion": "d633572d6cd3ffb10ff27d6e57dfdee6fdbbec4723d107d44b05642e47e53856",
+    "reportSha256": "623674eb6f807848300c7e6895c2538eae5a7064516d493065f54b9c66c397d8",
+    "expectedFailedCases": [
+      "open_collision",
+      "finish"
+    ],
+    "expectedPassedCases": [
+      "unlock_at_threshold",
+      "door_feedback"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "fail",
+      "door_feedback": "pass",
+      "finish": "fail",
+      "recover_and_finish": "fail",
+      "terminal_feedback": "unverified"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.75,
+        0.75
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 0.5,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "offset",
+    "fault": "missing_door_feedback",
+    "runId": "offset-missing_door_feedback",
+    "artifactVersion": "d4543a54ad4490ebddcce06286ee7df6d257b40cb04d7b5a87d348442428f303/missing_door_feedback",
+    "evaluatorVersion": "d633572d6cd3ffb10ff27d6e57dfdee6fdbbec4723d107d44b05642e47e53856",
+    "reportSha256": "0d9626a1563ff1c24740a82db241dc2ffee9ad4d915c961b6c174257eedf464f",
+    "expectedFailedCases": [
+      "door_feedback"
+    ],
+    "expectedPassedCases": [
+      "open_collision",
+      "finish"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "fail",
+      "finish": "pass",
+      "recover_and_finish": "pass",
+      "terminal_feedback": "pass"
+    },
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "offset",
+    "fault": "dead_goal_trigger",
+    "runId": "offset-dead_goal_trigger",
+    "artifactVersion": "d4543a54ad4490ebddcce06286ee7df6d257b40cb04d7b5a87d348442428f303/dead_goal_trigger",
+    "evaluatorVersion": "d633572d6cd3ffb10ff27d6e57dfdee6fdbbec4723d107d44b05642e47e53856",
+    "reportSha256": "073e37554a357f4d06c0512c7bec89675531663bf0981de6e958a93a4651234f",
+    "expectedFailedCases": [
+      "finish",
+      "recover_and_finish"
+    ],
+    "expectedPassedCases": [
+      "unlock_at_threshold",
+      "open_collision"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "pass",
+      "finish": "fail",
+      "recover_and_finish": "fail",
+      "terminal_feedback": "unverified"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 0.5,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "P02",
+    "fault": "timer_keeps_partial_credit",
+    "runId": "P02-timer_keeps_partial_credit",
+    "artifactVersion": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/P02/timer_keeps_partial_credit",
+    "evaluatorVersion": "e12b119c70fc215f61185511a21629e04c0f6520192d30cb4da477e585704516",
+    "reportSha256": "792a78f7210f4d72e8ad486b9f2fda395bbbfd0eb15a0fbc4304f1402f895937",
+    "expectedFailedCases": [
+      "release_before_threshold"
+    ],
+    "expectedPassedCases": [
+      "single_plate",
+      "closed_collision"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "fail",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "pass",
+      "finish": "pass",
+      "recover_and_finish": "pass",
+      "terminal_feedback": "pass"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.8333333333333333,
+        0.8333333333333333
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "P02",
+    "fault": "closed_collider_after_animation",
+    "runId": "P02-closed_collider_after_animation",
+    "artifactVersion": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/P02/closed_collider_after_animation",
+    "evaluatorVersion": "e12b119c70fc215f61185511a21629e04c0f6520192d30cb4da477e585704516",
+    "reportSha256": "057fddecb20cfb69ee31edfe397b27ee959a2f7214a45e21119fbcf241258a2e",
+    "expectedFailedCases": [
+      "open_collision",
+      "finish"
+    ],
+    "expectedPassedCases": [
+      "unlock_at_threshold",
+      "door_feedback"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "fail",
+      "door_feedback": "pass",
+      "finish": "fail",
+      "recover_and_finish": "fail",
+      "terminal_feedback": "unverified"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.75,
+        0.75
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 0.5,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "P02",
+    "fault": "missing_door_feedback",
+    "runId": "P02-missing_door_feedback",
+    "artifactVersion": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/P02/missing_door_feedback",
+    "evaluatorVersion": "e12b119c70fc215f61185511a21629e04c0f6520192d30cb4da477e585704516",
+    "reportSha256": "0db37cdd08da75df2ec10c1451df4d11362292b066445d2eaf11f325998cac1e",
+    "expectedFailedCases": [
+      "door_feedback"
+    ],
+    "expectedPassedCases": [
+      "open_collision",
+      "finish"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "fail",
+      "finish": "pass",
+      "recover_and_finish": "pass",
+      "terminal_feedback": "pass"
+    },
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    }
+  },
+  {
+    "layout": "P02",
+    "fault": "dead_goal_trigger",
+    "runId": "P02-dead_goal_trigger",
+    "artifactVersion": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/P02/dead_goal_trigger",
+    "evaluatorVersion": "e12b119c70fc215f61185511a21629e04c0f6520192d30cb4da477e585704516",
+    "reportSha256": "89a01bcc497034efadc89432ed500424e24e401e8e789512032a8359c0cd7f35",
+    "expectedFailedCases": [
+      "finish",
+      "recover_and_finish"
+    ],
+    "expectedPassedCases": [
+      "unlock_at_threshold",
+      "open_collision"
+    ],
+    "caseStatuses": {
+      "launch": "pass",
+      "probe": "pass",
+      "single_plate": "pass",
+      "release_before_threshold": "pass",
+      "unlock_at_threshold": "pass",
+      "closed_collision": "pass",
+      "open_collision": "pass",
+      "door_feedback": "pass",
+      "finish": "fail",
+      "recover_and_finish": "fail",
+      "terminal_feedback": "unverified"
+    },
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 0.5,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    }
+  }
+]

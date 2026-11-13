@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interlock · Relay Station</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="game.js"></script>
+</head>
+<body>
+<main>
+  <header><div><div class="eyebrow"><span></span> RELAY STATION / 02</div><h1>Interlock</h1></div><div id="status" role="status">● &nbsp; SYSTEM ONLINE</div></header>
+  <section class="brief"><b>Restore the exit circuit</b><span>Push the crate onto A, then stand on B for two seconds. Go through the open gate to the exit.</span></section>
+  <div class="console">
+    <div class="readouts">
+      <div><i class="lamp" id="lampA"></i><span>PLATE A <small id="aText">IDLE</small></span></div>
+      <div><i class="lamp" id="lampB"></i><span>PLATE B <small id="bText">IDLE</small></span></div>
+      <div class="charge"><span>INTERLOCK <small id="chargeText">0%</small></span><div class="track"><div id="fill"></div></div></div>
+      <div><i class="lamp" id="lampDoor"></i><span>GATE <small id="gateText">SEALED</small></span></div>
+    </div>
+    <div class="viewport">
+      <canvas id="world" width="1080" height="600" aria-label="Top-down relay station with a crate, two pressure plates, a pit and an exit gate"></canvas>
+      <div class="overlay" id="overlay" hidden><div class="result"><div class="eyebrow" id="resultLabel"></div><h2 id="resultTitle"></h2><p id="resultDetail"></p><button id="retry">Retry <kbd>R</kbd></button></div></div>
+    </div>
+  </div>
+  <footer><div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move / push</span><kbd>R</kbd><span>Restart</span></div><span class="warning"><b>▲</b> Keep clear of the open pit</span></footer>
+</main>
+</body>
+</html>

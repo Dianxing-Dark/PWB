@@ -32,6 +32,8 @@ A01/A02 cover crate contact and release. C01/C02 add the simultaneous hold and g
 
 Pass the six reference report paths in the shown order. The comparison uses the preregistered common checks and reports the geometry-specific checks separately.
 
+See the [paired reference calibration](experiments/pressure-plate-pairs-001/) and the [P02 Codex run](baselines/p02/codex-001/).
+
 ## Run the moving-platform family
 
     npm run play:platform -- P04
@@ -57,6 +59,8 @@ On Windows, install and authenticate Codex CLI, then run this from the checkout 
     python scripts/run-codex-p01.py D:/bench-runs/p01-001 --budget-seconds 600
 
 The command stages the two public contracts and optional local Three.js modules. It probes read and write isolation before starting a fresh Codex session, saves the input digests and JSONL transcript, and enforces a wall-clock limit. Use `--model` to pin the model for a series. Keep the evaluator checkout and baseline logs outside the builder directory.
+
+Use `--task P02` for the planar playthrough. It stages the two public contracts without a rendering library. Select `--task=P02` when evaluating that submission.
 
 Review the generated artifact and record a replay using [the P01 replay fields](scripts/p01-replays.mjs). Then run:
 

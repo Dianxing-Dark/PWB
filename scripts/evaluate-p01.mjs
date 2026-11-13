@@ -5,8 +5,8 @@ import { cases } from "./p01-cases.mjs";
 import { serveReference } from "./server.mjs";
 import { replays, atomReplay, flatReplay } from "./p01-replays.mjs";
 import { readJson, version, artifactDigest, digest, startBrowser, runVariant, requireCheck } from "./browser-evaluation.mjs";
-
 import { contactCases } from "./plate-contact-cases.mjs";
+
 const args = process.argv.slice(2);
 const getArg = name => args.find(arg => arg.startsWith(name + "="))?.slice(name.length + 1);
 const task = getArg("--task") ?? "P01";
@@ -32,7 +32,7 @@ if (args.some(arg => !/^--(calibrate$|(layout|fault|submission|replay|task)=.+)/
     (selectedFault && (!faultIds.includes(selectedFault) || calibrate)) ||
     (selectedLayout && (task !== "P01" || !Object.hasOwn(replays, selectedLayout))) ||
     Boolean(submission) !== Boolean(replayPath) ||
-    (submission && (selectedFault || calibrate || selectedLayout || task !== "P01"))) {
+    (submission && (selectedFault || calibrate || selectedLayout || !["P01", "P02"].includes(task)))) {
   throw new Error("Use [--task=A01|A02|C01|C02|P01|P02] [--layout=reference|offset] [--fault=<id>|--calibrate] or --submission=<directory> --replay=<file>.");
 }
 const variants = calibrate ? ["", ...faultIds] : [selectedFault ?? ""];
@@ -69,9 +69,10 @@ try {
     if (!submission) url.searchParams.set("task", task);
     try {
       const reports = [];
+      const gameVersion = !submission && task !== "P01" ? artifactVersion + "/" + task : artifactVersion;
       for (const fault of variants) {
         reports.push(await runVariant(browser, base, {
-          layout, route, fault, server: { url: url.href }, artifactVersion: task === "P01" ? artifactVersion : artifactVersion + "/" + task,
+          layout, route, fault, server: { url: url.href }, artifactVersion: gameVersion,
           evaluatorVersion: runEvaluatorVersion, plan, contract, cases: { ...cases, ...contactCases },
           helpers: { gatePixels: countGatePixels },
           setup(initial) {
