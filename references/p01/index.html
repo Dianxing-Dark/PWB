@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pressure Chamber | PlayableWorld-Bench</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"../../node_modules/three/build/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption">PlayableWorld-Bench · P01</p><h1>Pressure Chamber</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world" aria-label="Playable 3D chamber"></div>
+    <section class="hud" aria-label="Chamber status">
+      <div><span>Lower plate A</span><strong id="plate-a">Idle</strong></div>
+      <div><span>Upper plate B</span><strong id="plate-b">Idle</strong></div>
+      <div><span>Gate</span><strong id="gate">Locked</strong></div>
+      <div><span>Mission</span><strong id="status" role="status">In progress</strong></div>
+    </section>
+    <p class="objective">Push the crate onto A. Take the ramp to B and hold for two seconds. Cross the gate to reach the exit.</p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

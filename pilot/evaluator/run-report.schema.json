@@ -101,7 +101,8 @@
             "then": {
               "properties": {
                 "evidenceRefs": {
-                  "minItems": 1
+                  "minItems": 1,
+                  "type": "array"
                 }
               }
             }
@@ -282,8 +283,10 @@
                     "const": "example_annotation"
                   }
                 }
-              }
-            }
+              },
+              "type": "object"
+            },
+            "type": "array"
           }
         }
       }

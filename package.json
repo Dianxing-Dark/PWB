@@ -1,0 +1,22 @@
+{
+  "name": "playableworld-bench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "play:p01": "node scripts/play-p01.mjs",
+    "evaluate:p01": "node scripts/evaluate-p01.mjs",
+    "calibrate:p01": "node scripts/evaluate-p01.mjs --calibrate"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "ajv": "8.17.1",
+    "playwright-core": "1.56.1",
+    "pngjs": "7.0.0"
+  }
+}
