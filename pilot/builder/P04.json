@@ -67,6 +67,12 @@
     "cargoDelivered",
     "outcome"
   ],
+  "publicEventData": {
+    "platform_phase_changed": "data.phase 为平台新相位，data.phaseTick 为相位切换的周期步。",
+    "door_state_changed": "data.passable 为闸门新的可通行状态，data.phaseTick 为切换时的周期步。",
+    "gate_crossed": "玩家或箱子实际从入口侧越过门洞时记录。data.actorId 为 avatar 或 box，data.phaseTick 为越过门洞时的周期步。",
+    "outcome_changed": "data.outcome 为 failure 或 victory；重试时记录 attempt_restarted。"
+  },
   "normalEntryMilestones": [
     "load_cargo",
     "board_low",

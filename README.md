@@ -39,8 +39,10 @@ See the [paired reference calibration](experiments/pressure-plate-pairs-001/) an
     npm run play:platform -- P04
     npm run evaluate:platform
     npm run calibrate:platform
+    npm run play:platform -- P04 curve
+    node scripts/evaluate-platform.mjs --task=P04 --layout=curve --calibrate
 
-A03 evaluates boarding and support across two cycles. C03 adds a gate that opens at phase step 285 and closes at 405. P04 adds cargo transport, delivery and a fall/retry journey. Select one task with `npm run evaluate:platform -- --task=C03`. The calibration command also runs the four registered P04 single faults.
+A03 evaluates boarding and support across two cycles. C03 adds a gate that opens at phase step 285 and closes at 405. P04 adds cargo transport, delivery and a fall/retry journey. Select one task with `node scripts/evaluate-platform.mjs --task=C03`. The calibration command runs the four registered P04 single faults. The curved shuttle adds a control with moving scenery and an unboardable platform. Both layouts use the same behavior checks with reviewed replay parameters.
 
 The platform and P01 share a browser runner, evidence format, and grading code. The platform cases retain position and phase traces, maximum relative rider and cargo drift, actual keyboard input and screenshots tied to boarding, transit and arrival.
 
@@ -73,6 +75,8 @@ The command stages the two public contracts and optional local Three.js modules.
 Use `--task P02` for the planar playthrough. It stages the two public contracts without a rendering library. Select `--task=P02` when evaluating that submission.
 
 Use `--task P05` to generate the two-route keys task. Use `npm run evaluate:keys -- --task=P05 --submission=<directory> --replay=<file>` with an evaluator-reviewed route. The route specifies the local scenario poses, each gate plane, key and exit positions, and the waypoints of both journeys. The evaluator saves visual frames for review when the replay has no reference feedback anchors.
+
+Use `--task P04` to generate a moving-platform submission. Run `node scripts/evaluate-platform.mjs --task=P04 --submission=<directory> --replay=<file>` with the observed docking geometry, travel direction, gate and delivery thresholds, and movement bound in the format used by [the platform replays](scripts/platform-replays.mjs). A replay without reference feedback anchors produces frames for separate review.
 
 Review the generated artifact and record a replay using [the P01 replay fields](scripts/p01-replays.mjs). Then run:
 

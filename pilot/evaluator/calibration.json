@@ -62,6 +62,11 @@
       "用真实物理接触解算承载并允许不同合法平台外观"
     ],
     "emptyControl": "平台有动画，但角色无法登台或交付货箱",
+    "emptyControlChecks": {
+      "id": "decorative_lift",
+      "mustDetect": ["actual_support", "cargo_motion", "deliver", "recover_and_deliver"],
+      "mustPreserve": ["launch", "probe", "platform_trajectory", "blocked_outside_window"]
+    },
     "mutations": [
       {
         "id": "platform_moves_without_cargo",

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Switchback Freight | PlayableWorld-Bench</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <style>
+    body { background: #1e192b; }
+    #world { aspect-ratio: 2 / 1; border-color: #665875; }
+    .hud { background: #2b243c; }
+    .hud strong { color: #ffe2ae; }
+  </style>
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption" id="task"></p><h1>Switchback Freight</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world" aria-label="A shuttle between low and high freight docks"></div>
+    <section class="hud" aria-label="Shuttle and checkpoint status">
+      <div><span>Shuttle</span><strong id="phase"></strong></div>
+      <div><span>Underfoot</span><strong id="support"></strong></div>
+      <div id="gate-panel"><span>Checkpoint</span><strong id="gate"></strong></div>
+      <div><span>Mission</span><strong id="status" role="status"></strong></div>
+    </section>
+    <p class="objective" id="objective"></p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

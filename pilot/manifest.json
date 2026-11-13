@@ -51,7 +51,7 @@
       "builder": "builder/A03.json",
       "evaluator": "evaluator/A03.json",
       "implementation": {
-        "referenceLayouts": 1,
+        "referenceLayouts": 2,
         "evaluator": "scripts/evaluate-platform.mjs",
         "codexRuns": 0
       }
@@ -64,7 +64,7 @@
       "builder": "builder/C03.json",
       "evaluator": "evaluator/C03.json",
       "implementation": {
-        "referenceLayouts": 1,
+        "referenceLayouts": 2,
         "evaluator": "scripts/evaluate-platform.mjs",
         "codexRuns": 0
       }
@@ -77,7 +77,7 @@
       "builder": "builder/P04.json",
       "evaluator": "evaluator/P04.json",
       "implementation": {
-        "referenceLayouts": 1,
+        "referenceLayouts": 2,
         "evaluator": "scripts/evaluate-platform.mjs",
         "codexRuns": 0
       }

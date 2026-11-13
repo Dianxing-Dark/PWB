@@ -10,7 +10,7 @@ import time
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("run_directory", type=Path)
-parser.add_argument("--task", choices=("P01", "P02", "P05"), default="P01")
+parser.add_argument("--task", choices=("P01", "P02", "P04", "P05"), default="P01")
 parser.add_argument("--budget-seconds", type=int, default=600)
 parser.add_argument("--model")
 args = parser.parse_args()
@@ -51,7 +51,7 @@ policy = [
 codex = shutil.which("codex")
 if not codex:
     raise SystemExit("Install and authenticate Codex CLI before starting a baseline.")
-private_cases = "keys-cases.mjs" if args.task == "P05" else "p01-cases.mjs"
+private_cases = {"P04": "platform-cases.mjs", "P05": "keys-cases.mjs"}.get(args.task, "p01-cases.mjs")
 probe = (
     "if (!(Test-Path -LiteralPath " + contract + ")) { exit 8 }; "
     "try { Get-Content -LiteralPath '" + (repo / "scripts" / private_cases).as_posix().replace("'", "''") +
