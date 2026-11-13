@@ -28,4 +28,4 @@
     npm run calibrate:keys
     node scripts/compare-profiles.mjs <P05 reference and control report paths>
 
-[校准记录](calibration.json)保留各版本的用例判定和原始报告哈希。参考画面可查看 [拾取前](amber-key-visible.png)、[拾取后](amber-key-gone.png)、[上层通关](exit-upper.png) 和 [下层通关](exit-lower.png)。颜色定位只用于参考场景。首个独立 Codex 作品的画面另行读帧核查，见 [P05 基线](../../baselines/p05/codex-001/)。
+[校准记录](calibration.json)保留各版本的用例判定和原始报告哈希。三项参考和七个故障或空壳版本在两轮执行中的逐项判定一致。参考画面可查看 [拾取前](amber-key-visible.png)、[拾取后](amber-key-gone.png)、[上层通关](exit-upper.png) 和 [下层通关](exit-lower.png)。颜色定位只用于参考场景。首个独立 Codex 作品的画面另行读帧核查，见 [P05 基线](../../baselines/p05/codex-001/)。
