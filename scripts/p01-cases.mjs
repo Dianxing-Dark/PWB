@@ -10,7 +10,9 @@ export function requireCheck(condition, message, milestone) {
 }
 
 const hasDoorEvent = event => event.type === "door_state_changed" && event.data.unlocked;
-const activatedB = event => event.type === "contact_changed" && event.data.plate === "B" && event.data.active;
+const plateActivated = (event, id) => event.type === "contact_changed" &&
+  (event.data.plate ?? event.data.plateId ?? event.data.objectId) === id && event.data.active === true;
+const activatedB = event => plateActivated(event, "B");
 
 async function standOnB(test) {
   await test.go(test.route.plate);
@@ -62,16 +64,14 @@ async function normalJourney(test, initial) {
   await test.capture("victory");
 
   const events = (await test.events()).filter(event => event.attemptId === initial.attemptId);
-  const stages = [
-    event => event.type === "contact_changed" && event.data.plate === "A" && event.data.active,
-    activatedB, hasDoorEvent, event => event.type === "door_crossed",
-    event => event.type === "outcome_changed" && event.data.outcome === "victory",
-  ];
-  let index = -1;
-  for (const stage of stages) {
-    index = events.findIndex((event, i) => i > index && stage(event));
-    requireCheck(index >= 0, "A required journey event is missing or out of order.");
-  }
+  const a = events.find(event => plateActivated(event, "A"));
+  const b = events.find(event => plateActivated(event, "B") && event.sequence > (a?.sequence ?? Infinity));
+  const unlock = events.find(event => hasDoorEvent(event) && event.sequence > (b?.sequence ?? Infinity));
+  const victory = events.find(event => event.type === "outcome_changed" && event.data.outcome === "victory");
+  const crossed = test.trace.find(state => state.attemptId === initial.attemptId &&
+    state.goalCrossed && pastGate(test, state));
+  requireCheck(a && b && unlock && crossed && victory && unlock.tick <= crossed.tick && crossed.tick <= victory.tick,
+    "A required journey milestone is missing or out of order.");
   requireCheck(!(await test.events()).some(event => event.type === "scenario_loaded"),
     "Journey used scenario setup.");
 }

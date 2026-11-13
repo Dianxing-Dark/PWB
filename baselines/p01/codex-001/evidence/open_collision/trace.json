@@ -1,0 +1,3032 @@
+{
+  "caseId": "open_collision",
+  "scenarioId": "box_on_A_before_B",
+  "trace": [
+    {
+      "attemptId": 0,
+      "tick": 8,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          5.83
+        ],
+        "supportSurface": "lower"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          4.3
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": false
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 306.69999999925494
+    },
+    {
+      "attemptId": 0,
+      "tick": 8,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          5.83
+        ],
+        "supportSurface": "lower"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          4.3
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": false
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 310.09999999962747
+    },
+    {
+      "attemptId": 0,
+      "tick": 11,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          5.83
+        ],
+        "supportSurface": "lower"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          4.3
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": false
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 347.29999999981374
+    },
+    {
+      "attemptId": 1,
+      "tick": 0,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.95
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 351.09999999962747
+    },
+    {
+      "attemptId": 1,
+      "tick": 0,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.95
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 354
+    },
+    {
+      "attemptId": 1,
+      "tick": 0,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.95
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 355.69999999925494
+    },
+    {
+      "attemptId": 1,
+      "tick": 0,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.95
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 358
+    },
+    {
+      "attemptId": 1,
+      "tick": 0,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.95
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 367.69999999925494
+    },
+    {
+      "attemptId": 1,
+      "tick": 1,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.8899999999999999
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 408.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 6,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.5899999999999996
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 465.79999999981374
+    },
+    {
+      "attemptId": 1,
+      "tick": 9,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.4099999999999996
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 515.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 12,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          0.2299999999999996
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 572.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 16,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.010000000000000411
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 630.8999999994412
+    },
+    {
+      "attemptId": 1,
+      "tick": 19,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.19000000000000042
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 671.3999999994412
+    },
+    {
+      "attemptId": 1,
+      "tick": 21,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 712.2999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 21,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 722
+    },
+    {
+      "attemptId": 1,
+      "tick": 21,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 724.6999999992549
+    },
+    {
+      "attemptId": 1,
+      "tick": 22,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 735.1999999992549
+    },
+    {
+      "attemptId": 1,
+      "tick": 25,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 802.3999999994412
+    },
+    {
+      "attemptId": 1,
+      "tick": 29,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 856
+    },
+    {
+      "attemptId": 1,
+      "tick": 33,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 930.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 37,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 993.2999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 40,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1045.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 43,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1093.2999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 46,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1134.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 49,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1185.2999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 52,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1227.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 55,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1274.699999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 59,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1342.2999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 62,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1403.0999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 64,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1447
+    },
+    {
+      "attemptId": 1,
+      "tick": 67,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1492.199999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 70,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1538
+    },
+    {
+      "attemptId": 1,
+      "tick": 72,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1575.3999999994412
+    },
+    {
+      "attemptId": 1,
+      "tick": 76,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1639.3999999994412
+    },
+    {
+      "attemptId": 1,
+      "tick": 79,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1696
+    },
+    {
+      "attemptId": 1,
+      "tick": 83,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1743.8999999994412
+    },
+    {
+      "attemptId": 1,
+      "tick": 85,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1788.699999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 87,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1838.699999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 92,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1897.699999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 97,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 1982.699999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 102,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2076.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 106,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2137.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 109,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2182.399999999441
+    },
+    {
+      "attemptId": 1,
+      "tick": 111,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2234.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 116,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2305.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 119,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2353.899999999441
+    },
+    {
+      "attemptId": 1,
+      "tick": 122,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2394.199999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 126,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2464
+    },
+    {
+      "attemptId": 1,
+      "tick": 128,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2501.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 132,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2565.0999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 135,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2617.0999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 139,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2676.0999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 142,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2735.699999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 146,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2804.399999999441
+    },
+    {
+      "attemptId": 1,
+      "tick": 147,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2826.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 156,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2975.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 157,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2979.699999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 158,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2988.0999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 158,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.31000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2992.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 160,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.43000000000000044
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3034
+    },
+    {
+      "attemptId": 1,
+      "tick": 164,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.6700000000000006
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3107
+    },
+    {
+      "attemptId": 1,
+      "tick": 168,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -0.9100000000000008
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3174
+    },
+    {
+      "attemptId": 1,
+      "tick": 171,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.090000000000001
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3224.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 174,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.2700000000000011
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": true
+        }
+      },
+      "dualActiveSinceTick": 6,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3258.199999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 177,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.4500000000000013
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3315.199999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 181,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.6900000000000015
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3382
+    },
+    {
+      "attemptId": 1,
+      "tick": 185,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.9300000000000017
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3457.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 185,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.9300000000000017
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3460.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 186,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.9300000000000017
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3463.699999999255
+    },
+    {
+      "attemptId": 1,
+      "tick": 187,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.9300000000000017
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3482.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 188,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -1.9300000000000017
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3501
+    },
+    {
+      "attemptId": 1,
+      "tick": 190,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -2.0500000000000016
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3540
+    },
+    {
+      "attemptId": 1,
+      "tick": 193,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -2.2300000000000018
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3584.399999999441
+    },
+    {
+      "attemptId": 1,
+      "tick": 196,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -2.410000000000002
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 3643.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 201,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -2.710000000000002
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": true,
+      "outcome": "none",
+      "browserMs": 3720.0999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 204,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -2.8900000000000023
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": true,
+      "outcome": "none",
+      "browserMs": 3767
+    },
+    {
+      "attemptId": 1,
+      "tick": 209,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -3.1900000000000026
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": true,
+      "outcome": "none",
+      "browserMs": 3852.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 213,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -3.430000000000003
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": true,
+      "outcome": "none",
+      "browserMs": 3926.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 215,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -3.490000000000003
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": true,
+      "outcome": "none",
+      "browserMs": 3949.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 216,
+      "avatar": {
+        "position": [
+          0,
+          2.15,
+          -3.490000000000003
+        ],
+        "supportSurface": "upper"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          2.63
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": true
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": true,
+        "passable": true
+      },
+      "goalCrossed": true,
+      "outcome": "none",
+      "browserMs": 3963.899999999441
+    }
+  ],
+  "inputs": [
+    {
+      "type": "keydown",
+      "code": "KeyW",
+      "trusted": true,
+      "browserMs": 365
+    },
+    {
+      "type": "keyup",
+      "code": "KeyW",
+      "trusted": true,
+      "browserMs": 717.3999999994412
+    },
+    {
+      "type": "keydown",
+      "code": "KeyW",
+      "trusted": true,
+      "browserMs": 2991.199999999255
+    },
+    {
+      "type": "keyup",
+      "code": "KeyW",
+      "trusted": true,
+      "browserMs": 3459.199999999255
+    },
+    {
+      "type": "keydown",
+      "code": "KeyW",
+      "trusted": true,
+      "browserMs": 3532.199999999255
+    },
+    {
+      "type": "keyup",
+      "code": "KeyW",
+      "trusted": true,
+      "browserMs": 3937.2999999998137
+    }
+  ],
+  "stateEvents": [
+    {
+      "sequence": 0,
+      "type": "attempt_restarted",
+      "attemptId": 1,
+      "tick": 0,
+      "data": {
+        "previousAttemptId": 0,
+        "scenario": "box_on_A_before_B"
+      }
+    },
+    {
+      "sequence": 1,
+      "type": "contact_changed",
+      "attemptId": 1,
+      "tick": 0,
+      "data": {
+        "actorId": "box",
+        "objectId": "A",
+        "plateId": "A",
+        "active": true
+      }
+    },
+    {
+      "sequence": 2,
+      "type": "contact_changed",
+      "attemptId": 1,
+      "tick": 6,
+      "data": {
+        "actorId": "avatar",
+        "objectId": "B",
+        "plateId": "B",
+        "active": true
+      }
+    },
+    {
+      "sequence": 3,
+      "type": "door_state_changed",
+      "attemptId": 1,
+      "tick": 126,
+      "data": {
+        "doorId": "gate",
+        "unlocked": true,
+        "passable": false
+      }
+    },
+    {
+      "sequence": 4,
+      "type": "door_state_changed",
+      "attemptId": 1,
+      "tick": 144,
+      "data": {
+        "doorId": "gate",
+        "unlocked": true,
+        "passable": true
+      }
+    },
+    {
+      "sequence": 5,
+      "type": "contact_changed",
+      "attemptId": 1,
+      "tick": 175,
+      "data": {
+        "actorId": "avatar",
+        "objectId": "B",
+        "plateId": "B",
+        "active": false
+      }
+    }
+  ],
+  "pageErrors": [],
+  "notes": {}
+}

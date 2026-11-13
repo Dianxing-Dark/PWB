@@ -41,3 +41,5 @@ The [pilot manifest](pilot/manifest.json) indexes 12 task specifications and 104
 - Closed-loop journey actions and separate local checks follow [CEGame-Bench](https://arxiv.org/html/2610.26098v1). Family scores use scheduled checks and expose the remaining uncertainty.
 - Ordered state transitions, simulated-time assertions and single-fault calibration draw on [WorldCoder-Bench](https://arxiv.org/html/2606.01869) and the [GameLogicBench navigation judge](https://github.com/NJU-LINK/GameLogicBench-Tasks/blob/18c54e69cf962fd402e245811d4925d129f4b33c/atom_move_navigation_3d/judge/judge.gd).
 - Event-linked frames and criterion-specific visual evidence draw on the [GameCraft verifier](https://github.com/FreedomIntelligence/gamecraft-bench/blob/d64cc5d817bd331a840a378e6e42c873b1139055/gamecraft_bench/verifier/score.py).
+
+The [first P01 Codex run](baselines/p01/codex-001/) includes the frozen game, replay, automated report, and manually reviewed frames.

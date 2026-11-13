@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10161c">
+  <title>Relay Vault</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header><div class="brand"><span class="mark" aria-hidden="true">◈</span> RELAY VAULT</div><div class="attempt" id="attempt">ATTEMPT 01</div></header>
+    <div class="layout">
+      <section class="viewport" aria-label="Relay Vault game">
+        <div id="scene"></div>
+        <div class="view-label"><span></span> VAULT OVERVIEW</div>
+        <div class="orientation">W ↑ <span>·</span> NORTH</div>
+        <div class="legend"><span><i class="you"></i> You</span><span><i class="cargo"></i> Cargo</span><span><i class="exit"></i> Exit</span></div>
+        <div class="result" id="result" hidden><div class="result-card"><h2 id="result-title"></h2><p id="result-copy"></p><button id="retry">Retry <kbd>R</kbd></button></div></div>
+      </section>
+      <aside>
+        <div class="intro"><h1>Relay<br>Vault<span>.</span></h1><p>Open the vault by powering both plates at the same time.</p></div>
+        <div class="objectives">
+          <div class="objective"><b class="plate plate-a">A</b><div><strong>Seat the cargo</strong><small>Push the box onto the lower plate.</small></div><i id="a-led"></i></div>
+          <div class="objective"><b class="plate plate-b">B</b><div><strong>Climb the ramp</strong><small>Stand on the upper plate for 2 seconds.</small></div><i id="b-led"></i></div>
+          <div class="objective"><b class="plate plate-exit">↗</b><div><strong>Reach the exit</strong><small>Walk through the unlocked gate.</small></div><i id="door-led"></i></div>
+        </div>
+        <div class="relay"><div><strong id="relay-status">GATE LOCKED</strong><span id="relay-time">0.0 / 2.0 s</span></div><progress id="charge" value="0" max="120" aria-label="Gate charge"></progress></div>
+        <div class="controls"><div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span></div><div><kbd>R</kbd><span>Retry</span></div></div>
+      </aside>
+    </div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>

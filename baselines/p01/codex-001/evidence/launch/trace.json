@@ -1,0 +1,118 @@
+{
+  "caseId": "launch",
+  "scenarioId": "default",
+  "trace": [
+    {
+      "attemptId": 0,
+      "tick": 30,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          5.83
+        ],
+        "supportSurface": "lower"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          4.3
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": false
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2441.9000000003725
+    },
+    {
+      "attemptId": 0,
+      "tick": 31,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          5.83
+        ],
+        "supportSurface": "lower"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          4.3
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": false
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2450.9000000003725
+    },
+    {
+      "attemptId": 0,
+      "tick": 55,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          5.83
+        ],
+        "supportSurface": "lower"
+      },
+      "box": {
+        "position": [
+          0,
+          0,
+          4.3
+        ],
+        "supportSurface": "lower"
+      },
+      "plates": {
+        "A": {
+          "active": false
+        },
+        "B": {
+          "active": false
+        }
+      },
+      "dualActiveSinceTick": null,
+      "door": {
+        "unlocked": false,
+        "passable": false
+      },
+      "goalCrossed": false,
+      "outcome": "none",
+      "browserMs": 2838.600000000559
+    }
+  ],
+  "inputs": [],
+  "stateEvents": [],
+  "pageErrors": [],
+  "notes": {}
+}

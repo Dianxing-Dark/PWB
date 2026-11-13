@@ -1,0 +1,2 @@
+baselines/**/game/** -text
+baselines/**/evidence/** -text

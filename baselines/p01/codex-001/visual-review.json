@@ -1,0 +1,40 @@
+{
+  "reviewKind": "manual_frame_review",
+  "runReportDigest": "e5cd1ed66d2ef2307c0173bc873a5f99654fc8aab33801900b9b33c645b2a7d1",
+  "checks": [
+    {
+      "caseId": "door_feedback",
+      "status": "pass",
+      "reason": "The panel rises above the passage, exposing the exit path. The HUD changes from GATE LOCKED to GATE OPEN.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/door_feedback/closed-gate.png",
+          "sha256": "11e6b0980e41c54ba75dab0daf164e6410b2c53a1ee174e2e34707597d5bc39a"
+        },
+        {
+          "path": "evidence/door_feedback/open-gate.png",
+          "sha256": "6aa53cc8da116ffb92d0648c8fa4fdcbcd06a3a2a21c2155e14836ab22d48c45"
+        }
+      ]
+    },
+    {
+      "caseId": "terminal_feedback",
+      "status": "pass",
+      "reason": "The fall presents Signal lost and Retry. A new attempt clears the overlay and resets the chamber. Victory presents Vault cleared and the exit message.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/recover_and_finish/failure.png",
+          "sha256": "fc8d72f8f443e13bf68389ec480bb06eafc9465790948f1122919211c0805a5a"
+        },
+        {
+          "path": "evidence/recover_and_finish/restart.png",
+          "sha256": "e2dfc39305f14dda501374199354445c02b46378301d04ce3893a0c9857abc98"
+        },
+        {
+          "path": "evidence/recover_and_finish/victory-hud.png",
+          "sha256": "28f34c7e09306eaaac2d09b5931b7744bcba3c192806e16cc25a343b8ee51301"
+        }
+      ]
+    }
+  ]
+}

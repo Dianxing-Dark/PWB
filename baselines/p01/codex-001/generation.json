@@ -1,0 +1,30 @@
+{
+  "taskId": "P01",
+  "cliVersion": "codex-cli 0.167.0-alpha.4.1",
+  "modelRequested": null,
+  "budgetSeconds": 600,
+  "elapsedSeconds": 331.19,
+  "timedOut": false,
+  "exitCode": 0,
+  "entryExists": true,
+  "inputDigests": {
+    "P01.json": "7f78ae34ef2b89d305df69fc0d00e503de7f5fa22fee1f6293164740d1446bb4",
+    "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+    "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+    "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+    "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+  },
+  "usage": {
+    "input_tokens": 342295,
+    "cached_input_tokens": 312832,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 11281,
+    "reasoning_output_tokens": 1140
+  },
+  "modelResolved": null,
+  "generatedFiles": {
+    "index.html": "a82eac10778effd9b6079553c7b2874505eb4a9956377957f4ad8b9ea462b4ca",
+    "style.css": "e230150b6ed0eba609c5f85dcc6c6b0fa243a1cb36e5141567efdd8b5793f328",
+    "game.js": "a9d3f45e1a325a3508071028996e91ed4d6d33acc7cba7884b5e2f966c0c61f1"
+  }
+}

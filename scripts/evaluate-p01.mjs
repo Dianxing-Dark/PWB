@@ -52,6 +52,13 @@ async function version(paths) {
   const source = await Promise.all(paths.map(path => readFile(resolve(path))));
   return digest(source.map(digest).join(""));
 }
+
+async function artifactDigest(folder, paths) {
+  const files = await Promise.all(paths.map(async path => [
+    relative(folder, path).replaceAll("\\", "/"), digest(await readFile(path)),
+  ]));
+  return digest(JSON.stringify(files));
+}
 const evaluatorVersion = await version(evaluatorFiles);
 const base = resolve("runs", new Date().toISOString().replace(/[:.]/g, "-") + "-" + process.pid);
 await mkdir(base, { recursive: true });
@@ -92,7 +99,7 @@ function score(rows, stage) {
   return { interval: [lower / families.size, upper / families.size], coverage: coverage / families.size };
 }
 
-async function runVariant(layout, route, fault, server, artifactVersion) {
+async function runVariant(layout, route, fault, server, artifactVersion, runEvaluatorVersion) {
   const runId = layout + (fault ? "-" + fault : "");
   const root = join(base, runId);
   await mkdir(root);
@@ -222,7 +229,7 @@ async function runVariant(layout, route, fault, server, artifactVersion) {
             initial.outcome === "none", "Local setup pre-completed the behavior.");
         }
       }
-      result = await cases[caseId]({ page, sample, events, until, move, go, capture, shared, notes,
+      result = await cases[caseId]({ page, sample, events, until, move, go, capture, shared, notes, trace,
         route, contract, gatePixels: countGatePixels });
       outcome = result?.unverified
         ? { status: "unverified", reason: result.unverified }
@@ -254,7 +261,7 @@ async function runVariant(layout, route, fault, server, artifactVersion) {
   const visual = score(results, "visual");
   const report = {
     schemaVersion: "pilot-0.1", recordKind: "run", taskId: "P01", runId,
-    artifactVersion: artifactVersion + (fault ? "/" + fault : ""), evaluatorVersion,
+    artifactVersion: artifactVersion + (fault ? "/" + fault : ""), evaluatorVersion: runEvaluatorVersion,
     browserVersion: browser.version(), seed: null, cases: results, evidence,
     summary: { strictTaskSuccess, functionalInterval: functional.interval,
       functionalCoverage: functional.coverage, visualCoverage: visual.coverage,
@@ -274,11 +281,13 @@ try {
     const folder = resolve(route.folder);
     const files = await readdir(folder, { recursive: true, withFileTypes: true });
     const payloads = files.filter(file => file.isFile()).map(file => join(file.parentPath, file.name)).sort();
-    const artifactVersion = digest((await version(payloads)) + JSON.stringify(route));
+    const artifactVersion = await artifactDigest(folder, payloads);
+    const { folder: _folder, ...replay } = route;
+    const runEvaluatorVersion = digest(evaluatorVersion + JSON.stringify(replay));
     const server = await serveReference(0, folder);
     try {
       const reports = [];
-      for (const fault of variants) reports.push(await runVariant(layout, route, fault, server, artifactVersion));
+      for (const fault of variants) reports.push(await runVariant(layout, route, fault, server, artifactVersion, runEvaluatorVersion));
       if (!submission && variants.includes("") && reports[0].cases.some(row => row.status !== "pass")) {
         process.exitCode = 1;
       }

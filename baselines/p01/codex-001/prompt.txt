@@ -1,0 +1,5 @@
+Build a playable browser-native 3D game for the public requirements in P01.json and shared-runtime-interface.json.
+Implement a complete artifact in this directory, with index.html as the entry point and all runtime dependencies local.
+The supplied Three.js modules are optional. The artifact will run on a static HTTP server.
+Implement the public runtime interface against the same game state that native keyboard input changes.
+Read both public specifications. Write the game files directly. Do not consult outside materials.
