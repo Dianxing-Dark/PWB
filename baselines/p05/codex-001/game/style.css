@@ -1,0 +1,34 @@
+*{box-sizing:border-box}
+:root{color-scheme:dark;font-family:Inter,system-ui,sans-serif;color:#eff9ff;background:#101a22;--blue:#54d8ff;--amber:#ffbd65;--muted:#a9bdca}
+body{margin:0;overflow:hidden}
+canvas{display:block;width:100%;height:100%}
+#game,#finish{position:fixed;inset:0}
+#game::after{content:"";pointer-events:none;position:absolute;inset:0;box-shadow:inset 0 0 110px #04090c85}
+.masthead,.inventory,.route,.objective,footer,#prompt{position:fixed}
+.masthead{top:26px;left:28px;display:flex;align-items:center;gap:12px}
+.mark{display:grid;place-items:center;width:44px;height:44px;border:1px solid #507985;background:#12252dd9;color:#91ecdf;font-size:25px}
+.brand{font-size:20px;font-weight:800;letter-spacing:.19em}
+.subtitle,.label,small,#deck{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--muted)}
+.subtitle{margin-top:3px}
+.inventory,.route{width:180px;background:#0c171eea;border:1px solid #39515e;padding:13px 14px;box-shadow:0 10px 24px #0004}
+.inventory{top:26px;right:28px}
+.route{top:94px;left:28px}
+.item,.route>div:not(.label){display:flex;align-items:center;gap:9px;font-size:13px;margin-top:10px}
+.item b,.route small{margin-left:auto}
+.route .active span{color:#fff;font-weight:800}
+i{width:8px;height:8px;transform:rotate(45deg);background:currentColor;box-shadow:0 0 11px currentColor}
+.blue{color:var(--blue)}.amber{color:var(--amber)}
+.objective{bottom:65px;left:50%;transform:translateX(-50%);width:max-content;max-width:94vw;padding:11px 20px;background:#0c171eed;border:1px solid #476474;text-align:center}
+#deck{display:block;color:#9debdc;margin-bottom:4px}
+.objective strong{font-size:13px}
+footer{bottom:19px;left:50%;transform:translateX(-50%);display:flex;gap:16px;white-space:nowrap;font-size:12px;color:#d6e5ed}
+kbd{display:inline-grid;place-items:center;min-width:21px;height:21px;margin-right:3px;border:1px solid #627885;border-radius:3px;background:#11212a;font:700 11px system-ui;color:white}
+#prompt{left:50%;top:23%;transform:translateX(-50%);background:#0c171ef2;border:1px solid #68858e;padding:9px 15px;text-align:center;font-size:13px}
+#prompt:empty{display:none}
+#finish{display:grid;place-items:center;background:#081118b8;backdrop-filter:blur(5px)}
+#finish[hidden]{display:none}
+.finish-card{border:1px solid #58877f;border-top:3px solid #9debdc;background:#101d25;padding:32px 42px;text-align:center}
+h1{margin:9px 0;font-size:42px}
+button{margin-top:10px;border:1px solid #91ecdf;background:#91ecdf;color:#102029;padding:8px 12px;font:700 14px system-ui;cursor:pointer}
+button kbd{margin-left:8px;margin-right:0}
+@media(max-width:650px){.masthead{left:12px;top:12px}.inventory{right:12px;top:12px;width:122px}.route{left:12px;top:70px;width:135px}.brand{font-size:15px}.mark{width:34px;height:34px}.label,small{font-size:8px}}

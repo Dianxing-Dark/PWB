@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relay Archive | PlayableWorld-Bench</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <style>
+    #world { aspect-ratio: 2 / 1; }
+    .hud { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+  </style>
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption" id="task"></p><h1>Relay Archive</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>E</kbd><span>Unlock</span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world" aria-label="Two-floor archive with locks, ramps and an exit"></div>
+    <section class="hud" aria-label="Inventory and door status">
+      <div><span>Amber keys</span><strong id="amber"></strong></div>
+      <div id="blue-panel"><span>Blue keys</span><strong id="blue"></strong></div>
+      <div><span>Lower lock</span><strong id="lower"></strong></div>
+      <div><span>Upper lock</span><strong id="upper"></strong></div>
+      <div><span>Mission</span><strong id="status" role="status"></strong></div>
+    </section>
+    <p class="objective" id="objective"></p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

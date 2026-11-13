@@ -1,0 +1,427 @@
+{
+  "schemaVersion": "pilot-0.1",
+  "recordKind": "run",
+  "taskId": "P05",
+  "runId": "submission",
+  "artifactVersion": "662d510e5c4eb98edad5ff770bdd41969aea9cf08f753b9de6864cc54f338a18",
+  "evaluatorVersion": "f68c3bbdffd612d12c7bd197d69194e7eece0f9484c18ea783fde3e9869d04b9",
+  "browserVersion": "157.0.8103.52",
+  "seed": null,
+  "cases": [
+    {
+      "caseId": "launch",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "launch/entry.png",
+        "launch/trace.json"
+      ]
+    },
+    {
+      "caseId": "probe",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "probe/trace.json"
+      ]
+    },
+    {
+      "caseId": "pickup_unique",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "pickup_unique/key-present.png",
+        "pickup_unique/key-collected.png",
+        "pickup_unique/trace.json"
+      ]
+    },
+    {
+      "caseId": "reject_wrong_color",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "reject_wrong_color/wrong-key.png",
+        "reject_wrong_color/trace.json"
+      ]
+    },
+    {
+      "caseId": "unlock_correct_and_cross",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "unlock_correct_and_cross/locked.png",
+        "unlock_correct_and_cross/unlocked.png",
+        "unlock_correct_and_cross/past-upper-lock.png",
+        "unlock_correct_and_cross/trace.json"
+      ]
+    },
+    {
+      "caseId": "reject_bypass",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "reject_bypass/locked-door-blocks-approach.png",
+        "reject_bypass/trace.json"
+      ]
+    },
+    {
+      "caseId": "inventory_feedback",
+      "status": "unverified",
+      "reason": "Review the key and inventory frames before and after pickup.",
+      "evidenceRefs": [
+        "inventory_feedback/amber-key-visible.png",
+        "inventory_feedback/amber-key-gone.png",
+        "inventory_feedback/trace.json"
+      ]
+    },
+    {
+      "caseId": "finish_upper",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "finish_upper/key-collected.png",
+        "finish_upper/matching-lock-open.png",
+        "finish_upper/past-upper-lock.png",
+        "finish_upper/exit.png",
+        "finish_upper/trace.json"
+      ]
+    },
+    {
+      "caseId": "finish_lower",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "finish_lower/key-collected.png",
+        "finish_lower/matching-lock-open.png",
+        "finish_lower/past-lower-lock.png",
+        "finish_lower/exit.png",
+        "finish_lower/trace.json"
+      ]
+    },
+    {
+      "caseId": "unlock_feedback",
+      "status": "unverified",
+      "reason": "Review the gate and inventory frames before and after E.",
+      "evidenceRefs": [
+        "unlock_feedback/upper-door-locked.png",
+        "unlock_feedback/upper-door-open.png",
+        "unlock_feedback/trace.json"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "launch/entry.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "launch/entry.png",
+      "contentDigest": "2cf9e8f32fe508aa3df51510edcef03fe591eec67472b6bb43f5114f1257c709",
+      "browserMonotonicMs": 2827.9000000001397,
+      "simulationTick": 47,
+      "sequenceIndex": 0
+    },
+    {
+      "id": "launch/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "launch/trace.json",
+      "contentDigest": "d2f1d1ce7e2794614e3ce1d0f1323f4678a9a4d59dbb00d50d1a63ca33604d06",
+      "browserMonotonicMs": 2827.9000000001397,
+      "simulationTick": 47,
+      "sequenceIndex": 1
+    },
+    {
+      "id": "probe/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "probe/trace.json",
+      "contentDigest": "30a7617005342d84f6c3b1598e66d4a46f115e5374aab5eb0dae43ba56a06a85",
+      "browserMonotonicMs": 494.69999999995343,
+      "simulationTick": 18,
+      "sequenceIndex": 2
+    },
+    {
+      "id": "pickup_unique/key-present.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "pickup_unique/key-present.png",
+      "contentDigest": "53e3e2de83667aae60865a81293facdb6b5b32cb74f94f46b161c9fce5ab67ca",
+      "browserMonotonicMs": 419.9000000001397,
+      "simulationTick": 7,
+      "sequenceIndex": 3
+    },
+    {
+      "id": "pickup_unique/key-collected.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "pickup_unique/key-collected.png",
+      "contentDigest": "f8a037c6ebbcc828fd1ace7b1777ac863c5e33f65885d55e6c0df2224d40b34f",
+      "browserMonotonicMs": 968.4000000001397,
+      "simulationTick": 40,
+      "sequenceIndex": 4
+    },
+    {
+      "id": "pickup_unique/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "pickup_unique/trace.json",
+      "contentDigest": "6c6f1465c5edeba324db93f795ddd52fefb00474cb414213187d97bcc8c96b33",
+      "browserMonotonicMs": 2042.4000000001397,
+      "simulationTick": 103,
+      "sequenceIndex": 5
+    },
+    {
+      "id": "reject_wrong_color/wrong-key.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "reject_wrong_color/wrong-key.png",
+      "contentDigest": "ae8653ad7c450332af44f62b74d582d6f5d8a3d68369155ca722c344898b7063",
+      "browserMonotonicMs": 486.30000000004657,
+      "simulationTick": 13,
+      "sequenceIndex": 6
+    },
+    {
+      "id": "reject_wrong_color/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "reject_wrong_color/trace.json",
+      "contentDigest": "a87e2ace7a88f03897018d56a846d37abb2e6fdfb67fcc508be1556b2adb1922",
+      "browserMonotonicMs": 1662.3000000000466,
+      "simulationTick": 82,
+      "sequenceIndex": 7
+    },
+    {
+      "id": "unlock_correct_and_cross/locked.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "unlock_correct_and_cross/locked.png",
+      "contentDigest": "87671c26d87ecd4285ea962cdccd130d48d6bee5324aeadb95a30517fa35d0b7",
+      "browserMonotonicMs": 444.80000000004657,
+      "simulationTick": 6,
+      "sequenceIndex": 8
+    },
+    {
+      "id": "unlock_correct_and_cross/unlocked.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "unlock_correct_and_cross/unlocked.png",
+      "contentDigest": "4a62480c1ac893ea09ceb88c0a4d5e32b721f7d6b62893cd022b46b58eb9fb0a",
+      "browserMonotonicMs": 785.3999999999069,
+      "simulationTick": 27,
+      "sequenceIndex": 9
+    },
+    {
+      "id": "unlock_correct_and_cross/past-upper-lock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "unlock_correct_and_cross/past-upper-lock.png",
+      "contentDigest": "b0fe9676c9ef65339d41c6611d43eb7f625562434616c68a317cf07679cacfec",
+      "browserMonotonicMs": 1499.3999999999069,
+      "simulationTick": 70,
+      "sequenceIndex": 10
+    },
+    {
+      "id": "unlock_correct_and_cross/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "unlock_correct_and_cross/trace.json",
+      "contentDigest": "c05b6ef9021a3dba0c4caa86ba4647e36c3ec9b9e310db20bddc5d02e149015f",
+      "browserMonotonicMs": 1499.3999999999069,
+      "simulationTick": 70,
+      "sequenceIndex": 11
+    },
+    {
+      "id": "reject_bypass/locked-door-blocks-approach.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "reject_bypass/locked-door-blocks-approach.png",
+      "contentDigest": "6b713a14b31724ec59a01d351a63b98b267dd1e058c7d0d6edf5e03b970314e4",
+      "browserMonotonicMs": 5644.59999999986,
+      "simulationTick": 319,
+      "sequenceIndex": 12
+    },
+    {
+      "id": "reject_bypass/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "reject_bypass/trace.json",
+      "contentDigest": "a4929927ad70799d5a57a547ed78fc7cc6d8566c1b34f330a4b76625b6890bd1",
+      "browserMonotonicMs": 5644.59999999986,
+      "simulationTick": 319,
+      "sequenceIndex": 13
+    },
+    {
+      "id": "inventory_feedback/amber-key-visible.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "inventory_feedback/amber-key-visible.png",
+      "contentDigest": "a88da46303bba193d802041b849d9ad9377c4679915f387687068f003ca1ec38",
+      "browserMonotonicMs": 431.5,
+      "simulationTick": 6,
+      "sequenceIndex": 14
+    },
+    {
+      "id": "inventory_feedback/amber-key-gone.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "inventory_feedback/amber-key-gone.png",
+      "contentDigest": "e5d31a9bea72b6ebd45820ead161ace8aa018634d7cbec0d72e7c65ad9ed5d60",
+      "browserMonotonicMs": 1133.3000000000466,
+      "simulationTick": 49,
+      "sequenceIndex": 15
+    },
+    {
+      "id": "inventory_feedback/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "inventory_feedback/trace.json",
+      "contentDigest": "cf2ac092b2b25604ba6666f720e6983bf723f6f9169e7fc8b64e7e2605c990fe",
+      "browserMonotonicMs": 1133.3000000000466,
+      "simulationTick": 49,
+      "sequenceIndex": 16
+    },
+    {
+      "id": "finish_upper/key-collected.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish_upper/key-collected.png",
+      "contentDigest": "28ee6c644edf78d9fd1082132239088e7ce2e8d1ed1c512c9471310faa0e4745",
+      "browserMonotonicMs": 5996.200000000186,
+      "simulationTick": 350,
+      "sequenceIndex": 17
+    },
+    {
+      "id": "finish_upper/matching-lock-open.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish_upper/matching-lock-open.png",
+      "contentDigest": "0bacbb703bf24544f0951739d6aaac1960346f5552bd91ce93fdf6cf57880360",
+      "browserMonotonicMs": 7456.700000000186,
+      "simulationTick": 438,
+      "sequenceIndex": 18
+    },
+    {
+      "id": "finish_upper/past-upper-lock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish_upper/past-upper-lock.png",
+      "contentDigest": "d8be7e0864f122073e78344fb0965facd750f42eccccd067e712436f2fcffa73",
+      "browserMonotonicMs": 8164.200000000186,
+      "simulationTick": 480,
+      "sequenceIndex": 19
+    },
+    {
+      "id": "finish_upper/exit.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish_upper/exit.png",
+      "contentDigest": "57f8fd199ba17d9683a2d437021cca76ee9eb76c7fbcdb4c4e5519ef8692f8eb",
+      "browserMonotonicMs": 11149.200000000186,
+      "simulationTick": 649,
+      "sequenceIndex": 20
+    },
+    {
+      "id": "finish_upper/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "finish_upper/trace.json",
+      "contentDigest": "41379400c0e510b9167f219ad991e5c497dad30a70b6b29404a0638e34b7a6cc",
+      "browserMonotonicMs": 11149.200000000186,
+      "simulationTick": 649,
+      "sequenceIndex": 21
+    },
+    {
+      "id": "finish_lower/key-collected.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish_lower/key-collected.png",
+      "contentDigest": "1581e406a863f7ebd800e0f08b03d61841e85d8fb9e6e9d1e98bf140b41cd929",
+      "browserMonotonicMs": 2770.1999999999534,
+      "simulationTick": 156,
+      "sequenceIndex": 22
+    },
+    {
+      "id": "finish_lower/matching-lock-open.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish_lower/matching-lock-open.png",
+      "contentDigest": "54932abaee1769a61694cb55ca438d94aeede10717fc23d0449a1d296ec48349",
+      "browserMonotonicMs": 5313.5,
+      "simulationTick": 308,
+      "sequenceIndex": 23
+    },
+    {
+      "id": "finish_lower/past-lower-lock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish_lower/past-lower-lock.png",
+      "contentDigest": "220580960bd163cb85ae84d249a5f1100c2d9bcb80b11415e88d6f4670d9409b",
+      "browserMonotonicMs": 6056.399999999907,
+      "simulationTick": 353,
+      "sequenceIndex": 24
+    },
+    {
+      "id": "finish_lower/exit.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "finish_lower/exit.png",
+      "contentDigest": "7984fe0713cbf0915758b4ce20354e2a3d3564a6c0340ab76c5d435f9459deae",
+      "browserMonotonicMs": 8835.600000000093,
+      "simulationTick": 511,
+      "sequenceIndex": 25
+    },
+    {
+      "id": "finish_lower/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "finish_lower/trace.json",
+      "contentDigest": "9b1ebe132cad5ccec80375ab2d903810a9e28d3f5f8cde4c1ec2cbc0d97ce5c1",
+      "browserMonotonicMs": 8835.600000000093,
+      "simulationTick": 511,
+      "sequenceIndex": 26
+    },
+    {
+      "id": "unlock_feedback/upper-door-locked.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "unlock_feedback/upper-door-locked.png",
+      "contentDigest": "96d9999f757b313c2f4504d4314fb8938f44821bb2b6448f8178ca3134042059",
+      "browserMonotonicMs": 497.5,
+      "simulationTick": 7,
+      "sequenceIndex": 27
+    },
+    {
+      "id": "unlock_feedback/upper-door-open.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "unlock_feedback/upper-door-open.png",
+      "contentDigest": "96f09220abc54161976b157edc710273009851d83a03f3a9b334a981c9be3391",
+      "browserMonotonicMs": 744.8000000000466,
+      "simulationTick": 22,
+      "sequenceIndex": 28
+    },
+    {
+      "id": "unlock_feedback/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "unlock_feedback/trace.json",
+      "contentDigest": "beff1ffcd9ed8debe726ace79c1c7635e69ee6466da27b970d1b292a5eb53e4a",
+      "browserMonotonicMs": 744.8000000000466,
+      "simulationTick": 22,
+      "sequenceIndex": 29
+    }
+  ],
+  "summary": {
+    "strictTaskSuccess": true,
+    "functionalInterval": [
+      1,
+      1
+    ],
+    "functionalCoverage": 1,
+    "visualCoverage": 0,
+    "journeys": {
+      "passed": 2,
+      "planned": 2
+    }
+  }
+}

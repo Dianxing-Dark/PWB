@@ -48,6 +48,11 @@
     "outcome",
     "traversedBranch"
   ],
+  "publicEventData": {
+    "inventory_changed": "data 包含 color（amber 或 blue）、before、after、action 和 objectId。拾取时 action 为 pickup，objectId 为拾取的钥匙颜色。消耗时 action 为 unlock、objectId 为 lower 或 upper。",
+    "door_state_changed": "data 包含 doorId（lower 或 upper）、locked 和 passable。库存消耗事件与相应的解锁事件记录在同一仿真步，先记录库存消耗。",
+    "outcome_changed": "终态事件的 data.outcome 为 victory 或 failure。"
+  },
   "normalEntryMilestones": [
     "collect_branch_key",
     "unlock_matching_door",

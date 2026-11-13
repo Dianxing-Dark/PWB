@@ -44,6 +44,16 @@ A03 evaluates boarding and support across two cycles. C03 adds a gate that opens
 
 The platform and P01 share a browser runner, evidence format, and grading code. The platform cases retain position and phase traces, maximum relative rider and cargo drift, actual keyboard input and screenshots tied to boarding, transit and arrival.
 
+## Run the 3D keys and inventory family
+
+    npm run play:keys -- P05
+    npm run evaluate:keys
+    npm run calibrate:keys
+
+A06 tests single-use keys, empty inventory, and locks aligned across floors. C05 adds pickup, a matching upper lock, and a complete route. P05 adds a lower route. Each route in P05 starts in a fresh browser page, passes its own lock, and reaches the same physical exit. Select a task with `npm run evaluate:keys -- --task=A06`.
+
+The calibration runs the reference, the registered single faults, and a decorative-key control. It tests pickup and unlock with native input, compares inventory changes to the corresponding world events, and saves screenshots for key removal, inventory feedback, and the open passage. See the [keys calibration](experiments/keys-001/).
+
 ## Compare evaluation profiles
 
     node scripts/compare-profiles.mjs runs/<run>/P04/report.json
@@ -62,6 +72,8 @@ The command stages the two public contracts and optional local Three.js modules.
 
 Use `--task P02` for the planar playthrough. It stages the two public contracts without a rendering library. Select `--task=P02` when evaluating that submission.
 
+Use `--task P05` to generate the two-route keys task. Use `npm run evaluate:keys -- --task=P05 --submission=<directory> --replay=<file>` with an evaluator-reviewed route. The route specifies the local scenario poses, each gate plane, key and exit positions, and the waypoints of both journeys. The evaluator saves visual frames for review when the replay has no reference feedback anchors.
+
 Review the generated artifact and record a replay using [the P01 replay fields](scripts/p01-replays.mjs). Then run:
 
     npm run evaluate:p01 -- --submission=D:/bench-runs/p01-001/builder --replay=D:/bench-runs/p01-001/replay.json
@@ -70,7 +82,7 @@ This pilot uses evaluator-authored waypoints for each layout. If the submission 
 
 ## Pilot contracts and evaluation sources
 
-The [pilot manifest](pilot/manifest.json) indexes 12 task specifications and 104 planned checks. Nine tasks have runnable references and 81 implemented checks, including all three matched 2D controls. The key and inventory task family has specifications. Give builders the selected contract and the [shared interface](pilot/builder/shared-runtime-interface.json). The [candidate inventory](pilot/candidate-inventory.json) tracks the remaining designs. The [evaluation protocol](pilot/protocol.json) and [run report schema](pilot/evaluator/run-report.schema.json) define the evidence and reporting.
+The [pilot manifest](pilot/manifest.json) indexes 12 runnable tasks and 104 implemented checks, including all three matched 2D controls. Give builders the selected contract and the [shared interface](pilot/builder/shared-runtime-interface.json). The [candidate inventory](pilot/candidate-inventory.json) tracks the remaining designs. The [evaluation protocol](pilot/protocol.json) and [run report schema](pilot/evaluator/run-report.schema.json) define the evidence and reporting.
 
 - Fresh browser pages per case and legal local setup follow the published [GameASG L2 runner](https://github.com/areal-project/GameASG-Bench/blob/6427cb6517ce11ff350ec45fcae17b67c5aec245/scripts/l2/run.js).
 - Closed-loop journey actions and separate local checks follow [CEGame-Bench](https://arxiv.org/html/2610.26098v1). Family scores use scheduled checks and expose the remaining uncertainty.

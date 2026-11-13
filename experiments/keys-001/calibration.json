@@ -1,0 +1,324 @@
+{
+  "runGroup": "2026-11-13T07-55-36-924Z-22640",
+  "replicateRunGroup": null,
+  "records": [
+    {
+      "taskId": "A06",
+      "runId": "A06",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/A06",
+      "evaluatorVersion": "8e426ce3b07733ccc9f023dc4bc6f8a63b86de115ace724ab76c3be5a1dbe0cf",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "f4da8dd8065e94e3339f4b38e5ca20408fc2cdb0a10b24a766cc1beec45e7117",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": null,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "consume_once": "pass",
+        "reject_cross_level": "pass",
+        "reject_empty_inventory": "pass"
+      }
+    },
+    {
+      "taskId": "C05",
+      "runId": "C05",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/C05",
+      "evaluatorVersion": "b058190205b27b4fd413934eac54711f6fe5394a59f7369b25331fe8e02043f8",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "2e772458d906b9b2f0828aa5a8035f3ad167004bb1021d065c19c57aa8b6c8e2",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 1
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "pickup_unique": "pass",
+        "reject_wrong_color": "pass",
+        "unlock_correct_and_cross": "pass",
+        "reject_bypass": "pass",
+        "inventory_feedback": "pass",
+        "finish": "pass"
+      }
+    },
+    {
+      "taskId": "P05",
+      "runId": "P05",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/P05",
+      "evaluatorVersion": "b45619485bbfa3847edcd8377f81e64f4c313fbe605a00e76c463e5d0af471ec",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "ed0d7434eb1cbb94e8386cf822f2588cc221f43a4ec853c5975ea781d98a54f1",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 2,
+          "planned": 2
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "pickup_unique": "pass",
+        "reject_wrong_color": "pass",
+        "unlock_correct_and_cross": "pass",
+        "reject_bypass": "pass",
+        "inventory_feedback": "pass",
+        "finish_upper": "pass",
+        "finish_lower": "pass",
+        "unlock_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "A06",
+      "runId": "A06-cross_floor_unlock",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/A06/cross_floor_unlock",
+      "evaluatorVersion": "8e426ce3b07733ccc9f023dc4bc6f8a63b86de115ace724ab76c3be5a1dbe0cf",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "e68de8b2dd87e67eb22d882cf15f69b7e1472d2eea077c237bbf5ed7dbe38ee1",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": null,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "consume_once": "pass",
+        "reject_cross_level": "fail",
+        "reject_empty_inventory": "pass"
+      }
+    },
+    {
+      "taskId": "P05",
+      "runId": "P05-pickup_duplicates",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/P05/pickup_duplicates",
+      "evaluatorVersion": "b45619485bbfa3847edcd8377f81e64f4c313fbe605a00e76c463e5d0af471ec",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "6c201ab5a1086a004b608ac0b8f2cc6d66fac47e9e13a5f98d3022d54682588e",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 2,
+          "planned": 2
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "pickup_unique": "fail",
+        "reject_wrong_color": "pass",
+        "unlock_correct_and_cross": "pass",
+        "reject_bypass": "pass",
+        "inventory_feedback": "pass",
+        "finish_upper": "pass",
+        "finish_lower": "pass",
+        "unlock_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "P05",
+      "runId": "P05-any_key_opens_upper",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/P05/any_key_opens_upper",
+      "evaluatorVersion": "b45619485bbfa3847edcd8377f81e64f4c313fbe605a00e76c463e5d0af471ec",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "c962545b0a6407d4212ba590f17f7fd1e33526f1c219d1485776af80c9797142",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.8333333333333334,
+          0.8333333333333334
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 2,
+          "planned": 2
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "pickup_unique": "pass",
+        "reject_wrong_color": "fail",
+        "unlock_correct_and_cross": "pass",
+        "reject_bypass": "pass",
+        "inventory_feedback": "pass",
+        "finish_upper": "pass",
+        "finish_lower": "pass",
+        "unlock_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "P05",
+      "runId": "P05-unlock_without_consumption",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/P05/unlock_without_consumption",
+      "evaluatorVersion": "b45619485bbfa3847edcd8377f81e64f4c313fbe605a00e76c463e5d0af471ec",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "45293ed3830fb9957dba86d7b66e5fde01ddc39d9b5e53fcfdd497b2df0b3521",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.8333333333333334,
+          0.8333333333333334
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 2
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "pickup_unique": "pass",
+        "reject_wrong_color": "pass",
+        "unlock_correct_and_cross": "fail",
+        "reject_bypass": "pass",
+        "inventory_feedback": "pass",
+        "finish_upper": "fail",
+        "finish_lower": "fail",
+        "unlock_feedback": "fail"
+      }
+    },
+    {
+      "taskId": "P05",
+      "runId": "P05-one_branch_cannot_finish",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/P05/one_branch_cannot_finish",
+      "evaluatorVersion": "b45619485bbfa3847edcd8377f81e64f4c313fbe605a00e76c463e5d0af471ec",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "65765395b84147479d3fd01232a1954e8c15f4a7c7f40a5ba75e03d0b3b2eab0",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 2
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "pickup_unique": "pass",
+        "reject_wrong_color": "pass",
+        "unlock_correct_and_cross": "pass",
+        "reject_bypass": "pass",
+        "inventory_feedback": "pass",
+        "finish_upper": "pass",
+        "finish_lower": "fail",
+        "unlock_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "P05",
+      "runId": "P05-stale_inventory_hud",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/P05/stale_inventory_hud",
+      "evaluatorVersion": "b45619485bbfa3847edcd8377f81e64f4c313fbe605a00e76c463e5d0af471ec",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "a12558b0d006c1c8b1e707769b130df127710a9983cee52b09893c5c28c05b8d",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 2,
+          "planned": 2
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "pickup_unique": "pass",
+        "reject_wrong_color": "pass",
+        "unlock_correct_and_cross": "pass",
+        "reject_bypass": "pass",
+        "inventory_feedback": "fail",
+        "finish_upper": "pass",
+        "finish_lower": "pass",
+        "unlock_feedback": "fail"
+      }
+    },
+    {
+      "taskId": "P05",
+      "runId": "P05-decorative_keys",
+      "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/P05/decorative_keys",
+      "evaluatorVersion": "b45619485bbfa3847edcd8377f81e64f4c313fbe605a00e76c463e5d0af471ec",
+      "browserVersion": "157.0.8103.52",
+      "reportSha256": "fba71b4deb7a302d535f93b8a841f6a07e79e0d8412fec3e22cdc72648ec7cd2",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 2
+        }
+      },
+      "verdicts": {
+        "launch": "pass",
+        "probe": "pass",
+        "pickup_unique": "fail",
+        "reject_wrong_color": "pass",
+        "unlock_correct_and_cross": "fail",
+        "reject_bypass": "pass",
+        "inventory_feedback": "fail",
+        "finish_upper": "fail",
+        "finish_lower": "fail",
+        "unlock_feedback": "fail"
+      }
+    }
+  ]
+}

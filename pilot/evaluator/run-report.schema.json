@@ -202,7 +202,7 @@
           ]
         },
         "functionalInterval": {
-          "type": "array",
+          "type": ["array", "null"],
           "items": {
             "type": "number",
             "minimum": 0,
@@ -212,12 +212,12 @@
           "maxItems": 2
         },
         "functionalCoverage": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0,
           "maximum": 1
         },
         "visualCoverage": {
-          "type": "number",
+          "type": ["number", "null"],
           "minimum": 0,
           "maximum": 1
         },

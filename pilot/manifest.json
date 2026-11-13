@@ -90,8 +90,8 @@
       "builder": "builder/A06.json",
       "evaluator": "evaluator/A06.json",
       "implementation": {
-        "referenceLayouts": 0,
-        "evaluator": null,
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-keys.mjs",
         "codexRuns": 0
       }
     },
@@ -103,8 +103,8 @@
       "builder": "builder/C05.json",
       "evaluator": "evaluator/C05.json",
       "implementation": {
-        "referenceLayouts": 0,
-        "evaluator": null,
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-keys.mjs",
         "codexRuns": 0
       }
     },
@@ -116,9 +116,9 @@
       "builder": "builder/P05.json",
       "evaluator": "evaluator/P05.json",
       "implementation": {
-        "referenceLayouts": 0,
-        "evaluator": null,
-        "codexRuns": 0
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-keys.mjs",
+        "codexRuns": 1
       }
     },
     {
@@ -175,8 +175,8 @@
   "candidateInventory": "candidate-inventory.json",
   "runReportSchema": "evaluator/run-report.schema.json",
   "implementationSummary": {
-    "runnableTasks": 9,
-    "implementedChecks": 81,
+    "runnableTasks": 12,
+    "implementedChecks": 104,
     "candidateTasks": 30,
     "plannedPilotTasks": 12,
     "matched2dControls": 3,

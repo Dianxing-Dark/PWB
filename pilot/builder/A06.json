@@ -40,6 +40,10 @@
     "doors.lower.passable",
     "doors.upper.passable"
   ],
+  "publicEventData": {
+    "inventory_changed": "data 包含 color（amber 或 blue）、before、after、action 和 objectId。消耗时 action 为 unlock、objectId 为 lower 或 upper。",
+    "door_state_changed": "data 包含 doorId（lower 或 upper）、locked 和 passable。库存消耗事件与相应的解锁事件记录在同一仿真步，先记录库存消耗。"
+  },
   "normalEntryMilestones": [
     "approach_lock",
     "unlock_once"

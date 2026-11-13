@@ -1,0 +1,36 @@
+{
+  "reviewKind": "manual_frame_review",
+  "runReportDigest": "0e8a7b54361275b2bc680cbdaa5ccf7d641ebdfa399b885b0bacce89d254ee01",
+  "checks": [
+    {
+      "caseId": "inventory_feedback",
+      "status": "pass",
+      "reason": "The amber key is visibly above the pedestal before contact and absent afterward. The Amber HUD changes from 0 to 1, while Blue remains 0.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/inventory_feedback/amber-key-visible.png",
+          "sha256": "a88da46303bba193d802041b849d9ad9377c4679915f387687068f003ca1ec38"
+        },
+        {
+          "path": "evidence/inventory_feedback/amber-key-gone.png",
+          "sha256": "e5d31a9bea72b6ebd45820ead161ace8aa018634d7cbec0d72e7c65ad9ed5d60"
+        }
+      ]
+    },
+    {
+      "caseId": "unlock_feedback",
+      "status": "pass",
+      "reason": "The amber bars disappear, the Upper status changes from LOCKED to OPEN, and the Amber HUD decreases from 1 to 0. Lower remains LOCKED.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/unlock_feedback/upper-door-locked.png",
+          "sha256": "96d9999f757b313c2f4504d4314fb8938f44821bb2b6448f8178ca3134042059"
+        },
+        {
+          "path": "evidence/unlock_feedback/upper-door-open.png",
+          "sha256": "96f09220abc54161976b157edc710273009851d83a03f3a9b334a981c9be3391"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,956 @@
+{
+  "caseId": "reject_wrong_color",
+  "scenarioId": "blue_only_near_upper_lock",
+  "trace": [
+    {
+      "attemptId": 0,
+      "tick": 6,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          8
+        ],
+        "supportSurface": "entrance"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 0
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": false
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 243.9000000001397
+    },
+    {
+      "attemptId": 0,
+      "tick": 6,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          8
+        ],
+        "supportSurface": "entrance"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 0
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": false
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 245.19999999995343
+    },
+    {
+      "attemptId": 0,
+      "tick": 8,
+      "avatar": {
+        "position": [
+          0,
+          0,
+          8
+        ],
+        "supportSurface": "entrance"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 0
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": false
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 295
+    },
+    {
+      "attemptId": 1,
+      "tick": 0,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.15
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 300.10000000009313
+    },
+    {
+      "attemptId": 1,
+      "tick": 2,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.15
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 309
+    },
+    {
+      "attemptId": 1,
+      "tick": 2,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.15
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 314.10000000009313
+    },
+    {
+      "attemptId": 1,
+      "tick": 7,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.15
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 391
+    },
+    {
+      "attemptId": 1,
+      "tick": 13,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.15
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 486.30000000004657
+    },
+    {
+      "attemptId": 1,
+      "tick": 26,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.15
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 713.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 26,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.15
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 716.6000000000931
+    },
+    {
+      "attemptId": 1,
+      "tick": 29,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.342500000000001
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 760.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 32,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.535000000000002
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 808.4000000001397
+    },
+    {
+      "attemptId": 1,
+      "tick": 34,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 845.1999999999534
+    },
+    {
+      "attemptId": 1,
+      "tick": 36,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 888.1999999999534
+    },
+    {
+      "attemptId": 1,
+      "tick": 39,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 932.4000000001397
+    },
+    {
+      "attemptId": 1,
+      "tick": 42,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 983.6999999999534
+    },
+    {
+      "attemptId": 1,
+      "tick": 45,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 1035.9000000001397
+    },
+    {
+      "attemptId": 1,
+      "tick": 48,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 1088.1000000000931
+    },
+    {
+      "attemptId": 1,
+      "tick": 51,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 1138.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 54,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 1181.8000000000466
+    },
+    {
+      "attemptId": 1,
+      "tick": 59,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 1252.9000000001397
+    },
+    {
+      "attemptId": 1,
+      "tick": 62,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 1317.4000000001397
+    },
+    {
+      "attemptId": 1,
+      "tick": 65,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 1374.9000000001397
+    },
+    {
+      "attemptId": 1,
+      "tick": 82,
+      "avatar": {
+        "position": [
+          0,
+          3,
+          -6.663333333333336
+        ],
+        "supportSurface": "upper"
+      },
+      "inventory": {
+        "amber": 0,
+        "blue": 1
+      },
+      "doors": {
+        "lower": {
+          "locked": true,
+          "passable": false
+        },
+        "upper": {
+          "locked": true,
+          "passable": false
+        }
+      },
+      "keys": {
+        "amber": {
+          "collected": false
+        },
+        "blue": {
+          "collected": true
+        }
+      },
+      "outcome": "none",
+      "traversedBranch": null,
+      "browserMs": 1662.3000000000466
+    }
+  ],
+  "inputs": [
+    {
+      "type": "keydown",
+      "code": "KeyE",
+      "trusted": true,
+      "browserMs": 305.69999999995343
+    },
+    {
+      "type": "keyup",
+      "code": "KeyE",
+      "trusted": true,
+      "browserMs": 307.19999999995343
+    },
+    {
+      "type": "keydown",
+      "code": "KeyW",
+      "trusted": true,
+      "browserMs": 715.1000000000931
+    },
+    {
+      "type": "keyup",
+      "code": "KeyW",
+      "trusted": true,
+      "browserMs": 1656.4000000001397
+    }
+  ],
+  "stateEvents": [
+    {
+      "sequence": 1,
+      "type": "contact_changed",
+      "attemptId": 0,
+      "tick": 0,
+      "data": {
+        "actorId": "avatar",
+        "objectId": "entrance",
+        "touching": true
+      }
+    },
+    {
+      "sequence": 2,
+      "type": "attempt_restarted",
+      "attemptId": 1,
+      "tick": 0,
+      "data": {
+        "reason": "blue_only_near_upper_lock"
+      }
+    },
+    {
+      "sequence": 3,
+      "type": "contact_changed",
+      "attemptId": 1,
+      "tick": 0,
+      "data": {
+        "actorId": "avatar",
+        "objectId": "upper",
+        "touching": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "notes": {},
+  "elapsedMs": 1880
+}

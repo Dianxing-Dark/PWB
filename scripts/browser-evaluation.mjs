@@ -63,6 +63,7 @@ function score(plan, rows, stage) {
     if (!families.has(entry.family)) families.set(entry.family, []);
     families.get(entry.family).push(row.status);
   }
+  if (!families.size) return { interval: null, coverage: null };
   let lower = 0;
   let upper = 0;
   let coverage = 0;

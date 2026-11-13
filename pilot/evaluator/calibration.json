@@ -117,6 +117,19 @@
       "按场景组件与规则状态更新库存并使用不同合法路线布局"
     ],
     "emptyControl": "场景可启动，钥匙只是装饰物",
+    "emptyControlChecks": {
+      "id": "decorative_keys",
+      "mustDetect": ["pickup_unique", "unlock_correct_and_cross", "finish_upper", "finish_lower"],
+      "mustPreserve": ["launch", "probe", "reject_wrong_color", "reject_bypass"]
+    },
+    "atomMutations": [
+      {
+        "id": "cross_floor_unlock",
+        "change": "打开正上方有投影重叠的另一扇锁",
+        "mustDetect": ["reject_cross_level"],
+        "mustPreserve": ["consume_once", "reject_empty_inventory"]
+      }
+    ],
     "mutations": [
       {
         "id": "pickup_duplicates",
@@ -161,6 +174,12 @@
           "finish_upper",
           "reject_wrong_color"
         ]
+      },
+      {
+        "id": "stale_inventory_hud",
+        "change": "拾取后库存和钥匙实体正确变化，但 HUD 的琥珀库存固定显示为零",
+        "mustDetect": ["inventory_feedback", "unlock_feedback"],
+        "mustPreserve": ["pickup_unique", "unlock_correct_and_cross", "finish_upper", "finish_lower"]
       }
     ]
   },

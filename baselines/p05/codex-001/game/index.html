@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101a22">
+<title>Lockspan · 3D 双路线钥匙</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main id="game" aria-label="Lockspan 3D game"></main>
+<header class="masthead"><div class="mark" aria-hidden="true">◈</div><div><div class="brand">LOCKSPAN</div><div class="subtitle">3D 双路线钥匙</div></div></header>
+<aside class="inventory" aria-label="Key inventory">
+  <div class="label">KEY INVENTORY</div>
+  <div class="item"><i class="blue"></i><span>Blue</span><b id="blue">0</b></div>
+  <div class="item"><i class="amber"></i><span>Amber</span><b id="amber">0</b></div>
+</aside>
+<section class="route" aria-label="Routes">
+  <div class="label">ROUTES TO THE EXIT</div>
+  <div id="upper-route"><i class="amber"></i><span>Upper</span><small id="upper-status">LOCKED</small></div>
+  <div id="lower-route"><i class="blue"></i><span>Lower</span><small id="lower-status">LOCKED</small></div>
+</section>
+<div class="objective"><span id="deck">ENTRANCE</span><strong id="instruction">Go straight for Blue or take the right ramp for Amber.</strong></div>
+<div id="prompt" role="status" aria-live="polite"></div>
+<footer><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move</span><span><kbd>E</kbd> Unlock</span><span><kbd>R</kbd> Restart</span></footer>
+<section id="finish" hidden><div class="finish-card"><div class="label">LOCKSPAN</div><h1>Exit reached</h1><p id="result"></p><button id="retry">Play again <kbd>R</kbd></button></div></section>
+<script type="module" src="./game.js"></script>
+</body>
+</html>

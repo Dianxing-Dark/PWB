@@ -13,6 +13,9 @@
     "play:platform": "node scripts/play-platform.mjs",
     "evaluate:platform": "node scripts/evaluate-platform.mjs",
     "calibrate:platform": "node scripts/evaluate-platform.mjs --calibrate",
+    "play:keys": "node scripts/play-keys.mjs",
+    "evaluate:keys": "node scripts/evaluate-keys.mjs",
+    "calibrate:keys": "node scripts/evaluate-keys.mjs --calibrate",
     "compare:profiles": "node scripts/compare-profiles.mjs",
     "compare:pairs": "node scripts/compare-pairs.mjs"
   },
