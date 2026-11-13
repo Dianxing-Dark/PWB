@@ -1,0 +1,275 @@
+{
+  "taskId": "C05",
+  "builderContract": "builder/C05.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "新页面，作品的正常默认入口。"
+      ]
+    },
+    {
+      "id": "before_amber_pickup",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家正常到达琥珀钥匙旁，钥匙存在且尚未入库。"
+      ]
+    },
+    {
+      "id": "blue_only_near_upper_lock",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家已经从正常位置拾取蓝钥匙。",
+        "位于仍关闭的上层琥珀锁前，未持有琥珀钥匙。"
+      ]
+    },
+    {
+      "id": "amber_key_near_upper_lock",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家已合法拾取琥珀钥匙，站在仍关闭的上层锁前。"
+      ]
+    },
+    {
+      "id": "no_key_near_locked_door",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家位于闭锁门前，库存空。目标尚未完成。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开默认 URL，按可见的开始控件进入作品"
+        }
+      ],
+      "checks": [
+        "页面无致命错误并能进入玩法。"
+      ],
+      "evidence": [
+        "browser_console",
+        "entry_frame"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在默认入口按住并松开一个合法移动键"
+        }
+      ],
+      "checks": [
+        "公开状态快照可读、结构符合任务合同，同一次尝试内时间不倒退，输入通过作品正常控件。"
+      ],
+      "evidence": [
+        "snapshot",
+        "native_input_log"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "pickup_unique",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "pickup",
+      "scenario": "before_amber_pickup",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "走过钥匙位置，离开后再走过一次。"
+        }
+      ],
+      "checks": [
+        "首次接触后物品消失且琥珀钥匙数量加一。",
+        "再走过无第二次增加事件。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "reject_wrong_color",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "lock-matching",
+      "scenario": "blue_only_near_upper_lock",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "对上层锁按 E，再尝试向门洞内移动。"
+        }
+      ],
+      "checks": [
+        "上层门继续关闭并阻挡实际移动。",
+        "蓝钥匙数量不变，没有解锁或成功事件。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "unlock_correct_and_cross",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "lock-matching",
+      "scenario": "amber_key_near_upper_lock",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在同一扇门前快速连续按两次 E，再正常移动穿过门洞。"
+        },
+        {
+          "type": "observe",
+          "instruction": "保存每次按键的送达记录和其前后库存、解锁事件。"
+        }
+      ],
+      "checks": [
+        "匹配钥匙恰好消耗一次，只有一次对应的解锁事件，蓝钥匙和下层门状态不变。",
+        "角色连续通过真实门洞，没有位置跳变。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "reject_bypass",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "door-transit",
+      "scenario": "no_key_near_locked_door",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从门前向门洞中心移动，保持尝试到达另一侧。"
+        }
+      ],
+      "checks": [
+        "角色留在门前合法区域，终态未改变。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "inventory_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "inventory-feedback",
+      "scenario": "before_amber_pickup",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "走过琥珀钥匙，查看画面库存。"
+        },
+        {
+          "type": "observe",
+          "instruction": "截取拾取前后与库存变化事件相连的实帧。"
+        }
+      ],
+      "checks": [
+        "拾取后钥匙实体和库存提示对应改变，玩家可以辨认钥匙类型和是否获得。"
+      ],
+      "evidence": [
+        "event_aligned_frames",
+        "event_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "finish",
+      "stage": "journey",
+      "priority": "P1",
+      "family": "player-journey",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口拾取琥珀钥匙，经坡道到上层，解锁并穿过门，到达上层目标。"
+        },
+        {
+          "type": "observe",
+          "instruction": "存储从页面入口到终态的全部操作与里程碑。"
+        }
+      ],
+      "checks": [
+        "同一轨迹按序达到公开里程碑。",
+        "门锁与消耗的资源匹配，终态为胜利。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [
+    "finish"
+  ],
+  "policy": "旅程在新页面从默认入口开始，仅发浏览器玩家输入。场景装载只用于局部检查。"
+}

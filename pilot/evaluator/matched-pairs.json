@@ -1,0 +1,55 @@
+{
+  "scope": "同一双压板任务族内的空间维度对照，用于解释共同规则在配对场景中的结果。",
+  "pairs": [
+    {
+      "3d": "A01",
+      "2d": "A02",
+      "common": [
+        "plate_contact",
+        "plate_feedback"
+      ],
+      "dimensionSpecific": [
+        "wrong_height",
+        "no_contact_no_trigger"
+      ]
+    },
+    {
+      "3d": "C01",
+      "2d": "C02",
+      "common": [
+        "single_plate",
+        "release_before_threshold",
+        "unlock_at_threshold",
+        "closed_collision",
+        "open_collision",
+        "door_feedback",
+        "finish"
+      ]
+    },
+    {
+      "3d": "P01",
+      "2d": "P02",
+      "common": [
+        "single_plate",
+        "release_before_threshold",
+        "unlock_at_threshold",
+        "closed_collision",
+        "open_collision",
+        "door_feedback",
+        "finish",
+        "recover_and_finish",
+        "terminal_feedback"
+      ]
+    }
+  ],
+  "heldConstant": [
+    "控件意图",
+    "每组时间预算",
+    "持续接触阈值",
+    "必需旅程",
+    "终态和重试的语义",
+    "证据要求"
+  ],
+  "varied": "3D 使用不同高度支撑面、坡道和空间可达性，2D 保留平面分支与明确危险区。",
+  "analysis": "分别报告共同用例和各自空间反例。配对比较只覆盖这一机制族。"
+}

@@ -1,0 +1,64 @@
+{
+  "id": "A02",
+  "family": "dual-plates",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "2D",
+  "title": "2D 推箱压板",
+  "goal": "通过实际推箱激活平面压板。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "箱子经正常移动接触后可推。压板 A 仅由实际接触该板的箱子激活。",
+    "箱子离开接触面后，压板恢复未激活。"
+  ],
+  "layoutConstraints": [
+    "所有玩法发生在同一平面，公开位置的 y 分量为 0。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据",
+    "plane": "XZ",
+    "height": 0
+  },
+  "constants": {},
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "box.position",
+    "box.supportSurface",
+    "plates.A.active"
+  ],
+  "normalEntryMilestones": [
+    "approach_box",
+    "box_contacts_A"
+  ],
+  "completionBudget": {
+    "localCaseSeconds": 20
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "box_offset_from_A",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家和箱子在 A 所在层，箱子离开板，移动方向能产生正常接触。"
+      ]
+    },
+    {
+      "id": "box_near_A_without_contact",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "箱子从板 A 一侧经过，预留一条不与板发生接触的正常平面移动路径。"
+      ]
+    }
+  ]
+}

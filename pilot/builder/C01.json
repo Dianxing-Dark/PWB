@@ -1,0 +1,81 @@
+{
+  "id": "C01",
+  "family": "dual-plates",
+  "tier": "combination",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 双压板门",
+  "goal": "在两个高度同时激活压板并通过门。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "箱子经正常移动接触后可推。压板 A 仅由实际接触该板的箱子激活。",
+    "上层压板 B 仅由实际接触该板的玩家激活。",
+    "同时激活从第 s 步开始，门在 s+120 步解锁；若任一板在该步或更早解除，则重新计时。",
+    "解锁后可以立即通行，或在最多 30 步的开门动作结束后通行。门本次尝试内保持开启。",
+    "玩家通过门洞并进入门后目标区才判定胜利。"
+  ],
+  "layoutConstraints": [
+    "下层压板 A 与上层区域的俯视投影有交集，两层可分别支撑物体，实际接触不会跨层发生。",
+    "正常路径可经坡道到达上层板，门洞连接目标区，门关闭时无绕路直接进入目标区。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据"
+  },
+  "constants": {
+    "bothActiveTicks": 120,
+    "maxOpeningTicks": 30,
+    "releaseAtBoundary": "cancel_before_unlock"
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "box.position",
+    "box.supportSurface",
+    "plates.A.active",
+    "plates.B.active",
+    "dualActiveSinceTick",
+    "door.unlocked",
+    "door.passable",
+    "goalCrossed",
+    "outcome"
+  ],
+  "normalEntryMilestones": [
+    "box_contacts_A",
+    "avatar_contacts_B",
+    "door_unlocked",
+    "cross_door",
+    "enter_goal"
+  ],
+  "completionBudget": {
+    "localCaseSeconds": 25,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "box_on_A_before_B",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "箱子合法压住 A，玩家位于 B 旁边，B 未激活。",
+        "门关闭，双板计时尚未开始。"
+      ]
+    },
+    {
+      "id": "avatar_near_closed_door",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在门前的正常可达位置，两板条件未满足，门关闭。"
+      ]
+    }
+  ]
+}

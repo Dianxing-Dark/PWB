@@ -1,0 +1,485 @@
+{
+  "taskId": "P04",
+  "builderContract": "builder/P04.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "新页面，作品的正常默认入口。"
+      ]
+    },
+    {
+      "id": "low_dock_before_departure",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "相位在低停靠段，玩家可从低台登上平台。"
+      ]
+    },
+    {
+      "id": "adjacent_low_ledge",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家与平台邻近，站在独立静止支撑面。",
+        "平台即将开始前往高台。"
+      ]
+    },
+    {
+      "id": "high_dock_before_gate_opens",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家位于高台门前，平台在高停靠段，窗口未开始。"
+      ]
+    },
+    {
+      "id": "high_dock_before_gate_closes",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家位于高台门前，窗口即将结束，玩家尚未越过门洞。"
+      ]
+    },
+    {
+      "id": "cargo_ready_to_load",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家和箱子位于低台，箱子邻近平台登台边缘，未交付。",
+        "相位在低停靠段开始，箱子可用正常推箱操作上台。"
+      ]
+    },
+    {
+      "id": "high_gate_without_cargo",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在高台门前，箱子仍在低台，未交付。",
+        "处于高停靠段，窗口未开始。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开默认 URL，按可见的开始控件进入作品"
+        }
+      ],
+      "checks": [
+        "页面无致命错误并能进入玩法。"
+      ],
+      "evidence": [
+        "browser_console",
+        "entry_frame"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在默认入口按住并松开一个合法移动键"
+        }
+      ],
+      "checks": [
+        "公开状态快照可读、结构符合任务合同，同一次尝试内时间不倒退，输入通过作品正常控件。"
+      ],
+      "evidence": [
+        "snapshot",
+        "native_input_log"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "platform_trajectory",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "platform-motion",
+      "scenario": "low_dock_before_departure",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "记录连续两个完整周期的平台坐标和相位事件。"
+        }
+      ],
+      "checks": [
+        "每周期的低停靠、高停靠、移动相位及水平与垂直位移都符合合同。",
+        "第二周期重现相位边界，运动状态不会只在第一次启动时正确。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "actual_support",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "platform-carry",
+      "scenario": "low_dock_before_departure",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "在低台等待首个登台窗口经过，保持角色处于可登台位置。"
+        },
+        {
+          "type": "native",
+          "instruction": "下一次低停靠时登台，松开移动键，让平台载角色到高台再走下。"
+        }
+      ],
+      "checks": [
+        "第二次停靠可登台。连续实际支撑期间角色随平台在 X/Y 移动。",
+        "相对漂移没有导致脱离，合法离台后支持面切到高台。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "no_remote_carry",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "platform-carry",
+      "scenario": "adjacent_low_ledge",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "站在邻近静止台边，松开移动键等待平台驶离。"
+        }
+      ],
+      "checks": [
+        "角色未受平台支撑，平台位移未把角色搬离静止台。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "platform_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "platform-feedback",
+      "scenario": "low_dock_before_departure",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "低台登台并保持至高停靠。"
+        },
+        {
+          "type": "observe",
+          "instruction": "保留登台、运动、高停靠三段玩家视角。"
+        }
+      ],
+      "checks": [
+        "画面能辨认平台与上下停靠点，角色与平台共同移动的反馈清晰。"
+      ],
+      "evidence": [
+        "event_aligned_frames",
+        "event_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "blocked_outside_window",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "gate-window",
+      "scenario": "high_dock_before_gate_opens",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在窗口前从高台门前试穿闸门。"
+        }
+      ],
+      "checks": [
+        "窗口前始终阻挡角色，未触发目标。",
+        "相位 285 之前无放行事件。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "pass_during_window",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "gate-window",
+      "scenario": "high_dock_before_gate_opens",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "等待相位进入窗口。"
+        },
+        {
+          "type": "native",
+          "instruction": "在合法时间内使用正常移动过闸。"
+        }
+      ],
+      "checks": [
+        "窗口与平台停靠对齐。",
+        "角色的实际位置连续穿过门洞；没有跳过门口。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "blocks_when_closed_again",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "gate-window",
+      "scenario": "high_dock_before_gate_closes",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "从门前等到相位 405。"
+        },
+        {
+          "type": "native",
+          "instruction": "向门洞连续移动。"
+        },
+        {
+          "type": "observe",
+          "instruction": "在原位置等待下一周期窗口。"
+        },
+        {
+          "type": "native",
+          "instruction": "在下一周期窗口再次尝试过闸。"
+        }
+      ],
+      "checks": [
+        "相位 405 恢复阻挡，后续尝试不能过门，下一周期行为与同一规则相符。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "boundary"
+    },
+    {
+      "id": "gate_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "gate-feedback",
+      "scenario": "high_dock_before_gate_opens",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "记录玩家视角中的关门、放行与再次阻挡三个阶段。"
+        }
+      ],
+      "checks": [
+        "能从实帧分辨三个阶段，门的开放反馈与对应状态事件同步。"
+      ],
+      "evidence": [
+        "event_aligned_frames",
+        "event_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "cargo_motion",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "cargo-carry",
+      "scenario": "cargo_ready_to_load",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "把箱子推上平台，松开移动键，等平台运动到高台。"
+        }
+      ],
+      "checks": [
+        "实际箱子位置随支撑平台在 X/Y 移动，平台离开低台时箱子仍在其上。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "no_empty_delivery",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "cargo-delivery",
+      "scenario": "high_gate_without_cargo",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "确认箱子仍在低台。"
+        },
+        {
+          "type": "native",
+          "instruction": "在开窗后让玩家独自通过门并进入交付区。"
+        }
+      ],
+      "checks": [
+        "玩家单独到达保持未完成，箱子仍未交付。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "deliver",
+      "stage": "journey",
+      "priority": "P1",
+      "family": "player-journey",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口推箱上平台，搭乘到高台，再推箱过闸至交付区。"
+        },
+        {
+          "type": "observe",
+          "instruction": "存储从页面入口到终态的全部操作与里程碑。"
+        }
+      ],
+      "checks": [
+        "角色和货箱均有连续的承载证据。",
+        "货箱实际越过门洞并抵达交付区，触发成功。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "recover_and_deliver",
+      "stage": "journey",
+      "priority": "P1",
+      "family": "player-journey",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口使玩家跌落，看到失败后按 R，再按正常流程交付。"
+        },
+        {
+          "type": "observe",
+          "instruction": "存储从页面入口到终态的全部操作与里程碑。"
+        }
+      ],
+      "checks": [
+        "失败与正常重试证据齐全。",
+        "箱子、平台相位、闸门、胜利状态在重试后恢复。",
+        "重试后的轨迹成功交付。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "recovery"
+    }
+  ],
+  "requiredJourneyCases": [
+    "deliver",
+    "recover_and_deliver"
+  ],
+  "policy": "旅程在新页面从默认入口开始，仅发浏览器玩家输入。场景装载只用于局部检查。"
+}

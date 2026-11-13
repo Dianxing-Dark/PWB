@@ -1,0 +1,83 @@
+{
+  "id": "A03",
+  "family": "moving-platform",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 横移升降台",
+  "goal": "搭上运动平台并在高停靠段下台。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "沿 X 和 Y 移动的平台只有在真实支撑玩家或箱子时才传递位移，角色可在停靠时上下。",
+    "平台相位使用仿真步数，依低停靠、前往高台、高停靠、返回低台循环。"
+  ],
+  "layoutConstraints": [
+    "起点低台和高台存在可测高差及水平偏移。默认走法搭乘平台，高台在合法控制下可从高停靠段步行到达。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据"
+  },
+  "constants": {
+    "periodTicks": 600,
+    "lowDock": {
+      "start": 0,
+      "endExclusive": 120
+    },
+    "outbound": {
+      "start": 120,
+      "endExclusive": 270
+    },
+    "highDock": {
+      "start": 270,
+      "endExclusive": 450
+    },
+    "inbound": {
+      "start": 450,
+      "endExclusive": 600
+    }
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "platform.position",
+    "platform.phase",
+    "platform.phaseTick",
+    "avatar.position",
+    "avatar.supportSurface"
+  ],
+  "normalEntryMilestones": [
+    "board_low",
+    "supported_in_motion",
+    "exit_high"
+  ],
+  "completionBudget": {
+    "localCaseSeconds": 25
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "low_dock_before_departure",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "相位在低停靠段，玩家可从低台登上平台。"
+      ]
+    },
+    {
+      "id": "adjacent_low_ledge",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家与平台邻近，站在独立静止支撑面。",
+        "平台即将开始前往高台。"
+      ]
+    }
+  ]
+}

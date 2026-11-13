@@ -1,0 +1,131 @@
+{
+  "id": "P04",
+  "family": "moving-platform",
+  "tier": "playthrough",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 运货到高台",
+  "goal": "从低台把货物送到高台交付区，并可跌落后重试。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "沿 X 和 Y 移动的平台只有在真实支撑玩家或箱子时才传递位移，角色可在停靠时上下。",
+    "平台相位使用仿真步数，依低停靠、前往高台、高停靠、返回低台循环。",
+    "闸门按平台周期打开，在相位步 285 开始放行，在 405 步恢复阻挡。合格窗口外不得跨越门洞。",
+    "箱子可推上平台，抵达高台后经闸门推出，只有实际进入交付区才记录交付。",
+    "跌落明确进入失败态，R 重置尝试、物理对象、时钟及临时进度。"
+  ],
+  "layoutConstraints": [
+    "起点低台和高台存在可测高差及水平偏移。默认走法搭乘平台，高台在合法控制下可从高停靠段步行到达。",
+    "闸门在高台平台外侧。高停靠与开窗留足角色通行时间。",
+    "角色和箱子可共同受平台支撑。正常推箱操作有足够的装卸与过闸时间。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据"
+  },
+  "constants": {
+    "periodTicks": 600,
+    "lowDock": {
+      "start": 0,
+      "endExclusive": 120
+    },
+    "outbound": {
+      "start": 120,
+      "endExclusive": 270
+    },
+    "highDock": {
+      "start": 270,
+      "endExclusive": 450
+    },
+    "inbound": {
+      "start": 450,
+      "endExclusive": 600
+    },
+    "gateOpen": {
+      "start": 285,
+      "endExclusive": 405
+    }
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "platform.position",
+    "platform.phase",
+    "platform.phaseTick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "box.position",
+    "box.supportSurface",
+    "gate.passable",
+    "cargoDelivered",
+    "outcome"
+  ],
+  "normalEntryMilestones": [
+    "load_cargo",
+    "board_low",
+    "cargo_supported_in_motion",
+    "exit_high",
+    "cross_gate_with_cargo",
+    "deliver_cargo"
+  ],
+  "completionBudget": {
+    "normalJourneySeconds": 100,
+    "recoverAndFinishSeconds": 160
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "low_dock_before_departure",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "相位在低停靠段，玩家可从低台登上平台。"
+      ]
+    },
+    {
+      "id": "adjacent_low_ledge",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家与平台邻近，站在独立静止支撑面。",
+        "平台即将开始前往高台。"
+      ]
+    },
+    {
+      "id": "high_dock_before_gate_opens",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家位于高台门前，平台在高停靠段，窗口未开始。"
+      ]
+    },
+    {
+      "id": "high_dock_before_gate_closes",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家位于高台门前，窗口即将结束，玩家尚未越过门洞。"
+      ]
+    },
+    {
+      "id": "cargo_ready_to_load",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家和箱子位于低台，箱子邻近平台登台边缘，未交付。",
+        "相位在低停靠段开始，箱子可用正常推箱操作上台。"
+      ]
+    },
+    {
+      "id": "high_gate_without_cargo",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在高台门前，箱子仍在低台，未交付。",
+        "处于高停靠段，窗口未开始。"
+      ]
+    }
+  ]
+}

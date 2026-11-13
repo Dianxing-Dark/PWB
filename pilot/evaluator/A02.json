@@ -1,0 +1,161 @@
+{
+  "taskId": "A02",
+  "builderContract": "builder/A02.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "新页面，作品的正常默认入口。"
+      ]
+    },
+    {
+      "id": "box_offset_from_A",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家和箱子在 A 所在层，箱子离开板，移动方向能产生正常接触。"
+      ]
+    },
+    {
+      "id": "box_near_A_without_contact",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "箱子从板 A 一侧经过，预留一条不与板发生接触的正常平面移动路径。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开默认 URL，按可见的开始控件进入作品"
+        }
+      ],
+      "checks": [
+        "页面无致命错误并能进入玩法。"
+      ],
+      "evidence": [
+        "browser_console",
+        "entry_frame"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在默认入口按住并松开一个合法移动键"
+        }
+      ],
+      "checks": [
+        "公开状态快照可读、结构符合任务合同，同一次尝试内时间不倒退，输入通过作品正常控件。"
+      ],
+      "evidence": [
+        "snapshot",
+        "native_input_log"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "plate_contact",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "plate-contact",
+      "scenario": "box_offset_from_A",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "推箱接触板 A，再推离 A。"
+        }
+      ],
+      "checks": [
+        "实际支撑与接触对应激活，推离后复位。",
+        "箱子在接触期间位置连续。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "no_contact_no_trigger",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "plate-contact",
+      "scenario": "box_near_A_without_contact",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "沿平面边缘推箱经过板 A，始终保持实际分离。"
+        }
+      ],
+      "checks": [
+        "箱子靠近 A 但始终没有接触，A 保持未激活。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "plate_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "plate-feedback",
+      "scenario": "box_offset_from_A",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "将箱子推上和推离板 A。"
+        },
+        {
+          "type": "observe",
+          "instruction": "在每次接触事件前后保存玩家视角。"
+        }
+      ],
+      "checks": [
+        "画面能辨认板在触发与释放后的两种状态，变化时机与接触相符。"
+      ],
+      "evidence": [
+        "event_aligned_frames",
+        "event_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "旅程在新页面从默认入口开始，仅发浏览器玩家输入。场景装载只用于局部检查。"
+}

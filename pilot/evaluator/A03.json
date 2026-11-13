@@ -1,0 +1,194 @@
+{
+  "taskId": "A03",
+  "builderContract": "builder/A03.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "新页面，作品的正常默认入口。"
+      ]
+    },
+    {
+      "id": "low_dock_before_departure",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "相位在低停靠段，玩家可从低台登上平台。"
+      ]
+    },
+    {
+      "id": "adjacent_low_ledge",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家与平台邻近，站在独立静止支撑面。",
+        "平台即将开始前往高台。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开默认 URL，按可见的开始控件进入作品"
+        }
+      ],
+      "checks": [
+        "页面无致命错误并能进入玩法。"
+      ],
+      "evidence": [
+        "browser_console",
+        "entry_frame"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在默认入口按住并松开一个合法移动键"
+        }
+      ],
+      "checks": [
+        "公开状态快照可读、结构符合任务合同，同一次尝试内时间不倒退，输入通过作品正常控件。"
+      ],
+      "evidence": [
+        "snapshot",
+        "native_input_log"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "platform_trajectory",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "platform-motion",
+      "scenario": "low_dock_before_departure",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "记录连续两个完整周期的平台坐标和相位事件。"
+        }
+      ],
+      "checks": [
+        "每周期的低停靠、高停靠、移动相位及水平与垂直位移都符合合同。",
+        "第二周期重现相位边界，运动状态不会只在第一次启动时正确。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "actual_support",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "platform-carry",
+      "scenario": "low_dock_before_departure",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "在低台等待首个登台窗口经过，保持角色处于可登台位置。"
+        },
+        {
+          "type": "native",
+          "instruction": "下一次低停靠时登台，松开移动键，让平台载角色到高台再走下。"
+        }
+      ],
+      "checks": [
+        "第二次停靠可登台。连续实际支撑期间角色随平台在 X/Y 移动。",
+        "相对漂移没有导致脱离，合法离台后支持面切到高台。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "no_remote_carry",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "platform-carry",
+      "scenario": "adjacent_low_ledge",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "站在邻近静止台边，松开移动键等待平台驶离。"
+        }
+      ],
+      "checks": [
+        "角色未受平台支撑，平台位移未把角色搬离静止台。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "platform_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "platform-feedback",
+      "scenario": "low_dock_before_departure",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "低台登台并保持至高停靠。"
+        },
+        {
+          "type": "observe",
+          "instruction": "保留登台、运动、高停靠三段玩家视角。"
+        }
+      ],
+      "checks": [
+        "画面能辨认平台与上下停靠点，角色与平台共同移动的反馈清晰。"
+      ],
+      "evidence": [
+        "event_aligned_frames",
+        "event_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "旅程在新页面从默认入口开始，仅发浏览器玩家输入。场景装载只用于局部检查。"
+}

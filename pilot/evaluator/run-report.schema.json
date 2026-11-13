@@ -1,0 +1,292 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlayableWorld-Bench run report",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "pilot-0.1"
+    },
+    "recordKind": {
+      "enum": [
+        "run",
+        "illustrative"
+      ]
+    },
+    "taskId": {
+      "type": "string",
+      "pattern": "^[ACP][0-9]{2}$"
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifactVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluatorVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "browserVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "caseId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "pass",
+              "fail",
+              "product_blocked",
+              "unverified"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "blockedBy": {
+            "type": "string",
+            "minLength": 1
+          },
+          "firstUnmetMilestone": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "caseId",
+          "status",
+          "reason",
+          "evidenceRefs"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "pass",
+                    "fail"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "evidenceRefs": {
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "product_blocked"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "blockedBy"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "blockedBy"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidenceType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidenceSource": {
+            "type": "string",
+            "minLength": 1
+          },
+          "storagePath": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_./-]+$"
+          },
+          "contentDigest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "browserMonotonicMs": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "simulationTick": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "sequenceIndex": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "evidenceType",
+          "evidenceSource",
+          "storagePath",
+          "contentDigest",
+          "browserMonotonicMs",
+          "simulationTick",
+          "sequenceIndex"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "strictTaskSuccess": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "functionalInterval": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "functionalCoverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "visualCoverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "journeys": {
+          "type": "object",
+          "properties": {
+            "passed": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "planned": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "passed",
+            "planned"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "strictTaskSuccess",
+        "functionalInterval",
+        "functionalCoverage",
+        "visualCoverage",
+        "journeys"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "taskId",
+    "runId",
+    "artifactVersion",
+    "evaluatorVersion",
+    "browserVersion",
+    "seed",
+    "cases",
+    "evidence",
+    "summary"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "recordKind": {
+            "const": "run"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "items": {
+              "properties": {
+                "evidenceType": {
+                  "not": {
+                    "const": "example_annotation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

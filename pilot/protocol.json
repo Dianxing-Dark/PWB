@@ -1,0 +1,61 @@
+{
+  "version": "pilot-0.1",
+  "status": "design_contract_pending_browser_calibration",
+  "preGeneration": "Builder 得到任务合同、共享接口和允许装载的合法场景。用例编排、轨迹、种子选择及故障校准材料由评测方保管。",
+  "modes": {
+    "normalEntry": "新会话从默认入口开始。允许正常菜单与玩家输入。禁止装载测试场景、写游戏状态或跳过流程。",
+    "localScenario": "只准备合同规定的合法前置状态。用正常控件产生被测后置结果。",
+    "native": "由浏览器送出真实按键、鼠标事件，记录送出时刻、目标控件、确认送达与失焦。",
+    "observe": "读取公开快照、游戏事件和浏览器画面，保留各自来源与时间。",
+    "reuse": "从既有旅程的事件与帧重新观察。若相应数据缺失，按预登记的观察路径重采。"
+  },
+  "requiredEvidenceFields": [
+    "runId",
+    "taskId",
+    "artifactVersion",
+    "evaluatorVersion",
+    "caseId",
+    "scenarioId",
+    "seed",
+    "sequenceIndex",
+    "evidenceType",
+    "evidenceSource",
+    "browserMonotonicMs",
+    "simulationTick",
+    "contentDigest",
+    "storagePath"
+  ],
+  "capture": [
+    "正常旅程保留全部输入及里程碑。一个任务的可选合法路径按其任务合同归约。",
+    "时间断言保留首次边界事件和状态采样。门与平台同时检查事件顺序、玩家实际通行和可见反馈。",
+    "游戏自报快照用于状态观察。门洞通行、角色承载或可见反馈再以浏览器画面及真实输入证据交叉核对。",
+    "视觉条目独立裁决。先对事件前后帧给出通过、失败或未定，再核验与对应规则事件是否一致。",
+    "冷却、计时和相位以仿真时间判定。实际浏览器输入与渲染帧保留独立时钟，边界动作以观察到的接触或相位事件分类。未送达或缺少边界证据的执行走未定路径。"
+  ],
+  "outcomes": {
+    "pass": "证据确认满足所有注册断言。",
+    "fail": "证据确认违反断言或已成功执行的规定轨迹超时，记录首个失败里程碑与直接原因。",
+    "product_blocked": "已经证实的产品前提失败导致依赖检查无法执行，该检查计零并链接直接失败。",
+    "unverified": "环境故障、送达未知、证据缺失或无法辨认，复跑仍不能判定。"
+  },
+  "score": {
+    "strictTaskSuccess": "只有 P0/P1 必需检查和登记旅程均通过才确认成功。已知失败为 false。只有未定时为 null，计划分母仍保留。",
+    "functionalInterval": "每需求族按计划 P1 功能项计算 [通过数/计划数, (通过数+未定数)/计划数]，再按族等权平均。",
+    "coverage": "需求族覆盖率为 (计划数−未定数)/计划数。汇总同时给出通过、失败、产品阻断和未定计数。",
+    "reportSeparately": [
+      "functional",
+      "journey",
+      "visual",
+      "recovery"
+    ],
+    "requiredJourneyReduction": "每项按所列 requiredJourneyCases 逐一取证。P05 的两条路线分别证实游戏均可获胜。"
+  },
+  "calibrationGate": [
+    "两种独立等价正确实现都满足必需项目和实际视觉条目。",
+    "空壳和每个单故障版本给出预登记的失败位置。非目标且无依赖的检查应继续通过。",
+    "至少重跑一遍参考与定向变体，使用相同种子复核稳定性。",
+    "用实测确认正常操作窗口、追踪容差与合法场景。变更阈值时递增合同版本。"
+  ],
+  "clockNote": "无法测得时钟时字段为 null，并说明缺证原因。浏览器时间和仿真步数分别记录。",
+  "scope": "任务合同、检查计划与数据示例。实现、浏览器评测器和录制证据等待校准。"
+}

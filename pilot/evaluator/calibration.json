@@ -1,0 +1,168 @@
+{
+  "dual-plates": {
+    "targetTask": "P01",
+    "positiveControls": [
+      "刚体碰撞与物理触发器实现",
+      "独立运动与碰撞解算实现，采用不同合法坡道布局"
+    ],
+    "emptyControl": "页面可启动，角色或机关不可操作",
+    "mutations": [
+      {
+        "id": "timer_keeps_partial_credit",
+        "change": "离开 B 后保留已计时间",
+        "mustDetect": [
+          "release_before_threshold"
+        ],
+        "mustPreserve": [
+          "single_plate",
+          "closed_collision"
+        ]
+      },
+      {
+        "id": "closed_collider_after_animation",
+        "change": "门开动画完成但阻挡碰撞仍有效",
+        "mustDetect": [
+          "open_collision",
+          "finish"
+        ],
+        "mustPreserve": [
+          "unlock_at_threshold",
+          "door_feedback"
+        ]
+      },
+      {
+        "id": "missing_door_feedback",
+        "change": "门状态和碰撞正确但玩家视角不显示放行反馈",
+        "mustDetect": [
+          "door_feedback"
+        ],
+        "mustPreserve": [
+          "open_collision",
+          "finish"
+        ]
+      },
+      {
+        "id": "dead_goal_trigger",
+        "change": "角色通过门并进入出口，胜利触发器失效",
+        "mustDetect": [
+          "finish",
+          "recover_and_finish"
+        ],
+        "mustPreserve": [
+          "unlock_at_threshold",
+          "open_collision"
+        ]
+      }
+    ]
+  },
+  "moving-platform": {
+    "targetTask": "P04",
+    "positiveControls": [
+      "用世界坐标平台位移差更新受支撑角色与箱子",
+      "用真实物理接触解算承载并允许不同合法平台外观"
+    ],
+    "emptyControl": "平台有动画，但角色无法登台或交付货箱",
+    "mutations": [
+      {
+        "id": "platform_moves_without_cargo",
+        "change": "角色随平台而箱子留在低台",
+        "mustDetect": [
+          "cargo_motion",
+          "deliver"
+        ],
+        "mustPreserve": [
+          "platform_trajectory",
+          "actual_support"
+        ]
+      },
+      {
+        "id": "nearby_actor_teleported",
+        "change": "角色靠近平台即随行，即使由独立地面支撑",
+        "mustDetect": [
+          "no_remote_carry"
+        ],
+        "mustPreserve": [
+          "platform_trajectory",
+          "blocked_outside_window"
+        ]
+      },
+      {
+        "id": "gate_stays_open_after_window",
+        "change": "门过期后碰撞仍可通行",
+        "mustDetect": [
+          "blocks_when_closed_again"
+        ],
+        "mustPreserve": [
+          "platform_trajectory",
+          "pass_during_window"
+        ]
+      },
+      {
+        "id": "avatar_counts_as_cargo",
+        "change": "玩家单独进入交付区也触发胜利",
+        "mustDetect": [
+          "no_empty_delivery"
+        ],
+        "mustPreserve": [
+          "actual_support",
+          "cargo_motion"
+        ]
+      }
+    ]
+  },
+  "keys-and-resources": {
+    "targetTask": "P05",
+    "positiveControls": [
+      "按物体接触事件记录拾取和消耗",
+      "按场景组件与规则状态更新库存并使用不同合法路线布局"
+    ],
+    "emptyControl": "场景可启动，钥匙只是装饰物",
+    "mutations": [
+      {
+        "id": "pickup_duplicates",
+        "change": "多次经过已拾取位置会重复增加钥匙",
+        "mustDetect": [
+          "pickup_unique"
+        ],
+        "mustPreserve": [
+          "reject_wrong_color",
+          "reject_bypass"
+        ]
+      },
+      {
+        "id": "any_key_opens_upper",
+        "change": "上层锁接受任意颜色的钥匙",
+        "mustDetect": [
+          "reject_wrong_color"
+        ],
+        "mustPreserve": [
+          "pickup_unique",
+          "unlock_correct_and_cross"
+        ]
+      },
+      {
+        "id": "unlock_without_consumption",
+        "change": "门解锁后匹配钥匙未扣除",
+        "mustDetect": [
+          "unlock_correct_and_cross"
+        ],
+        "mustPreserve": [
+          "pickup_unique",
+          "reject_bypass"
+        ]
+      },
+      {
+        "id": "one_branch_cannot_finish",
+        "change": "下层路线出口未连接胜利触发，上层路线正常",
+        "mustDetect": [
+          "finish_lower"
+        ],
+        "mustPreserve": [
+          "finish_upper",
+          "reject_wrong_color"
+        ]
+      }
+    ]
+  },
+  "status": "expected_results_to_verify_in_browser"
+}

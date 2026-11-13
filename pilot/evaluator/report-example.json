@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "pilot-0.1",
+  "recordKind": "illustrative",
+  "taskId": "P01",
+  "runId": "example-closed-collider",
+  "artifactVersion": "illustrative-control",
+  "evaluatorVersion": "pilot-0.1-design",
+  "browserVersion": null,
+  "seed": null,
+  "cases": [
+    {
+      "caseId": "launch",
+      "status": "pass",
+      "reason": "示例预期通过。",
+      "evidenceRefs": [
+        "example-1"
+      ]
+    },
+    {
+      "caseId": "probe",
+      "status": "pass",
+      "reason": "示例预期通过。",
+      "evidenceRefs": [
+        "example-2"
+      ]
+    },
+    {
+      "caseId": "single_plate",
+      "status": "pass",
+      "reason": "示例预期通过。",
+      "evidenceRefs": [
+        "example-3"
+      ]
+    },
+    {
+      "caseId": "release_before_threshold",
+      "status": "pass",
+      "reason": "示例预期通过。",
+      "evidenceRefs": [
+        "example-4"
+      ]
+    },
+    {
+      "caseId": "unlock_at_threshold",
+      "status": "pass",
+      "reason": "示例预期通过。",
+      "evidenceRefs": [
+        "example-5"
+      ]
+    },
+    {
+      "caseId": "closed_collision",
+      "status": "pass",
+      "reason": "示例预期通过。",
+      "evidenceRefs": [
+        "example-6"
+      ]
+    },
+    {
+      "caseId": "open_collision",
+      "status": "fail",
+      "reason": "窗口有效并可见，真实输入已送达，角色仍被碰撞体挡住。",
+      "evidenceRefs": [
+        "example-7"
+      ]
+    },
+    {
+      "caseId": "door_feedback",
+      "status": "pass",
+      "reason": "示例预期通过。",
+      "evidenceRefs": [
+        "example-8"
+      ]
+    },
+    {
+      "caseId": "finish",
+      "status": "fail",
+      "reason": "完整轨迹已送达输入，首个失败里程碑为 cross_door。",
+      "evidenceRefs": [
+        "example-9"
+      ],
+      "firstUnmetMilestone": "cross_door"
+    },
+    {
+      "caseId": "recover_and_finish",
+      "status": "fail",
+      "reason": "跌落与 R 重试成功，后续真实输入在 cross_door 受阻。",
+      "evidenceRefs": [
+        "example-10"
+      ],
+      "firstUnmetMilestone": "cross_door"
+    },
+    {
+      "caseId": "terminal_feedback",
+      "status": "unverified",
+      "reason": "失败与重试有帧，胜利帧缺失；此复用条目不能获得完整证据。",
+      "evidenceRefs": [
+        "example-11"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "example-1",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 1,
+      "locator": "line 1"
+    },
+    {
+      "id": "example-2",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 2,
+      "locator": "line 2"
+    },
+    {
+      "id": "example-3",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 3,
+      "locator": "line 3"
+    },
+    {
+      "id": "example-4",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 4,
+      "locator": "line 4"
+    },
+    {
+      "id": "example-5",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 5,
+      "locator": "line 5"
+    },
+    {
+      "id": "example-6",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 6,
+      "locator": "line 6"
+    },
+    {
+      "id": "example-7",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 7,
+      "locator": "line 7"
+    },
+    {
+      "id": "example-8",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 8,
+      "locator": "line 8"
+    },
+    {
+      "id": "example-9",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 9,
+      "locator": "line 9"
+    },
+    {
+      "id": "example-10",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 10,
+      "locator": "line 10"
+    },
+    {
+      "id": "example-11",
+      "evidenceType": "example_annotation",
+      "evidenceSource": "illustrative",
+      "storagePath": "evaluator/example-annotations.jsonl",
+      "contentDigest": "33568525ff1a9d77165ca7a01376011ce91564cbdf483df708b03a17594cfb9d",
+      "browserMonotonicMs": null,
+      "simulationTick": null,
+      "sequenceIndex": 11,
+      "locator": "line 11"
+    }
+  ],
+  "summary": {
+    "strictTaskSuccess": false,
+    "functionalInterval": [
+      0.75,
+      0.75
+    ],
+    "functionalCoverage": 1.0,
+    "visualCoverage": 0.5,
+    "journeys": {
+      "passed": 0,
+      "planned": 2
+    }
+  }
+}

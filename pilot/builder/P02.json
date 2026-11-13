@@ -1,0 +1,85 @@
+{
+  "id": "P02",
+  "family": "dual-plates",
+  "tier": "playthrough",
+  "platform": "browser-html-js",
+  "dimension": "2D",
+  "title": "2D 双压板通关与重试",
+  "goal": "从平面任务正常入口通关，并可在跌落到危险区后重试通关。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "箱子经正常移动接触后可推。压板 A 仅由实际接触该板的箱子激活。",
+    "同一平面内，压板 B 仅由实际接触该板的玩家激活。",
+    "同时激活从第 s 步开始，门在 s+120 步解锁；若任一板在该步或更早解除，则重新计时。",
+    "解锁后可以立即通行，或在最多 30 步的开门动作结束后通行。门本次尝试内保持开启。",
+    "玩家通过门洞并进入门后目标区才判定胜利。",
+    "跌落明确进入失败态，R 重置尝试、物理对象、时钟及临时进度。"
+  ],
+  "layoutConstraints": [
+    "所有玩法发生在同一平面，公开位置的 y 分量为 0。",
+    "箱子与两块压板的正常路线分开，玩家可用正常控制先推箱再走向第二块板。",
+    "平面地图有可从入口到达的明确危险区。进入该区算跌落并触发相同的失败、重试规则。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据",
+    "plane": "XZ",
+    "height": 0
+  },
+  "constants": {
+    "bothActiveTicks": 120,
+    "maxOpeningTicks": 30,
+    "releaseAtBoundary": "cancel_before_unlock"
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "box.position",
+    "box.supportSurface",
+    "plates.A.active",
+    "plates.B.active",
+    "dualActiveSinceTick",
+    "door.unlocked",
+    "door.passable",
+    "goalCrossed",
+    "outcome"
+  ],
+  "normalEntryMilestones": [
+    "box_contacts_A",
+    "avatar_contacts_B",
+    "door_unlocked",
+    "cross_door",
+    "enter_goal"
+  ],
+  "completionBudget": {
+    "normalJourneySeconds": 75,
+    "recoverAndFinishSeconds": 120
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "box_on_A_before_B",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "箱子合法压住 A，玩家位于 B 旁边，B 未激活。",
+        "门关闭，双板计时尚未开始。"
+      ]
+    },
+    {
+      "id": "avatar_near_closed_door",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在门前的正常可达位置，两板条件未满足，门关闭。"
+      ]
+    }
+  ]
+}

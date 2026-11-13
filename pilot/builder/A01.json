@@ -1,0 +1,63 @@
+{
+  "id": "A01",
+  "family": "dual-plates",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 推箱压板",
+  "goal": "通过实际推箱激活下层压板。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "箱子经正常移动接触后可推。压板 A 仅由实际接触该板的箱子激活。",
+    "箱子离开接触面后，压板恢复未激活。"
+  ],
+  "layoutConstraints": [
+    "下层压板 A 与上层区域的俯视投影有交集，两层可分别支撑物体，实际接触不会跨层发生。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据"
+  },
+  "constants": {},
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "box.position",
+    "box.supportSurface",
+    "plates.A.active"
+  ],
+  "normalEntryMilestones": [
+    "approach_box",
+    "box_contacts_A"
+  ],
+  "completionBudget": {
+    "localCaseSeconds": 20
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "box_offset_from_A",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家和箱子在 A 所在层，箱子离开板，移动方向能产生正常接触。"
+      ]
+    },
+    {
+      "id": "box_above_A",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家和箱子在上层支撑面，箱子与 A 的俯视投影可重叠。",
+        "箱子与 A 无实际接触。"
+      ]
+    }
+  ]
+}

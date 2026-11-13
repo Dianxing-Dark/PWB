@@ -1,0 +1,11 @@
+{"id": "example-1", "illustrative": true, "caseId": "launch", "note": "示例预期通过。"}
+{"id": "example-2", "illustrative": true, "caseId": "probe", "note": "示例预期通过。"}
+{"id": "example-3", "illustrative": true, "caseId": "single_plate", "note": "示例预期通过。"}
+{"id": "example-4", "illustrative": true, "caseId": "release_before_threshold", "note": "示例预期通过。"}
+{"id": "example-5", "illustrative": true, "caseId": "unlock_at_threshold", "note": "示例预期通过。"}
+{"id": "example-6", "illustrative": true, "caseId": "closed_collision", "note": "示例预期通过。"}
+{"id": "example-7", "illustrative": true, "caseId": "open_collision", "note": "窗口有效并可见，真实输入已送达，角色仍被碰撞体挡住。"}
+{"id": "example-8", "illustrative": true, "caseId": "door_feedback", "note": "示例预期通过。"}
+{"id": "example-9", "illustrative": true, "caseId": "finish", "note": "完整轨迹已送达输入，首个失败里程碑为 cross_door。"}
+{"id": "example-10", "illustrative": true, "caseId": "recover_and_finish", "note": "跌落与 R 重试成功，后续真实输入在 cross_door 受阻。"}
+{"id": "example-11", "illustrative": true, "caseId": "terminal_feedback", "note": "失败与重试有帧，胜利帧缺失；此复用条目不能获得完整证据。"}

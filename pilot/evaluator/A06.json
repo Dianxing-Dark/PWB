@@ -1,0 +1,166 @@
+{
+  "taskId": "A06",
+  "builderContract": "builder/A06.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "新页面，作品的正常默认入口。"
+      ]
+    },
+    {
+      "id": "one_key_at_matching_lock",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家处于下层门前，持有一把琥珀钥匙，两门关闭。"
+      ]
+    },
+    {
+      "id": "projected_near_other_floor",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家持有一把琥珀钥匙，站在与上层锁投影邻近的下层位置。",
+        "玩家位于下层锁的有效交互范围，上层锁位于不同高度。"
+      ]
+    },
+    {
+      "id": "key_already_spent_elsewhere",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "下层锁已通过合法方式打开并消耗钥匙。",
+        "玩家到达尚未打开的上层门，库存为零。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开默认 URL，按可见的开始控件进入作品"
+        }
+      ],
+      "checks": [
+        "页面无致命错误并能进入玩法。"
+      ],
+      "evidence": [
+        "browser_console",
+        "entry_frame"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在默认入口按住并松开一个合法移动键"
+        }
+      ],
+      "checks": [
+        "公开状态快照可读、结构符合任务合同，同一次尝试内时间不倒退，输入通过作品正常控件。"
+      ],
+      "evidence": [
+        "snapshot",
+        "native_input_log"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "consume_once",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "lock-consumption",
+      "scenario": "one_key_at_matching_lock",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按下并松开 E，确认开锁，再按一次 E。"
+        }
+      ],
+      "checks": [
+        "第一下只解开同层门并恰好消耗一把钥匙。",
+        "第二下库存和上层锁保持原状态。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "reject_cross_level",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "lock-targeting",
+      "scenario": "projected_near_other_floor",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "保持在上层锁投影附近，按下并松开 E。"
+        }
+      ],
+      "checks": [
+        "同层锁可开启，且只消耗一把钥匙。",
+        "投影接近的上层锁保持关闭，无额外解锁事件。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "reject_empty_inventory",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "lock-consumption",
+      "scenario": "key_already_spent_elsewhere",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "对剩余锁按下并松开 E。"
+        }
+      ],
+      "checks": [
+        "目标锁仍关闭，无负库存，没有额外解锁事件。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "旅程在新页面从默认入口开始，仅发浏览器玩家输入。场景装载只用于局部检查。"
+}

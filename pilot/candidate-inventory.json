@@ -1,0 +1,300 @@
+{
+  "count": 30,
+  "specified": 12,
+  "tasks": [
+    {
+      "id": "A01",
+      "title": "推箱压板",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "接触、上下层",
+      "criterion": "投影重叠而高度不同，不激活。",
+      "status": "specified",
+      "builder": "builder/A01.json",
+      "evaluator": "evaluator/A01.json"
+    },
+    {
+      "id": "A02",
+      "title": "推箱压板",
+      "dimension": "2D",
+      "tier": "atom",
+      "focus": "接触、平面",
+      "criterion": "A01 配对。分离与接触分别产生对应状态。",
+      "status": "specified",
+      "builder": "builder/A02.json",
+      "evaluator": "evaluator/A02.json"
+    },
+    {
+      "id": "A03",
+      "title": "横移升降台",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "移动、承载",
+      "criterion": "平台同时沿水平轴和高度轴位移，角色持续受承载。",
+      "status": "specified",
+      "builder": "builder/A03.json",
+      "evaluator": "evaluator/A03.json"
+    },
+    {
+      "id": "A04",
+      "title": "斜坡边缘",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "移动、碰撞",
+      "criterion": "沿坡与横切坡缘的结果不同，记录落地高度。",
+      "status": "candidate"
+    },
+    {
+      "id": "A05",
+      "title": "隔层拾取",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "对象、视线",
+      "criterion": "同投影的物体只有在同层可达时才能拾取。",
+      "status": "candidate"
+    },
+    {
+      "id": "A06",
+      "title": "钥匙单次消耗",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "资源、对象",
+      "criterion": "同投影的上下层锁各有实体，操作仅作用于实际接近的锁。",
+      "status": "specified",
+      "builder": "builder/A06.json",
+      "evaluator": "evaluator/A06.json"
+    },
+    {
+      "id": "A07",
+      "title": "限时门",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "时序、碰撞",
+      "criterion": "门开启时间窗可量测，过期后阻挡立体通道。",
+      "status": "candidate"
+    },
+    {
+      "id": "A08",
+      "title": "掩体避险",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "危险、遮挡",
+      "criterion": "高低站位改变有效掩体，弹道命中与画面一致。",
+      "status": "candidate"
+    },
+    {
+      "id": "A09",
+      "title": "单向落差",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "移动、地形",
+      "criterion": "允许从指定边缘下落，在不同高度时保持正确通行方向。",
+      "status": "candidate"
+    },
+    {
+      "id": "A10",
+      "title": "检查点",
+      "dimension": "3D",
+      "tier": "atom",
+      "focus": "失败、恢复",
+      "criterion": "坠落重试后回到正确楼层，投影相同的相邻层保持独立。",
+      "status": "candidate"
+    },
+    {
+      "id": "C01",
+      "title": "双压板门",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "接触、时序、碰撞",
+      "criterion": "上下层压板连续激活，角色实际穿门。",
+      "status": "specified",
+      "builder": "builder/C01.json",
+      "evaluator": "evaluator/C01.json"
+    },
+    {
+      "id": "C02",
+      "title": "双压板门",
+      "dimension": "2D",
+      "tier": "combination",
+      "focus": "接触、时序、碰撞",
+      "criterion": "C01 配对。平面分支保留压板顺序、计时和通行规则。",
+      "status": "specified",
+      "builder": "builder/C02.json",
+      "evaluator": "evaluator/C02.json"
+    },
+    {
+      "id": "C03",
+      "title": "平台与闸门",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "运动、时序",
+      "criterion": "搭乘斜向运动的平台，抵达高度与开门窗口同时成立。",
+      "status": "specified",
+      "builder": "builder/C03.json",
+      "evaluator": "evaluator/C03.json"
+    },
+    {
+      "id": "C04",
+      "title": "搬箱清道",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "对象、碰撞",
+      "criterion": "移出箱体后，宽度和头部净空都能通过角色。",
+      "status": "candidate"
+    },
+    {
+      "id": "C05",
+      "title": "跨层钥匙门",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "拾取、资源、目标",
+      "criterion": "上下层相同投影的钥匙与门存在对应关系。",
+      "status": "specified",
+      "builder": "builder/C05.json",
+      "evaluator": "evaluator/C05.json"
+    },
+    {
+      "id": "C06",
+      "title": "合成与交付",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "资源、目标",
+      "criterion": "在两层收集材料，并向正确高度的交付点交付。",
+      "status": "candidate"
+    },
+    {
+      "id": "C07",
+      "title": "陷阱与检查点",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "危险、恢复",
+      "criterion": "多层陷阱触发失败，重试落在最近已登记的检查点。",
+      "status": "candidate"
+    },
+    {
+      "id": "C08",
+      "title": "高台目标射击",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "遮挡、危险",
+      "criterion": "通过空间遮挡判定有效射击，成功后沿通路进入目标区。",
+      "status": "candidate"
+    },
+    {
+      "id": "C09",
+      "title": "视线与拾取",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "视线、对象",
+      "criterion": "隔墙操作无效，绕到可视可达位置后拾取。",
+      "status": "candidate"
+    },
+    {
+      "id": "C10",
+      "title": "断桥改道",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "空间、动态路由",
+      "criterion": "跨层连接关闭后，玩家能沿合法替代路抵达。",
+      "status": "candidate"
+    },
+    {
+      "id": "C11",
+      "title": "转向与定位",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "视角、空间",
+      "criterion": "转向后输入与当前控制约定一致，能选择深度不同的目标。",
+      "status": "candidate"
+    },
+    {
+      "id": "C12",
+      "title": "双房间恢复",
+      "dimension": "3D",
+      "tier": "combination",
+      "focus": "目标、状态保留",
+      "criterion": "死亡重试时保留已完成房间，重置合同指定的临时状态。",
+      "status": "candidate"
+    },
+    {
+      "id": "P01",
+      "title": "双压板通关",
+      "dimension": "3D",
+      "tier": "playthrough",
+      "focus": "推箱→上层→穿门→终点",
+      "criterion": "直接通关和跌落后重试通关均有轨迹。",
+      "status": "specified",
+      "builder": "builder/P01.json",
+      "evaluator": "evaluator/P01.json"
+    },
+    {
+      "id": "P02",
+      "title": "双压板通关",
+      "dimension": "2D",
+      "tier": "playthrough",
+      "focus": "分支→压板→穿门→终点",
+      "criterion": "P01 配对。终态、时长、动作预算和检查点语义一致。",
+      "status": "specified",
+      "builder": "builder/P02.json",
+      "evaluator": "evaluator/P02.json"
+    },
+    {
+      "id": "P03",
+      "title": "升降塔",
+      "dimension": "3D",
+      "tier": "playthrough",
+      "focus": "载具→高层检查点→返回出口",
+      "criterion": "测试双向升降、不同层通行与失败恢复。",
+      "status": "candidate"
+    },
+    {
+      "id": "P04",
+      "title": "货物运送",
+      "dimension": "3D",
+      "tier": "playthrough",
+      "focus": "装货→跨平台→限时闸门→交付",
+      "criterion": "角色和货物都在合法空间内到达。",
+      "status": "specified",
+      "builder": "builder/P04.json",
+      "evaluator": "evaluator/P04.json"
+    },
+    {
+      "id": "P05",
+      "title": "双路线钥匙",
+      "dimension": "3D",
+      "tier": "playthrough",
+      "focus": "拾取→选择路线→解锁→撤离",
+      "criterion": "声明至少两条合法路线，追踪钥匙唯一消耗。",
+      "status": "specified",
+      "builder": "builder/P05.json",
+      "evaluator": "evaluator/P05.json"
+    },
+    {
+      "id": "P06",
+      "title": "危险区救援",
+      "dimension": "3D",
+      "tier": "playthrough",
+      "focus": "观察掩体→关闭危险源→救援",
+      "criterion": "目标、可见反馈和失败后状态恢复齐全。",
+      "status": "candidate"
+    },
+    {
+      "id": "P07",
+      "title": "断桥信标",
+      "dimension": "3D",
+      "tier": "playthrough",
+      "focus": "起点→桥断→改道→按序点亮信标",
+      "criterion": "局部通路、切换时序与完整流程各有证据。",
+      "status": "candidate"
+    },
+    {
+      "id": "P08",
+      "title": "分层控制室",
+      "dimension": "3D",
+      "tier": "playthrough",
+      "focus": "找开关→按序激活→返回出口",
+      "criterion": "检查跨房间进度与正常胜利结算。",
+      "status": "candidate"
+    }
+  ]
+}

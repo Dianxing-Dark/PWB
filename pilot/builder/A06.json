@@ -1,0 +1,77 @@
+{
+  "id": "A06",
+  "family": "keys-and-resources",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 钥匙单次消耗",
+  "goal": "用手中唯一的一把琥珀钥匙打开一扇同层的门。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景",
+    "useLock": "E"
+  },
+  "publicRules": [
+    "按 E 只操作同层且位于合法交互距离的门。钥匙颜色必须与门锁匹配。",
+    "成功解锁消耗一把匹配钥匙。对已开门或无匹配钥匙的门重复操作不改变库存。",
+    "两个锁都为琥珀色，开局有且只有一把琥珀钥匙。"
+  ],
+  "layoutConstraints": [
+    "至少两个可达楼层。不同楼层各有一扇门，两门的俯视投影有交集，不能跨层操作。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据"
+  },
+  "constants": {},
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "inventory.amber",
+    "inventory.blue",
+    "doors.lower.locked",
+    "doors.upper.locked",
+    "doors.lower.passable",
+    "doors.upper.passable"
+  ],
+  "normalEntryMilestones": [
+    "approach_lock",
+    "unlock_once"
+  ],
+  "completionBudget": {
+    "localCaseSeconds": 25
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "one_key_at_matching_lock",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家处于下层门前，持有一把琥珀钥匙，两门关闭。"
+      ]
+    },
+    {
+      "id": "projected_near_other_floor",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家持有一把琥珀钥匙，站在与上层锁投影邻近的下层位置。",
+        "玩家位于下层锁的有效交互范围，上层锁位于不同高度。"
+      ]
+    },
+    {
+      "id": "key_already_spent_elsewhere",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "下层锁已通过合法方式打开并消耗钥匙。",
+        "玩家到达尚未打开的上层门，库存为零。"
+      ]
+    }
+  ]
+}

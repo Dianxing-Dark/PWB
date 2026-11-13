@@ -1,0 +1,94 @@
+{
+  "id": "P05",
+  "family": "keys-and-resources",
+  "tier": "playthrough",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 双路线钥匙",
+  "goal": "选择上层或下层路线，取相应钥匙、开门并抵达共享出口。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景",
+    "useLock": "E"
+  },
+  "publicRules": [
+    "按 E 只操作同层且位于合法交互距离的门。钥匙颜色必须与门锁匹配。",
+    "成功解锁消耗一把匹配钥匙。对已开门或无匹配钥匙的门重复操作不改变库存。",
+    "角色接触钥匙时拾取，钥匙从场景消失，对应库存增加一。再次经过不会重复拾取。",
+    "下层锁需要蓝钥匙，上层锁需要琥珀钥匙。",
+    "上下层都存在独立合法的起点到出口路线，任一条均可获胜。两条路线的库存各自从新会话开始。",
+    "玩家实际通过已解锁的目标门并进入门后目标区才判定成功。"
+  ],
+  "layoutConstraints": [
+    "至少两个可达楼层。不同楼层各有一扇门，两门的俯视投影有交集，不能跨层操作。",
+    "两条路线在各自通过匹配锁后能到达共享出口。出口无法绕过两道锁直接到达。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据"
+  },
+  "constants": {},
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "inventory.amber",
+    "inventory.blue",
+    "doors.lower.locked",
+    "doors.upper.locked",
+    "doors.lower.passable",
+    "doors.upper.passable",
+    "keys.amber.collected",
+    "keys.blue.collected",
+    "outcome",
+    "traversedBranch"
+  ],
+  "normalEntryMilestones": [
+    "collect_branch_key",
+    "unlock_matching_door",
+    "cross_branch_door",
+    "enter_goal"
+  ],
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 90
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "before_amber_pickup",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家正常到达琥珀钥匙旁，钥匙存在且尚未入库。"
+      ]
+    },
+    {
+      "id": "blue_only_near_upper_lock",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家已经从正常位置拾取蓝钥匙。",
+        "位于仍关闭的上层琥珀锁前，未持有琥珀钥匙。"
+      ]
+    },
+    {
+      "id": "amber_key_near_upper_lock",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家已合法拾取琥珀钥匙，站在仍关闭的上层锁前。"
+      ]
+    },
+    {
+      "id": "no_key_near_locked_door",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家位于闭锁门前，库存空。目标尚未完成。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "name": "PlayableWorld-Bench pilot task specifications",
+  "version": "0.1",
+  "taskCount": 12,
+  "evaluatorCaseCount": 104,
+  "authoringOnly": true,
+  "tasks": [
+    {
+      "id": "A01",
+      "family": "dual-plates",
+      "tier": "atom",
+      "dimension": "3D",
+      "builder": "builder/A01.json",
+      "evaluator": "evaluator/A01.json"
+    },
+    {
+      "id": "C01",
+      "family": "dual-plates",
+      "tier": "combination",
+      "dimension": "3D",
+      "builder": "builder/C01.json",
+      "evaluator": "evaluator/C01.json"
+    },
+    {
+      "id": "P01",
+      "family": "dual-plates",
+      "tier": "playthrough",
+      "dimension": "3D",
+      "builder": "builder/P01.json",
+      "evaluator": "evaluator/P01.json"
+    },
+    {
+      "id": "A03",
+      "family": "moving-platform",
+      "tier": "atom",
+      "dimension": "3D",
+      "builder": "builder/A03.json",
+      "evaluator": "evaluator/A03.json"
+    },
+    {
+      "id": "C03",
+      "family": "moving-platform",
+      "tier": "combination",
+      "dimension": "3D",
+      "builder": "builder/C03.json",
+      "evaluator": "evaluator/C03.json"
+    },
+    {
+      "id": "P04",
+      "family": "moving-platform",
+      "tier": "playthrough",
+      "dimension": "3D",
+      "builder": "builder/P04.json",
+      "evaluator": "evaluator/P04.json"
+    },
+    {
+      "id": "A06",
+      "family": "keys-and-resources",
+      "tier": "atom",
+      "dimension": "3D",
+      "builder": "builder/A06.json",
+      "evaluator": "evaluator/A06.json"
+    },
+    {
+      "id": "C05",
+      "family": "keys-and-resources",
+      "tier": "combination",
+      "dimension": "3D",
+      "builder": "builder/C05.json",
+      "evaluator": "evaluator/C05.json"
+    },
+    {
+      "id": "P05",
+      "family": "keys-and-resources",
+      "tier": "playthrough",
+      "dimension": "3D",
+      "builder": "builder/P05.json",
+      "evaluator": "evaluator/P05.json"
+    },
+    {
+      "id": "A02",
+      "family": "dual-plates",
+      "tier": "atom",
+      "dimension": "2D",
+      "builder": "builder/A02.json",
+      "evaluator": "evaluator/A02.json"
+    },
+    {
+      "id": "C02",
+      "family": "dual-plates",
+      "tier": "combination",
+      "dimension": "2D",
+      "builder": "builder/C02.json",
+      "evaluator": "evaluator/C02.json"
+    },
+    {
+      "id": "P02",
+      "family": "dual-plates",
+      "tier": "playthrough",
+      "dimension": "2D",
+      "builder": "builder/P02.json",
+      "evaluator": "evaluator/P02.json"
+    }
+  ],
+  "readFirst": [
+    "START-HERE.txt",
+    "protocol.json",
+    "builder/shared-runtime-interface.json"
+  ],
+  "designReferences": [
+    "https://arxiv.org/html/2609.21293v1",
+    "https://arxiv.org/html/2610.26098v1",
+    "https://arxiv.org/html/2609.21562v1",
+    "https://arxiv.org/html/2606.17861v1"
+  ],
+  "candidateInventory": "candidate-inventory.json",
+  "runReportSchema": "evaluator/run-report.schema.json"
+}

@@ -1,0 +1,109 @@
+{
+  "id": "C03",
+  "family": "moving-platform",
+  "tier": "combination",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 平台与限时闸门",
+  "goal": "搭乘平台并在窗口内通过闸门。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "可见开始按钮或直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "沿 X 和 Y 移动的平台只有在真实支撑玩家或箱子时才传递位移，角色可在停靠时上下。",
+    "平台相位使用仿真步数，依低停靠、前往高台、高停靠、返回低台循环。",
+    "闸门按平台周期打开，在相位步 285 开始放行，在 405 步恢复阻挡。合格窗口外不得跨越门洞。",
+    "穿过闸门并进入目标区时判定成功。"
+  ],
+  "layoutConstraints": [
+    "起点低台和高台存在可测高差及水平偏移。默认走法搭乘平台，高台在合法控制下可从高停靠段步行到达。",
+    "闸门在高台平台外侧。高停靠与开窗留足角色通行时间。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "每步先更新输入与物理接触，再更新机关，最后记录观察数据"
+  },
+  "constants": {
+    "periodTicks": 600,
+    "lowDock": {
+      "start": 0,
+      "endExclusive": 120
+    },
+    "outbound": {
+      "start": 120,
+      "endExclusive": 270
+    },
+    "highDock": {
+      "start": 270,
+      "endExclusive": 450
+    },
+    "inbound": {
+      "start": 450,
+      "endExclusive": 600
+    },
+    "gateOpen": {
+      "start": 285,
+      "endExclusive": 405
+    }
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "platform.position",
+    "platform.phase",
+    "platform.phaseTick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "gate.passable",
+    "outcome"
+  ],
+  "normalEntryMilestones": [
+    "board_low",
+    "supported_in_motion",
+    "exit_high",
+    "cross_gate",
+    "enter_goal"
+  ],
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "low_dock_before_departure",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "相位在低停靠段，玩家可从低台登上平台。"
+      ]
+    },
+    {
+      "id": "adjacent_low_ledge",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家与平台邻近，站在独立静止支撑面。",
+        "平台即将开始前往高台。"
+      ]
+    },
+    {
+      "id": "high_dock_before_gate_opens",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家位于高台门前，平台在高停靠段，窗口未开始。"
+      ]
+    },
+    {
+      "id": "high_dock_before_gate_closes",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家位于高台门前，窗口即将结束，玩家尚未越过门洞。"
+      ]
+    }
+  ]
+}

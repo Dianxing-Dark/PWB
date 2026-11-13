@@ -1,0 +1,283 @@
+{
+  "taskId": "C01",
+  "builderContract": "builder/C01.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "新页面，作品的正常默认入口。"
+      ]
+    },
+    {
+      "id": "box_on_A_before_B",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "箱子合法压住 A，玩家位于 B 旁边，B 未激活。",
+        "门关闭，双板计时尚未开始。"
+      ]
+    },
+    {
+      "id": "avatar_near_closed_door",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在门前的正常可达位置，两板条件未满足，门关闭。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开默认 URL，按可见的开始控件进入作品"
+        }
+      ],
+      "checks": [
+        "页面无致命错误并能进入玩法。"
+      ],
+      "evidence": [
+        "browser_console",
+        "entry_frame"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在默认入口按住并松开一个合法移动键"
+        }
+      ],
+      "checks": [
+        "公开状态快照可读、结构符合任务合同，同一次尝试内时间不倒退，输入通过作品正常控件。"
+      ],
+      "evidence": [
+        "snapshot",
+        "native_input_log"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "single_plate",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "unlock-timing",
+      "scenario": "box_on_A_before_B",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "保持在 B 外至少 150 个仿真步。"
+        }
+      ],
+      "checks": [
+        "A 激活，B 未激活，门从未解锁或放行。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "release_before_threshold",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "unlock-timing",
+      "scenario": "box_on_A_before_B",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "踩住 B，在 120 步以前离开，再重新踩住。"
+        }
+      ],
+      "checks": [
+        "第一次计时作废。",
+        "第二段到达完整 120 步之前无解锁或通行事件。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "boundary"
+    },
+    {
+      "id": "unlock_at_threshold",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "unlock-timing",
+      "scenario": "box_on_A_before_B",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "踩住 B 并持续至解锁，开门完成后移开玩家。"
+        }
+      ],
+      "checks": [
+        "双板连续激活到 s+120 步解锁，开门最多另需 30 步。",
+        "门状态在本次尝试内保持放行。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "closed_collision",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "door-transit",
+      "scenario": "avatar_near_closed_door",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "向门洞中心持续移动，然后松开。"
+        }
+      ],
+      "checks": [
+        "门保持关闭。",
+        "角色在门前受阻，从未跨过门洞平面或触发目标。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "open_collision",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "door-transit",
+      "scenario": "box_on_A_before_B",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "合法解锁后，使用正常移动通过门洞。"
+        }
+      ],
+      "checks": [
+        "门已放行。",
+        "连续位置和实际画面显示角色完整越过门洞并在门后停留。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "door_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "door-feedback",
+      "scenario": "box_on_A_before_B",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "踩板开门，随后靠近门洞。"
+        },
+        {
+          "type": "observe",
+          "instruction": "保存开门前、放行时和通过后的实帧。"
+        }
+      ],
+      "checks": [
+        "玩家视角能辨认门从阻挡到开放，画面反馈与门事件相符。"
+      ],
+      "evidence": [
+        "event_aligned_frames",
+        "event_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "finish",
+      "stage": "journey",
+      "priority": "P1",
+      "family": "player-journey",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口推箱、上坡、踩 B、过门并到达出口。"
+        },
+        {
+          "type": "observe",
+          "instruction": "存储从页面入口到终态的全部操作与里程碑。"
+        }
+      ],
+      "checks": [
+        "同一条真实输入轨迹依次包含全部公开里程碑。",
+        "进入门后目标区后产生胜利。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [
+    "finish"
+  ],
+  "policy": "旅程在新页面从默认入口开始，仅发浏览器玩家输入。场景装载只用于局部检查。"
+}
