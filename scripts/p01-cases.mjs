@@ -42,9 +42,14 @@ async function normalJourney(test, initial) {
   for (const waypoint of rampWaypoints) await test.go(waypoint);
   await standOnB(test);
   const onB = await test.sample();
-  requireCheck(onB.avatar.position[1] >= upperHeight - 0.06 &&
-    onB.avatar.position[1] - onB.box.position[1] >= 0.25,
-  "Player and crate did not activate plates at distinct elevations.", "avatar_contacts_B");
+  if (test.contract.dimension === "2D") {
+    requireCheck(test.trace.every(state => state.avatar.position[1] === 0 && state.box.position[1] === 0),
+      "Player or crate left the XZ plane.", "avatar_contacts_B");
+  } else {
+    requireCheck(onB.avatar.position[1] >= upperHeight - 0.06 &&
+      onB.avatar.position[1] - onB.box.position[1] >= 0.25,
+    "Player and crate did not activate plates at distinct elevations.", "avatar_contacts_B");
+  }
   await test.capture("upper-plate");
   await waitForGate(test);
   await test.capture("gate-open");
@@ -70,7 +75,7 @@ async function normalJourney(test, initial) {
 export const cases = {
   async launch(test) {
     await test.capture("entry");
-    requireCheck(await test.page.locator("canvas").isVisible(), "The 3D playfield is missing.");
+    requireCheck(await test.page.locator("canvas").isVisible(), "The playable canvas is missing.");
   },
   async probe(test) {
     const before = await test.sample();

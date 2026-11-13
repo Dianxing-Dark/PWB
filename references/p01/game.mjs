@@ -1,8 +1,18 @@
 import * as THREE from "three";
 import { createSimulation, geometry, GATE_X, GATE_Z, GAP, TOP, TICK_RATE } from "./simulation.mjs";
 
-const fault = new URLSearchParams(location.search).get("fault") ?? "";
-const game = createSimulation(fault);
+const params = new URLSearchParams(location.search);
+const task = params.get("task") ?? "P01";
+if (!["A01", "C01", "P01"].includes(task)) throw new Error("Choose A01, C01, or P01.");
+const atom = task === "A01";
+const fault = params.get("fault") ?? "";
+const game = createSimulation(fault, task);
+document.querySelector(".caption").textContent = "PlayableWorld-Bench · " + task;
+if (atom) {
+  document.querySelector(".objective").textContent = "Push the crate onto plate A, then push it clear.";
+  document.querySelector("#plate-b").parentElement.hidden = true;
+  document.querySelector("#gate").parentElement.hidden = true;
+}
 window.__gameTest = {
   getSnapshot: game.getSnapshot,
   getEvents: game.getEvents,
@@ -46,6 +56,7 @@ slab(geometry.upper, TOP, material(0x5f7d94, { transparent: true, opacity: 0.66 
 const rampLength = Math.hypot(4, TOP);
 const ramp = box(rampLength, 0.12, 0.9, -5, TOP / 2 - 0.07, GATE_Z, material(0x557b8b));
 ramp.rotation.z = Math.atan2(TOP, 4);
+const firstGatePart = scene.children.length;
 const trim = material(0x728fa1);
 box(0.18, 1.05, GATE_Z - GAP / 2 - geometry.upper.z1, GATE_X, TOP + 0.52,
   (GATE_Z - GAP / 2 + geometry.upper.z1) / 2, trim);
@@ -56,8 +67,12 @@ box(0.28, 1.65, 0.13, GATE_X, TOP + 0.82, GATE_Z + GAP / 2, trim);
 box(0.28, 0.15, GAP + 0.18, GATE_X, TOP + 1.66, GATE_Z, trim);
 const gate = box(0.16, 1.48, GAP - 0.08, GATE_X, TOP + 0.74, GATE_Z, basic(0xf12383));
 box(1.15, 0.035, 1.15, 4.85, TOP + 0.02, GATE_Z, basic(0x52d9ac));
+if (atom) {
+  for (const mesh of scene.children.slice(firstGatePart)) mesh.visible = false;
+}
 const plateA = box(0.78, 0.045, 0.78, 0, 0.025, -1, basic(0xffbc55));
 const plateB = box(0.88, 0.045, 0.88, -0.65, TOP + 0.025, GATE_Z, basic(0x4bacc9));
+plateB.visible = !atom;
 const crate = box(0.64, 0.62, 0.64, 0, 0, 0, material(0xffad4d));
 const avatar = box(0.34, 0.62, 0.34, 0, 0, 0, basic(0x65e8ff));
 const edge = basic(0xffce6e);
@@ -73,7 +88,7 @@ function draw(state) {
   plateA.material.color.setHex(state.plates.A.active ? 0x5ee5a4 : 0xffbc55);
   plateB.material.color.setHex(state.plates.B.active ? 0x5ee5a4 : 0x4bacc9);
   const showsOpen = state.door.passable && fault !== "missing_door_feedback";
-  gate.visible = !showsOpen;
+  gate.visible = !atom && !showsOpen;
   labels["plate-a"].textContent = state.plates.A.active ? "Active" : "Idle";
   labels["plate-b"].textContent = state.plates.B.active ? "Active" : "Idle";
   labels.gate.textContent = showsOpen ? "Open" : state.dualActiveSinceTick !== null && !state.door.unlocked ? "Hold both plates" : "Locked";

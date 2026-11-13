@@ -13,7 +13,8 @@
     "play:platform": "node scripts/play-platform.mjs",
     "evaluate:platform": "node scripts/evaluate-platform.mjs",
     "calibrate:platform": "node scripts/evaluate-platform.mjs --calibrate",
-    "compare:profiles": "node scripts/compare-profiles.mjs"
+    "compare:profiles": "node scripts/compare-profiles.mjs",
+    "compare:pairs": "node scripts/compare-pairs.mjs"
   },
   "dependencies": {
     "three": "0.180.0"

@@ -19,6 +19,19 @@ The first command runs the same 11 checks on both reference layouts. The second 
 
 Reports and trace files go under `runs/`. Each case records trusted browser input, sampled positions, simulation events, and available screenshots. Both journeys start in a fresh page. Check definitions and grading are shared. A reviewed replay supplies waypoints, a gate plane and movement bounds. The two references use different movement axes, collision implementations, and gate timings. The second reports unlock and passability separately.
 
+## Run the paired 2D and 3D controls
+
+    npm run play:p01 -- P02
+    npm run evaluate:p01 -- --task=A02 --calibrate
+    npm run evaluate:p01 -- --task=C02
+    npm run evaluate:p01 -- --task=P02 --calibrate
+
+A01/A02 cover crate contact and release. C01/C02 add the simultaneous hold and gate. P01/P02 also require a failure, reset, and successful retry. Use the same evaluate command with the corresponding 3D task ID. All 2D positions remain in the XZ plane. The geometry-specific counterexamples test a crate above the plate in 3D and a close miss in 2D. Common timing, crossing, recovery, and visual checks are shared.
+
+    node scripts/compare-pairs.mjs <A01> <A02> <C01> <C02> <P01> <P02>
+
+Pass the six reference report paths in the shown order. The comparison uses the preregistered common checks and reports the geometry-specific checks separately.
+
 ## Run the moving-platform family
 
     npm run play:platform -- P04
@@ -53,7 +66,7 @@ This pilot uses evaluator-authored waypoints for each layout. If the submission 
 
 ## Pilot contracts and evaluation sources
 
-The [pilot manifest](pilot/manifest.json) indexes 12 task specifications and 104 planned checks. P01, A03, C03 and P04 currently have runnable references and 42 implemented checks. The remaining tasks, including the three matched 2D controls, have specifications. Give builders the selected contract and the [shared interface](pilot/builder/shared-runtime-interface.json). The [candidate inventory](pilot/candidate-inventory.json) tracks the remaining designs. The [evaluation protocol](pilot/protocol.json) and [run report schema](pilot/evaluator/run-report.schema.json) define the evidence and reporting.
+The [pilot manifest](pilot/manifest.json) indexes 12 task specifications and 104 planned checks. Nine tasks have runnable references and 81 implemented checks, including all three matched 2D controls. The key and inventory task family has specifications. Give builders the selected contract and the [shared interface](pilot/builder/shared-runtime-interface.json). The [candidate inventory](pilot/candidate-inventory.json) tracks the remaining designs. The [evaluation protocol](pilot/protocol.json) and [run report schema](pilot/evaluator/run-report.schema.json) define the evidence and reporting.
 
 - Fresh browser pages per case and legal local setup follow the published [GameASG L2 runner](https://github.com/areal-project/GameASG-Bench/blob/6427cb6517ce11ff350ec45fcae17b67c5aec245/scripts/l2/run.js).
 - Closed-loop journey actions and separate local checks follow [CEGame-Bench](https://arxiv.org/html/2610.26098v1). Family scores use scheduled checks and expose the remaining uncertainty.

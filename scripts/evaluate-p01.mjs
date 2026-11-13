@@ -3,34 +3,47 @@ import { resolve } from "node:path";
 import { PNG } from "pngjs";
 import { cases } from "./p01-cases.mjs";
 import { serveReference } from "./server.mjs";
-import { replays } from "./p01-replays.mjs";
+import { replays, atomReplay, flatReplay } from "./p01-replays.mjs";
 import { readJson, version, artifactDigest, digest, startBrowser, runVariant, requireCheck } from "./browser-evaluation.mjs";
 
-const plan = await readJson("pilot/evaluator/P01.json");
-const contract = await readJson("pilot/builder/P01.json");
-const calibration = (await readJson("pilot/evaluator/calibration.json"))["dual-plates"].mutations;
-const faultIds = calibration.map(fault => fault.id);
+import { contactCases } from "./plate-contact-cases.mjs";
 const args = process.argv.slice(2);
 const getArg = name => args.find(arg => arg.startsWith(name + "="))?.slice(name.length + 1);
+const task = getArg("--task") ?? "P01";
+if (!["A01", "A02", "C01", "C02", "P01", "P02"].includes(task)) throw new Error("Unknown pressure-plate task.");
+const atom = task.startsWith("A");
+const flat = task.endsWith("2");
+const planPath = "pilot/evaluator/" + task + ".json";
+const contractPath = "pilot/builder/" + task + ".json";
+const plan = await readJson(planPath);
+const contract = await readJson(contractPath);
+const calibrations = (await readJson("pilot/evaluator/calibration.json"))["dual-plates"].mutations;
+const atomFault = flat ? "nearby_crate_triggers_plate" : "projection_triggers_plate";
+const atomCase = flat ? "no_contact_no_trigger" : "wrong_height";
+const calibration = atom ? [{ id: atomFault, mustDetect: [atomCase], mustPreserve: ["plate_contact"] }] :
+  calibrations.map(fault => ({ ...fault, mustDetect: fault.mustDetect.filter(id => plan.cases.some(entry => entry.id === id)) }));
+const faultIds = calibration.map(fault => fault.id);
 const selectedFault = getArg("--fault");
 const selectedLayout = getArg("--layout");
 const submission = getArg("--submission");
 const replayPath = getArg("--replay");
 const calibrate = args.includes("--calibrate");
-if (args.some(arg => !/^--(calibrate$|(layout|fault|submission|replay)=.+)/.test(arg)) ||
+if (args.some(arg => !/^--(calibrate$|(layout|fault|submission|replay|task)=.+)/.test(arg)) ||
     (selectedFault && (!faultIds.includes(selectedFault) || calibrate)) ||
-    (selectedLayout && !Object.hasOwn(replays, selectedLayout)) ||
+    (selectedLayout && (task !== "P01" || !Object.hasOwn(replays, selectedLayout))) ||
     Boolean(submission) !== Boolean(replayPath) ||
-    (submission && (selectedFault || calibrate || selectedLayout))) {
-  throw new Error("Use [--layout=reference|offset] [--fault=<id>|--calibrate] or --submission=<directory> --replay=<file>.");
+    (submission && (selectedFault || calibrate || selectedLayout || task !== "P01"))) {
+  throw new Error("Use [--task=A01|A02|C01|C02|P01|P02] [--layout=reference|offset] [--fault=<id>|--calibrate] or --submission=<directory> --replay=<file>.");
 }
 const variants = calibrate ? ["", ...faultIds] : [selectedFault ?? ""];
 const layouts = submission
   ? { submission: { ...JSON.parse(await readFile(replayPath, "utf8")), folder: resolve(submission) } }
-  : selectedLayout ? { [selectedLayout]: replays[selectedLayout] } : replays;
+  : flat ? { [task]: flatReplay } : atom ? { [task]: atomReplay } :
+    task === "C01" ? { C01: replays.reference } :
+      selectedLayout ? { [selectedLayout]: replays[selectedLayout] } : replays;
 
 const evaluatorFiles = ["scripts/evaluate-p01.mjs", "scripts/p01-cases.mjs", "scripts/server.mjs",
-  "scripts/p01-replays.mjs", "scripts/browser-evaluation.mjs", "pilot/evaluator/P01.json", "pilot/builder/P01.json",
+  "scripts/p01-replays.mjs", "scripts/browser-evaluation.mjs", "scripts/plate-contact-cases.mjs", planPath, contractPath,
   "pilot/evaluator/calibration.json", "pilot/evaluator/run-report.schema.json", "package-lock.json"];
 const evaluatorVersion = await version(evaluatorFiles);
 
@@ -52,13 +65,20 @@ try {
     const { folder: _folder, ...replay } = route;
     const runEvaluatorVersion = digest(evaluatorVersion + JSON.stringify(replay));
     const server = await serveReference(0, folder);
+    const url = new URL(server.url);
+    if (!submission) url.searchParams.set("task", task);
     try {
       const reports = [];
       for (const fault of variants) {
         reports.push(await runVariant(browser, base, {
-          layout, route, fault, server, artifactVersion, evaluatorVersion: runEvaluatorVersion, plan, contract, cases,
+          layout, route, fault, server: { url: url.href }, artifactVersion: task === "P01" ? artifactVersion : artifactVersion + "/" + task,
+          evaluatorVersion: runEvaluatorVersion, plan, contract, cases: { ...cases, ...contactCases },
           helpers: { gatePixels: countGatePixels },
           setup(initial) {
+            if (atom) {
+              requireCheck(!initial.plates.A.active, "Local scenario pre-activated A.");
+              return;
+            }
             requireCheck(!initial.door.unlocked && !initial.door.passable && !initial.goalCrossed &&
               initial.outcome === "none", "Local setup pre-completed the behavior.");
           },

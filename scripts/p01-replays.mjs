@@ -40,3 +40,19 @@ export const replays = {
       statusLabel: "#attempt", outcomes: ["You fell. Press R.", "Reach the exit", "Chamber cleared"] },
   },
 };
+
+export const flatReplay = {
+  ...replays.reference,
+  folder: "references/plates-flat",
+  rampWaypoints: [[-0.71, 1.5]],
+  upperHeight: 0,
+  fall: [-3, -2.8],
+  plateA: [0, 0, -1],
+  plateSupport: "floor",
+};
+
+export const atomReplay = {
+  ...replays.reference,
+  plateA: [0, 0, -1],
+  plateSupport: "lower",
+};

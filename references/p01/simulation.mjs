@@ -14,6 +14,8 @@ const validKeys = new Set(["KeyW", "KeyA", "KeyS", "KeyD"]);
 const layouts = {
   default: { avatar: [-3, 0, -1], box: [-1.65, 0, -1] },
   box_on_A_before_B: { avatar: [-1.7, TOP, GATE_Z], box: plateA },
+  box_offset_from_A: { avatar: [-3, 0, -1], box: [-1.65, 0, -1] },
+  box_above_A: { avatar: [-2.48, TOP, -1], box: [-1.45, TOP, -1] },
   avatar_near_closed_door: { avatar: [1.2, TOP, GATE_Z], box: [-1.65, 0, -1] },
 };
 
@@ -44,7 +46,10 @@ function touchesPlate(position, plate, halfWidth) {
     Math.abs(position[0] - plate[0]) <= halfWidth && Math.abs(position[2] - plate[2]) <= halfWidth;
 }
 
-export function createSimulation(fault = "") {
+export function createSimulation(fault = "", task = "P01") {
+  const atom = task === "A01";
+  const scenarios = atom ? ["box_offset_from_A", "box_above_A"] :
+    ["box_on_A_before_B", "avatar_near_closed_door"];
   let state;
   let falling = 0;
   let sequence = 0;
@@ -59,7 +64,7 @@ export function createSimulation(fault = "") {
     const layout = layouts[id];
     state = {
       attemptId, tick: 0, avatar: { position: [...layout.avatar] },
-      box: { position: [...layout.box], supportSurface: "lower" },
+      box: { position: [...layout.box], supportSurface: layout.box[1] === TOP ? "upper" : "lower" },
       plates: { A: { active: id === "box_on_A_before_B" }, B: { active: false } },
       dualActiveSinceTick: null,
       door: { unlocked: false, passable: false },
@@ -81,7 +86,7 @@ export function createSimulation(fault = "") {
     const nextZ = avatar[2] + dz;
     const floor = supportAt(nextX, nextZ, avatar[1]);
 
-    if (avatar[1] >= TOP - 0.1) {
+    if (!atom && avatar[1] >= TOP - 0.1) {
       const cross = Math.abs(nextX - GATE_X) < 0.16 + RADIUS;
       const throughGap = Math.abs(nextZ - GATE_Z) <= GAP / 2 - RADIUS;
       if (cross && (!throughGap || !state.door.passable || fault === "closed_collider_after_animation")) {
@@ -94,7 +99,7 @@ export function createSimulation(fault = "") {
     if (reachesBox && (dx || dz)) {
       const x = box[0] + dx;
       const z = box[2] + dz;
-      if (!contains(geometry.base, x, z) || supportAt(x, z, box[1]) !== 0) return;
+      if (supportAt(x, z, box[1]) !== box[1]) return;
       box[0] = x;
       box[2] = z;
     }
@@ -133,7 +138,10 @@ export function createSimulation(fault = "") {
     const step = dx && dz ? STEP / Math.SQRT2 : STEP;
     move(dx * step, dz * step);
 
-    setPlate("A", touchesPlate(state.box.position, plateA, 0.34));
+    const box = state.box.position;
+    const platePosition = fault === "projection_triggers_plate" ? [box[0], plateA[1], box[2]] : box;
+    setPlate("A", touchesPlate(platePosition, plateA, 0.34));
+    if (atom) return;
     setPlate("B", touchesPlate(state.avatar.position, plateB, 0.41));
     if (state.plates.A.active && state.plates.B.active) {
       state.dualActiveSinceTick ??= state.tick;
@@ -163,7 +171,7 @@ export function createSimulation(fault = "") {
       return events.filter(event => event.sequence > afterSequence).map(event => structuredClone(event));
     },
     loadScenario(id) {
-      if (id === "default" || !Object.hasOwn(layouts, id)) return { ok: false, reason: "unknown_scenario" };
+      if (!scenarios.includes(id)) return { ok: false, reason: "unknown_scenario" };
       enter(id, state.attemptId + 1);
       record("scenario_loaded", { id });
       return { ok: true, reason: null };

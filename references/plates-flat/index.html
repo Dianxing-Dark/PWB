@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Switchyard | PlayableWorld-Bench</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <style>body { background: #181f29; } #world { background: #232d38; }</style>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption" id="task"></p><h1>Switchyard</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world"><canvas width="960" height="540" aria-label="Top-down switchyard"></canvas></div>
+    <section class="hud" aria-label="Switchyard status">
+      <div><span>Crate plate A</span><strong id="plate-a">Idle</strong></div>
+      <div><span>Player plate B</span><strong id="plate-b">Idle</strong></div>
+      <div><span>Gate</span><strong id="gate">Locked</strong></div>
+      <div><span>Mission</span><strong id="status" role="status">In progress</strong></div>
+    </section>
+    <p class="objective" id="objective"></p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

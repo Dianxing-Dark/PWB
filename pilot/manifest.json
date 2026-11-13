@@ -12,8 +12,8 @@
       "builder": "builder/A01.json",
       "evaluator": "evaluator/A01.json",
       "implementation": {
-        "referenceLayouts": 0,
-        "evaluator": null,
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-p01.mjs",
         "codexRuns": 0
       }
     },
@@ -25,8 +25,8 @@
       "builder": "builder/C01.json",
       "evaluator": "evaluator/C01.json",
       "implementation": {
-        "referenceLayouts": 0,
-        "evaluator": null,
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-p01.mjs",
         "codexRuns": 0
       }
     },
@@ -129,8 +129,8 @@
       "builder": "builder/A02.json",
       "evaluator": "evaluator/A02.json",
       "implementation": {
-        "referenceLayouts": 0,
-        "evaluator": null,
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-p01.mjs",
         "codexRuns": 0
       }
     },
@@ -142,8 +142,8 @@
       "builder": "builder/C02.json",
       "evaluator": "evaluator/C02.json",
       "implementation": {
-        "referenceLayouts": 0,
-        "evaluator": null,
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-p01.mjs",
         "codexRuns": 0
       }
     },
@@ -155,8 +155,8 @@
       "builder": "builder/P02.json",
       "evaluator": "evaluator/P02.json",
       "implementation": {
-        "referenceLayouts": 0,
-        "evaluator": null,
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-p01.mjs",
         "codexRuns": 0
       }
     }
@@ -175,11 +175,11 @@
   "candidateInventory": "candidate-inventory.json",
   "runReportSchema": "evaluator/run-report.schema.json",
   "implementationSummary": {
-    "runnableTasks": 4,
-    "implementedChecks": 42,
+    "runnableTasks": 9,
+    "implementedChecks": 81,
     "candidateTasks": 30,
     "plannedPilotTasks": 12,
     "matched2dControls": 3,
-    "runnable2dControls": 0
+    "runnable2dControls": 3
   }
 }
