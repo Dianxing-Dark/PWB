@@ -79,7 +79,7 @@
       "implementation": {
         "referenceLayouts": 2,
         "evaluator": "scripts/evaluate-platform.mjs",
-        "codexRuns": 0
+        "codexRuns": 1
       }
     },
     {

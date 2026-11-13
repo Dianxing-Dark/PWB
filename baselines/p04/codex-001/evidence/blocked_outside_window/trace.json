@@ -1,0 +1,542 @@
+{
+  "caseId": "blocked_outside_window",
+  "scenarioId": "high_dock_before_gate_opens",
+  "trace": [
+    {
+      "attemptId": 0,
+      "tick": 6,
+      "platform": {
+        "position": [
+          -2.5,
+          0,
+          0
+        ],
+        "phase": "lowDock",
+        "phaseTick": 6
+      },
+      "avatar": {
+        "position": [
+          -7,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 289
+    },
+    {
+      "attemptId": 0,
+      "tick": 6,
+      "platform": {
+        "position": [
+          -2.5,
+          0,
+          0
+        ],
+        "phase": "lowDock",
+        "phaseTick": 6
+      },
+      "avatar": {
+        "position": [
+          -7,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 291.30000000004657
+    },
+    {
+      "attemptId": 0,
+      "tick": 8,
+      "platform": {
+        "position": [
+          -2.5,
+          0,
+          0
+        ],
+        "phase": "lowDock",
+        "phaseTick": 8
+      },
+      "avatar": {
+        "position": [
+          -7,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 338.30000000004657
+    },
+    {
+      "attemptId": 1,
+      "tick": 275,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 275
+      },
+      "avatar": {
+        "position": [
+          8.2,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 341.80000000004657
+    },
+    {
+      "attemptId": 1,
+      "tick": 275,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 275
+      },
+      "avatar": {
+        "position": [
+          8.2,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 344.30000000004657
+    },
+    {
+      "attemptId": 1,
+      "tick": 275,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 275
+      },
+      "avatar": {
+        "position": [
+          8.2,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 345.70000000018626
+    },
+    {
+      "attemptId": 1,
+      "tick": 275,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 275
+      },
+      "avatar": {
+        "position": [
+          8.2,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 348.10000000009313
+    },
+    {
+      "attemptId": 1,
+      "tick": 280,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 280
+      },
+      "avatar": {
+        "position": [
+          8.274999999999999,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 401.20000000018626
+    },
+    {
+      "attemptId": 1,
+      "tick": 282,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 282
+      },
+      "avatar": {
+        "position": [
+          8.274999999999999,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": false
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 453.9000000001397
+    },
+    {
+      "attemptId": 1,
+      "tick": 286,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 286
+      },
+      "avatar": {
+        "position": [
+          8.424999999999997,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": true
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 508.10000000009313
+    },
+    {
+      "attemptId": 1,
+      "tick": 289,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 289
+      },
+      "avatar": {
+        "position": [
+          8.649999999999995,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": true
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 582.8000000000466
+    },
+    {
+      "attemptId": 1,
+      "tick": 294,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 294
+      },
+      "avatar": {
+        "position": [
+          9.024999999999991,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": true
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 657.1000000000931
+    },
+    {
+      "attemptId": 1,
+      "tick": 294,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 294
+      },
+      "avatar": {
+        "position": [
+          9.024999999999991,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": true
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 660.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 298,
+      "platform": {
+        "position": [
+          4.5,
+          3.4,
+          0
+        ],
+        "phase": "highDock",
+        "phaseTick": 298
+      },
+      "avatar": {
+        "position": [
+          9.024999999999991,
+          3.4,
+          0
+        ],
+        "supportSurface": "highDock"
+      },
+      "box": {
+        "position": [
+          -5.85,
+          0,
+          0
+        ],
+        "supportSurface": "lowDock"
+      },
+      "gate": {
+        "passable": true
+      },
+      "cargoDelivered": false,
+      "outcome": "none",
+      "browserMs": 709
+    }
+  ],
+  "inputs": [
+    {
+      "type": "keydown",
+      "code": "KeyD",
+      "trusted": true,
+      "browserMs": 347.20000000018626
+    },
+    {
+      "type": "keyup",
+      "code": "KeyD",
+      "trusted": true,
+      "browserMs": 659
+    }
+  ],
+  "stateEvents": [
+    {
+      "sequence": 1,
+      "type": "attempt_restarted",
+      "attemptId": 1,
+      "tick": 275,
+      "data": {}
+    },
+    {
+      "sequence": 2,
+      "type": "door_state_changed",
+      "attemptId": 1,
+      "tick": 285,
+      "data": {
+        "passable": true,
+        "phaseTick": 285
+      }
+    },
+    {
+      "sequence": 3,
+      "type": "gate_crossed",
+      "attemptId": 1,
+      "tick": 290,
+      "data": {
+        "actorId": "avatar",
+        "phaseTick": 290
+      }
+    }
+  ],
+  "pageErrors": [],
+  "notes": {},
+  "elapsedMs": 1096
+}

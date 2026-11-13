@@ -6,7 +6,8 @@ const relative = (body, platform) => body.map((value, axis) => value - platform[
 const phaseEvent = (event, phase) => event.type === "platform_phase_changed" && event.data.phase === phase;
 const gateEvents = events => events.filter(event => event.type === "door_state_changed");
 const progress = (test, state, actor = "avatar") => state[actor].position[test.route.axis] * test.route.direction;
-const ready = (state, actor = "avatar") => state[actor].supportSurface === "lift";
+export const supportId = (route, surface) => route.supports?.[surface] ?? surface;
+const on = (test, state, surface, actor = "avatar") => state[actor].supportSurface === supportId(test.route, surface);
 const failed = state => state.outcome === "failure";
 
 function marker(frame, color) {
@@ -29,9 +30,9 @@ async function waitPhase(test, phase, milestone) {
 
 async function board(test, cargo) {
   const landed = await test.move(test.route.advance, state => failed(state) ||
-    (ready(state) && (!cargo || ready(state, "box")) && progress(test, state) >= test.route.boardAt), 1700);
+    (on(test, state, "lift") && (!cargo || on(test, state, "lift", "box")) && progress(test, state) >= test.route.boardAt), 1700);
   const last = landed.at(-1);
-  requireCheck(last.outcome === "none" && ready(last) && (!cargo || ready(last, "box")),
+  requireCheck(last.outcome === "none" && on(test, last, "lift") && (!cargo || on(test, last, "lift", "box")),
     cargo ? "Player and crate did not board the lift." : "Player did not board the lift.", "board_low");
   return last;
 }
@@ -50,14 +51,14 @@ async function ride(test, initial, actor, captureInMotion = false) {
     distance(origin, relative(state[actor].position, state.platform.position))));
   test.notes[actor + "Carry"] = { platformDelta: delta, maximumRelativeDrift: drift };
   requireCheck(!failed(last) && distance(delta, test.route.dockDelta) < 0.1 && drift < 0.07 &&
-    test.trace.slice(start).every(state => ready(state, actor)),
+    test.trace.slice(start).every(state => on(test, state, "lift", actor)),
   actor + " did not remain supported while the lift moved in X and Y.", "supported_in_motion");
   return last;
 }
 
 async function approachFromLift(test) {
   const motion = await test.move(test.route.advance, state => failed(state) || progress(test, state) >= test.route.stepOffAt || state.outcome === "victory", 1800);
-  requireCheck(motion.at(-1).avatar.supportSurface === "upper", "Player did not step off at the upper dock.", "exit_high");
+  requireCheck(on(test, motion.at(-1), "upper"), "Player did not step off at the upper dock.", "exit_high");
   await test.capture("upper-dock");
 }
 
@@ -96,8 +97,8 @@ async function freightJourney(test, first) {
   const cargoOffset = relative(boarded.box.position, boarded.platform.position);
   const crateDrift = Math.max(...cargoTrace.map(state => distance(cargoOffset, relative(state.box.position, state.platform.position))));
   test.notes.cargoRelativeDrift = crateDrift;
-  requireCheck(ready(docked, "box") && crateDrift < 0.07 &&
-    cargoTrace.every(state => ready(state, "box")),
+  requireCheck(on(test, docked, "lift", "box") && crateDrift < 0.07 &&
+    cargoTrace.every(state => on(test, state, "lift", "box")),
   "Cargo was not continuously carried with the player.", "cargo_supported_in_motion");
   await approachFromLift(test);
   await cross(test, "box");
@@ -107,7 +108,7 @@ async function freightJourney(test, first) {
   const { start: open, endExclusive: close } = test.contract.constants.gateOpen;
   const avatarPass = events.find(event => event.type === "gate_crossed" && event.data.actorId === "avatar");
   requireCheck(final.outcome === "victory" && final.cargoDelivered && progress(test, final, "box") >= test.route.delivery &&
-    final.box.supportSurface === "upper" && avatarPass?.data.phaseTick >= open && avatarPass.data.phaseTick < close &&
+    on(test, final, "upper", "box") && avatarPass?.data.phaseTick >= open && avatarPass.data.phaseTick < close &&
     progress(test, final) > test.route.gate, "Player and crate did not pass the gate and complete delivery.", "deliver_cargo");
   await test.capture("delivery");
   requireNormalEntry(await test.events());
@@ -182,7 +183,8 @@ export const cases = {
     await test.capture("after-departure");
     requireCheck(distance(before.platform.position, after.platform.position) > 0.65 &&
       distance(before.avatar.position, after.avatar.position) < 0.08 &&
-      test.trace.every(state => state.avatar.supportSurface === "lower" || state.tick < before.tick),
+      test.trace.filter(state => state.attemptId === before.attemptId)
+        .every(state => on(test, state, "lower")),
     "The lift carried a player who was standing on the stationary dock.");
   },
 
@@ -194,7 +196,8 @@ export const cases = {
     const middle = await test.capture("lift-moving", frameTarget);
     const high = await waitPhase(test, "highDock");
     const arrived = await test.capture("high-dock", frameTarget);
-    requireCheck(ready(initial) && ready(inTransit) && ready(high), "No supported player was available for visual review.");
+    requireCheck([initial, inTransit, high].every(state => on(test, state, "lift")),
+      "No supported player was available for visual review.");
     if (!test.route.feedback) return { unverified: "Review the boarding, transit and upper-dock frames." };
     const lift = [low, middle, arrived].map(frame => marker(frame, test.route.feedback.lift));
     const player = [low, middle, arrived].map(frame => marker(frame, test.route.feedback.player));
@@ -209,14 +212,21 @@ export const cases = {
 
   async blocked_outside_window(test) {
     const before = await test.sample();
-    requireCheck(before.platform.phaseTick < 285 && !before.gate.passable, "Scenario started after the gate opened.");
-    const motion = await test.move(test.route.advance, state => state.platform.phaseTick >= 285, 1100);
-    await test.capture("gate-blocks-early-input");
-    const early = motion.filter(state => state.platform.phaseTick < 285);
-    requireCheck(early.some(state => progress(test, state) > progress(test, before) + 0.12) &&
-      early.every(state => progress(test, state) < test.route.gate && !state.gate.passable && state.outcome === "none") &&
-      !(await test.events()).some(event => event.type === "gate_crossed" && event.data.phaseTick < 285),
-    "The locked gate did not block early movement.");
+    const { start, endExclusive } = test.contract.constants.gateOpen;
+    const motion = await test.move(test.route.advance, state =>
+      progress(test, state) >= test.route.gate + 0.2 || failed(state), 1250);
+    await test.capture("gate-opening-approach");
+    const events = await test.events();
+    requireCheck(before.platform.phaseTick < start && !before.gate.passable,
+      "Scenario started after the gate opened.");
+    requireCheck(motion.filter(state => state.platform.phaseTick < start).every(state =>
+      progress(test, state) < test.route.gate && !state.gate.passable && state.outcome === "none") &&
+      !events.some(event => event.type === "gate_crossed" && event.data.phaseTick < start),
+    "The gate admitted a player before the window.");
+    const crossed = events.find(event => event.type === "gate_crossed" && event.data.actorId === "avatar");
+    requireCheck(crossed && crossed.data.phaseTick >= start && crossed.data.phaseTick < endExclusive &&
+      progress(test, motion.at(-1)) >= test.route.gate + 0.15,
+    "The approach did not reach the gate during the window.");
   },
 
   async pass_during_window(test) {
@@ -280,7 +290,7 @@ export const cases = {
     const motion = await test.move(test.route.advance, state => progress(test, state) >= test.route.delivery + 0.1 || state.outcome !== "none", 1650);
     const last = motion.at(-1);
     await test.capture("player-at-empty-delivery");
-    requireCheck(progress(test, last) >= test.route.delivery && last.box.supportSurface === "lower" &&
+    requireCheck(progress(test, last) >= test.route.delivery && on(test, last, "lower", "box") &&
       !last.cargoDelivered && last.outcome === "none", "Player arrival without cargo counted as delivery.");
   },
 
@@ -299,7 +309,7 @@ export const cases = {
       restarted.platform.phase === "lowDock" && restarted.tick < 30 &&
       restarted.attemptId === initial.attemptId + 1 &&
       (await test.events()).some(event => event.type === "attempt_restarted" && event.attemptId === restarted.attemptId) &&
-      restarted.avatar.supportSurface === "lower" && restarted.box.supportSurface === "lower" &&
+      on(test, restarted, "lower") && on(test, restarted, "lower", "box") &&
       distance(initial.box.position, restarted.box.position) < 0.01 &&
       distance(initial.avatar.position, restarted.avatar.position) < 0.01,
     "Retry did not restore initial cargo, player and gate state.", "restart");

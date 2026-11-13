@@ -1,0 +1,44 @@
+{
+  "reviewKind": "manual_frame_review",
+  "runReportDigest": "9e2a3d56a7478c42d0eb9cef3eb1afca467915981e5fa5cea24977ebe6b403e6",
+  "checks": [
+    {
+      "caseId": "platform_feedback",
+      "status": "pass",
+      "reason": "The player stays on the striped movable deck as it leaves the low dock and approaches the high dock. The phase label shows LOW DOCK, LIFT ASCENDING and HIGH DOCK in order.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/platform_feedback/low-dock.png",
+          "sha256": "525c9e13cc476009376f06911f0248822fff53b1a260525a3ebf584eef198518"
+        },
+        {
+          "path": "evidence/platform_feedback/lift-moving.png",
+          "sha256": "efdb57c7ef1d6258ea126c3cfa5f4c02f7a6d07eb52cd1e99ae075cb86931c52"
+        },
+        {
+          "path": "evidence/platform_feedback/high-dock.png",
+          "sha256": "9321e65350efede04a42270089548cc5718b0c51a9b1391c7106996526e56510"
+        }
+      ]
+    },
+    {
+      "caseId": "gate_feedback",
+      "status": "pass",
+      "reason": "The bars visibly clear the passage during the open window and reappear afterward. The HUD also switches from GATE CLOSED to GATE OPEN and back.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/gate_feedback/gate-before-window.png",
+          "sha256": "3a515092d20c1ecbc3e999cf5dec5e8e0f4e2fbc3e840d17640678438225a649"
+        },
+        {
+          "path": "evidence/gate_feedback/gate-in-window.png",
+          "sha256": "f4a6eaa728be147e28b7ad7804c07a9f8dbb5d6c11e57f4202608f02edb09b7a"
+        },
+        {
+          "path": "evidence/gate_feedback/gate-after-window.png",
+          "sha256": "2f8abffa509d03314f4758c3a8f24dd2c6c11e6b7d8689e76fa3ac28bd386e10"
+        }
+      ]
+    }
+  ]
+}

@@ -29,6 +29,6 @@ Profiles A, B, and C detected 4/4, 2/4, and 4/4 fault variants. Profile C added 
     npm run calibrate:platform
     node scripts/compare-profiles.mjs <run-report-paths>
 
-Browser version 157.0.8103.52. The P04 reference and all four fault variants produced the same case verdicts on two runs. The visual checks use reference-specific rendered markers. The family currently has one correct implementation. An independent equivalent implementation and human or model agreement on visual judgments remain to be calibrated. These checks were run on authored reference and fault versions. Agent performance has yet to be measured on this family.
+Browser version 157.0.8103.52. The P04 reference and all four fault variants produced the same case verdicts on two runs. The visual checks use reference-specific rendered markers. See the [second implementation](../moving-platform-002/) and [first agent run](../../baselines/p04/codex-001/) for the subsequent calibration. Agreement across visual reviewers remains to be measured.
 
 The phase variations and per-step movement checks draw on the public GameLogicBench [platform ride task](https://github.com/NJU-LINK/GameLogicBench-Tasks/tree/18c54e69cf962fd402e245811d4925d129f4b33c/atom_platform_ride) and [jump and platform phase task](https://github.com/NJU-LINK/GameLogicBench-Tasks/tree/18c54e69cf962fd402e245811d4925d129f4b33c/combo_jump_x_platform_phase).

@@ -1,0 +1,620 @@
+{
+  "schemaVersion": "pilot-0.1",
+  "recordKind": "run",
+  "taskId": "P04",
+  "runId": "submission",
+  "artifactVersion": "9aa636176558460e24475cb5701d21be2387cf7303dca1176b0efb29fec169c6",
+  "evaluatorVersion": "a29689641de231f4333d048169908836078c9a3ff979e645ed60cb1b544f6371",
+  "browserVersion": "157.0.8103.52",
+  "seed": null,
+  "cases": [
+    {
+      "caseId": "launch",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "launch/entry.png",
+        "launch/trace.json"
+      ]
+    },
+    {
+      "caseId": "probe",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "probe/trace.json"
+      ]
+    },
+    {
+      "caseId": "platform_trajectory",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "platform_trajectory/trace.json"
+      ]
+    },
+    {
+      "caseId": "actual_support",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "actual_support/boarded-second-cycle.png",
+        "actual_support/upper-dock.png",
+        "actual_support/trace.json"
+      ]
+    },
+    {
+      "caseId": "no_remote_carry",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "no_remote_carry/before-departure.png",
+        "no_remote_carry/after-departure.png",
+        "no_remote_carry/trace.json"
+      ]
+    },
+    {
+      "caseId": "platform_feedback",
+      "status": "unverified",
+      "reason": "Review the boarding, transit and upper-dock frames.",
+      "evidenceRefs": [
+        "platform_feedback/low-dock.png",
+        "platform_feedback/lift-moving.png",
+        "platform_feedback/high-dock.png",
+        "platform_feedback/trace.json"
+      ]
+    },
+    {
+      "caseId": "blocked_outside_window",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "blocked_outside_window/gate-opening-approach.png",
+        "blocked_outside_window/trace.json"
+      ]
+    },
+    {
+      "caseId": "pass_during_window",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "pass_during_window/avatar-past-gate.png",
+        "pass_during_window/trace.json"
+      ]
+    },
+    {
+      "caseId": "blocks_when_closed_again",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "blocks_when_closed_again/gate-blocks-late-input.png",
+        "blocks_when_closed_again/avatar-past-gate.png",
+        "blocks_when_closed_again/trace.json"
+      ]
+    },
+    {
+      "caseId": "gate_feedback",
+      "status": "unverified",
+      "reason": "Review the closed, open and reclosed gate frames.",
+      "evidenceRefs": [
+        "gate_feedback/gate-before-window.png",
+        "gate_feedback/gate-in-window.png",
+        "gate_feedback/gate-after-window.png",
+        "gate_feedback/trace.json"
+      ]
+    },
+    {
+      "caseId": "cargo_motion",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "cargo_motion/cargo-boarded.png",
+        "cargo_motion/cargo-at-upper-dock.png",
+        "cargo_motion/trace.json"
+      ]
+    },
+    {
+      "caseId": "no_empty_delivery",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "no_empty_delivery/avatar-past-gate.png",
+        "no_empty_delivery/player-at-empty-delivery.png",
+        "no_empty_delivery/trace.json"
+      ]
+    },
+    {
+      "caseId": "deliver",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "deliver/cargo-boarded.png",
+        "deliver/in-motion.png",
+        "deliver/upper-dock.png",
+        "deliver/box-past-gate.png",
+        "deliver/delivery.png",
+        "deliver/trace.json"
+      ]
+    },
+    {
+      "caseId": "recover_and_deliver",
+      "status": "pass",
+      "reason": "Registered checks satisfied.",
+      "evidenceRefs": [
+        "recover_and_deliver/failure.png",
+        "recover_and_deliver/retry.png",
+        "recover_and_deliver/cargo-boarded.png",
+        "recover_and_deliver/in-motion.png",
+        "recover_and_deliver/upper-dock.png",
+        "recover_and_deliver/box-past-gate.png",
+        "recover_and_deliver/delivery.png",
+        "recover_and_deliver/trace.json"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "launch/entry.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "launch/entry.png",
+      "contentDigest": "d98c434ba261e5f90777a9931d8e8375183ffe755f9620346e8c046509e0af33",
+      "browserMonotonicMs": 2924.7999999998137,
+      "simulationTick": 12,
+      "sequenceIndex": 0
+    },
+    {
+      "id": "launch/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "launch/trace.json",
+      "contentDigest": "cf1176b33543eb3b32928ffa6f8d36a6f7a35a37f08edbf3cf140dcd492626c8",
+      "browserMonotonicMs": 2924.7999999998137,
+      "simulationTick": 12,
+      "sequenceIndex": 1
+    },
+    {
+      "id": "probe/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "probe/trace.json",
+      "contentDigest": "e9ef1e82958eca4ef5a37e1e529852f5ac6d86d5771f78fa169974331ad6e46e",
+      "browserMonotonicMs": 808.2000000001863,
+      "simulationTick": 29,
+      "sequenceIndex": 2
+    },
+    {
+      "id": "platform_trajectory/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "platform_trajectory/trace.json",
+      "contentDigest": "ed99bd231506eacc7cf3113a7b444d5634270af61fa866536467d5cbaf818744",
+      "browserMonotonicMs": 20793.699999999953,
+      "simulationTick": 1208,
+      "sequenceIndex": 3
+    },
+    {
+      "id": "actual_support/boarded-second-cycle.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "actual_support/boarded-second-cycle.png",
+      "contentDigest": "b3ef0e12a9c65775e945bf63338b06996558fa817b77ccc663610c0af745145b",
+      "browserMonotonicMs": 11239.800000000047,
+      "simulationTick": 626,
+      "sequenceIndex": 4
+    },
+    {
+      "id": "actual_support/upper-dock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "actual_support/upper-dock.png",
+      "contentDigest": "7d502a0a5285054f7f4f7a5a99ee4bf6e2899d3c98982215d48170153a798b94",
+      "browserMonotonicMs": 16341.100000000093,
+      "simulationTick": 932,
+      "sequenceIndex": 5
+    },
+    {
+      "id": "actual_support/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "actual_support/trace.json",
+      "contentDigest": "f4789a074a1b05fd8b949d64739ad89b94a30a1fa2c6118fc7d63f0c5f2cb69b",
+      "browserMonotonicMs": 16341.100000000093,
+      "simulationTick": 932,
+      "sequenceIndex": 6
+    },
+    {
+      "id": "no_remote_carry/before-departure.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "no_remote_carry/before-departure.png",
+      "contentDigest": "a57320604b837d1c50e07c2e3b1e4d737109412ec02a7eb39a8be277f85701c7",
+      "browserMonotonicMs": 472.10000000009313,
+      "simulationTick": 124,
+      "sequenceIndex": 7
+    },
+    {
+      "id": "no_remote_carry/after-departure.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "no_remote_carry/after-departure.png",
+      "contentDigest": "6353b5830869fcd608b915ae43b9d61e8229dd648522e9e35d0a4c0bede83f9a",
+      "browserMonotonicMs": 1373.3999999999069,
+      "simulationTick": 178,
+      "sequenceIndex": 8
+    },
+    {
+      "id": "no_remote_carry/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "no_remote_carry/trace.json",
+      "contentDigest": "edd53db0f5508471d0c37a61a5258a57ab0054c40eb491e00ad62e64219a8f1b",
+      "browserMonotonicMs": 1373.3999999999069,
+      "simulationTick": 178,
+      "sequenceIndex": 9
+    },
+    {
+      "id": "platform_feedback/low-dock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "platform_feedback/low-dock.png",
+      "contentDigest": "525c9e13cc476009376f06911f0248822fff53b1a260525a3ebf584eef198518",
+      "browserMonotonicMs": 767.6000000000931,
+      "simulationTick": 27,
+      "sequenceIndex": 10
+    },
+    {
+      "id": "platform_feedback/lift-moving.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "platform_feedback/lift-moving.png",
+      "contentDigest": "efdb57c7ef1d6258ea126c3cfa5f4c02f7a6d07eb52cd1e99ae075cb86931c52",
+      "browserMonotonicMs": 3584.5,
+      "simulationTick": 196,
+      "sequenceIndex": 11
+    },
+    {
+      "id": "platform_feedback/high-dock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "platform_feedback/high-dock.png",
+      "contentDigest": "9321e65350efede04a42270089548cc5718b0c51a9b1391c7106996526e56510",
+      "browserMonotonicMs": 4913.40000000014,
+      "simulationTick": 275,
+      "sequenceIndex": 12
+    },
+    {
+      "id": "platform_feedback/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "platform_feedback/trace.json",
+      "contentDigest": "aa451de341b726b9f944a185fc30965407bf6231dcdc3f6f495854abc8bd6980",
+      "browserMonotonicMs": 4913.40000000014,
+      "simulationTick": 275,
+      "sequenceIndex": 13
+    },
+    {
+      "id": "blocked_outside_window/gate-opening-approach.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "blocked_outside_window/gate-opening-approach.png",
+      "contentDigest": "f01a0e2d221b9fe992fbbd95744c60ee0a9b00a36e0431b60e6d4e12b4df88d5",
+      "browserMonotonicMs": 709,
+      "simulationTick": 298,
+      "sequenceIndex": 14
+    },
+    {
+      "id": "blocked_outside_window/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "blocked_outside_window/trace.json",
+      "contentDigest": "129069de1014ed1b3af1bfde67a7d1cfdec6f426fcd2d0e30db0ed169b323626",
+      "browserMonotonicMs": 709,
+      "simulationTick": 298,
+      "sequenceIndex": 15
+    },
+    {
+      "id": "pass_during_window/avatar-past-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "pass_during_window/avatar-past-gate.png",
+      "contentDigest": "846061a7d83fdfddc2ea977e5709d1c0e2dc5632ec6a1f8a052852522d2da720",
+      "browserMonotonicMs": 880.3999999999069,
+      "simulationTick": 306,
+      "sequenceIndex": 16
+    },
+    {
+      "id": "pass_during_window/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "pass_during_window/trace.json",
+      "contentDigest": "09ad6efa498fbf198b92dc9b8a3339f3430a771e232bdc951d9f437924b57814",
+      "browserMonotonicMs": 880.3999999999069,
+      "simulationTick": 306,
+      "sequenceIndex": 17
+    },
+    {
+      "id": "blocks_when_closed_again/gate-blocks-late-input.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "blocks_when_closed_again/gate-blocks-late-input.png",
+      "contentDigest": "cf0ae5de87ba5c5337e27ac50c09ac58ad35e2d98255529cb0094123134e682e",
+      "browserMonotonicMs": 1357.6000000000931,
+      "simulationTick": 463,
+      "sequenceIndex": 18
+    },
+    {
+      "id": "blocks_when_closed_again/avatar-past-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "blocks_when_closed_again/avatar-past-gate.png",
+      "contentDigest": "33e0554a80c32b794c74b62a360fa3f506813021539158e132fe2214d0c4de02",
+      "browserMonotonicMs": 8796.300000000047,
+      "simulationTick": 909,
+      "sequenceIndex": 19
+    },
+    {
+      "id": "blocks_when_closed_again/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "blocks_when_closed_again/trace.json",
+      "contentDigest": "0b2d1a170a042d99ed2f551d8f05035a5f97cf129418e1614e0f4225edf7de28",
+      "browserMonotonicMs": 8796.300000000047,
+      "simulationTick": 909,
+      "sequenceIndex": 20
+    },
+    {
+      "id": "gate_feedback/gate-before-window.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "gate_feedback/gate-before-window.png",
+      "contentDigest": "3a515092d20c1ecbc3e999cf5dec5e8e0f4e2fbc3e840d17640678438225a649",
+      "browserMonotonicMs": 393,
+      "simulationTick": 281,
+      "sequenceIndex": 21
+    },
+    {
+      "id": "gate_feedback/gate-in-window.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "gate_feedback/gate-in-window.png",
+      "contentDigest": "f4a6eaa728be147e28b7ad7804c07a9f8dbb5d6c11e57f4202608f02edb09b7a",
+      "browserMonotonicMs": 703,
+      "simulationTick": 299,
+      "sequenceIndex": 22
+    },
+    {
+      "id": "gate_feedback/gate-after-window.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "gate_feedback/gate-after-window.png",
+      "contentDigest": "2f8abffa509d03314f4758c3a8f24dd2c6c11e6b7d8689e76fa3ac28bd386e10",
+      "browserMonotonicMs": 2523.6999999999534,
+      "simulationTick": 408,
+      "sequenceIndex": 23
+    },
+    {
+      "id": "gate_feedback/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "gate_feedback/trace.json",
+      "contentDigest": "504c5d28254e43103bd00d4ea70aaea75ebf30b7169d7bfd9e34d8fde587b7f0",
+      "browserMonotonicMs": 2523.6999999999534,
+      "simulationTick": 408,
+      "sequenceIndex": 24
+    },
+    {
+      "id": "cargo_motion/cargo-boarded.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "cargo_motion/cargo-boarded.png",
+      "contentDigest": "ef16443e3b62a32d3b9bdac7f7d6c5b5d5cc59a3f24880ea85a16cee4bf4be55",
+      "browserMonotonicMs": 1021.3000000000466,
+      "simulationTick": 41,
+      "sequenceIndex": 25
+    },
+    {
+      "id": "cargo_motion/cargo-at-upper-dock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "cargo_motion/cargo-at-upper-dock.png",
+      "contentDigest": "98078e193db70c8054ff89aad51b8bfbbaeeaf43f94aab5c4bb536d8748c377e",
+      "browserMonotonicMs": 4945,
+      "simulationTick": 277,
+      "sequenceIndex": 26
+    },
+    {
+      "id": "cargo_motion/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "cargo_motion/trace.json",
+      "contentDigest": "7f9d806fde7dcd903a380cc143230c2bfbc2b0438ebc036a4ef86b38b17c8814",
+      "browserMonotonicMs": 4945,
+      "simulationTick": 277,
+      "sequenceIndex": 27
+    },
+    {
+      "id": "no_empty_delivery/avatar-past-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "no_empty_delivery/avatar-past-gate.png",
+      "contentDigest": "8a6142d0cf598f795f94e3f02c117a61c8f9ebbf59d6bbfdcd441e7b9708c885",
+      "browserMonotonicMs": 890.3000000000466,
+      "simulationTick": 307,
+      "sequenceIndex": 28
+    },
+    {
+      "id": "no_empty_delivery/player-at-empty-delivery.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "no_empty_delivery/player-at-empty-delivery.png",
+      "contentDigest": "f685c0d641a8067f0ba8c843d8114d0207a67017b9b2fd15bcdd85ced8a2d4d1",
+      "browserMonotonicMs": 1698.1000000000931,
+      "simulationTick": 356,
+      "sequenceIndex": 29
+    },
+    {
+      "id": "no_empty_delivery/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "no_empty_delivery/trace.json",
+      "contentDigest": "75c5a11fdcc3b3ac0c5ea63f905451cbfb322d29781a5e7f58691223c5981722",
+      "browserMonotonicMs": 1698.1000000000931,
+      "simulationTick": 356,
+      "sequenceIndex": 30
+    },
+    {
+      "id": "deliver/cargo-boarded.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "deliver/cargo-boarded.png",
+      "contentDigest": "bbd1ea71ddb2ce5caf16f87a22a61d2c71c1586ee265244d2fcde984697490c9",
+      "browserMonotonicMs": 1094.1999999999534,
+      "simulationTick": 55,
+      "sequenceIndex": 31
+    },
+    {
+      "id": "deliver/in-motion.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "deliver/in-motion.png",
+      "contentDigest": "33b2db9675e308500ffabb7f798dfd01a28498be96a72d88c47a3827e2b00e66",
+      "browserMonotonicMs": 3401.3000000000466,
+      "simulationTick": 192,
+      "sequenceIndex": 32
+    },
+    {
+      "id": "deliver/upper-dock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "deliver/upper-dock.png",
+      "contentDigest": "cf33be13f0dad0c386b819b0974cce7bdfe97702b48d6febe33945cb8a75ee74",
+      "browserMonotonicMs": 5704.699999999953,
+      "simulationTick": 330,
+      "sequenceIndex": 33
+    },
+    {
+      "id": "deliver/box-past-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "deliver/box-past-gate.png",
+      "contentDigest": "8f10ae23a0843b150a0d40875e60ae761eeaefb7da497fae1177eb3bc8ba37db",
+      "browserMonotonicMs": 6287,
+      "simulationTick": 365,
+      "sequenceIndex": 34
+    },
+    {
+      "id": "deliver/delivery.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "deliver/delivery.png",
+      "contentDigest": "3362788743d1dd29023db903cf543aaf597bf3a8f46abcc67c7944d865e0bca7",
+      "browserMonotonicMs": 7019.100000000093,
+      "simulationTick": 403,
+      "sequenceIndex": 35
+    },
+    {
+      "id": "deliver/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "deliver/trace.json",
+      "contentDigest": "5c668cdf440801e01ca4673af105a6aad020d9c32bb2b702e4cf906ec20c34a4",
+      "browserMonotonicMs": 7019.100000000093,
+      "simulationTick": 403,
+      "sequenceIndex": 36
+    },
+    {
+      "id": "recover_and_deliver/failure.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_deliver/failure.png",
+      "contentDigest": "36577fe16b8b50a9e27b7f33d737159d9a07c9d2dba730f51dcd8af461bfc6e8",
+      "browserMonotonicMs": 1550.3999999999069,
+      "simulationTick": 74,
+      "sequenceIndex": 37
+    },
+    {
+      "id": "recover_and_deliver/retry.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_deliver/retry.png",
+      "contentDigest": "7378265b189145a1aa5ece42f3d03a68772105235474937bab4a36055146eda9",
+      "browserMonotonicMs": 1782.3999999999069,
+      "simulationTick": 4,
+      "sequenceIndex": 38
+    },
+    {
+      "id": "recover_and_deliver/cargo-boarded.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_deliver/cargo-boarded.png",
+      "contentDigest": "ddb5911a825d3131cce6835942a324c44e56ae16012fb1688b08f6b5f3366507",
+      "browserMonotonicMs": 2696.0999999998603,
+      "simulationTick": 58,
+      "sequenceIndex": 39
+    },
+    {
+      "id": "recover_and_deliver/in-motion.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_deliver/in-motion.png",
+      "contentDigest": "285c67760471b57b24209474b4b3a243199dec58f77f1c66a99f6126b2fde2c1",
+      "browserMonotonicMs": 4884.399999999907,
+      "simulationTick": 190,
+      "sequenceIndex": 40
+    },
+    {
+      "id": "recover_and_deliver/upper-dock.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_deliver/upper-dock.png",
+      "contentDigest": "a835b557fb91f4ac7501574827ace014a108c6362ffc316b8e90fffad23b9bd3",
+      "browserMonotonicMs": 7249.299999999814,
+      "simulationTick": 331,
+      "sequenceIndex": 41
+    },
+    {
+      "id": "recover_and_deliver/box-past-gate.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_deliver/box-past-gate.png",
+      "contentDigest": "af4d3a166479e6d068f197d2a14b8039dbeea2ac5f1f35adc72aa12990300370",
+      "browserMonotonicMs": 7820.5,
+      "simulationTick": 366,
+      "sequenceIndex": 42
+    },
+    {
+      "id": "recover_and_deliver/delivery.png",
+      "evidenceType": "event_aligned_frame",
+      "evidenceSource": "chromium",
+      "storagePath": "recover_and_deliver/delivery.png",
+      "contentDigest": "a8edac17b2955ba31bccfa0fce4d18a2069a2aa56826a44fda0b259c170b4f28",
+      "browserMonotonicMs": 8501.899999999907,
+      "simulationTick": 404,
+      "sequenceIndex": 43
+    },
+    {
+      "id": "recover_and_deliver/trace.json",
+      "evidenceType": "case_trace",
+      "evidenceSource": "chromium_and_runtime",
+      "storagePath": "recover_and_deliver/trace.json",
+      "contentDigest": "351d78ea3abc73e2b18798adf78392b10e7493c890ffed3bbc2ee780482cf779",
+      "browserMonotonicMs": 8501.899999999907,
+      "simulationTick": 404,
+      "sequenceIndex": 44
+    }
+  ],
+  "summary": {
+    "strictTaskSuccess": true,
+    "functionalInterval": [
+      1,
+      1
+    ],
+    "functionalCoverage": 1,
+    "visualCoverage": 0,
+    "journeys": {
+      "passed": 2,
+      "planned": 2
+    }
+  }
+}

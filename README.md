@@ -62,7 +62,7 @@ The calibration runs the reference, the registered single faults, and a decorati
 
 Profile A includes launch and contract checks. Profile B includes launch, full journeys and visual checks. Profile C includes all of them. The comparison projects the same reports onto each profile so the submission and execution evidence stay paired. It also reports positive, negative and boundary checks, scripted completion, visual checks, and launch and recovery. Case time is summed as an estimate. A standalone wall-clock comparison requires separate executions.
 
-The [moving-platform calibration](experiments/moving-platform-001/) contains the first paired profile comparison and the recovery journey frames.
+The [moving-platform calibration](experiments/moving-platform-001/) contains the first paired profile comparison and the recovery journey frames. The [curved-layout calibration](experiments/moving-platform-002/) adds the second implementation and decorative-lift control.
 
 ## Codex baseline
 
@@ -93,4 +93,4 @@ The [pilot manifest](pilot/manifest.json) indexes 12 runnable tasks and 104 impl
 - Ordered state transitions, simulated-time assertions and single-fault calibration draw on [WorldCoder-Bench](https://arxiv.org/html/2606.01869) and the [GameLogicBench navigation judge](https://github.com/NJU-LINK/GameLogicBench-Tasks/blob/18c54e69cf962fd402e245811d4925d129f4b33c/atom_move_navigation_3d/judge/judge.gd).
 - Event-linked frames and criterion-specific visual evidence draw on the [GameCraft verifier](https://github.com/FreedomIntelligence/gamecraft-bench/blob/d64cc5d817bd331a840a378e6e42c873b1139055/gamecraft_bench/verifier/score.py).
 
-The [first P01 Codex run](baselines/p01/codex-001/) includes the frozen game, replay, automated report, and manually reviewed frames.
+The [first P01 Codex run](baselines/p01/codex-001/) and the [first P04 Codex run](baselines/p04/codex-001/) include the frozen games, replays, automated reports, and reviewed frames.

@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { serveReference } from "./server.mjs";
 import { artifactDigest, digest, readJson, requireCheck, runVariant, startBrowser, version } from "./browser-evaluation.mjs";
-import { cases } from "./platform-cases.mjs";
+import { cases, supportId } from "./platform-cases.mjs";
 import { layouts } from "./platform-replays.mjs";
 
 const tasks = ["A03", "C03", "P04"];
@@ -51,9 +51,10 @@ try {
           fault, server: { url: url.href }, artifactVersion: submission ? artifactVersion : artifactVersion + "/" + taskId,
           evaluatorVersion, plan, contract, cases,
           setup(state, scenario) {
-            requireCheck(state.outcome === "none" && !state.cargoDelivered && state.avatar.supportSurface !== "lift",
+            requireCheck(state.outcome === "none" && !state.cargoDelivered &&
+              state.avatar.supportSurface !== supportId(route, "lift"),
               "Local scenario pre-completed the action.");
-            if (scenario === "adjacent_low_ledge") requireCheck(state.avatar.supportSurface === "lower",
+            if (scenario === "adjacent_low_ledge") requireCheck(state.avatar.supportSurface === supportId(route, "lower"),
               "The no-carry scenario did not begin on a stationary dock.");
           },
         });

@@ -1,0 +1,333 @@
+[
+  {
+    "taskId": "P04",
+    "runId": "P04",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/P04",
+    "evaluatorVersion": "e78d87d82c9ade9398b534d7aaaf52dfea645120c7a115e8c0af87678eb3e02f",
+    "reportSha256": "bb48981fa28a785a22824099c9cdfd9358753fcb056b8a875d9f1726e63c931d",
+    "path": "runs/2026-11-13T09-37-03-922Z-34380/P04/report.json",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "pass",
+      "no_remote_carry": "pass",
+      "platform_feedback": "pass",
+      "blocked_outside_window": "pass",
+      "pass_during_window": "pass",
+      "blocks_when_closed_again": "pass",
+      "gate_feedback": "pass",
+      "cargo_motion": "pass",
+      "no_empty_delivery": "pass",
+      "deliver": "pass",
+      "recover_and_deliver": "pass"
+    }
+  },
+  {
+    "taskId": "A03",
+    "runId": "A03-curve",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/A03",
+    "evaluatorVersion": "716974e4ce9e10c289893530f57b43dcfda2d966e1fd317b3ee4f6c84f76861e",
+    "reportSha256": "90684c76c28dec4a328c8f95f9ff23cf312a9ad8aaa9981a94127c6c4a5f6216",
+    "path": "runs/2026-11-13T09-29-56-863Z-29000/A03-curve/report.json",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 0
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "pass",
+      "no_remote_carry": "pass",
+      "platform_feedback": "pass"
+    }
+  },
+  {
+    "taskId": "C03",
+    "runId": "C03-curve",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/C03",
+    "evaluatorVersion": "70e27bb0a22b029e9c7337616de1772409ca59b18c71fe094d42a260ce111b85",
+    "reportSha256": "1c8737bc16b70269cf359f0ae0f86492ee67f95d9395390211e5afdc84139de2",
+    "path": "runs/2026-11-13T09-29-56-863Z-29000/C03-curve/report.json",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 1,
+        "planned": 1
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "pass",
+      "no_remote_carry": "pass",
+      "platform_feedback": "pass",
+      "blocked_outside_window": "pass",
+      "pass_during_window": "pass",
+      "blocks_when_closed_again": "pass",
+      "gate_feedback": "pass",
+      "finish": "pass"
+    }
+  },
+  {
+    "taskId": "P04",
+    "runId": "P04-curve",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/P04",
+    "evaluatorVersion": "45e290b8e255093fd96d9d408a93d50ba915a5f62e84892fbf371791b570b44a",
+    "reportSha256": "c157f6d4c18019fee023a0275bb2229b13718a0f451652fcea1a71ace7bbc11f",
+    "path": "runs/2026-11-13T09-32-07-281Z-22428/P04-curve/report.json",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "pass",
+      "no_remote_carry": "pass",
+      "platform_feedback": "pass",
+      "blocked_outside_window": "pass",
+      "pass_during_window": "pass",
+      "blocks_when_closed_again": "pass",
+      "gate_feedback": "pass",
+      "cargo_motion": "pass",
+      "no_empty_delivery": "pass",
+      "deliver": "pass",
+      "recover_and_deliver": "pass"
+    }
+  },
+  {
+    "taskId": "P04",
+    "runId": "P04-curve-platform_moves_without_cargo",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/P04/platform_moves_without_cargo",
+    "evaluatorVersion": "45e290b8e255093fd96d9d408a93d50ba915a5f62e84892fbf371791b570b44a",
+    "reportSha256": "e38f149de7a676520d096c69fc0b5f4ae21d3fc6f773e4de9c0cdcfe055278fe",
+    "path": "runs/2026-11-13T09-32-07-281Z-22428/P04-curve-platform_moves_without_cargo/report.json",
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.8,
+        0.8
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "pass",
+      "no_remote_carry": "pass",
+      "platform_feedback": "pass",
+      "blocked_outside_window": "pass",
+      "pass_during_window": "pass",
+      "blocks_when_closed_again": "pass",
+      "gate_feedback": "pass",
+      "cargo_motion": "fail",
+      "no_empty_delivery": "pass",
+      "deliver": "fail",
+      "recover_and_deliver": "fail"
+    }
+  },
+  {
+    "taskId": "P04",
+    "runId": "P04-curve-nearby_actor_teleported",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/P04/nearby_actor_teleported",
+    "evaluatorVersion": "45e290b8e255093fd96d9d408a93d50ba915a5f62e84892fbf371791b570b44a",
+    "reportSha256": "ad6c31cea1032811585d17bcb7bc541e39251c66074ac34b6214c25ce263941b",
+    "path": "runs/2026-11-13T09-32-07-281Z-22428/P04-curve-nearby_actor_teleported/report.json",
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.9,
+        0.9
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "pass",
+      "no_remote_carry": "fail",
+      "platform_feedback": "pass",
+      "blocked_outside_window": "pass",
+      "pass_during_window": "pass",
+      "blocks_when_closed_again": "pass",
+      "gate_feedback": "pass",
+      "cargo_motion": "pass",
+      "no_empty_delivery": "pass",
+      "deliver": "pass",
+      "recover_and_deliver": "pass"
+    }
+  },
+  {
+    "taskId": "P04",
+    "runId": "P04-curve-gate_stays_open_after_window",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/P04/gate_stays_open_after_window",
+    "evaluatorVersion": "45e290b8e255093fd96d9d408a93d50ba915a5f62e84892fbf371791b570b44a",
+    "reportSha256": "59bb7c3c33829591b487f46c5f277b7c6e1d6eaead9099012c04cf2d9da72c4f",
+    "path": "runs/2026-11-13T09-32-07-281Z-22428/P04-curve-gate_stays_open_after_window/report.json",
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.9333333333333332,
+        0.9333333333333332
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "pass",
+      "no_remote_carry": "pass",
+      "platform_feedback": "pass",
+      "blocked_outside_window": "pass",
+      "pass_during_window": "pass",
+      "blocks_when_closed_again": "fail",
+      "gate_feedback": "fail",
+      "cargo_motion": "pass",
+      "no_empty_delivery": "pass",
+      "deliver": "pass",
+      "recover_and_deliver": "pass"
+    }
+  },
+  {
+    "taskId": "P04",
+    "runId": "P04-curve-avatar_counts_as_cargo",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/P04/avatar_counts_as_cargo",
+    "evaluatorVersion": "45e290b8e255093fd96d9d408a93d50ba915a5f62e84892fbf371791b570b44a",
+    "reportSha256": "f6606433db9444a4424430e77e40996701fe02baa7d3e529026d66a87b2f2d1c",
+    "path": "runs/2026-11-13T09-32-07-281Z-22428/P04-curve-avatar_counts_as_cargo/report.json",
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.8,
+        0.8
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "pass",
+      "no_remote_carry": "pass",
+      "platform_feedback": "pass",
+      "blocked_outside_window": "pass",
+      "pass_during_window": "pass",
+      "blocks_when_closed_again": "pass",
+      "gate_feedback": "pass",
+      "cargo_motion": "pass",
+      "no_empty_delivery": "fail",
+      "deliver": "pass",
+      "recover_and_deliver": "pass"
+    }
+  },
+  {
+    "taskId": "P04",
+    "runId": "P04-curve-decorative_lift",
+    "browserVersion": "157.0.8103.52",
+    "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/P04/decorative_lift",
+    "evaluatorVersion": "45e290b8e255093fd96d9d408a93d50ba915a5f62e84892fbf371791b570b44a",
+    "reportSha256": "300b648b003c237bb383840d4090969e03e6b63eba6db82e8c6ff6f31fc9c3bf",
+    "path": "runs/2026-11-13T09-32-07-281Z-22428/P04-curve-decorative_lift/report.json",
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.7,
+        0.7
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    },
+    "cases": {
+      "launch": "pass",
+      "probe": "pass",
+      "platform_trajectory": "pass",
+      "actual_support": "fail",
+      "no_remote_carry": "pass",
+      "platform_feedback": "fail",
+      "blocked_outside_window": "pass",
+      "pass_during_window": "pass",
+      "blocks_when_closed_again": "pass",
+      "gate_feedback": "pass",
+      "cargo_motion": "fail",
+      "no_empty_delivery": "pass",
+      "deliver": "fail",
+      "recover_and_deliver": "fail"
+    }
+  }
+]

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Highline Freight</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main>
+  <header><div class="brand"><span class="logo">▰</span> HIGHLINE <b>FREIGHT</b></div><span class="station"><i></i> TRANSFER STATION 04</span></header>
+  <section class="intro"><div><p class="eyebrow">CARGO OPERATIONS</p><h1>Bridge the gap.</h1></div><p>Hold D until you and the crate are on the lift, then release and ride up. At the high dock, hold D to push through the gate into the delivery bay.</p></section>
+  <section class="viewport" aria-label="Highline Freight game">
+    <div id="scene"></div>
+    <div class="overlay"><span id="phase"></span><span id="gate"></span></div>
+    <div class="route"><div><span>LIFT CYCLE</span><strong id="clock"></strong></div><div class="track"><div id="fill"></div></div></div>
+    <div id="result" hidden><p id="result-tag" class="eyebrow"></p><h2 id="result-title"></h2><button id="retry">Retry <kbd>R</kbd></button></div>
+  </section>
+  <footer><div><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> <span>Move / push</span></div><div><kbd>R</kbd> <span>Restart</span></div><strong id="cargo">▣ &nbsp; CARGO 0 / 1</strong></footer>
+</main>
+<script type="module" src="./game.js"></script>
+</body>
+</html>

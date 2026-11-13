@@ -1,0 +1,27 @@
+{
+  "axis": 0,
+  "direction": 1,
+  "advance": "d",
+  "probe": {
+    "key": "s",
+    "axis": 2,
+    "direction": 1
+  },
+  "fall": "w",
+  "boardAt": -4.15,
+  "stepOffAt": 7.18,
+  "gate": 8.7,
+  "pastGate": 9.45,
+  "delivery": 11.55,
+  "dockDelta": [
+    7,
+    3.4,
+    0
+  ],
+  "maxStep": 0.078,
+  "supports": {
+    "lift": "platform",
+    "lower": "lowDock",
+    "upper": "highDock"
+  }
+}
