@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Freight Lift | PlayableWorld-Bench</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption" id="task">PlayableWorld-Bench</p><h1>Freight Lift</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world" aria-label="3D freight lift"></div>
+    <section class="hud" aria-label="Freight lift status">
+      <div><span>Lift</span><strong id="phase"></strong></div>
+      <div><span>Underfoot</span><strong id="support"></strong></div>
+      <div id="gate-panel"><span>Gate</span><strong id="gate"></strong></div>
+      <div><span>Mission</span><strong id="status" role="status"></strong></div>
+    </section>
+    <p class="objective" id="objective"></p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

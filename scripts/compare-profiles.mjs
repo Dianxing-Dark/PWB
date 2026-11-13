@@ -1,0 +1,57 @@
+import { readFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const repo = fileURLToPath(new URL("../", import.meta.url));
+const json = async path => JSON.parse(await readFile(path, "utf8"));
+const reportPaths = process.argv.slice(2);
+if (!reportPaths.length) throw new Error("Provide one or more report.json paths.");
+const stages = {
+  A: new Set(["prerequisite", "functional"]),
+  B: new Set(["prerequisite", "journey", "visual"]),
+  C: new Set(["prerequisite", "functional", "journey", "visual"]),
+};
+
+async function compare(path) {
+  const report = await json(path);
+  const plan = await json(join(repo, "pilot", "evaluator", report.taskId + ".json"));
+  const definitions = new Map(plan.cases.map(entry => [entry.id, entry]));
+  const evidence = new Map(report.evidence.map(entry => [entry.id, entry]));
+  const cases = await Promise.all(report.cases.map(async row => {
+    const definition = definitions.get(row.caseId);
+    if (!definition) throw new Error("Unknown case " + row.caseId);
+    const trace = evidence.get(row.caseId + "/trace.json");
+    const elapsedMs = trace ? (await json(join(dirname(path), trace.storagePath))).elapsedMs ?? null : null;
+    return { ...row, stage: definition.stage, elapsedMs };
+  }));
+
+  function summarize(selected) {
+    const counted = cases.filter(row => selected.has(row.stage));
+    const executed = counted.filter(row => evidence.has(row.caseId + "/trace.json"));
+    const failed = counted.filter(row => row.status === "fail").map(row => row.caseId);
+    const blocked = counted.filter(row => row.status === "product_blocked").map(row => row.caseId);
+    const unverified = counted.filter(row => row.status === "unverified").map(row => row.caseId);
+    return {
+      scheduled: counted.length,
+      passed: counted.filter(row => row.status === "pass").length,
+      failed, blocked, unverified,
+      observedFailure: failed.length > 0,
+      estimatedCaseMs: executed.length && executed.every(row => row.elapsedMs !== null)
+        ? executed.reduce((sum, row) => sum + row.elapsedMs, 0) : null,
+    };
+  }
+
+  return {
+    taskId: report.taskId,
+    runId: report.runId,
+    artifactVersion: report.artifactVersion,
+    evaluatorVersion: report.evaluatorVersion,
+    profiles: Object.fromEntries(Object.entries(stages).map(([id, selected]) => [id, summarize(selected)])),
+  };
+}
+
+const runs = await Promise.all(reportPaths.map(compare));
+console.log(JSON.stringify({
+  method: "Paired projection from the same full runs. Case times exclude browser startup and are estimates for standalone profiles.",
+  runs,
+}, null, 2));

@@ -1,13 +1,4 @@
-export class CheckFailure extends Error {
-  constructor(message, milestone) {
-    super(message);
-    this.milestone = milestone;
-  }
-}
-
-export function requireCheck(condition, message, milestone) {
-  if (!condition) throw new CheckFailure(message, milestone);
-}
+import { requireCheck } from "./browser-evaluation.mjs";
 
 const hasDoorEvent = event => event.type === "door_state_changed" && event.data.unlocked;
 const plateActivated = (event, id) => event.type === "contact_changed" &&

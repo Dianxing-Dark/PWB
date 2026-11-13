@@ -9,7 +9,11 @@
   "scripts": {
     "play:p01": "node scripts/play-p01.mjs",
     "evaluate:p01": "node scripts/evaluate-p01.mjs",
-    "calibrate:p01": "node scripts/evaluate-p01.mjs --calibrate"
+    "calibrate:p01": "node scripts/evaluate-p01.mjs --calibrate",
+    "play:platform": "node scripts/play-platform.mjs",
+    "evaluate:platform": "node scripts/evaluate-platform.mjs",
+    "calibrate:platform": "node scripts/evaluate-platform.mjs --calibrate",
+    "compare:profiles": "node scripts/compare-profiles.mjs"
   },
   "dependencies": {
     "three": "0.180.0"

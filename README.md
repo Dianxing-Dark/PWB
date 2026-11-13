@@ -19,6 +19,22 @@ The first command runs the same 11 checks on both reference layouts. The second 
 
 Reports and trace files go under `runs/`. Each case records trusted browser input, sampled positions, simulation events, and available screenshots. Both journeys start in a fresh page. Check definitions and grading are shared. A reviewed replay supplies waypoints, a gate plane and movement bounds. The two references use different movement axes, collision implementations, and gate timings. The second reports unlock and passability separately.
 
+## Run the moving-platform family
+
+    npm run play:platform -- P04
+    npm run evaluate:platform
+    npm run calibrate:platform
+
+A03 evaluates boarding and support across two cycles. C03 adds a gate that opens at phase step 285 and closes at 405. P04 adds cargo transport, delivery and a fall/retry journey. Select one task with `npm run evaluate:platform -- --task=C03`. The calibration command also runs the four registered P04 single faults.
+
+The platform and P01 share a browser runner, evidence format, and grading code. The platform cases retain position and phase traces, maximum relative rider and cargo drift, actual keyboard input and screenshots tied to boarding, transit and arrival.
+
+## Compare evaluation profiles
+
+    node scripts/compare-profiles.mjs runs/<run>/P04/report.json
+
+Profile A includes launch and contract checks. Profile B includes launch, full journeys and visual checks. Profile C includes all of them. The comparison projects the same reports onto each profile so the submission and execution evidence stay paired. Case time is summed as an estimate. A standalone wall-clock comparison requires separate executions.
+
 ## Codex baseline
 
 On Windows, install and authenticate Codex CLI, then run this from the checkout with a fresh directory outside it.
