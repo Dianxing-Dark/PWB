@@ -1,6 +1,6 @@
 {
   "version": "pilot-0.1",
-  "status": "design_contract_pending_browser_calibration",
+  "status": "pilot_in_progress",
   "preGeneration": "Builder 得到任务合同、共享接口和允许装载的合法场景。用例编排、轨迹、种子选择及故障校准材料由评测方保管。",
   "modes": {
     "normalEntry": "新会话从默认入口开始。允许正常菜单与玩家输入。禁止装载测试场景、写游戏状态或跳过流程。",
@@ -57,5 +57,5 @@
     "用实测确认正常操作窗口、追踪容差与合法场景。变更阈值时递增合同版本。"
   ],
   "clockNote": "无法测得时钟时字段为 null，并说明缺证原因。浏览器时间和仿真步数分别记录。",
-  "scope": "任务合同、检查计划与数据示例。实现、浏览器评测器和录制证据等待校准。"
+  "scope": "本协议覆盖任务合同、检查计划和统一报告。已实现的参考关卡及评测入口见 pilot/manifest.json，任务级校准证据随复跑结果发布。"
 }

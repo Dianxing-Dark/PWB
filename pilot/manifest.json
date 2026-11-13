@@ -3,7 +3,6 @@
   "version": "0.1",
   "taskCount": 12,
   "evaluatorCaseCount": 104,
-  "authoringOnly": true,
   "tasks": [
     {
       "id": "A01",
@@ -11,7 +10,12 @@
       "tier": "atom",
       "dimension": "3D",
       "builder": "builder/A01.json",
-      "evaluator": "evaluator/A01.json"
+      "evaluator": "evaluator/A01.json",
+      "implementation": {
+        "referenceLayouts": 0,
+        "evaluator": null,
+        "codexRuns": 0
+      }
     },
     {
       "id": "C01",
@@ -19,7 +23,12 @@
       "tier": "combination",
       "dimension": "3D",
       "builder": "builder/C01.json",
-      "evaluator": "evaluator/C01.json"
+      "evaluator": "evaluator/C01.json",
+      "implementation": {
+        "referenceLayouts": 0,
+        "evaluator": null,
+        "codexRuns": 0
+      }
     },
     {
       "id": "P01",
@@ -27,7 +36,12 @@
       "tier": "playthrough",
       "dimension": "3D",
       "builder": "builder/P01.json",
-      "evaluator": "evaluator/P01.json"
+      "evaluator": "evaluator/P01.json",
+      "implementation": {
+        "referenceLayouts": 2,
+        "evaluator": "scripts/evaluate-p01.mjs",
+        "codexRuns": 1
+      }
     },
     {
       "id": "A03",
@@ -35,7 +49,12 @@
       "tier": "atom",
       "dimension": "3D",
       "builder": "builder/A03.json",
-      "evaluator": "evaluator/A03.json"
+      "evaluator": "evaluator/A03.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-platform.mjs",
+        "codexRuns": 0
+      }
     },
     {
       "id": "C03",
@@ -43,7 +62,12 @@
       "tier": "combination",
       "dimension": "3D",
       "builder": "builder/C03.json",
-      "evaluator": "evaluator/C03.json"
+      "evaluator": "evaluator/C03.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-platform.mjs",
+        "codexRuns": 0
+      }
     },
     {
       "id": "P04",
@@ -51,7 +75,12 @@
       "tier": "playthrough",
       "dimension": "3D",
       "builder": "builder/P04.json",
-      "evaluator": "evaluator/P04.json"
+      "evaluator": "evaluator/P04.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-platform.mjs",
+        "codexRuns": 0
+      }
     },
     {
       "id": "A06",
@@ -59,7 +88,12 @@
       "tier": "atom",
       "dimension": "3D",
       "builder": "builder/A06.json",
-      "evaluator": "evaluator/A06.json"
+      "evaluator": "evaluator/A06.json",
+      "implementation": {
+        "referenceLayouts": 0,
+        "evaluator": null,
+        "codexRuns": 0
+      }
     },
     {
       "id": "C05",
@@ -67,7 +101,12 @@
       "tier": "combination",
       "dimension": "3D",
       "builder": "builder/C05.json",
-      "evaluator": "evaluator/C05.json"
+      "evaluator": "evaluator/C05.json",
+      "implementation": {
+        "referenceLayouts": 0,
+        "evaluator": null,
+        "codexRuns": 0
+      }
     },
     {
       "id": "P05",
@@ -75,7 +114,12 @@
       "tier": "playthrough",
       "dimension": "3D",
       "builder": "builder/P05.json",
-      "evaluator": "evaluator/P05.json"
+      "evaluator": "evaluator/P05.json",
+      "implementation": {
+        "referenceLayouts": 0,
+        "evaluator": null,
+        "codexRuns": 0
+      }
     },
     {
       "id": "A02",
@@ -83,7 +127,12 @@
       "tier": "atom",
       "dimension": "2D",
       "builder": "builder/A02.json",
-      "evaluator": "evaluator/A02.json"
+      "evaluator": "evaluator/A02.json",
+      "implementation": {
+        "referenceLayouts": 0,
+        "evaluator": null,
+        "codexRuns": 0
+      }
     },
     {
       "id": "C02",
@@ -91,7 +140,12 @@
       "tier": "combination",
       "dimension": "2D",
       "builder": "builder/C02.json",
-      "evaluator": "evaluator/C02.json"
+      "evaluator": "evaluator/C02.json",
+      "implementation": {
+        "referenceLayouts": 0,
+        "evaluator": null,
+        "codexRuns": 0
+      }
     },
     {
       "id": "P02",
@@ -99,7 +153,12 @@
       "tier": "playthrough",
       "dimension": "2D",
       "builder": "builder/P02.json",
-      "evaluator": "evaluator/P02.json"
+      "evaluator": "evaluator/P02.json",
+      "implementation": {
+        "referenceLayouts": 0,
+        "evaluator": null,
+        "codexRuns": 0
+      }
     }
   ],
   "readFirst": [
@@ -114,5 +173,13 @@
     "https://arxiv.org/html/2606.17861v1"
   ],
   "candidateInventory": "candidate-inventory.json",
-  "runReportSchema": "evaluator/run-report.schema.json"
+  "runReportSchema": "evaluator/run-report.schema.json",
+  "implementationSummary": {
+    "runnableTasks": 4,
+    "implementedChecks": 42,
+    "candidateTasks": 30,
+    "plannedPilotTasks": 12,
+    "matched2dControls": 3,
+    "runnable2dControls": 0
+  }
 }

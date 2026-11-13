@@ -50,7 +50,6 @@ export async function startBrowser() {
   await mkdir(temp);
   const browserEnv = { ...process.env, TMPDIR: temp, TMP: temp, TEMP: temp };
 
-
   const browser = await chromium.launch({ executablePath, headless: true, env: browserEnv,
     args: ["--disable-background-networking", "--disable-sync", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
   return { browser, base };

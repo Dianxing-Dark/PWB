@@ -22,20 +22,26 @@ async function compare(path) {
     if (!definition) throw new Error("Unknown case " + row.caseId);
     const trace = evidence.get(row.caseId + "/trace.json");
     const elapsedMs = trace ? (await json(join(dirname(path), trace.storagePath))).elapsedMs ?? null : null;
-    return { ...row, stage: definition.stage, elapsedMs };
+    return { ...row, stage: definition.stage, caseType: definition.caseType, elapsedMs };
   }));
+
+  function count(rows) {
+    return {
+      scheduled: rows.length,
+      passed: rows.filter(row => row.status === "pass").length,
+      failed: rows.filter(row => row.status === "fail").map(row => row.caseId),
+      blocked: rows.filter(row => row.status === "product_blocked").map(row => row.caseId),
+      unverified: rows.filter(row => row.status === "unverified").map(row => row.caseId),
+    };
+  }
 
   function summarize(selected) {
     const counted = cases.filter(row => selected.has(row.stage));
     const executed = counted.filter(row => evidence.has(row.caseId + "/trace.json"));
-    const failed = counted.filter(row => row.status === "fail").map(row => row.caseId);
-    const blocked = counted.filter(row => row.status === "product_blocked").map(row => row.caseId);
-    const unverified = counted.filter(row => row.status === "unverified").map(row => row.caseId);
+    const outcomes = count(counted);
     return {
-      scheduled: counted.length,
-      passed: counted.filter(row => row.status === "pass").length,
-      failed, blocked, unverified,
-      observedFailure: failed.length > 0,
+      ...outcomes,
+      observedFailure: outcomes.failed.length > 0,
       estimatedCaseMs: executed.length && executed.every(row => row.elapsedMs !== null)
         ? executed.reduce((sum, row) => sum + row.elapsedMs, 0) : null,
     };
@@ -46,6 +52,15 @@ async function compare(path) {
     runId: report.runId,
     artifactVersion: report.artifactVersion,
     evaluatorVersion: report.evaluatorVersion,
+    strictTaskSuccess: report.summary.strictTaskSuccess,
+    functionalInterval: report.summary.functionalInterval,
+    functionalCoverage: report.summary.functionalCoverage,
+    functionalByCaseType: Object.fromEntries(["positive", "negative", "boundary"].map(type =>
+      [type, count(cases.filter(row => row.stage === "functional" && row.caseType === type))])),
+    scriptedJourney: count(cases.filter(row => row.stage === "journey")),
+    visual: count(cases.filter(row => row.stage === "visual")),
+    completenessAndRecovery: count(cases.filter(row => row.stage === "prerequisite" ||
+      (row.stage === "journey" && row.caseType === "recovery"))),
     profiles: Object.fromEntries(Object.entries(stages).map(([id, selected]) => [id, summarize(selected)])),
   };
 }

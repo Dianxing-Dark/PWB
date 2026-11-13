@@ -91,12 +91,12 @@ async function freightJourney(test, first) {
   const boarded = await board(test, true);
   await test.capture("cargo-boarded");
   const docked = await ride(test, boarded, "avatar", true);
-  const crateDrift = distance(relative(boarded.box.position, boarded.platform.position),
-    relative(docked.box.position, docked.platform.position));
+  const cargoTrace = test.trace.slice(start).filter(state => state.tick >= boarded.tick && state.tick <= docked.tick);
+  const cargoOffset = relative(boarded.box.position, boarded.platform.position);
+  const crateDrift = Math.max(...cargoTrace.map(state => distance(cargoOffset, relative(state.box.position, state.platform.position))));
   test.notes.cargoRelativeDrift = crateDrift;
   requireCheck(ready(docked, "box") && crateDrift < 0.07 &&
-    test.trace.slice(start).filter(state => state.tick >= boarded.tick && state.tick <= docked.tick)
-      .every(state => ready(state, "box")),
+    cargoTrace.every(state => ready(state, "box")),
   "Cargo was not continuously carried with the player.", "cargo_supported_in_motion");
   await approachFromLift(test);
   await cross(test, "box");
@@ -228,7 +228,8 @@ export const cases = {
     const closed = await test.capture("gate-before-window");
     await test.until(state => state.gate.passable, 1700, "Open state unavailable for visual check.");
     const open = await test.capture("gate-in-window");
-    await test.until(state => !state.gate.passable, 4200, "Closed state unavailable for visual check.");
+    const { endExclusive } = test.contract.constants.gateOpen;
+    await test.until(state => state.platform.phaseTick >= endExclusive, 4200, "The closing phase was not observed.");
     const reclosed = await test.capture("gate-after-window");
     const [a, b, c] = [closed, open, reclosed].map(frame => marker(frame, [231, 92, 92]).pixels);
     test.notes.gatePixels = { closed: a, open: b, reclosed: c };

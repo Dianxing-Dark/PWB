@@ -1,0 +1,639 @@
+{
+  "method": "Paired projection from the same full runs. Case times exclude browser startup and are estimates for standalone profiles.",
+  "runs": [
+    {
+      "taskId": "A03",
+      "runId": "A03",
+      "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/A03",
+      "evaluatorVersion": "a734ce731fa0ae3c78adb374aa492a5d6997c46cecb6808c45ee8640ffe4abcc",
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "functionalByCaseType": {
+        "positive": {
+          "scheduled": 2,
+          "passed": 2,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "negative": {
+          "scheduled": 1,
+          "passed": 1,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "boundary": {
+          "scheduled": 0,
+          "passed": 0,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        }
+      },
+      "scriptedJourney": {
+        "scheduled": 0,
+        "passed": 0,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "visual": {
+        "scheduled": 1,
+        "passed": 1,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "completenessAndRecovery": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "profiles": {
+        "A": {
+          "scheduled": 5,
+          "passed": 5,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 41020
+        },
+        "B": {
+          "scheduled": 3,
+          "passed": 3,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 9109
+        },
+        "C": {
+          "scheduled": 6,
+          "passed": 6,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 46768
+        }
+      }
+    },
+    {
+      "taskId": "C03",
+      "runId": "C03",
+      "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/C03",
+      "evaluatorVersion": "dec23c96e03e46d759b243c1a3237f7d2ad69ecc852703d6c3dedee683dc9887",
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "functionalByCaseType": {
+        "positive": {
+          "scheduled": 3,
+          "passed": 3,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "negative": {
+          "scheduled": 2,
+          "passed": 2,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "boundary": {
+          "scheduled": 1,
+          "passed": 1,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        }
+      },
+      "scriptedJourney": {
+        "scheduled": 1,
+        "passed": 1,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "visual": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "completenessAndRecovery": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "profiles": {
+        "A": {
+          "scheduled": 8,
+          "passed": 8,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 51343
+        },
+        "B": {
+          "scheduled": 5,
+          "passed": 5,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 17801
+        },
+        "C": {
+          "scheduled": 11,
+          "passed": 11,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 67174
+        }
+      }
+    },
+    {
+      "taskId": "P04",
+      "runId": "P04",
+      "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/P04",
+      "evaluatorVersion": "473ce06ce6de2b1ca8e636c6b7c39ff7910bdc07b5cb0011ca591382094cfcce",
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "functionalByCaseType": {
+        "positive": {
+          "scheduled": 4,
+          "passed": 4,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "negative": {
+          "scheduled": 3,
+          "passed": 3,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "boundary": {
+          "scheduled": 1,
+          "passed": 1,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        }
+      },
+      "scriptedJourney": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "visual": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "completenessAndRecovery": {
+        "scheduled": 3,
+        "passed": 3,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "profiles": {
+        "A": {
+          "scheduled": 10,
+          "passed": 10,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 57094
+        },
+        "B": {
+          "scheduled": 6,
+          "passed": 6,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 24241
+        },
+        "C": {
+          "scheduled": 14,
+          "passed": 14,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 78358
+        }
+      }
+    },
+    {
+      "taskId": "P04",
+      "runId": "P04-avatar_counts_as_cargo",
+      "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/P04/avatar_counts_as_cargo",
+      "evaluatorVersion": "473ce06ce6de2b1ca8e636c6b7c39ff7910bdc07b5cb0011ca591382094cfcce",
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.8,
+        0.8
+      ],
+      "functionalCoverage": 1,
+      "functionalByCaseType": {
+        "positive": {
+          "scheduled": 4,
+          "passed": 4,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "negative": {
+          "scheduled": 3,
+          "passed": 2,
+          "failed": [
+            "no_empty_delivery"
+          ],
+          "blocked": [],
+          "unverified": []
+        },
+        "boundary": {
+          "scheduled": 1,
+          "passed": 1,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        }
+      },
+      "scriptedJourney": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "visual": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "completenessAndRecovery": {
+        "scheduled": 3,
+        "passed": 3,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "profiles": {
+        "A": {
+          "scheduled": 10,
+          "passed": 9,
+          "failed": [
+            "no_empty_delivery"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 57903
+        },
+        "B": {
+          "scheduled": 6,
+          "passed": 6,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 25187
+        },
+        "C": {
+          "scheduled": 14,
+          "passed": 13,
+          "failed": [
+            "no_empty_delivery"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 82314
+        }
+      }
+    },
+    {
+      "taskId": "P04",
+      "runId": "P04-gate_stays_open_after_window",
+      "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/P04/gate_stays_open_after_window",
+      "evaluatorVersion": "473ce06ce6de2b1ca8e636c6b7c39ff7910bdc07b5cb0011ca591382094cfcce",
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.9333333333333332,
+        0.9333333333333332
+      ],
+      "functionalCoverage": 1,
+      "functionalByCaseType": {
+        "positive": {
+          "scheduled": 4,
+          "passed": 4,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "negative": {
+          "scheduled": 3,
+          "passed": 3,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "boundary": {
+          "scheduled": 1,
+          "passed": 0,
+          "failed": [
+            "blocks_when_closed_again"
+          ],
+          "blocked": [],
+          "unverified": []
+        }
+      },
+      "scriptedJourney": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "visual": {
+        "scheduled": 2,
+        "passed": 1,
+        "failed": [
+          "gate_feedback"
+        ],
+        "blocked": [],
+        "unverified": []
+      },
+      "completenessAndRecovery": {
+        "scheduled": 3,
+        "passed": 3,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "profiles": {
+        "A": {
+          "scheduled": 10,
+          "passed": 9,
+          "failed": [
+            "blocks_when_closed_again"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 48190
+        },
+        "B": {
+          "scheduled": 6,
+          "passed": 5,
+          "failed": [
+            "gate_feedback"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 22836
+        },
+        "C": {
+          "scheduled": 14,
+          "passed": 12,
+          "failed": [
+            "blocks_when_closed_again",
+            "gate_feedback"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 70071
+        }
+      }
+    },
+    {
+      "taskId": "P04",
+      "runId": "P04-nearby_actor_teleported",
+      "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/P04/nearby_actor_teleported",
+      "evaluatorVersion": "473ce06ce6de2b1ca8e636c6b7c39ff7910bdc07b5cb0011ca591382094cfcce",
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.9,
+        0.9
+      ],
+      "functionalCoverage": 1,
+      "functionalByCaseType": {
+        "positive": {
+          "scheduled": 4,
+          "passed": 4,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "negative": {
+          "scheduled": 3,
+          "passed": 2,
+          "failed": [
+            "no_remote_carry"
+          ],
+          "blocked": [],
+          "unverified": []
+        },
+        "boundary": {
+          "scheduled": 1,
+          "passed": 1,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        }
+      },
+      "scriptedJourney": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "visual": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "completenessAndRecovery": {
+        "scheduled": 3,
+        "passed": 3,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "profiles": {
+        "A": {
+          "scheduled": 10,
+          "passed": 9,
+          "failed": [
+            "no_remote_carry"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 56004
+        },
+        "B": {
+          "scheduled": 6,
+          "passed": 6,
+          "failed": [],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": false,
+          "estimatedCaseMs": 22984
+        },
+        "C": {
+          "scheduled": 14,
+          "passed": 13,
+          "failed": [
+            "no_remote_carry"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 78243
+        }
+      }
+    },
+    {
+      "taskId": "P04",
+      "runId": "P04-platform_moves_without_cargo",
+      "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/P04/platform_moves_without_cargo",
+      "evaluatorVersion": "473ce06ce6de2b1ca8e636c6b7c39ff7910bdc07b5cb0011ca591382094cfcce",
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0.8,
+        0.8
+      ],
+      "functionalCoverage": 1,
+      "functionalByCaseType": {
+        "positive": {
+          "scheduled": 4,
+          "passed": 3,
+          "failed": [
+            "cargo_motion"
+          ],
+          "blocked": [],
+          "unverified": []
+        },
+        "negative": {
+          "scheduled": 3,
+          "passed": 3,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        },
+        "boundary": {
+          "scheduled": 1,
+          "passed": 1,
+          "failed": [],
+          "blocked": [],
+          "unverified": []
+        }
+      },
+      "scriptedJourney": {
+        "scheduled": 2,
+        "passed": 0,
+        "failed": [
+          "deliver",
+          "recover_and_deliver"
+        ],
+        "blocked": [],
+        "unverified": []
+      },
+      "visual": {
+        "scheduled": 2,
+        "passed": 2,
+        "failed": [],
+        "blocked": [],
+        "unverified": []
+      },
+      "completenessAndRecovery": {
+        "scheduled": 3,
+        "passed": 2,
+        "failed": [
+          "recover_and_deliver"
+        ],
+        "blocked": [],
+        "unverified": []
+      },
+      "profiles": {
+        "A": {
+          "scheduled": 10,
+          "passed": 9,
+          "failed": [
+            "cargo_motion"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 52650
+        },
+        "B": {
+          "scheduled": 6,
+          "passed": 4,
+          "failed": [
+            "deliver",
+            "recover_and_deliver"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 14345
+        },
+        "C": {
+          "scheduled": 14,
+          "passed": 11,
+          "failed": [
+            "cargo_motion",
+            "deliver",
+            "recover_and_deliver"
+          ],
+          "blocked": [],
+          "unverified": [],
+          "observedFailure": true,
+          "estimatedCaseMs": 66211
+        }
+      }
+    }
+  ]
+}
