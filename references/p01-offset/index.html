@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lift Lock | PlayableWorld-Bench</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption">PlayableWorld-Bench · P01</p><h1>Lift Lock</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world" aria-label="Playable 3D lock chamber"></div>
+    <section class="hud" aria-label="Chamber status">
+      <div><span>Crate switch</span><strong id="lower-switch">Clear</strong></div>
+      <div><span>Walkway switch</span><strong id="upper-switch">Clear</strong></div>
+      <div><span>Airlock</span><strong id="airlock">Sealed</strong></div>
+      <div><span>Attempt</span><strong id="attempt" role="status">Reach the exit</strong></div>
+    </section>
+    <p class="objective">Push the crate onto the amber switch. Take the side ramp and stand on the blue switch until the airlock opens.</p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

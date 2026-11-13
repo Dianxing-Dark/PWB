@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join, relative, resolve } from "node:path";
 import { performance } from "node:perf_hooks";
 import { chromium } from "playwright-core";
@@ -8,21 +8,33 @@ import { PNG } from "pngjs";
 import Ajv2020 from "ajv/dist/2020.js";
 import { cases, CheckFailure, requireCheck } from "./p01-cases.mjs";
 import { serveReference } from "./server.mjs";
+import { replays } from "./p01-replays.mjs";
 
 const readJson = async path => JSON.parse(await readFile(new URL("../" + path, import.meta.url), "utf8"));
 const plan = await readJson("pilot/evaluator/P01.json");
+const contract = await readJson("pilot/builder/P01.json");
 const schema = await readJson("pilot/evaluator/run-report.schema.json");
 const validate = new Ajv2020({ allErrors: true }).compile(schema);
 const calibration = (await readJson("pilot/evaluator/calibration.json"))["dual-plates"].mutations;
 const faultIds = calibration.map(fault => fault.id);
 const args = process.argv.slice(2);
-const faultFlag = args.find(arg => arg.startsWith("--fault="));
-const selectedFault = faultFlag?.slice("--fault=".length);
-if (args.some(arg => arg !== "--calibrate" && arg !== faultFlag) ||
-    (faultFlag && !faultIds.includes(selectedFault)) || (faultFlag && args.includes("--calibrate"))) {
-  throw new Error("Use --calibrate or --fault=<registered P01 fault>.");
+const getArg = name => args.find(arg => arg.startsWith(name + "="))?.slice(name.length + 1);
+const selectedFault = getArg("--fault");
+const selectedLayout = getArg("--layout");
+const submission = getArg("--submission");
+const replayPath = getArg("--replay");
+const calibrate = args.includes("--calibrate");
+if (args.some(arg => !/^--(calibrate$|(layout|fault|submission|replay)=.+)/.test(arg)) ||
+    (selectedFault && (!faultIds.includes(selectedFault) || calibrate)) ||
+    (selectedLayout && !Object.hasOwn(replays, selectedLayout)) ||
+    Boolean(submission) !== Boolean(replayPath) ||
+    (submission && (selectedFault || calibrate || selectedLayout))) {
+  throw new Error("Use [--layout=reference|offset] [--fault=<id>|--calibrate] or --submission=<directory> --replay=<file>.");
 }
-const variants = args.includes("--calibrate") ? ["", ...faultIds] : [selectedFault ?? ""];
+const variants = calibrate ? ["", ...faultIds] : [selectedFault ?? ""];
+const layouts = submission
+  ? { submission: { ...JSON.parse(await readFile(replayPath, "utf8")), folder: resolve(submission) } }
+  : selectedLayout ? { [selectedLayout]: replays[selectedLayout] } : replays;
 
 const executablePath = process.env.CHROME_PATH || [
   "C:/Program Files/Google/Chrome/Application/chrome.exe",
@@ -33,29 +45,27 @@ const executablePath = process.env.CHROME_PATH || [
 if (!executablePath) throw new Error("Set CHROME_PATH to an installed Chrome, Chromium, or Edge executable.");
 
 const digest = data => createHash("sha256").update(data).digest("hex");
-const referenceFiles = ["index.html", "style.css", "game.mjs", "simulation.mjs"];
 const evaluatorFiles = ["scripts/evaluate-p01.mjs", "scripts/p01-cases.mjs", "scripts/server.mjs",
-  "pilot/evaluator/P01.json", "pilot/evaluator/run-report.schema.json", "package-lock.json"];
+  "scripts/p01-replays.mjs", "pilot/evaluator/P01.json", "pilot/builder/P01.json",
+  "pilot/evaluator/calibration.json", "pilot/evaluator/run-report.schema.json", "package-lock.json"];
 async function version(paths) {
-  const source = await Promise.all(paths.map(path => readFile(new URL("../" + path, import.meta.url))));
+  const source = await Promise.all(paths.map(path => readFile(resolve(path))));
   return digest(source.map(digest).join(""));
 }
-const artifactVersion = await version(referenceFiles.map(file => "references/p01/" + file));
 const evaluatorVersion = await version(evaluatorFiles);
 const base = resolve("runs", new Date().toISOString().replace(/[:.]/g, "-") + "-" + process.pid);
 await mkdir(base, { recursive: true });
 const temp = join(base, "browser-temp");
 await mkdir(temp);
 const browserEnv = { ...process.env, TMPDIR: temp, TMP: temp, TEMP: temp };
-const server = await serveReference();
 let browser;
 
-function countGatePixels(bytes) {
+function countGatePixels(bytes, [r, g, b]) {
   const frame = PNG.sync.read(bytes);
   let total = 0;
   for (let pixel = 0; pixel < frame.data.length; pixel += 4) {
-    const [r, g, b] = frame.data.subarray(pixel, pixel + 3);
-    if (r > 210 && g < 75 && b > 95 && b < 175) total++;
+    if (Math.abs(frame.data[pixel] - r) < 15 && Math.abs(frame.data[pixel + 1] - g) < 15 &&
+        Math.abs(frame.data[pixel + 2] - b) < 15) total++;
   }
   return total;
 }
@@ -82,8 +92,8 @@ function score(rows, stage) {
   return { interval: [lower / families.size, upper / families.size], coverage: coverage / families.size };
 }
 
-async function runVariant(fault) {
-  const runId = fault || "reference";
+async function runVariant(layout, route, fault, server, artifactVersion) {
+  const runId = layout + (fault ? "-" + fault : "");
   const root = join(base, runId);
   await mkdir(root);
   const evidence = [];
@@ -156,6 +166,18 @@ async function runVariant(fault) {
       await sample();
       return trace.slice(from);
     }
+    async function go([x, z], timeout = 3800) {
+      const start = trace.length;
+      for (const [axis, target, minus, plus] of [[0, x, "a", "d"], [2, z, "w", "s"]]) {
+        const offset = target - (await sample()).avatar.position[axis];
+        if (Math.abs(offset) <= route.tolerance) continue;
+        const sign = Math.sign(offset);
+        await move(sign < 0 ? minus : plus, state =>
+          state.outcome !== "none" || (target - state.avatar.position[axis]) * sign <= route.tolerance / 2, timeout);
+      }
+      return trace.slice(start);
+    }
+
     async function capture(name, selector) {
       await page.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
       const state = await sample();
@@ -179,6 +201,10 @@ async function runVariant(fault) {
         });
         const url = new URL(server.url);
         if (fault) url.searchParams.set("fault", fault);
+        await page.route("**/*", request => {
+          const target = new URL(request.request().url());
+          return target.origin === url.origin ? request.continue() : request.abort();
+        });
         await page.goto(url.href, { timeout: 12000 });
         try {
           await page.waitForFunction(() => typeof window.__gameTest?.getSnapshot === "function", undefined, { timeout: 8000 });
@@ -196,7 +222,8 @@ async function runVariant(fault) {
             initial.outcome === "none", "Local setup pre-completed the behavior.");
         }
       }
-      result = await cases[caseId]({ page, sample, events, until, move, capture, shared, notes, gatePixels: countGatePixels });
+      result = await cases[caseId]({ page, sample, events, until, move, go, capture, shared, notes,
+        route, contract, gatePixels: countGatePixels });
       outcome = result?.unverified
         ? { status: "unverified", reason: result.unverified }
         : { status: "pass", reason: "Registered checks satisfied." };
@@ -243,26 +270,35 @@ async function runVariant(fault) {
 try {
   browser = await chromium.launch({ executablePath, headless: true, env: browserEnv,
     args: ["--disable-background-networking", "--disable-sync", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
-  const reports = [];
-  for (const fault of variants) reports.push(await runVariant(fault));
-  if (variants.includes("")) {
-    const reference = reports[0];
-    if (reference.cases.some(row => row.status !== "pass")) process.exitCode = 1;
-  }
-  if (args.includes("--calibrate")) {
-    for (const fault of calibration) {
-      const outcomes = new Map(reports.find(report => report.runId === fault.id).cases.map(row => [row.caseId, row.status]));
-      for (const [expected, status] of [[fault.mustDetect, "fail"], [fault.mustPreserve, "pass"]]) {
-        for (const id of expected) {
-          if (outcomes.get(id) !== status) {
-            console.error(fault.id, id, "expected", status, "observed", outcomes.get(id));
-            process.exitCode = 1;
+  for (const [layout, route] of Object.entries(layouts)) {
+    const folder = resolve(route.folder);
+    const files = await readdir(folder, { recursive: true, withFileTypes: true });
+    const payloads = files.filter(file => file.isFile()).map(file => join(file.parentPath, file.name)).sort();
+    const artifactVersion = digest((await version(payloads)) + JSON.stringify(route));
+    const server = await serveReference(0, folder);
+    try {
+      const reports = [];
+      for (const fault of variants) reports.push(await runVariant(layout, route, fault, server, artifactVersion));
+      if (!submission && variants.includes("") && reports[0].cases.some(row => row.status !== "pass")) {
+        process.exitCode = 1;
+      }
+      if (calibrate) {
+        for (const [i, fault] of calibration.entries()) {
+          const outcomes = new Map(reports[i + 1].cases.map(row => [row.caseId, row.status]));
+          for (const [expected, status] of [[fault.mustDetect, "fail"], [fault.mustPreserve, "pass"]]) {
+            for (const id of expected) {
+              if (outcomes.get(id) !== status) {
+                console.error(layout, fault.id, id, "expected", status, "observed", outcomes.get(id));
+                process.exitCode = 1;
+              }
+            }
           }
         }
       }
+    } finally {
+      await server.close();
     }
   }
 } finally {
   await browser?.close();
-  await server.close();
 }

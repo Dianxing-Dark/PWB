@@ -1,0 +1,88 @@
+"""Run one Codex CLI P01 generation in a workspace-only Windows sandbox."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import time
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("run_directory", type=Path)
+parser.add_argument("--budget-seconds", type=int, default=600)
+parser.add_argument("--model")
+args = parser.parse_args()
+repo = Path(__file__).resolve().parent.parent
+root = args.run_directory.resolve()
+if args.budget_seconds <= 0 or root.is_relative_to(repo):
+    parser.error("Choose a positive budget and a new directory outside the checkout.")
+root.mkdir(parents=True)
+builder = root / "builder"
+builder.mkdir()
+temp = root / "temp"
+temp.mkdir()
+inputs = ["pilot/builder/P01.json", "pilot/builder/shared-runtime-interface.json",
+          "node_modules/three/build/three.module.js", "node_modules/three/build/three.core.js",
+          "node_modules/three/LICENSE"]
+for path in inputs:
+    shutil.copy2(repo / path, builder)
+
+prompt = """Build a playable browser-native 3D game for the public requirements in P01.json and shared-runtime-interface.json.
+Implement a complete artifact in this directory, with index.html as the entry point and all runtime dependencies local.
+The supplied Three.js modules are optional. The artifact will run on a static HTTP server.
+Implement the public runtime interface against the same game state that native keyboard input changes.
+Read both public specifications. Write the game files directly. Do not consult outside materials.
+"""
+(root / "prompt.txt").write_text(prompt, encoding="utf-8")
+env = dict(os.environ, TMP=str(temp), TEMP=str(temp), TMPDIR=str(temp))
+policy = [
+    "-c", 'default_permissions="benchmark"',
+    "-c", "features.prefer_mxc=true",
+    "-c", 'permissions.benchmark.filesystem={":root"="deny",":minimal"="read",'
+          '":workspace_roots"={ "."="write" },":tmpdir"="write"}',
+    "-c", "permissions.benchmark.network.enabled=false",
+]
+codex = shutil.which("codex")
+if not codex:
+    raise SystemExit("Install and authenticate Codex CLI before starting a baseline.")
+probe = (
+    "if (!(Test-Path -LiteralPath P01.json)) { exit 8 }; "
+    "try { Get-Content -LiteralPath '" + (repo / "scripts/p01-cases.mjs").as_posix().replace("'", "''") +
+    "' -ErrorAction Stop | Out-Null; exit 3 } catch { }; "
+    "Set-Content -LiteralPath sandbox-ok.txt -Value ok; "
+    "if (Test-Path -LiteralPath sandbox-ok.txt) { exit 0 }; exit 9"
+)
+subprocess.run([codex, "sandbox", "-C", str(builder), "-P", "benchmark", *policy,
+                "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+                "-NoProfile", "-NonInteractive", "-Command", probe], env=env, timeout=60, check=True)
+(builder / "sandbox-ok.txt").unlink()
+command = [codex, "exec", "--ignore-user-config", "--ignore-rules", "--ephemeral", "--skip-git-repo-check",
+           "--color", "never", "--json", "-c", 'approval_policy="never"', "-C", str(builder), *policy]
+if args.model:
+    command.extend(["-m", args.model])
+command.append("-")
+start = time.monotonic()
+timed_out = False
+exit_code = None
+with (root / "events.jsonl").open("wb") as stdout, (root / "stderr.log").open("wb") as stderr:
+    try:
+        result = subprocess.run(command, input=prompt.encode("utf-8"), stdout=stdout, stderr=stderr,
+                                env=env, cwd=builder, timeout=args.budget_seconds)
+        exit_code = result.returncode
+    except subprocess.TimeoutExpired:
+        timed_out = True
+metadata = {
+    "taskId": "P01",
+    "cliVersion": subprocess.check_output([codex, "--version"], text=True).strip(),
+    "modelRequested": args.model,
+    "budgetSeconds": args.budget_seconds,
+    "elapsedSeconds": round(time.monotonic() - start, 2),
+    "timedOut": timed_out,
+    "exitCode": exit_code,
+    "entryExists": (builder / "index.html").is_file(),
+    "inputDigests": {Path(path).name: hashlib.sha256((repo / path).read_bytes()).hexdigest() for path in inputs},
+}
+(root / "generation.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+print(json.dumps(metadata))
+raise SystemExit(0 if exit_code == 0 and metadata["entryExists"] else 1)
