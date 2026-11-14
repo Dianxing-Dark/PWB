@@ -1,8 +1,8 @@
 {
   "name": "PlayableWorld-Bench pilot task specifications",
   "version": "0.1",
-  "taskCount": 12,
-  "evaluatorCaseCount": 104,
+  "taskCount": 15,
+  "evaluatorCaseCount": 129,
   "tasks": [
     {
       "id": "A01",
@@ -159,6 +159,45 @@
         "evaluator": "scripts/evaluate-p01.mjs",
         "codexRuns": 1
       }
+    },
+    {
+      "id": "A10",
+      "family": "checkpoints",
+      "tier": "atom",
+      "dimension": "3D",
+      "builder": "builder/A10.json",
+      "evaluator": "evaluator/A10.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-checkpoints.mjs",
+        "codexRuns": 0
+      }
+    },
+    {
+      "id": "C07",
+      "family": "checkpoints",
+      "tier": "combination",
+      "dimension": "3D",
+      "builder": "builder/C07.json",
+      "evaluator": "evaluator/C07.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-checkpoints.mjs",
+        "codexRuns": 0
+      }
+    },
+    {
+      "id": "C12",
+      "family": "checkpoints",
+      "tier": "combination",
+      "dimension": "3D",
+      "builder": "builder/C12.json",
+      "evaluator": "evaluator/C12.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-checkpoints.mjs",
+        "codexRuns": 0
+      }
     }
   ],
   "readFirst": [
@@ -175,10 +214,10 @@
   "candidateInventory": "candidate-inventory.json",
   "runReportSchema": "evaluator/run-report.schema.json",
   "implementationSummary": {
-    "runnableTasks": 12,
-    "implementedChecks": 104,
+    "runnableTasks": 15,
+    "implementedChecks": 129,
     "candidateTasks": 30,
-    "plannedPilotTasks": 12,
+    "plannedPilotTasks": 15,
     "matched2dControls": 3,
     "runnable2dControls": 3
   }

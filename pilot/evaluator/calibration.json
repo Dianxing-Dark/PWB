@@ -188,5 +188,61 @@
       }
     ]
   },
+  "checkpoints": {
+    "positiveControls": ["带斜坡与投影重合检查点的参考实现"],
+    "mutationsByTask": {
+      "A10": [
+        {
+          "id": "upper_checkpoint_uses_lower",
+          "mustDetect": ["upper_checkpoint", "fall_and_retry_upper"],
+          "mustPreserve": ["lower_checkpoint"]
+        },
+        {
+          "id": "retry_uses_lower_height",
+          "mustDetect": ["fall_and_retry_upper"],
+          "mustPreserve": ["lower_checkpoint", "upper_checkpoint", "checkpoint_feedback"]
+        },
+        {
+          "id": "stale_checkpoint_feedback",
+          "mustDetect": ["checkpoint_feedback"],
+          "mustPreserve": ["upper_checkpoint", "fall_and_retry_upper"]
+        }
+      ],
+      "C07": [
+        {
+          "id": "lower_trap_hits_upper",
+          "mustDetect": ["lower_trap_not_upper"],
+          "mustPreserve": ["lower_trap_restart", "upper_trap_restart"]
+        },
+        {
+          "id": "retry_uses_first_checkpoint",
+          "mustDetect": ["latest_checkpoint_wins"],
+          "mustPreserve": ["lower_trap_restart", "upper_trap_restart", "lower_trap_not_upper"]
+        }
+      ],
+      "C12": [
+        {
+          "id": "retry_erases_power",
+          "mustDetect": ["retry_keeps_power_clears_switch", "finish_after_retry"],
+          "mustPreserve": ["finish_direct", "exit_requires_both"]
+        },
+        {
+          "id": "retry_keeps_switch",
+          "mustDetect": ["retry_keeps_power_clears_switch", "finish_after_retry"],
+          "mustPreserve": ["finish_direct", "exit_requires_both"]
+        },
+        {
+          "id": "exit_ignores_controls",
+          "mustDetect": ["exit_requires_both", "exit_requires_relay"],
+          "mustPreserve": ["finish_direct", "finish_after_retry"]
+        },
+        {
+          "id": "exit_ignores_relay",
+          "mustDetect": ["exit_requires_relay"],
+          "mustPreserve": ["exit_requires_both", "finish_direct", "finish_after_retry"]
+        }
+      ]
+    }
+  },
   "status": "expected_results_to_verify_in_browser"
 }

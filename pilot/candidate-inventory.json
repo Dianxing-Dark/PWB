@@ -1,6 +1,6 @@
 {
   "count": 30,
-  "specified": 12,
+  "specified": 15,
   "tasks": [
     {
       "id": "A01",
@@ -98,7 +98,9 @@
       "tier": "atom",
       "focus": "失败、恢复",
       "criterion": "坠落重试后回到正确楼层，投影相同的相邻层保持独立。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/A10.json",
+      "evaluator": "evaluator/A10.json"
     },
     {
       "id": "C01",
@@ -169,7 +171,9 @@
       "tier": "combination",
       "focus": "危险、恢复",
       "criterion": "多层陷阱触发失败，重试落在最近已登记的检查点。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/C07.json",
+      "evaluator": "evaluator/C07.json"
     },
     {
       "id": "C08",
@@ -214,7 +218,9 @@
       "tier": "combination",
       "focus": "目标、状态保留",
       "criterion": "死亡重试时保留已完成房间，重置合同指定的临时状态。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/C12.json",
+      "evaluator": "evaluator/C12.json"
     },
     {
       "id": "P01",

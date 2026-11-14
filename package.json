@@ -16,6 +16,9 @@
     "play:keys": "node scripts/play-keys.mjs",
     "evaluate:keys": "node scripts/evaluate-keys.mjs",
     "calibrate:keys": "node scripts/evaluate-keys.mjs --calibrate",
+    "play:checkpoints": "node scripts/play-checkpoints.mjs",
+    "evaluate:checkpoints": "node scripts/evaluate-checkpoints.mjs",
+    "calibrate:checkpoints": "node scripts/evaluate-checkpoints.mjs --calibrate",
     "compare:profiles": "node scripts/compare-profiles.mjs",
     "compare:pairs": "node scripts/compare-pairs.mjs"
   },

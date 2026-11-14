@@ -1,0 +1,74 @@
+{
+  "id": "C07",
+  "family": "checkpoints",
+  "tier": "combination",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 陷阱与检查点",
+  "goal": "触发同层陷阱后，返回最近实际登记的检查点。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "useControl": "E",
+    "start": "直接进入默认可玩场景或可见开始按钮"
+  },
+  "publicRules": [
+    "实际踩到检查点才登记。同投影的另一楼层保持独立。",
+    "失败后按 R，仿真步重新从 0 起算，尝试编号增加一，角色回到最近登记的检查点原位置。未登记时回起点。",
+    "两层都有陷阱。实际进入所在楼层的陷阱才失败。上层有路径可从下层陷阱投影上方安全通过。"
+  ],
+  "layoutConstraints": [
+    "真实 3D 上下层，至少有一条斜坡从下层可达上层。上下层检查点水平投影相同，但重生坐标的高度不同。",
+    "两层各有可从正常入口到达的可玩区域；C12 的胜利出口在上层。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "先移动与接触，接着处理控制台与终态，按因果顺序记录事件。"
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "checkpoint.id",
+    "checkpoint.position",
+    "outcome"
+  ],
+  "publicEventData": {
+    "checkpoint_registered": "data.id 为 lower 或 upper，data.position 为对应重生位置。",
+    "outcome_changed": "data.outcome 为 failure 或 victory；失败时 data.cause 为 fall、lower_trap 或 upper_trap。",
+    "attempt_restarted": "data.checkpointId 为最近检查点 ID，未登记时为 null。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "lower_trap_route",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "已登记下层检查点，站在下层陷阱西侧安全位置。"
+      ]
+    },
+    {
+      "id": "upper_trap_route",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "已登记上层检查点，站在上层陷阱西侧安全位置。"
+      ]
+    },
+    {
+      "id": "upper_safe_projection",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "已登记上层检查点，位于上层安全通道。下层陷阱的水平投影与前进路径交叠。"
+      ]
+    }
+  ]
+}

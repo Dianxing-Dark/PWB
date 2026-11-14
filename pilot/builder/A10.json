@@ -1,0 +1,67 @@
+{
+  "id": "A10",
+  "family": "checkpoints",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 上下层检查点",
+  "goal": "踩上检查点后跌落，重试回到登记楼层。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "useControl": "E",
+    "start": "直接进入默认可玩场景或可见开始按钮"
+  },
+  "publicRules": [
+    "实际踩到检查点才登记。同投影的另一楼层保持独立。",
+    "失败后按 R，仿真步重新从 0 起算，尝试编号增加一，角色回到最近登记的检查点原位置。未登记时回起点。",
+    "从上层或下层边缘离开支撑时会向下坠落，低于下层后触发失败。"
+  ],
+  "layoutConstraints": [
+    "真实 3D 上下层，至少有一条斜坡从下层可达上层。上下层检查点水平投影相同，但重生坐标的高度不同。",
+    "两层各有可从正常入口到达的可玩区域；C12 的胜利出口在上层。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y",
+    "realInputClock": "monotonic milliseconds since browser launch",
+    "eventOrder": "先移动与接触，接着处理控制台与终态，按因果顺序记录事件。"
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "checkpoint.id",
+    "checkpoint.position",
+    "outcome"
+  ],
+  "publicEventData": {
+    "checkpoint_registered": "data.id 为 lower 或 upper，data.position 为对应重生位置。",
+    "outcome_changed": "data.outcome 为 failure 或 victory；失败时 data.cause 为 fall、lower_trap 或 upper_trap。",
+    "attempt_restarted": "data.checkpointId 为最近检查点 ID，未登记时为 null。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "approach_lower",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "位于下层检查点西侧，可步行接触，仍未登记检查点。"
+      ]
+    },
+    {
+      "id": "approach_upper",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "通过坡道后可合法到达的上层检查点西侧，仍未登记检查点。"
+      ]
+    }
+  ]
+}

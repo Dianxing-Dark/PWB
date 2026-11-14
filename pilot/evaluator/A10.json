@@ -1,0 +1,197 @@
+{
+  "taskId": "A10",
+  "builderContract": "builder/A10.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "新页面，默认入口。"
+      ]
+    },
+    {
+      "id": "approach_lower",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "位于下层检查点西侧，可步行接触，仍未登记检查点。"
+      ]
+    },
+    {
+      "id": "approach_upper",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "通过坡道后可合法到达的上层检查点西侧，仍未登记检查点。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开作品进入默认场景。"
+        }
+      ],
+      "checks": [
+        "显示场景并可启动。"
+      ],
+      "evidence": [
+        "browser_console",
+        "entry_frame"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "使用合法移动键。"
+        }
+      ],
+      "checks": [
+        "移动和仿真时钟反映真实玩家输入。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "lower_checkpoint",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "registration",
+      "scenario": "approach_lower",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "走过下层检查点。"
+        }
+      ],
+      "checks": [
+        "只登记实际接触的下层检查点。",
+        "投影相同的上层检查点不触发。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "upper_checkpoint",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "registration",
+      "scenario": "approach_upper",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "走过上层检查点。"
+        }
+      ],
+      "checks": [
+        "只登记实际接触的上层检查点。",
+        "投影相同的下层检查点不触发。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "fall_and_retry_upper",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "recovery",
+      "scenario": "approach_upper",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "踩上上层检查点。"
+        },
+        {
+          "type": "native",
+          "instruction": "从上层边缘坠落，按 R 重试。"
+        }
+      ],
+      "checks": [
+        "可见的坠落轨迹进入失败。",
+        "增加一个尝试，回到原上层检查点位置。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "recovery"
+    },
+    {
+      "id": "checkpoint_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "checkpoint-feedback",
+      "scenario": "approach_upper",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "踩上上层检查点，比较前后状态。"
+        }
+      ],
+      "checks": [
+        "登记前后玩家可以分辨上层检查点状态。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "完整旅程由真实浏览器输入从正常入口开始。场景装载仅用于准备合法局部前置状态。"
+}

@@ -1,9 +1,8 @@
 ﻿PlayableWorld-Bench 首批试点任务规格
 
-从 manifest.json 查看 12 张任务卡。builder/ 是 Builder 可见合同，evaluator/ 是评测计划与校准材料。
+从 manifest.json 查看已实现任务。builder/ 是 Builder 可见合同，evaluator/ 是评测计划与校准材料。
 protocol.json 定义输入、证据字段、缺证处理和计分。evaluator/run-report.schema.json 描述单次评测记录，report-example.json 与示例证据可以用于测试报告读取。
 
-建议首轮先完成 A01、C01、P01，再完成 A03、C03、P04 与 A06、C05、P05。2D 配对为 A02、C02、P02。每族先用两种等价正确实现和单故障对照验证。
-这些文件描述评测规格。浏览器运行器、参考游戏和实际回放证据有待实现与验证。
+浏览器运行器、参考游戏及回放证据见仓库 README。2D 配对为 A02、C02、P02。每个任务的实现与基线次数在 manifest.json 登记。
 
-candidate-inventory.json 收录全部 30 个候选任务，标出其中已有规格的 12 个。
+candidate-inventory.json 收录全部 30 个候选任务，并标出已有规格的任务。

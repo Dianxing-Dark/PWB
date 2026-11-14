@@ -1,0 +1,246 @@
+{
+  "taskId": "C07",
+  "builderContract": "builder/C07.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "新页面，默认入口。"
+      ]
+    },
+    {
+      "id": "lower_trap_route",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "已登记下层检查点，站在下层陷阱西侧安全位置。"
+      ]
+    },
+    {
+      "id": "upper_trap_route",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "已登记上层检查点，站在上层陷阱西侧安全位置。"
+      ]
+    },
+    {
+      "id": "upper_safe_projection",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "已登记上层检查点，位于上层安全通道。下层陷阱的水平投影与前进路径交叠。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开作品进入默认场景。"
+        }
+      ],
+      "checks": [
+        "显示场景并可启动。"
+      ],
+      "evidence": [
+        "browser_console",
+        "entry_frame"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "使用合法移动键。"
+        }
+      ],
+      "checks": [
+        "移动和仿真时钟反映真实玩家输入。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "lower_trap_restart",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "trap-recovery",
+      "scenario": "lower_trap_route",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "走进下层陷阱。"
+        },
+        {
+          "type": "native",
+          "instruction": "按 R 重试。"
+        }
+      ],
+      "checks": [
+        "确认实际踏入下层陷阱。",
+        "最近登记点与重生位置为下层。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "recovery"
+    },
+    {
+      "id": "upper_trap_restart",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "trap-recovery",
+      "scenario": "upper_trap_route",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "走进上层陷阱。"
+        },
+        {
+          "type": "native",
+          "instruction": "按 R 重试。"
+        }
+      ],
+      "checks": [
+        "确认实际踏入上层陷阱。",
+        "最近登记点与重生位置为上层。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "recovery"
+    },
+    {
+      "id": "lower_trap_not_upper",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "spatial-hazard",
+      "scenario": "upper_safe_projection",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "沿上层安全通道走过下层陷阱投影。"
+        }
+      ],
+      "checks": [
+        "上下层在投影上重叠。",
+        "上层通行保持正常，无陷阱命中。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "latest_checkpoint_wins",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "trap-recovery",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口实际踩上低层检查点。"
+        },
+        {
+          "type": "native",
+          "instruction": "返回坡道登上高层，登记上层检查点。"
+        },
+        {
+          "type": "native",
+          "instruction": "踏入上层陷阱并按 R。"
+        }
+      ],
+      "checks": [
+        "同一次尝试中按顺序登记两处检查点。",
+        "重试进入第二处登记的上层检查点。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "recovery"
+    },
+    {
+      "id": "trap_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "trap-feedback",
+      "scenario": "upper_trap_route",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "踏入上层陷阱，按 R 重试。"
+        }
+      ],
+      "checks": [
+        "失败画面可辨认失败原因和重试控件。",
+        "重试后切回可玩画面。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "完整旅程由真实浏览器输入从正常入口开始。场景装载仅用于准备合法局部前置状态。"
+}
