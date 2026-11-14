@@ -8,7 +8,7 @@ export const exit = [5.38, HEIGHT, 0];
 
 export const decks = [
   { id: "service", s: [-6, 6.2], t: [-1.48, 1.48], from: 0, to: 0 },
-  { id: "service", s: [-5.55, -4.35], t: [-3.76, -1.40], from: 0, to: 0 },
+  { id: "service", s: [-5.75, -4.35], t: [-3.76, -1.15], from: 0, to: 0 },
   { id: "incline", s: [-4.35, -1.5], t: [-3.76, -2.35], from: 0, to: HEIGHT },
   { id: "gallery", s: [-1.5, -0.26], t: [-3.76, -1.40], from: HEIGHT, to: HEIGHT },
   { id: "gallery", s: [-2.3, 6.2], t: [-1.48, 1.48], from: HEIGHT, to: HEIGHT },

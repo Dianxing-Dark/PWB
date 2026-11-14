@@ -55,6 +55,25 @@ export async function startBrowser() {
   return { browser, base };
 }
 
+const profileStages = {
+  A: new Set(["prerequisite", "functional"]),
+  B: new Set(["prerequisite", "journey", "visual"]),
+};
+
+export function selectProfile(plan, profile) {
+  if (!profile || profile === "C") return plan;
+  const stages = profileStages[profile];
+  if (!stages) throw new Error("Choose evaluation profile A, B, or C.");
+  const selected = plan.cases.filter(entry => stages.has(entry.stage));
+  const ids = new Set(selected.map(entry => entry.id));
+  for (const entry of selected) {
+    if (entry.blockedBy.some(required => !ids.has(required))) {
+      throw new Error("Profile " + profile + " omits a prerequisite of " + entry.id + ".");
+    }
+  }
+  return { ...plan, cases: selected, requiredJourneyCases: plan.requiredJourneyCases.filter(id => ids.has(id)) };
+}
+
 function score(plan, rows, stage) {
   const families = new Map();
   for (const [i, row] of rows.entries()) {
@@ -79,7 +98,7 @@ function score(plan, rows, stage) {
 }
 
 export async function runVariant(browser, base, {
-  layout, route, fault, server, artifactVersion, evaluatorVersion, plan, contract, cases, helpers = {}, setup,
+  layout, route, fault, server, artifactVersion, evaluatorVersion, plan, contract, cases, helpers = {}, setup, profile,
 }) {
   const runId = layout + (fault ? "-" + fault : "");
   const root = join(base, runId);
@@ -236,13 +255,15 @@ export async function runVariant(browser, base, {
     console.log(runId, caseId, outcome.status, outcome.reason);
   }
 
-  const required = results.filter((_, i) => plan.cases[i].priority !== "P2");
-  const strictTaskSuccess = required.some(row => row.status === "fail" || row.status === "product_blocked")
+  const required = results.filter((_, i) => plan.cases[i].priority !== "P2" ||
+    plan.requiredJourneyCases.includes(plan.cases[i].id));
+  const strictTaskSuccess = profile && profile !== "C" ? null :
+    required.some(row => row.status === "fail" || row.status === "product_blocked")
     ? false : required.every(row => row.status === "pass") ? true : null;
   const functional = score(plan, results, "functional");
   const visual = score(plan, results, "visual");
   const report = {
-    schemaVersion: "pilot-0.1", recordKind: "run", taskId: plan.taskId, runId,
+    schemaVersion: "pilot-0.1", recordKind: "run", taskId: plan.taskId, runId, ...(profile ? { profile } : {}),
     artifactVersion: artifactVersion + (fault ? "/" + fault : ""), evaluatorVersion,
     browserVersion: browser.version(), seed: null, cases: results, evidence,
     summary: { strictTaskSuccess, functionalInterval: functional.interval,

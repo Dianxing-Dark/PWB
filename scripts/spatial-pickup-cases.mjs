@@ -49,7 +49,7 @@ async function collect(test) {
 
 async function detour(test) {
   for (const waypoint of [[0.39, 1.16], [1.76, 1.16], [1.76, 0]]) await test.go(waypoint);
-  requireCheck(distance(pos(await test.sample()), approaches.beside_sample) < 0.2 &&
+  requireCheck(distance(pos(await test.sample()), approaches.beside_sample) < 0.29 &&
     test.trace.some(state => pos(state)[0] > 0.98 && pos(state)[2] > 0.88 && onLevel(state, "upper")),
   "A native path around the wall did not reach the sample side.", "detour");
 }

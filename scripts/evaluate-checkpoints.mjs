@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { artifactDigest, digest, readJson, runVariant, startBrowser, version } from "./browser-evaluation.mjs";
+import { artifactDigest, digest, readJson, runVariant, selectProfile, startBrowser, version } from "./browser-evaluation.mjs";
 import { cases, checkSetup } from "./checkpoint-cases.mjs";
 import { galleryReplay, terraceReplay } from "./checkpoint-replay.mjs";
 import { serveReference } from "./server.mjs";
@@ -13,11 +13,13 @@ const replay = args.find(arg => arg.startsWith("--replay="))?.slice(9);
 const starter = args.includes("--starter");
 const calibrate = args.includes("--calibrate");
 const layout = args.find(arg => arg.startsWith("--layout="))?.slice(9);
-if (args.some(arg => !/^--(calibrate$|starter$|(task|submission|replay|layout)=.+)/.test(arg)) ||
+const profile = args.find(arg => arg.startsWith("--profile="))?.slice(10);
+if (args.some(arg => !/^--(calibrate$|starter$|(task|submission|replay|layout|profile)=.+)/.test(arg)) ||
     (selected && !tasks.includes(selected)) || Boolean(submission) !== Boolean(replay) ||
     (submission && (!selected || starter || calibrate || layout)) || (starter && (selected !== "C12" || calibrate || layout)) ||
+    (profile && (!["A", "B", "C"].includes(profile) || starter || calibrate)) ||
     (layout && (layout !== "gallery" || calibrate))) {
-  throw new Error("Use --task=A10|C07|C12 with optional --calibrate or --layout=gallery, --task=C12 --starter, or --task=<id> --submission=<directory> --replay=<file>.");
+  throw new Error("Use --task=A10|C07|C12 with optional --calibrate, --layout=gallery or --profile=A|B|C. For a submission add --submission=<directory> --replay=<file>. For the empty control use --task=C12 --starter.");
 }
 const { mutationsByTask } = (await readJson("pilot/evaluator/calibration.json")).checkpoints;
 const route = submission ? JSON.parse(await readFile(replay, "utf8")) : layout ? galleryReplay : terraceReplay;
@@ -31,7 +33,7 @@ try {
     for (const taskId of selected ? [selected] : tasks) {
       const planFile = "pilot/evaluator/" + taskId + ".json";
       const contractFile = "pilot/builder/" + taskId + ".json";
-      const plan = await readJson(planFile);
+      const plan = selectProfile(await readJson(planFile), profile);
       const contract = await readJson(contractFile);
       const sourceVersion = await version([planFile, contractFile, "scripts/evaluate-checkpoints.mjs",
         "scripts/checkpoint-replay.mjs",
@@ -44,7 +46,7 @@ try {
           layout: submission ? "submission" : starter ? "C12-starter" : layout ? taskId + "-gallery" : taskId,
           route, fault: mutation?.id,
           server: { url: url.href }, artifactVersion: submission ? artifactVersion : artifactVersion + "/" + taskId,
-          evaluatorVersion: digest(sourceVersion + JSON.stringify(route)), plan, contract, cases,
+          evaluatorVersion: digest(sourceVersion + JSON.stringify(route) + (profile ?? "C")), plan, contract, cases, profile,
           setup: (state, scenario) => checkSetup(state, scenario, route),
         });
         if (!mutation) {

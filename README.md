@@ -88,6 +88,8 @@ To run every implemented reference layout and preserve the evaluation logs, use 
 
 Profile A includes launch and contract checks. Profile B includes launch, full journeys and visual checks. Profile C includes all of them. The comparison projects the same reports onto each profile so the submission and execution evidence stay paired. It also reports positive, negative and boundary checks, scripted completion, visual checks, and launch and recovery. Case time is summed as an estimate. A standalone wall-clock comparison requires separate executions.
 
+Run `node scripts/benchmark-profile-time.mjs <new-output-directory> C12 C09` for standalone measurements. The runner rotates the order of A, B and C and includes evaluator startup and shutdown. Partial A and B reports label their scope and leave full-task strict success unset.
+
 The [moving-platform calibration](experiments/moving-platform-001/) contains the first paired profile comparison and the recovery journey frames. The [curved-layout calibration](experiments/moving-platform-002/) adds the second implementation and decorative-lift control.
 
 ## Codex baseline
