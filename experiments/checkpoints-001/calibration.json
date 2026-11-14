@@ -1,0 +1,403 @@
+{
+  "runGroups": [
+    "2026-11-14T13-18-46-144Z-28300",
+    "2026-11-14T13-23-32-422Z-6372"
+  ],
+  "runs": [
+    {
+      "taskId": "A10",
+      "runId": "A10",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/A10",
+      "evaluatorVersion": "8234110632a45326a442e176127039b538fd60a6bd24562ba716677007df4af4",
+      "reportSha256": "1e1cddd347584dcbe82e9753c9331c575c4d2be4738e16e72ce598105956c5d5",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_checkpoint": "pass",
+        "upper_checkpoint": "pass",
+        "fall_and_retry_upper": "pass",
+        "checkpoint_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "C07",
+      "runId": "C07",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C07",
+      "evaluatorVersion": "dc551029454723b768439038cb005fbd96c42d5dcb017bb79d433a051f56c984",
+      "reportSha256": "eff485ef75e0714c6607403f3d3d4c6e368c2be1bec1ad5a0a1bc605cc023651",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_trap_restart": "pass",
+        "upper_trap_restart": "pass",
+        "lower_trap_not_upper": "pass",
+        "latest_checkpoint_wins": "pass",
+        "trap_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "C12",
+      "runId": "C12",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C12",
+      "evaluatorVersion": "4d59dfd13065b2313df0ecf906767b4b259eb2467276d710d305bfba06088f4b",
+      "reportSha256": "a026aebbd58cf6a41f3918994b73b17239431bc61f2d8d99f531fb32199dc163",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 2,
+          "planned": 2
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_trap_restart": "pass",
+        "upper_trap_restart": "pass",
+        "lower_trap_not_upper": "pass",
+        "latest_checkpoint_wins": "pass",
+        "trap_feedback": "pass",
+        "exit_requires_both": "pass",
+        "exit_requires_relay": "pass",
+        "retry_keeps_power_clears_switch": "pass",
+        "finish_direct": "pass",
+        "finish_after_retry": "pass"
+      }
+    },
+    {
+      "taskId": "A10",
+      "runId": "A10-upper_checkpoint_uses_lower",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/A10/upper_checkpoint_uses_lower",
+      "evaluatorVersion": "8234110632a45326a442e176127039b538fd60a6bd24562ba716677007df4af4",
+      "reportSha256": "a881a064e010a8ec9687679026feff32529678c6e5ac75cd12d70e9587592b18",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.25,
+          0.25
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_checkpoint": "pass",
+        "upper_checkpoint": "fail",
+        "fall_and_retry_upper": "fail",
+        "checkpoint_feedback": "fail"
+      }
+    },
+    {
+      "taskId": "A10",
+      "runId": "A10-retry_uses_lower_height",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/A10/retry_uses_lower_height",
+      "evaluatorVersion": "8234110632a45326a442e176127039b538fd60a6bd24562ba716677007df4af4",
+      "reportSha256": "a1233d9b8be012a0a050bff4a9ef28f740f455d2e3f7e4e9332870da7af6d37a",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_checkpoint": "pass",
+        "upper_checkpoint": "pass",
+        "fall_and_retry_upper": "fail",
+        "checkpoint_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "A10",
+      "runId": "A10-stale_checkpoint_feedback",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/A10/stale_checkpoint_feedback",
+      "evaluatorVersion": "8234110632a45326a442e176127039b538fd60a6bd24562ba716677007df4af4",
+      "reportSha256": "45384ae520d4fea9545432a7075a597046c7099b53ba4beb5d90c71f3cb0ac95",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_checkpoint": "pass",
+        "upper_checkpoint": "pass",
+        "fall_and_retry_upper": "pass",
+        "checkpoint_feedback": "fail"
+      }
+    },
+    {
+      "taskId": "C07",
+      "runId": "C07-lower_trap_hits_upper",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C07/lower_trap_hits_upper",
+      "evaluatorVersion": "dc551029454723b768439038cb005fbd96c42d5dcb017bb79d433a051f56c984",
+      "reportSha256": "76523fa99c89244c568fc5853cda99d5f2ed72b91f2f6ae98f9a5e639dd8a245",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_trap_restart": "pass",
+        "upper_trap_restart": "pass",
+        "lower_trap_not_upper": "fail",
+        "latest_checkpoint_wins": "pass",
+        "trap_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "C07",
+      "runId": "C07-retry_uses_first_checkpoint",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C07/retry_uses_first_checkpoint",
+      "evaluatorVersion": "dc551029454723b768439038cb005fbd96c42d5dcb017bb79d433a051f56c984",
+      "reportSha256": "50f1ac053a20acf5d94bed0c312ad74e26a835a172aefc12a9e577efd5e28340",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.8333333333333333,
+          0.8333333333333333
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_trap_restart": "pass",
+        "upper_trap_restart": "pass",
+        "lower_trap_not_upper": "pass",
+        "latest_checkpoint_wins": "fail",
+        "trap_feedback": "pass"
+      }
+    },
+    {
+      "taskId": "C12",
+      "runId": "C12-retry_erases_power",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C12/retry_erases_power",
+      "evaluatorVersion": "4d59dfd13065b2313df0ecf906767b4b259eb2467276d710d305bfba06088f4b",
+      "reportSha256": "88caa2d2dd2e80888a5c85a437bcf4c2cf50e77f2f8197c383f1042ad03fd25c",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.75,
+          0.75
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 2
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_trap_restart": "pass",
+        "upper_trap_restart": "pass",
+        "lower_trap_not_upper": "pass",
+        "latest_checkpoint_wins": "pass",
+        "trap_feedback": "pass",
+        "exit_requires_both": "pass",
+        "exit_requires_relay": "pass",
+        "retry_keeps_power_clears_switch": "fail",
+        "finish_direct": "pass",
+        "finish_after_retry": "fail"
+      }
+    },
+    {
+      "taskId": "C12",
+      "runId": "C12-retry_keeps_switch",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C12/retry_keeps_switch",
+      "evaluatorVersion": "4d59dfd13065b2313df0ecf906767b4b259eb2467276d710d305bfba06088f4b",
+      "reportSha256": "db1aad9d5f62b7b6d55a1d79aecf5ca562d5a1c90e87d5cad835b179b0f9b42f",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.75,
+          0.75
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 2
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_trap_restart": "pass",
+        "upper_trap_restart": "pass",
+        "lower_trap_not_upper": "pass",
+        "latest_checkpoint_wins": "pass",
+        "trap_feedback": "pass",
+        "exit_requires_both": "pass",
+        "exit_requires_relay": "pass",
+        "retry_keeps_power_clears_switch": "fail",
+        "finish_direct": "pass",
+        "finish_after_retry": "fail"
+      }
+    },
+    {
+      "taskId": "C12",
+      "runId": "C12-exit_ignores_controls",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C12/exit_ignores_controls",
+      "evaluatorVersion": "4d59dfd13065b2313df0ecf906767b4b259eb2467276d710d305bfba06088f4b",
+      "reportSha256": "8bb85b249564fa15251dabf22e85a2a6636acc439f1484ebcc0a76210d71687c",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.75,
+          0.75
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 2,
+          "planned": 2
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_trap_restart": "pass",
+        "upper_trap_restart": "pass",
+        "lower_trap_not_upper": "pass",
+        "latest_checkpoint_wins": "pass",
+        "trap_feedback": "pass",
+        "exit_requires_both": "fail",
+        "exit_requires_relay": "fail",
+        "retry_keeps_power_clears_switch": "pass",
+        "finish_direct": "pass",
+        "finish_after_retry": "pass"
+      }
+    },
+    {
+      "taskId": "C12",
+      "runId": "C12-exit_ignores_relay",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C12/exit_ignores_relay",
+      "evaluatorVersion": "4d59dfd13065b2313df0ecf906767b4b259eb2467276d710d305bfba06088f4b",
+      "reportSha256": "234b47d805f4a73a1f963e55366a913e5d43ab2ca44d6ebe2fe7d5cf780e0132",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.875,
+          0.875
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 2,
+          "planned": 2
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "lower_trap_restart": "pass",
+        "upper_trap_restart": "pass",
+        "lower_trap_not_upper": "pass",
+        "latest_checkpoint_wins": "pass",
+        "trap_feedback": "pass",
+        "exit_requires_both": "pass",
+        "exit_requires_relay": "fail",
+        "retry_keeps_power_clears_switch": "pass",
+        "finish_direct": "pass",
+        "finish_after_retry": "pass"
+      }
+    }
+  ],
+  "replicateReportSha256": {
+    "A10": "e66e55d77d87239a43ae61e1f5282bfb0cf2607b3a2c6059ecc9a445f2459371",
+    "C07": "48a70d25e201bf7a6b0648a4764aa1de160e32e74179ec2693e1dfbd61ef3938",
+    "C12": "696db0676c0c075c65a7e8d4f43594c26a618c3336f64a73a7b72b9f8e8907bc",
+    "A10-upper_checkpoint_uses_lower": "ece96a83e40f0fb43422a5bf507c639d16db9d55bc2020fb9f3f99f4789cbcf3",
+    "A10-retry_uses_lower_height": "59cd49a689ca24da619d435fa0df0fc941240dc8780693b3936cf9806af10328",
+    "A10-stale_checkpoint_feedback": "0b43711b223234bcb03517eea2d9e6b308b2857ab14b3ab74988c94da01a1922",
+    "C07-lower_trap_hits_upper": "0b7d8b356b45bde6bc7c953bdeeb65af8dfa78711360177fc638ce6891fb48eb",
+    "C07-retry_uses_first_checkpoint": "756f7040f0405d78fe7d6b9d3f4626286401cea5419932af5beb6b6ac14023ab",
+    "C12-retry_erases_power": "7967e442064764c1fccbf451a5e3b4a1af6661d1d633949e1ef11b954b0e13c3",
+    "C12-retry_keeps_switch": "7eb1d46e26ce560085cf52f522384e323753a421ee82e39fcc3de7f42164d26f",
+    "C12-exit_ignores_controls": "b3f92923ebaa42b2cb5120fcbbb5eccd6ec8caf9dceccbef609757f350b0d487",
+    "C12-exit_ignores_relay": "3be3cb9e28ab3190e3bc0439a0a01ba73919309a5eeb4e5b42c34984aba800a3"
+  }
+}
