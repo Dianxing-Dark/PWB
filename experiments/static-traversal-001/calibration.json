@@ -1,0 +1,354 @@
+{
+  "chrome": [
+    {
+      "taskId": "A04",
+      "runId": "A04",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A04",
+      "evaluatorVersion": "91c62a597b3da61b30ffc1f4173c08526196345d97f283e9970c696ed3488f92",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "climb_continuously": "pass",
+        "fall_to_lower": "pass",
+        "slope_feedback": "pass"
+      },
+      "reportSha256": "bbcbdfccf44d25b14fb3b85b15189c20ed710ff5d98e8759cf9ac9c15f2fd764",
+      "path": "runs/2026-11-14T14-52-13-703Z-22208/A04/report.json"
+    },
+    {
+      "taskId": "A09",
+      "runId": "A09",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A09",
+      "evaluatorVersion": "c3f0bfa698bd34f4da8d947722f42b6167c02f240404fac45421042efa4d39d6",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "drop_and_land": "pass",
+        "reject_reverse": "pass",
+        "ledge_feedback": "pass"
+      },
+      "reportSha256": "690d20d3fc6515639b6cae90a100779ceab25ce5927e0c776abc352edbfd9866",
+      "path": "runs/2026-11-14T14-52-13-703Z-22208/A09/report.json"
+    },
+    {
+      "taskId": "A04",
+      "runId": "A04-invisible_ramp_rail",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A04/invisible_ramp_rail",
+      "evaluatorVersion": "91c62a597b3da61b30ffc1f4173c08526196345d97f283e9970c696ed3488f92",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "climb_continuously": "pass",
+        "fall_to_lower": "fail",
+        "slope_feedback": "pass"
+      },
+      "reportSha256": "b33e57b221caf31b16988cce28024b61b7a331462b77cecb4401139d26fd79d5",
+      "path": "runs/2026-11-14T14-52-13-703Z-22208/A04-invisible_ramp_rail/report.json"
+    },
+    {
+      "taskId": "A04",
+      "runId": "A04-avatar_drawn_at_floor",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A04/avatar_drawn_at_floor",
+      "evaluatorVersion": "91c62a597b3da61b30ffc1f4173c08526196345d97f283e9970c696ed3488f92",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "climb_continuously": "pass",
+        "fall_to_lower": "pass",
+        "slope_feedback": "fail"
+      },
+      "reportSha256": "6f5e843b82cd678f92656b480c7d61b8f94dbf9b526683f78da2953e3b41638e",
+      "path": "runs/2026-11-14T14-52-13-703Z-22208/A04-avatar_drawn_at_floor/report.json"
+    },
+    {
+      "taskId": "A09",
+      "runId": "A09-reverse_clips_to_upper",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A09/reverse_clips_to_upper",
+      "evaluatorVersion": "c3f0bfa698bd34f4da8d947722f42b6167c02f240404fac45421042efa4d39d6",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "drop_and_land": "pass",
+        "reject_reverse": "fail",
+        "ledge_feedback": "pass"
+      },
+      "reportSha256": "467529bbf97448d3195dd30b103433ce4e178363df2a228ad69a5a72aaca6ad9",
+      "path": "runs/2026-11-14T14-52-13-703Z-22208/A09-reverse_clips_to_upper/report.json"
+    },
+    {
+      "taskId": "A09",
+      "runId": "A09-avatar_drawn_at_floor",
+      "browserVersion": "157.0.8103.52",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A09/avatar_drawn_at_floor",
+      "evaluatorVersion": "c3f0bfa698bd34f4da8d947722f42b6167c02f240404fac45421042efa4d39d6",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "drop_and_land": "pass",
+        "reject_reverse": "pass",
+        "ledge_feedback": "fail"
+      },
+      "reportSha256": "230c5198acb0dd7029c89d9c03f035fe7bb502987384d5938d5abb4aa3756569",
+      "path": "runs/2026-11-14T14-52-13-703Z-22208/A09-avatar_drawn_at_floor/report.json"
+    }
+  ],
+  "edge": [
+    {
+      "taskId": "A04",
+      "runId": "A04",
+      "browserVersion": "157.0.4341.46",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A04",
+      "evaluatorVersion": "91c62a597b3da61b30ffc1f4173c08526196345d97f283e9970c696ed3488f92",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "climb_continuously": "pass",
+        "fall_to_lower": "pass",
+        "slope_feedback": "pass"
+      },
+      "reportSha256": "2edcd80f57b5a462c90a00508b1ee17ec7e870fa80feda0935d82d3ed99e45ce",
+      "path": "runs/2026-11-14T14-55-09-413Z-7840/A04/report.json"
+    },
+    {
+      "taskId": "A09",
+      "runId": "A09",
+      "browserVersion": "157.0.4341.46",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A09",
+      "evaluatorVersion": "c3f0bfa698bd34f4da8d947722f42b6167c02f240404fac45421042efa4d39d6",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "drop_and_land": "pass",
+        "reject_reverse": "pass",
+        "ledge_feedback": "pass"
+      },
+      "reportSha256": "e569cb2fb8521528d1ae9bcae09efa7e7397baff427d5e066a4d18d8213fe172",
+      "path": "runs/2026-11-14T14-55-09-413Z-7840/A09/report.json"
+    },
+    {
+      "taskId": "A04",
+      "runId": "A04-invisible_ramp_rail",
+      "browserVersion": "157.0.4341.46",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A04/invisible_ramp_rail",
+      "evaluatorVersion": "91c62a597b3da61b30ffc1f4173c08526196345d97f283e9970c696ed3488f92",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "climb_continuously": "pass",
+        "fall_to_lower": "fail",
+        "slope_feedback": "pass"
+      },
+      "reportSha256": "473a393936a536cf3a7859d64f41a60475723c324a7b1241507d98d8d4076ce5",
+      "path": "runs/2026-11-14T14-55-09-413Z-7840/A04-invisible_ramp_rail/report.json"
+    },
+    {
+      "taskId": "A04",
+      "runId": "A04-avatar_drawn_at_floor",
+      "browserVersion": "157.0.4341.46",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A04/avatar_drawn_at_floor",
+      "evaluatorVersion": "91c62a597b3da61b30ffc1f4173c08526196345d97f283e9970c696ed3488f92",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "climb_continuously": "pass",
+        "fall_to_lower": "pass",
+        "slope_feedback": "fail"
+      },
+      "reportSha256": "9336f64e8b8333cd3a74b2383c1211b836909c509ca6dfb189bd39ad2e01a589",
+      "path": "runs/2026-11-14T14-55-09-413Z-7840/A04-avatar_drawn_at_floor/report.json"
+    },
+    {
+      "taskId": "A09",
+      "runId": "A09-reverse_clips_to_upper",
+      "browserVersion": "157.0.4341.46",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A09/reverse_clips_to_upper",
+      "evaluatorVersion": "c3f0bfa698bd34f4da8d947722f42b6167c02f240404fac45421042efa4d39d6",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "drop_and_land": "pass",
+        "reject_reverse": "fail",
+        "ledge_feedback": "pass"
+      },
+      "reportSha256": "866644d590725b46e7d25a232cc4ca9d3f49243037736a2a8aec80c896c394e3",
+      "path": "runs/2026-11-14T14-55-09-413Z-7840/A09-reverse_clips_to_upper/report.json"
+    },
+    {
+      "taskId": "A09",
+      "runId": "A09-avatar_drawn_at_floor",
+      "browserVersion": "157.0.4341.46",
+      "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A09/avatar_drawn_at_floor",
+      "evaluatorVersion": "c3f0bfa698bd34f4da8d947722f42b6167c02f240404fac45421042efa4d39d6",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "drop_and_land": "pass",
+        "reject_reverse": "pass",
+        "ledge_feedback": "fail"
+      },
+      "reportSha256": "3f5ca9f64b641fed2a2a3d26bca4a27655ffcfe81a52e3cbe31f2971ac98eef5",
+      "path": "runs/2026-11-14T14-55-09-413Z-7840/A09-avatar_drawn_at_floor/report.json"
+    }
+  ]
+}

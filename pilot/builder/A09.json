@@ -1,0 +1,57 @@
+{
+  "id": "A09",
+  "family": "static-traversal",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "单向落差",
+  "goal": "从高台边缘走下，落在低台，随后尝试按原路走回高台。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "直接进入可玩场景"
+  },
+  "publicRules": [
+    "角色可以从指定高台边缘下落至低台，落地仍能继续移动。",
+    "低台与高台的水平投影有交叠。沿反向步行可以进入交叠区，但不能从低层穿到高层。"
+  ],
+  "layoutConstraints": [
+    "上层和低台有明确、可见的高度差。低台能从边缘下方继续行走。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "outcome"
+  ],
+  "publicEventData": {
+    "contact_changed": "data 包含 actorId=avatar、objectId 为新的支撑面 ID 或 null、previous 为前一个支撑面。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "upper_drop",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在高台落差边缘之前，低台延伸到边缘之外。"
+      ]
+    },
+    {
+      "id": "lower_reverse",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在低台且位于高台边缘投影之外，可以走到高台投影下方。"
+      ]
+    }
+  ]
+}

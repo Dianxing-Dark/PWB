@@ -1,0 +1,57 @@
+{
+  "id": "A04",
+  "family": "static-traversal",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "斜坡边缘",
+  "goal": "从坡底登上上层。侧向穿出没有护栏的坡面后落到下层。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retryAfterFailure": "R",
+    "start": "直接进入可玩场景"
+  },
+  "publicRules": [
+    "低台和高台之间有连续斜坡。坡面朝上时角色仿真高度随位置连续变化。",
+    "从坡面侧缘走出会失去支撑，并在正下方有地面的区域经重力落回低台。"
+  ],
+  "layoutConstraints": [
+    "上层和低台有明确、可见的高度差。低台能从边缘下方继续行走。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "outcome"
+  ],
+  "publicEventData": {
+    "contact_changed": "data 包含 actorId=avatar、objectId 为新的支撑面 ID 或 null、previous 为前一个支撑面。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "slope_start",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在坡底入口，可以沿坡向上。"
+      ]
+    },
+    {
+      "id": "slope_mid",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在坡面中段，坡侧是可落到下层的开口。"
+      ]
+    }
+  ]
+}

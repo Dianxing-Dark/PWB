@@ -259,5 +259,17 @@
       ]
     }
   },
+  "static-traversal": {
+    "mutationsByTask": {
+      "A04": [
+        {"id": "invisible_ramp_rail", "mustDetect": ["fall_to_lower"], "mustPreserve": ["climb_continuously", "slope_feedback"]},
+        {"id": "avatar_drawn_at_floor", "mustDetect": ["slope_feedback"], "mustPreserve": ["climb_continuously", "fall_to_lower"]}
+      ],
+      "A09": [
+        {"id": "reverse_clips_to_upper", "mustDetect": ["reject_reverse"], "mustPreserve": ["drop_and_land", "ledge_feedback"]},
+        {"id": "avatar_drawn_at_floor", "mustDetect": ["ledge_feedback"], "mustPreserve": ["drop_and_land", "reject_reverse"]}
+      ]
+    }
+  },
   "status": "expected_results_to_verify_in_browser"
 }

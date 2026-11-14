@@ -1,0 +1,165 @@
+{
+  "taskId": "A04",
+  "builderContract": "builder/A04.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认可玩入口。"
+      ]
+    },
+    {
+      "id": "slope_start",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在坡底入口，可以沿坡向上。"
+      ]
+    },
+    {
+      "id": "slope_mid",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在坡面中段，坡侧是可落到下层的开口。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开正常入口。"
+        }
+      ],
+      "checks": [
+        "画面正常，仿真启动。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按住并松开移动键。"
+        }
+      ],
+      "checks": [
+        "仿真时钟推进，玩家实际移动。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "climb_continuously",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "slope",
+      "scenario": "slope_start",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "沿坡面登高。"
+        }
+      ],
+      "checks": [
+        "轨迹观察到连续中间高度、坡面支撑和高台着地。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "fall_to_lower",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "slope",
+      "scenario": "slope_mid",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "横向越过坡缘。"
+        }
+      ],
+      "checks": [
+        "离开坡面后出现空中下降采样，最终落在低台，并可继续移动。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "slope_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "feedback",
+      "scenario": "slope_start",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从坡底爬到上层。"
+        }
+      ],
+      "checks": [
+        "可见角色沿立体坡面与高低台之间移动。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "测试用场景只装载合法前置状态，所有观察结果由玩家输入产生。"
+}

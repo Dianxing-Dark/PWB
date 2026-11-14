@@ -1,6 +1,6 @@
 {
   "count": 30,
-  "specified": 17,
+  "specified": 19,
   "tasks": [
     {
       "id": "A01",
@@ -42,7 +42,9 @@
       "tier": "atom",
       "focus": "移动、碰撞",
       "criterion": "沿坡与横切坡缘的结果不同，记录落地高度。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/A04.json",
+      "evaluator": "evaluator/A04.json"
     },
     {
       "id": "A05",
@@ -91,7 +93,9 @@
       "tier": "atom",
       "focus": "移动、地形",
       "criterion": "允许从指定边缘下落，在不同高度时保持正确通行方向。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/A09.json",
+      "evaluator": "evaluator/A09.json"
     },
     {
       "id": "A10",

@@ -1,0 +1,165 @@
+{
+  "taskId": "A09",
+  "builderContract": "builder/A09.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认可玩入口。"
+      ]
+    },
+    {
+      "id": "upper_drop",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在高台落差边缘之前，低台延伸到边缘之外。"
+      ]
+    },
+    {
+      "id": "lower_reverse",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在低台且位于高台边缘投影之外，可以走到高台投影下方。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开正常入口。"
+        }
+      ],
+      "checks": [
+        "画面正常，仿真启动。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按住并松开移动键。"
+        }
+      ],
+      "checks": [
+        "仿真时钟推进，玩家实际移动。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "drop_and_land",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "ledge",
+      "scenario": "upper_drop",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从高台边缘走下。"
+        }
+      ],
+      "checks": [
+        "有上层、空中、下层状态和下降轨迹，落地仍可移动。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "reject_reverse",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "ledge",
+      "scenario": "lower_reverse",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "沿反方向步行进入投影交叠区。"
+        }
+      ],
+      "checks": [
+        "角色留在下层，在上层投影之下不会上移或切换支撑。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "ledge_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "feedback",
+      "scenario": "upper_drop",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "上下层分别截取玩家与边缘。"
+        }
+      ],
+      "checks": [
+        "画面显示角色从高台离开后在低台着陆。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "测试用场景只装载合法前置状态，所有观察结果由玩家输入产生。"
+}

@@ -1,8 +1,8 @@
 {
   "name": "PlayableWorld-Bench pilot task specifications",
   "version": "0.1",
-  "taskCount": 17,
-  "evaluatorCaseCount": 145,
+  "taskCount": 19,
+  "evaluatorCaseCount": 155,
   "tasks": [
     {
       "id": "A01",
@@ -224,6 +224,32 @@
         "evaluator": "scripts/evaluate-spatial-pickup.mjs",
         "codexRuns": 0
       }
+    },
+    {
+      "id": "A04",
+      "family": "static-traversal",
+      "tier": "atom",
+      "dimension": "3D",
+      "builder": "builder/A04.json",
+      "evaluator": "evaluator/A04.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-static-traversal.mjs",
+        "codexRuns": 0
+      }
+    },
+    {
+      "id": "A09",
+      "family": "static-traversal",
+      "tier": "atom",
+      "dimension": "3D",
+      "builder": "builder/A09.json",
+      "evaluator": "evaluator/A09.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-static-traversal.mjs",
+        "codexRuns": 0
+      }
     }
   ],
   "readFirst": [
@@ -240,10 +266,10 @@
   "candidateInventory": "candidate-inventory.json",
   "runReportSchema": "evaluator/run-report.schema.json",
   "implementationSummary": {
-    "runnableTasks": 17,
-    "implementedChecks": 145,
+    "runnableTasks": 19,
+    "implementedChecks": 155,
     "candidateTasks": 30,
-    "plannedPilotTasks": 17,
+    "plannedPilotTasks": 19,
     "matched2dControls": 3,
     "runnable2dControls": 3
   }
