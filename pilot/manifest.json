@@ -1,8 +1,8 @@
 {
   "name": "PlayableWorld-Bench pilot task specifications",
   "version": "0.1",
-  "taskCount": 15,
-  "evaluatorCaseCount": 129,
+  "taskCount": 17,
+  "evaluatorCaseCount": 145,
   "tasks": [
     {
       "id": "A01",
@@ -198,6 +198,32 @@
         "evaluator": "scripts/evaluate-checkpoints.mjs",
         "codexRuns": 1
       }
+    },
+    {
+      "id": "A05",
+      "family": "spatial-pickup",
+      "tier": "atom",
+      "dimension": "3D",
+      "builder": "builder/A05.json",
+      "evaluator": "evaluator/A05.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-spatial-pickup.mjs",
+        "codexRuns": 0
+      }
+    },
+    {
+      "id": "C09",
+      "family": "spatial-pickup",
+      "tier": "combination",
+      "dimension": "3D",
+      "builder": "builder/C09.json",
+      "evaluator": "evaluator/C09.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-spatial-pickup.mjs",
+        "codexRuns": 0
+      }
     }
   ],
   "readFirst": [
@@ -214,10 +240,10 @@
   "candidateInventory": "candidate-inventory.json",
   "runReportSchema": "evaluator/run-report.schema.json",
   "implementationSummary": {
-    "runnableTasks": 15,
-    "implementedChecks": 129,
+    "runnableTasks": 17,
+    "implementedChecks": 145,
     "candidateTasks": 30,
-    "plannedPilotTasks": 15,
+    "plannedPilotTasks": 17,
     "matched2dControls": 3,
     "runnable2dControls": 3
   }

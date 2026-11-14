@@ -66,6 +66,13 @@ The calibration runs the reference, the registered single faults, and a decorati
 
 A10 tests height-specific checkpoint registration and falling. C07 adds floor-specific traps and verifies that the latest checkpoint supersedes the earlier one in the same attempt. C12 requires the retry to preserve lower power while resetting the upper relay. Its direct and recovery journeys start from fresh pages. The [first checkpoint calibration](experiments/checkpoints-001/) records the single faults. The [second calibration](experiments/checkpoints-002/) adds the gallery layout and a bootable starter that fails the native movement probe.
 
+## Run the 3D pickup and occlusion tasks
+
+    npm run play:pickup -- C09
+    node scripts/evaluate-spatial-pickup.mjs --calibrate
+
+A05 validates same-floor reach and single pickup. C09 adds a solid partition, line-of-sight blocking, a viable detour, and an exit that requires the sample. The evaluator checks inventory, actual movement and visible disappearance separately. See the [spatial pickup calibration](experiments/spatial-pickup-001/).
+
 ## Compare evaluation profiles
 
     node scripts/compare-profiles.mjs runs/<run>/P04/report.json
@@ -96,7 +103,7 @@ This pilot uses evaluator-authored waypoints for each layout. If the submission 
 
 ## Pilot contracts and evaluation sources
 
-The [pilot manifest](pilot/manifest.json) indexes 15 runnable tasks and 129 implemented checks, including all three matched 2D controls. Give builders the selected contract and the [shared interface](pilot/builder/shared-runtime-interface.json). The [candidate inventory](pilot/candidate-inventory.json) tracks the remaining designs. The [evaluation protocol](pilot/protocol.json) and [run report schema](pilot/evaluator/run-report.schema.json) define the evidence and reporting.
+The [pilot manifest](pilot/manifest.json) indexes 17 runnable tasks and 145 implemented checks, including all three matched 2D controls. Give builders the selected contract and the [shared interface](pilot/builder/shared-runtime-interface.json). The [candidate inventory](pilot/candidate-inventory.json) tracks the remaining designs. The [evaluation protocol](pilot/protocol.json) and [run report schema](pilot/evaluator/run-report.schema.json) define the evidence and reporting.
 
 - Fresh browser pages per case and legal local setup follow the published [GameASG L2 runner](https://github.com/areal-project/GameASG-Bench/blob/6427cb6517ce11ff350ec45fcae17b67c5aec245/scripts/l2/run.js).
 - Closed-loop journey actions and separate local checks follow [CEGame-Bench](https://arxiv.org/html/2610.26098v1). Family scores use scheduled checks and expose the remaining uncertainty.

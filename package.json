@@ -19,6 +19,9 @@
     "play:checkpoints": "node scripts/play-checkpoints.mjs",
     "evaluate:checkpoints": "node scripts/evaluate-checkpoints.mjs",
     "calibrate:checkpoints": "node scripts/evaluate-checkpoints.mjs --calibrate",
+    "play:pickup": "node scripts/play-spatial-pickup.mjs",
+    "evaluate:pickup": "node scripts/evaluate-spatial-pickup.mjs",
+    "calibrate:pickup": "node scripts/evaluate-spatial-pickup.mjs --calibrate",
     "compare:profiles": "node scripts/compare-profiles.mjs",
     "compare:pairs": "node scripts/compare-pairs.mjs"
   },

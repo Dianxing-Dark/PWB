@@ -1,6 +1,6 @@
 {
   "count": 30,
-  "specified": 15,
+  "specified": 17,
   "tasks": [
     {
       "id": "A01",
@@ -51,7 +51,9 @@
       "tier": "atom",
       "focus": "对象、视线",
       "criterion": "同投影的物体只有在同层可达时才能拾取。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/A05.json",
+      "evaluator": "evaluator/A05.json"
     },
     {
       "id": "A06",
@@ -191,7 +193,9 @@
       "tier": "combination",
       "focus": "视线、对象",
       "criterion": "隔墙操作无效，绕到可视可达位置后拾取。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/C09.json",
+      "evaluator": "evaluator/C09.json"
     },
     {
       "id": "C10",

@@ -1,0 +1,82 @@
+{
+  "id": "C09",
+  "family": "spatial-pickup",
+  "tier": "combination",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "3D 视线与拾取",
+  "goal": "绕开上层隔板拾取采样件，并到达上层出口。",
+  "controls": {
+    "move": "W/A/S/D",
+    "interact": "E",
+    "start": "进入默认场景"
+  },
+  "publicRules": [
+    "按 E 拾取采样件。玩家与采样件必须位于同层，水平距离不超过 1.2 米。",
+    "收集后实体离开场景，库存从 0 增加到 1。同一采样件重复按 E 时不再增加库存。",
+    "实体隔板阻挡移动与拾取视线。视线从玩家交互点到采样件交互点，隔板阻断两点之间时不能收集。",
+    "收集后步行进入出口才完成任务。"
+  ],
+  "layoutConstraints": [
+    "真实 3D 双层，采样件位于上层，下层有与其相同投影的可达位置。",
+    "两层通过正常移动可到达。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "constants": {
+    "pickupRangeMeters": 1.2
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "sample.position",
+    "sample.collected",
+    "inventory.sample",
+    "outcome"
+  ],
+  "publicEventData": {
+    "inventory_changed": "data.objectId 为 sample；before 为 0，after 为 1。",
+    "outcome_changed": "data.outcome 为 victory 或 failure。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "below_sample",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在下层，采样件在同投影的上层，尚未收集。"
+      ]
+    },
+    {
+      "id": "beside_sample",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层，位于采样件的同层近距离位置，视线无遮挡。"
+      ]
+    },
+    {
+      "id": "outside_reach",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层，采样件可见，距离超过 1.2 米。"
+      ]
+    },
+    {
+      "id": "behind_wall",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层，距离采样件小于 1.2 米，实体隔板挡住视线。"
+      ]
+    }
+  ]
+}

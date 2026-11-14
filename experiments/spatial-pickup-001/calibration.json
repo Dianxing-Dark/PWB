@@ -1,0 +1,300 @@
+{
+  "runGroups": [
+    "2026-11-14T14-32-04-754Z-5524",
+    "2026-11-14T14-36-57-413Z-11692"
+  ],
+  "runs": [
+    {
+      "taskId": "A05",
+      "runId": "A05",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/A05",
+      "evaluatorVersion": "f60e96bd8555b53c5c5b3d772fbea39790344e4bf7686436e6781068dbb89de2",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "pass",
+        "reject_outside_reach": "pass",
+        "collect_once": "pass",
+        "pickup_feedback": "pass"
+      },
+      "reportSha256": "f4c8198486766869e4dc9b8e628f1d2d34e47a5ce3956665122339a48d701fc3"
+    },
+    {
+      "taskId": "C09",
+      "runId": "C09",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/C09",
+      "evaluatorVersion": "52902e84eefe9dce7e41304cfcad334e39728ee1062c01b26203c6878e9e7e20",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 1
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "pass",
+        "reject_outside_reach": "pass",
+        "collect_once": "pass",
+        "pickup_feedback": "pass",
+        "reject_occluded": "pass",
+        "collect_by_detour": "pass",
+        "empty_exit": "pass",
+        "finish": "pass"
+      },
+      "reportSha256": "0591f5c91bc1b54f7a2833812ba46bf0f8c2dc88c46fc63b916ce120e003db83"
+    },
+    {
+      "taskId": "A05",
+      "runId": "A05-pickup_other_floor",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/A05/pickup_other_floor",
+      "evaluatorVersion": "f60e96bd8555b53c5c5b3d772fbea39790344e4bf7686436e6781068dbb89de2",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.75,
+          0.75
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "fail",
+        "reject_outside_reach": "pass",
+        "collect_once": "pass",
+        "pickup_feedback": "pass"
+      },
+      "reportSha256": "fa342035362373e24793ff9909cf4e3676f271709a521a30e4348b5c24e77c10"
+    },
+    {
+      "taskId": "A05",
+      "runId": "A05-pickup_outside_reach",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/A05/pickup_outside_reach",
+      "evaluatorVersion": "f60e96bd8555b53c5c5b3d772fbea39790344e4bf7686436e6781068dbb89de2",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.75,
+          0.75
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "pass",
+        "reject_outside_reach": "fail",
+        "collect_once": "pass",
+        "pickup_feedback": "pass"
+      },
+      "reportSha256": "9374f1f85dfafc502091e579ff6c40e7702bd36b6fe06e5675a1fac2df47e423"
+    },
+    {
+      "taskId": "A05",
+      "runId": "A05-repeat_pickup",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/A05/repeat_pickup",
+      "evaluatorVersion": "f60e96bd8555b53c5c5b3d772fbea39790344e4bf7686436e6781068dbb89de2",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.5,
+          0.5
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "pass",
+        "reject_outside_reach": "pass",
+        "collect_once": "fail",
+        "pickup_feedback": "pass"
+      },
+      "reportSha256": "40b9fc242f7794415a8fdbdc65d0a09e5666fff0f9bb71c920ae0951e301c935"
+    },
+    {
+      "taskId": "C09",
+      "runId": "C09-pickup_through_wall",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/C09/pickup_through_wall",
+      "evaluatorVersion": "52902e84eefe9dce7e41304cfcad334e39728ee1062c01b26203c6878e9e7e20",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.875,
+          0.875
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 1
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "pass",
+        "reject_outside_reach": "pass",
+        "collect_once": "pass",
+        "pickup_feedback": "pass",
+        "reject_occluded": "fail",
+        "collect_by_detour": "pass",
+        "empty_exit": "pass",
+        "finish": "pass"
+      },
+      "reportSha256": "43444c83b36e7534cee643c0692b177255462bd4f36a41880ab04bd6fce0a049"
+    },
+    {
+      "taskId": "C09",
+      "runId": "C09-walk_through_wall",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/C09/walk_through_wall",
+      "evaluatorVersion": "52902e84eefe9dce7e41304cfcad334e39728ee1062c01b26203c6878e9e7e20",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.875,
+          0.875
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 1
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "pass",
+        "reject_outside_reach": "pass",
+        "collect_once": "pass",
+        "pickup_feedback": "pass",
+        "reject_occluded": "pass",
+        "collect_by_detour": "fail",
+        "empty_exit": "pass",
+        "finish": "pass"
+      },
+      "reportSha256": "e1ed28f2bc6d6ca15f12dbc37e9045c3eea1cdd267c63d3c891e93f0226adaef"
+    },
+    {
+      "taskId": "C09",
+      "runId": "C09-exit_without_sample",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/C09/exit_without_sample",
+      "evaluatorVersion": "52902e84eefe9dce7e41304cfcad334e39728ee1062c01b26203c6878e9e7e20",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0.75,
+          0.75
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 1
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "pass",
+        "reject_outside_reach": "pass",
+        "collect_once": "pass",
+        "pickup_feedback": "pass",
+        "reject_occluded": "pass",
+        "collect_by_detour": "pass",
+        "empty_exit": "fail",
+        "finish": "pass"
+      },
+      "reportSha256": "fa634dbacbd420eb8516da377d933020758f5cbb0b8d7631e874c2205529029a"
+    },
+    {
+      "taskId": "C09",
+      "runId": "C09-stale_sample_feedback",
+      "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/C09/stale_sample_feedback",
+      "evaluatorVersion": "52902e84eefe9dce7e41304cfcad334e39728ee1062c01b26203c6878e9e7e20",
+      "browserVersion": "157.0.8103.52",
+      "summary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 1,
+          "planned": 1
+        }
+      },
+      "cases": {
+        "launch": "pass",
+        "probe": "pass",
+        "reject_other_floor": "pass",
+        "reject_outside_reach": "pass",
+        "collect_once": "pass",
+        "pickup_feedback": "fail",
+        "reject_occluded": "pass",
+        "collect_by_detour": "pass",
+        "empty_exit": "pass",
+        "finish": "pass"
+      },
+      "reportSha256": "619ef376b45e3be9e3b9f4b4aed744d65f5bf2b834ef3e0681249cf85930da90"
+    }
+  ],
+  "replicateReportSha256": {
+    "A05": "39b96117739ba32af94b21cac5590bce57f413fd80fe2634265c5dceb76b5170",
+    "C09": "3d4a667627482b7d5ec7e65b6b5c363c19439d9d71b96b88277b9eac68e9aa43",
+    "A05-pickup_other_floor": "920b089d324cc4a638d1479bcc6c73bc0bac11eb1d83ef37c1033ecd990cab8a",
+    "A05-pickup_outside_reach": "88862cc623274d8a72fdac112714ee6e9a55c08ae87add5a0c8294730d61563d",
+    "A05-repeat_pickup": "18c3a41835bd511a70d1bbdd7709c339856c5534d9e97e3f900a3423c59c0eed",
+    "C09-pickup_through_wall": "1cf7cfebb689ac1a4f9660db931bb931558aa5ed4885c8597e7e5d477f412213",
+    "C09-walk_through_wall": "3812b7be7be427cb4d8ef444d63e621798080afc98590075abbed5eb02cd4a7b",
+    "C09-exit_without_sample": "ced8678ee240d8eabc92b1ab30e8cf0ba2add271fb53938e5c6e78c1a92421f9",
+    "C09-stale_sample_feedback": "8d98f6d750e6751da264a4128ad9729203c4507c3ead3b489c9cce124103378d"
+  }
+}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample Annex</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <style>#world { aspect-ratio: 2 / 1; } .hud { grid-template-columns: repeat(2, 1fr); }</style>
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption" id="task"></p><h1>Sample Annex</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>E</kbd><span>Collect</span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world" aria-label="Two walkable levels with a sample upstairs"></div>
+    <section class="hud" aria-label="Sample status">
+      <div><span>Sample</span><strong id="sample"></strong></div>
+      <div><span>Mission</span><strong id="mission" role="status"></strong></div>
+    </section>
+    <p class="objective" id="objective"></p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

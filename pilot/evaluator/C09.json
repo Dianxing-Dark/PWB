@@ -1,0 +1,323 @@
+{
+  "taskId": "C09",
+  "builderContract": "builder/C09.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认空库存入口。"
+      ]
+    },
+    {
+      "id": "below_sample",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在下层，采样件在同投影的上层，尚未收集。"
+      ]
+    },
+    {
+      "id": "beside_sample",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层，位于采样件的同层近距离位置，视线无遮挡。"
+      ]
+    },
+    {
+      "id": "outside_reach",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层，采样件可见，距离超过 1.2 米。"
+      ]
+    },
+    {
+      "id": "behind_wall",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层，距离采样件小于 1.2 米，实体隔板挡住视线。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "打开默认入口。"
+        }
+      ],
+      "checks": [
+        "浏览器启动并显示可玩场景。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": []
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "prerequisites",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "通过 WASD 移动。"
+        }
+      ],
+      "checks": [
+        "真实按键使玩家移动，仿真步递增。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ]
+    },
+    {
+      "id": "reject_other_floor",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "spatial-reach",
+      "scenario": "below_sample",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从下层的投影位置按 E。"
+        }
+      ],
+      "checks": [
+        "采样件仍存在，库存为 0，无成功拾取事件。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "reject_outside_reach",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "spatial-reach",
+      "scenario": "outside_reach",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "同层且无遮挡，在距离超过 1.2 米的位置按 E。"
+        }
+      ],
+      "checks": [
+        "采样件仍存在，库存为 0，无成功拾取事件。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "boundary"
+    },
+    {
+      "id": "collect_once",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "pickup",
+      "scenario": "beside_sample",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从同层无遮挡位置按 E 两次。"
+        }
+      ],
+      "checks": [
+        "第一次恰好收集一次，第二次保持原状。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "pickup_feedback",
+      "stage": "visual",
+      "priority": "P2",
+      "family": "feedback",
+      "scenario": "beside_sample",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按 E，保留前后截图。"
+        }
+      ],
+      "checks": [
+        "实体离开场景，玩家界面显示已经收集。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "reject_occluded",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "line-of-sight",
+      "scenario": "behind_wall",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "站在隔板一侧，按 E。"
+        }
+      ],
+      "checks": [
+        "接触距离以内，隔板挡住视线，不能收集。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "collect_by_detour",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "line-of-sight",
+      "scenario": "behind_wall",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "尝试直接穿隔板，再绕行到采样件所在侧按 E。"
+        }
+      ],
+      "checks": [
+        "实体隔板阻挡运动。绕行后视线开放，可收集一次。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "empty_exit",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "goal",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "上坡绕行至出口，完全跳过收集。"
+        }
+      ],
+      "checks": [
+        "玩家抵达出口但不能完成任务。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "finish",
+      "stage": "journey",
+      "priority": "P1",
+      "family": "journey",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从起点登上二层，绕过隔板后收集并步行进入出口。"
+        }
+      ],
+      "checks": [
+        "按序通过坡道、绕行、收集和终点；保持同一次尝试。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [
+    "finish"
+  ],
+  "policy": "完整旅程从默认入口只使用正常玩家按键。局部状态只能准备合法前置条件。"
+}

@@ -244,5 +244,20 @@
       ]
     }
   },
+  "spatial-pickup": {
+    "mutationsByTask": {
+      "A05": [
+        {"id": "pickup_other_floor", "mustDetect": ["reject_other_floor"], "mustPreserve": ["collect_once", "reject_outside_reach"]},
+        {"id": "pickup_outside_reach", "mustDetect": ["reject_outside_reach"], "mustPreserve": ["collect_once", "reject_other_floor"]},
+        {"id": "repeat_pickup", "mustDetect": ["collect_once"], "mustPreserve": ["reject_other_floor", "pickup_feedback"]}
+      ],
+      "C09": [
+        {"id": "pickup_through_wall", "mustDetect": ["reject_occluded"], "mustPreserve": ["collect_by_detour", "finish"]},
+        {"id": "walk_through_wall", "mustDetect": ["collect_by_detour"], "mustPreserve": ["reject_occluded", "finish"]},
+        {"id": "exit_without_sample", "mustDetect": ["empty_exit"], "mustPreserve": ["collect_by_detour", "finish"]},
+        {"id": "stale_sample_feedback", "mustDetect": ["pickup_feedback"], "mustPreserve": ["collect_once", "finish"]}
+      ]
+    }
+  },
   "status": "expected_results_to_verify_in_browser"
 }
