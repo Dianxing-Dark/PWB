@@ -28,7 +28,11 @@ async function register(test, floor) {
   const state = await test.sample();
   const rows = eventOf(await test.events(), "checkpoint_registered")
     .filter(event => event.attemptId === state.attemptId && event.sequence > (previousEvents.at(-1)?.sequence ?? -1));
-  requireCheck(previous.checkpoint.id !== floor && isOn(test.route, state, floor) && near(state, target) &&
+  const contacted = test.trace.some(observed => observed.attemptId === state.attemptId &&
+    observed.tick >= previous.tick && isOn(test.route, observed, floor) &&
+    Math.abs(position(observed)[0] - target[0]) <= (test.route.registrationHalfWidth ?? 0.25) &&
+    Math.abs(position(observed)[2] - target[2]) <= (test.route.registrationHalfWidth ?? 0.25));
+  requireCheck(previous.checkpoint.id !== floor && isOn(test.route, state, floor) && contacted &&
     state.checkpoint.id === floor && rows.length === 1 && rows[0].data.id === floor &&
     distance(state.checkpoint.position, target) < 0.06 &&
     distance(rows[0].data.position, state.checkpoint.position) < 0.01,

@@ -1,5 +1,6 @@
 export const terraceReplay = {
   tolerance: 0.075,
+  registrationHalfWidth: 0.25,
   probe: { key: "d", axis: 0, direction: 1 },
   checkpoint: { lower: [0, 0, 0], upper: [0, 2.2, 0] },
   floor: { lower: "lower", upper: "upper" },
@@ -30,6 +31,7 @@ export const terraceReplay = {
 
 export const galleryReplay = {
   tolerance: 0.09,
+  registrationHalfWidth: 0.38,
   probe: { key: "s", axis: 2, direction: 1 },
   checkpoint: { lower: [1.5, 0, 0.85], upper: [1.5, 2.65, 0.85] },
   floor: { lower: "service", upper: "gallery" },
