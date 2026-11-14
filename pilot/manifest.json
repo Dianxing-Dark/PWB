@@ -168,7 +168,7 @@
       "builder": "builder/A10.json",
       "evaluator": "evaluator/A10.json",
       "implementation": {
-        "referenceLayouts": 1,
+        "referenceLayouts": 2,
         "evaluator": "scripts/evaluate-checkpoints.mjs",
         "codexRuns": 0
       }
@@ -181,7 +181,7 @@
       "builder": "builder/C07.json",
       "evaluator": "evaluator/C07.json",
       "implementation": {
-        "referenceLayouts": 1,
+        "referenceLayouts": 2,
         "evaluator": "scripts/evaluate-checkpoints.mjs",
         "codexRuns": 0
       }
@@ -194,9 +194,9 @@
       "builder": "builder/C12.json",
       "evaluator": "evaluator/C12.json",
       "implementation": {
-        "referenceLayouts": 1,
+        "referenceLayouts": 2,
         "evaluator": "scripts/evaluate-checkpoints.mjs",
-        "codexRuns": 0
+        "codexRuns": 1
       }
     }
   ],

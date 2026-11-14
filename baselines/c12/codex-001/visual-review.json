@@ -1,0 +1,21 @@
+{
+  "reviewKind": "manual_frame_review",
+  "runReportDigest": "4e418b351d75b7567f3b49c03bed266f4d8f6c6a314f896cee49051f3f630f33",
+  "checks": [
+    {
+      "caseId": "trap_feedback",
+      "status": "pass",
+      "reason": "Live panel contact displays an interruption overlay with the R instruction. The overlay disappears on retry, the attempt number increments, and the upper checkpoint is visible.",
+      "evidenceRefs": [
+        {
+          "path": "evidence/trap_feedback/trap-hit.png",
+          "sha256": "a8e1b46bea22243ae25c6f6b72519e40c788ac7d5b7a5b75ef0e8da134b7e5f6"
+        },
+        {
+          "path": "evidence/trap_feedback/retry.png",
+          "sha256": "97bc59a802007e46789a9c2bb5dbfda4422ce3d465fb8632733a84ce91e6f117"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Switchback Gallery | PlayableWorld-Bench</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <style>
+    #world { aspect-ratio: 2 / 1; }
+    .hud { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  </style>
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption" id="task"></p><h1>Switchback Gallery</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>E</kbd><span>Use</span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world" aria-label="A 3D terrace with staggered traps and two checkpoint floors"></div>
+    <section class="hud" aria-label="Progress and checkpoint status">
+      <div><span>Checkpoint</span><strong id="checkpoint"></strong></div>
+      <div id="power-panel"><span>Lower power</span><strong id="power"></strong></div>
+      <div id="relay-panel"><span>Upper relay</span><strong id="relay"></strong></div>
+      <div><span>Mission</span><strong id="status" role="status"></strong></div>
+    </section>
+    <p class="objective" id="objective"></p>
+  </main>
+  <script type="module" src="./gallery.mjs"></script>
+</body>
+</html>

@@ -1,0 +1,918 @@
+[
+  {
+    "path": "runs/2026-11-14T14-15-06-682Z-31624/A10",
+    "reportSha256": "253cbbb4572303d8604933d2334bc1670f962948b5eb25fdee545b9c74c3c557",
+    "taskId": "A10",
+    "runId": "A10",
+    "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/A10",
+    "evaluatorVersion": "3c1c26888c00e906f0bc1eaab118859bb0c12f67f726ab1c33a2c6da2067dfeb",
+    "browserVersion": "157.0.8103.52",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 0
+      }
+    },
+    "cases": [
+      {
+        "caseId": "launch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "launch/entry.png",
+          "launch/trace.json"
+        ]
+      },
+      {
+        "caseId": "probe",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_checkpoint",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_checkpoint/lower-saved.png",
+          "lower_checkpoint/trace.json"
+        ]
+      },
+      {
+        "caseId": "upper_checkpoint",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "upper_checkpoint/upper-saved.png",
+          "upper_checkpoint/trace.json"
+        ]
+      },
+      {
+        "caseId": "fall_and_retry_upper",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "fall_and_retry_upper/fall.png",
+          "fall_and_retry_upper/retry.png",
+          "fall_and_retry_upper/trace.json"
+        ]
+      },
+      {
+        "caseId": "checkpoint_feedback",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "checkpoint_feedback/upper-idle.png",
+          "checkpoint_feedback/upper-registered.png",
+          "checkpoint_feedback/upper-registered-with-hud.png",
+          "checkpoint_feedback/trace.json"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "runs/2026-11-14T14-15-06-682Z-31624/C07",
+    "reportSha256": "27746b77d326d286052877a5a64ed90e4fe0483507ae9fdfb6626fd31919f427",
+    "taskId": "C07",
+    "runId": "C07",
+    "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C07",
+    "evaluatorVersion": "52313bc2cccba02a05e6f6bf9dff61d28cc49d11c62d99a315cdc8fdd1aeb6a6",
+    "browserVersion": "157.0.8103.52",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 0
+      }
+    },
+    "cases": [
+      {
+        "caseId": "launch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "launch/entry.png",
+          "launch/trace.json"
+        ]
+      },
+      {
+        "caseId": "probe",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_restart/trap-hit.png",
+          "lower_trap_restart/retry.png",
+          "lower_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "upper_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "upper_trap_restart/trap-hit.png",
+          "upper_trap_restart/retry.png",
+          "upper_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_not_upper",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_not_upper/safe-above-trap.png",
+          "lower_trap_not_upper/trace.json"
+        ]
+      },
+      {
+        "caseId": "latest_checkpoint_wins",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "latest_checkpoint_wins/lower-registered.png",
+          "latest_checkpoint_wins/upper-registered.png",
+          "latest_checkpoint_wins/trap-hit.png",
+          "latest_checkpoint_wins/retry.png",
+          "latest_checkpoint_wins/trace.json"
+        ]
+      },
+      {
+        "caseId": "trap_feedback",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "trap_feedback/trap-hit.png",
+          "trap_feedback/retry.png",
+          "trap_feedback/trace.json"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "runs/2026-11-14T14-15-06-682Z-31624/C12",
+    "reportSha256": "e17c028d129048f2c90750a836bc76725c2453b0e1d1ec0ae009256dc5898801",
+    "taskId": "C12",
+    "runId": "C12",
+    "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C12",
+    "evaluatorVersion": "fbe720682552e54e8ef8ff1188f8b3ae50644b95221a607d66b08f55de6f177a",
+    "browserVersion": "157.0.8103.52",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    },
+    "cases": [
+      {
+        "caseId": "launch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "launch/entry.png",
+          "launch/trace.json"
+        ]
+      },
+      {
+        "caseId": "probe",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_restart/trap-hit.png",
+          "lower_trap_restart/retry.png",
+          "lower_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "upper_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "upper_trap_restart/trap-hit.png",
+          "upper_trap_restart/retry.png",
+          "upper_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_not_upper",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_not_upper/safe-above-trap.png",
+          "lower_trap_not_upper/trace.json"
+        ]
+      },
+      {
+        "caseId": "latest_checkpoint_wins",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "latest_checkpoint_wins/lower-registered.png",
+          "latest_checkpoint_wins/upper-registered.png",
+          "latest_checkpoint_wins/trap-hit.png",
+          "latest_checkpoint_wins/retry.png",
+          "latest_checkpoint_wins/trace.json"
+        ]
+      },
+      {
+        "caseId": "trap_feedback",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "trap_feedback/trap-hit.png",
+          "trap_feedback/retry.png",
+          "trap_feedback/trace.json"
+        ]
+      },
+      {
+        "caseId": "exit_requires_both",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "exit_requires_both/unpowered-exit.png",
+          "exit_requires_both/trace.json"
+        ]
+      },
+      {
+        "caseId": "exit_requires_relay",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "exit_requires_relay/power-on.png",
+          "exit_requires_relay/exit-with-idle-relay.png",
+          "exit_requires_relay/trace.json"
+        ]
+      },
+      {
+        "caseId": "retry_keeps_power_clears_switch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "retry_keeps_power_clears_switch/power-on.png",
+          "retry_keeps_power_clears_switch/relay-on.png",
+          "retry_keeps_power_clears_switch/trap-hit.png",
+          "retry_keeps_power_clears_switch/retry.png",
+          "retry_keeps_power_clears_switch/trace.json"
+        ]
+      },
+      {
+        "caseId": "finish_direct",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "finish_direct/power-on.png",
+          "finish_direct/relay-on.png",
+          "finish_direct/victory.png",
+          "finish_direct/trace.json"
+        ]
+      },
+      {
+        "caseId": "finish_after_retry",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "finish_after_retry/power-on.png",
+          "finish_after_retry/relay-on.png",
+          "finish_after_retry/trap-hit.png",
+          "finish_after_retry/retry.png",
+          "finish_after_retry/victory.png",
+          "finish_after_retry/trace.json"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "runs/2026-11-14T14-19-12-517Z-6892/A10-gallery",
+    "reportSha256": "55faa2f579f565e8d4469ad39a160c7cd97f3b3254af70da1ac740d50fc695cc",
+    "taskId": "A10",
+    "runId": "A10-gallery",
+    "artifactVersion": "042fa2886006ddcfa62b89624f50c6dc98e891b88796f115d0659bc0a50651b9/A10",
+    "evaluatorVersion": "da9e9cdf7e5cf864d446d8cb11f40a600eb45a847bce707ae9b200fbbae1b206",
+    "browserVersion": "157.0.8103.52",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 0
+      }
+    },
+    "cases": [
+      {
+        "caseId": "launch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "launch/entry.png",
+          "launch/trace.json"
+        ]
+      },
+      {
+        "caseId": "probe",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_checkpoint",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_checkpoint/lower-saved.png",
+          "lower_checkpoint/trace.json"
+        ]
+      },
+      {
+        "caseId": "upper_checkpoint",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "upper_checkpoint/upper-saved.png",
+          "upper_checkpoint/trace.json"
+        ]
+      },
+      {
+        "caseId": "fall_and_retry_upper",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "fall_and_retry_upper/fall.png",
+          "fall_and_retry_upper/retry.png",
+          "fall_and_retry_upper/trace.json"
+        ]
+      },
+      {
+        "caseId": "checkpoint_feedback",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "checkpoint_feedback/upper-idle.png",
+          "checkpoint_feedback/upper-registered.png",
+          "checkpoint_feedback/upper-registered-with-hud.png",
+          "checkpoint_feedback/trace.json"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "runs/2026-11-14T14-19-12-517Z-6892/C07-gallery",
+    "reportSha256": "bfa38d22ec32995e004e05a4aeb9d2de95ddd429a6ef2d8b14486a0a7462c9c5",
+    "taskId": "C07",
+    "runId": "C07-gallery",
+    "artifactVersion": "042fa2886006ddcfa62b89624f50c6dc98e891b88796f115d0659bc0a50651b9/C07",
+    "evaluatorVersion": "016fecd293667f05f2815d2cfe007aaa54009d8c23d451f3d469f386df0e9ddc",
+    "browserVersion": "157.0.8103.52",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 0
+      }
+    },
+    "cases": [
+      {
+        "caseId": "launch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "launch/entry.png",
+          "launch/trace.json"
+        ]
+      },
+      {
+        "caseId": "probe",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_restart/trap-hit.png",
+          "lower_trap_restart/retry.png",
+          "lower_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "upper_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "upper_trap_restart/trap-hit.png",
+          "upper_trap_restart/retry.png",
+          "upper_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_not_upper",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_not_upper/safe-above-trap.png",
+          "lower_trap_not_upper/trace.json"
+        ]
+      },
+      {
+        "caseId": "latest_checkpoint_wins",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "latest_checkpoint_wins/lower-registered.png",
+          "latest_checkpoint_wins/upper-registered.png",
+          "latest_checkpoint_wins/trap-hit.png",
+          "latest_checkpoint_wins/retry.png",
+          "latest_checkpoint_wins/trace.json"
+        ]
+      },
+      {
+        "caseId": "trap_feedback",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "trap_feedback/trap-hit.png",
+          "trap_feedback/retry.png",
+          "trap_feedback/trace.json"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "runs/2026-11-14T14-19-12-517Z-6892/C12-gallery",
+    "reportSha256": "33c03bf9c854645096591c733c614bb659ad0103b4f2a8336a7547fa8c1397e9",
+    "taskId": "C12",
+    "runId": "C12-gallery",
+    "artifactVersion": "042fa2886006ddcfa62b89624f50c6dc98e891b88796f115d0659bc0a50651b9/C12",
+    "evaluatorVersion": "17eaf455d170fbc93e06a75c40dd969b11a83786b77e51cc5d6e96decce11973",
+    "browserVersion": "157.0.8103.52",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    },
+    "cases": [
+      {
+        "caseId": "launch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "launch/entry.png",
+          "launch/trace.json"
+        ]
+      },
+      {
+        "caseId": "probe",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_restart/trap-hit.png",
+          "lower_trap_restart/retry.png",
+          "lower_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "upper_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "upper_trap_restart/trap-hit.png",
+          "upper_trap_restart/retry.png",
+          "upper_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_not_upper",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_not_upper/safe-above-trap.png",
+          "lower_trap_not_upper/trace.json"
+        ]
+      },
+      {
+        "caseId": "latest_checkpoint_wins",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "latest_checkpoint_wins/lower-registered.png",
+          "latest_checkpoint_wins/upper-registered.png",
+          "latest_checkpoint_wins/trap-hit.png",
+          "latest_checkpoint_wins/retry.png",
+          "latest_checkpoint_wins/trace.json"
+        ]
+      },
+      {
+        "caseId": "trap_feedback",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "trap_feedback/trap-hit.png",
+          "trap_feedback/retry.png",
+          "trap_feedback/trace.json"
+        ]
+      },
+      {
+        "caseId": "exit_requires_both",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "exit_requires_both/unpowered-exit.png",
+          "exit_requires_both/trace.json"
+        ]
+      },
+      {
+        "caseId": "exit_requires_relay",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "exit_requires_relay/power-on.png",
+          "exit_requires_relay/exit-with-idle-relay.png",
+          "exit_requires_relay/trace.json"
+        ]
+      },
+      {
+        "caseId": "retry_keeps_power_clears_switch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "retry_keeps_power_clears_switch/power-on.png",
+          "retry_keeps_power_clears_switch/relay-on.png",
+          "retry_keeps_power_clears_switch/trap-hit.png",
+          "retry_keeps_power_clears_switch/retry.png",
+          "retry_keeps_power_clears_switch/trace.json"
+        ]
+      },
+      {
+        "caseId": "finish_direct",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "finish_direct/power-on.png",
+          "finish_direct/relay-on.png",
+          "finish_direct/victory.png",
+          "finish_direct/trace.json"
+        ]
+      },
+      {
+        "caseId": "finish_after_retry",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "finish_after_retry/power-on.png",
+          "finish_after_retry/relay-on.png",
+          "finish_after_retry/trap-hit.png",
+          "finish_after_retry/retry.png",
+          "finish_after_retry/victory.png",
+          "finish_after_retry/trace.json"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "runs/2026-11-14T14-15-00-514Z-6844/C12-starter",
+    "reportSha256": "eb52f933001f11d11697073bb20df2066179925c10538b2bbcc6c6a0eb993375",
+    "taskId": "C12",
+    "runId": "C12-starter",
+    "artifactVersion": "858f87c323229015be5f9c47208a40d9a936bd5218d564b2e8ab3e5d40fa4914/C12",
+    "evaluatorVersion": "fbe720682552e54e8ef8ff1188f8b3ae50644b95221a607d66b08f55de6f177a",
+    "browserVersion": "157.0.8103.52",
+    "summary": {
+      "strictTaskSuccess": false,
+      "functionalInterval": [
+        0,
+        0
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 1,
+      "journeys": {
+        "passed": 0,
+        "planned": 2
+      }
+    },
+    "cases": [
+      {
+        "caseId": "launch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "launch/entry.png",
+          "launch/trace.json"
+        ]
+      },
+      {
+        "caseId": "probe",
+        "status": "fail",
+        "reason": "Snapshot did not reflect native browser movement and clock progression.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_restart",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "upper_trap_restart",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "lower_trap_not_upper",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "latest_checkpoint_wins",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "trap_feedback",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "exit_requires_both",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "exit_requires_relay",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "retry_keeps_power_clears_switch",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "finish_direct",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      },
+      {
+        "caseId": "finish_after_retry",
+        "status": "product_blocked",
+        "reason": "Required prerequisite probe did not pass.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ],
+        "blockedBy": "probe"
+      }
+    ]
+  },
+  {
+    "path": "runs/2026-11-14T14-20-22-966Z-19380/submission",
+    "reportSha256": "4e418b351d75b7567f3b49c03bed266f4d8f6c6a314f896cee49051f3f630f33",
+    "taskId": "C12",
+    "runId": "submission",
+    "artifactVersion": "cb7a3cf6a90b074042dc5f529dab139a16e22c17228c7b2e7df55a42f0780eb4",
+    "evaluatorVersion": "ce09619d6a3234b91d966816bf8f714273dc06e0e502e81c3bdf9001b2979eac",
+    "browserVersion": "157.0.8103.52",
+    "summary": {
+      "strictTaskSuccess": true,
+      "functionalInterval": [
+        1,
+        1
+      ],
+      "functionalCoverage": 1,
+      "visualCoverage": 0,
+      "journeys": {
+        "passed": 2,
+        "planned": 2
+      }
+    },
+    "cases": [
+      {
+        "caseId": "launch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "launch/entry.png",
+          "launch/trace.json"
+        ]
+      },
+      {
+        "caseId": "probe",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "probe/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_restart/trap-hit.png",
+          "lower_trap_restart/retry.png",
+          "lower_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "upper_trap_restart",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "upper_trap_restart/trap-hit.png",
+          "upper_trap_restart/retry.png",
+          "upper_trap_restart/trace.json"
+        ]
+      },
+      {
+        "caseId": "lower_trap_not_upper",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "lower_trap_not_upper/safe-above-trap.png",
+          "lower_trap_not_upper/trace.json"
+        ]
+      },
+      {
+        "caseId": "latest_checkpoint_wins",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "latest_checkpoint_wins/lower-registered.png",
+          "latest_checkpoint_wins/upper-registered.png",
+          "latest_checkpoint_wins/trap-hit.png",
+          "latest_checkpoint_wins/retry.png",
+          "latest_checkpoint_wins/trace.json"
+        ]
+      },
+      {
+        "caseId": "trap_feedback",
+        "status": "unverified",
+        "reason": "Review the failure and retry frames.",
+        "evidenceRefs": [
+          "trap_feedback/trap-hit.png",
+          "trap_feedback/retry.png",
+          "trap_feedback/trace.json"
+        ]
+      },
+      {
+        "caseId": "exit_requires_both",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "exit_requires_both/unpowered-exit.png",
+          "exit_requires_both/trace.json"
+        ]
+      },
+      {
+        "caseId": "exit_requires_relay",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "exit_requires_relay/power-on.png",
+          "exit_requires_relay/exit-with-idle-relay.png",
+          "exit_requires_relay/trace.json"
+        ]
+      },
+      {
+        "caseId": "retry_keeps_power_clears_switch",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "retry_keeps_power_clears_switch/power-on.png",
+          "retry_keeps_power_clears_switch/relay-on.png",
+          "retry_keeps_power_clears_switch/trap-hit.png",
+          "retry_keeps_power_clears_switch/retry.png",
+          "retry_keeps_power_clears_switch/trace.json"
+        ]
+      },
+      {
+        "caseId": "finish_direct",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "finish_direct/power-on.png",
+          "finish_direct/relay-on.png",
+          "finish_direct/victory.png",
+          "finish_direct/trace.json"
+        ]
+      },
+      {
+        "caseId": "finish_after_retry",
+        "status": "pass",
+        "reason": "Registered checks satisfied.",
+        "evidenceRefs": [
+          "finish_after_retry/power-on.png",
+          "finish_after_retry/relay-on.png",
+          "finish_after_retry/trap-hit.png",
+          "finish_after_retry/retry.png",
+          "finish_after_retry/victory.png",
+          "finish_after_retry/trace.json"
+        ]
+      }
+    ]
+  }
+]

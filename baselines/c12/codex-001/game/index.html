@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relay / 12</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="identity"><span class="mark"><i></i><i></i><i></i></span><div><div class="brand">RELAY<span>/</span>12</div><div class="subtitle">POWER TRANSFER STATION</div></div></div>
+    <div class="live"><i></i> LOCAL SIMULATION</div>
+  </header>
+  <main>
+    <section id="viewport" aria-label="3D power station">
+      <div id="labels"></div>
+      <div class="viewtop"><span id="deck">L01 / LOWER DECK</span><span id="attempt">ATTEMPT 01</span></div>
+      <div id="prompt" role="status" hidden></div>
+      <div id="result" hidden><div id="resultCode"></div><h2></h2><p></p></div>
+      <div class="viewbottom"><span>STATION CAM</span><span id="coords"></span></div>
+    </section>
+    <aside>
+      <div class="eyebrow">RECOVERY PROTOCOL</div>
+      <h1>Bring the<br>station online.</h1>
+      <p class="intro">Restore power below, then take the east ramp to the upper relay and reach extraction.</p>
+      <ol class="tasks">
+        <li id="powerTask"><span>01</span><div><b>Restore supply</b><small>Lower deck console</small></div><i></i></li>
+        <li id="relayTask"><span>02</span><div><b>Activate relay</b><small>Upper deck console</small></div><i></i></li>
+        <li id="exitTask"><span>03</span><div><b>Reach extraction</b><small>Upper deck airlock</small></div><i></i></li>
+      </ol>
+      <div class="checkpoint"><span>CHECKPOINT</span><strong id="saved">NO SIGNAL</strong></div>
+      <div class="hint">Red floor panels are live hazards. Step onto a cyan pad to save your position.</div>
+    </aside>
+  </main>
+  <footer><div><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> <span>Move</span></div><div><kbd>E</kbd> <span>Use console</span></div><div><kbd>R</kbd> <span>Retry after failure</span></div><span class="footer-id">FACILITY 12 / OPERATIONS</span></footer>
+</div>
+<script type="module" src="./game.js"></script>
+</body>
+</html>

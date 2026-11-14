@@ -60,9 +60,11 @@ The calibration runs the reference, the registered single faults, and a decorati
 
     npm run play:checkpoints -- C12
     node scripts/evaluate-checkpoints.mjs
+    node scripts/evaluate-checkpoints.mjs --layout=gallery
+    node scripts/evaluate-checkpoints.mjs --task=C12 --starter
     node scripts/evaluate-checkpoints.mjs --calibrate
 
-A10 tests height-specific checkpoint registration and falling. C07 adds floor-specific traps and verifies that the latest checkpoint supersedes the earlier one in the same attempt. C12 requires the retry to preserve lower power while resetting the upper relay. Its direct and recovery journeys start from fresh pages. See the [checkpoint calibration](experiments/checkpoints-001/).
+A10 tests height-specific checkpoint registration and falling. C07 adds floor-specific traps and verifies that the latest checkpoint supersedes the earlier one in the same attempt. C12 requires the retry to preserve lower power while resetting the upper relay. Its direct and recovery journeys start from fresh pages. The [first checkpoint calibration](experiments/checkpoints-001/) records the single faults. The [second calibration](experiments/checkpoints-002/) adds the gallery layout and a bootable starter that fails the native movement probe.
 
 ## Compare evaluation profiles
 

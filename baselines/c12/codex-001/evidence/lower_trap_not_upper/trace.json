@@ -1,0 +1,900 @@
+{
+  "caseId": "lower_trap_not_upper",
+  "scenarioId": "upper_safe_projection",
+  "trace": [
+    {
+      "attemptId": 0,
+      "tick": 3,
+      "avatar": {
+        "position": [
+          -5.8,
+          0,
+          3.2
+        ],
+        "supportSurface": "lower"
+      },
+      "checkpoint": {
+        "id": null,
+        "position": null
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 158
+    },
+    {
+      "attemptId": 0,
+      "tick": 3,
+      "avatar": {
+        "position": [
+          -5.8,
+          0,
+          3.2
+        ],
+        "supportSurface": "lower"
+      },
+      "checkpoint": {
+        "id": null,
+        "position": null
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 158.90000000037253
+    },
+    {
+      "attemptId": 0,
+      "tick": 6,
+      "avatar": {
+        "position": [
+          -5.8,
+          0,
+          3.2
+        ],
+        "supportSurface": "lower"
+      },
+      "checkpoint": {
+        "id": null,
+        "position": null
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 210.59999999962747
+    },
+    {
+      "attemptId": 1,
+      "tick": 1,
+      "avatar": {
+        "position": [
+          -2.8,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 218
+    },
+    {
+      "attemptId": 1,
+      "tick": 1,
+      "avatar": {
+        "position": [
+          -2.8,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 219.70000000018626
+    },
+    {
+      "attemptId": 1,
+      "tick": 1,
+      "avatar": {
+        "position": [
+          -2.8,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 220.90000000037253
+    },
+    {
+      "attemptId": 1,
+      "tick": 2,
+      "avatar": {
+        "position": [
+          -2.8,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 226.79999999981374
+    },
+    {
+      "attemptId": 1,
+      "tick": 4,
+      "avatar": {
+        "position": [
+          -2.6566666666666663,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 276.90000000037253
+    },
+    {
+      "attemptId": 1,
+      "tick": 7,
+      "avatar": {
+        "position": [
+          -2.441666666666666,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 321.70000000018626
+    },
+    {
+      "attemptId": 1,
+      "tick": 10,
+      "avatar": {
+        "position": [
+          -2.2266666666666657,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 369.29999999981374
+    },
+    {
+      "attemptId": 1,
+      "tick": 13,
+      "avatar": {
+        "position": [
+          -2.0116666666666654,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 414
+    },
+    {
+      "attemptId": 1,
+      "tick": 15,
+      "avatar": {
+        "position": [
+          -1.8683333333333318,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 459.79999999981374
+    },
+    {
+      "attemptId": 1,
+      "tick": 18,
+      "avatar": {
+        "position": [
+          -1.6533333333333315,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 506.40000000037253
+    },
+    {
+      "attemptId": 1,
+      "tick": 21,
+      "avatar": {
+        "position": [
+          -1.4383333333333312,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 553.2000000001863
+    },
+    {
+      "attemptId": 1,
+      "tick": 24,
+      "avatar": {
+        "position": [
+          -1.223333333333331,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 597.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 27,
+      "avatar": {
+        "position": [
+          -1.0083333333333306,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 645.9000000003725
+    },
+    {
+      "attemptId": 1,
+      "tick": 29,
+      "avatar": {
+        "position": [
+          -0.8649999999999973,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 691.0999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 32,
+      "avatar": {
+        "position": [
+          -0.6499999999999974,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 739
+    },
+    {
+      "attemptId": 1,
+      "tick": 35,
+      "avatar": {
+        "position": [
+          -0.4349999999999974,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 786
+    },
+    {
+      "attemptId": 1,
+      "tick": 38,
+      "avatar": {
+        "position": [
+          -0.21999999999999742,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 829.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 40,
+      "avatar": {
+        "position": [
+          -0.07666666666666411,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 877.5
+    },
+    {
+      "attemptId": 1,
+      "tick": 43,
+      "avatar": {
+        "position": [
+          0.13833333333333586,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 923.7999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 46,
+      "avatar": {
+        "position": [
+          0.35333333333333583,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 972
+    },
+    {
+      "attemptId": 1,
+      "tick": 49,
+      "avatar": {
+        "position": [
+          0.5683333333333358,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1020.4000000003725
+    },
+    {
+      "attemptId": 1,
+      "tick": 52,
+      "avatar": {
+        "position": [
+          0.7833333333333358,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1064.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 54,
+      "avatar": {
+        "position": [
+          0.9266666666666691,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1111
+    },
+    {
+      "attemptId": 1,
+      "tick": 57,
+      "avatar": {
+        "position": [
+          1.1416666666666693,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1157.9000000003725
+    },
+    {
+      "attemptId": 1,
+      "tick": 60,
+      "avatar": {
+        "position": [
+          1.3566666666666696,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1204.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 63,
+      "avatar": {
+        "position": [
+          1.5716666666666699,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1252.2999999998137
+    },
+    {
+      "attemptId": 1,
+      "tick": 66,
+      "avatar": {
+        "position": [
+          1.7866666666666702,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1298.5999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 69,
+      "avatar": {
+        "position": [
+          2.0016666666666705,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1345.2000000001863
+    },
+    {
+      "attemptId": 1,
+      "tick": 72,
+      "avatar": {
+        "position": [
+          2.216666666666671,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1391.7000000001863
+    },
+    {
+      "attemptId": 1,
+      "tick": 74,
+      "avatar": {
+        "position": [
+          2.3600000000000043,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1439.0999999996275
+    },
+    {
+      "attemptId": 1,
+      "tick": 77,
+      "avatar": {
+        "position": [
+          2.5750000000000046,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1484.4000000003725
+    },
+    {
+      "attemptId": 1,
+      "tick": 77,
+      "avatar": {
+        "position": [
+          2.5750000000000046,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1488.7000000001863
+    },
+    {
+      "attemptId": 1,
+      "tick": 77,
+      "avatar": {
+        "position": [
+          2.5750000000000046,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1490
+    },
+    {
+      "attemptId": 1,
+      "tick": 78,
+      "avatar": {
+        "position": [
+          2.5750000000000046,
+          3.8,
+          -1.2
+        ],
+        "supportSurface": "upper"
+      },
+      "checkpoint": {
+        "id": "upper",
+        "position": [
+          -3.6,
+          3.8,
+          1.9
+        ]
+      },
+      "outcome": "none",
+      "lowerPowered": false,
+      "upperSwitchOn": false,
+      "browserMs": 1504.2000000001863
+    }
+  ],
+  "inputs": [
+    {
+      "type": "keydown",
+      "code": "KeyD",
+      "trusted": true,
+      "browserMs": 225.09999999962747
+    },
+    {
+      "type": "keyup",
+      "code": "KeyD",
+      "trusted": true,
+      "browserMs": 1487
+    }
+  ],
+  "stateEvents": [],
+  "pageErrors": [],
+  "notes": {},
+  "elapsedMs": 1686
+}
