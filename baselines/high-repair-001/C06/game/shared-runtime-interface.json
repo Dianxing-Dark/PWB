@@ -1,0 +1,59 @@
+{
+  "version": "pilot-0.1",
+  "deliverable": "浏览器原生 HTML + JavaScript，提交作品及本地依赖。默认入口是 index.html，可从评测静态服务器打开。",
+  "namespace": "window.__gameTest",
+  "methods": {
+    "getSnapshot()": {
+      "returns": "包含任务 publicSnapshotFields 的 JSON 对象。",
+      "sideEffects": "无。字段来自实际玩家所操作的世界。"
+    },
+    "getEvents(afterSequence)": {
+      "returns": "所有 sequence 大于 afterSequence 的有序事件列表。sequence 在同一页面会话内严格递增。",
+      "eventFields": {
+        "sequence": "非负整数",
+        "type": "字符串",
+        "attemptId": "非负整数",
+        "tick": "当前尝试的仿真步数",
+        "data": "可序列化对象，记录对象 ID 和改变的值"
+      },
+      "eventTypes": [
+        "contact_changed",
+        "door_state_changed",
+        "platform_phase_changed",
+        "inventory_changed",
+        "outcome_changed",
+        "attempt_restarted"
+      ],
+      "sideEffects": "无。保留每个任务所用状态变化，包括同一采样间隔内发生的短暂事件。",
+      "eventDataGuidance": {
+        "contact_changed": "记录角色或箱子、接触对象以及接触建立或解除。",
+        "inventory_changed": "记录钥匙类型、之前和之后的数量，以及对应拾取或消耗的对象。",
+        "platform_phase_changed": "记录前一相位、当前相位及周期内步数。"
+      }
+    },
+    "loadScenario(id)": {
+      "returns": "JSON 对象 {ok, reason}。不认识的 id 返回 ok=false 并保持作品状态。",
+      "allowed": "只装载任务 publicScenarios 列出的合法前置状态。不得预置后置结果。"
+    }
+  },
+  "types": {
+    "attemptId": "非负整数，重试时增加",
+    "tick": "非负整数，同一次尝试内单调。默认入口及重试从 0 开始",
+    "*.position": "三个有限数值组成的数组 [x,y,z]，单位 m",
+    "*.supportSurface": "稳定表面 ID 或 null",
+    "*.active": "布尔值",
+    "*.unlocked": "布尔值",
+    "*.locked": "布尔值",
+    "*.passable": "布尔值",
+    "*.collected": "布尔值",
+    "inventory.*": "非负整数",
+    "dualActiveSinceTick": "非负整数或 null",
+    "platform.phase": "lowDock、outbound、highDock、inbound 之一",
+    "platform.phaseTick": "周期内的仿真步数，从 0 开始",
+    "goalCrossed": "布尔值",
+    "cargoDelivered": "布尔值",
+    "traversedBranch": "upper、lower 或 null",
+    "outcome": "none、failure、victory 之一"
+  },
+  "normalPlay": "默认入口保持可由正常玩家控件游玩。评测旅程仅使用真实浏览器输入和只读观测方法。"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "C06",
+  "family": "workshop",
+  "tier": "combination",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "合成与交付",
+  "goal": "在上下两层取得原料，合成一份组件，并在指定高度交付。",
+  "controls": {
+    "move": "W/A/S/D",
+    "interact": "E",
+    "start": "直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "同层靠近物品按 E 拾取。矿石在下层，纤维在上层，每件只能获得一次。",
+    "工位需要 1 矿石和 1 纤维。靠近工位按 E，在同一步消耗各 1 份并产生 1 组件。",
+    "交付点在上层，与下层可达位置同投影。在正确楼层靠近交付点按 E，消耗组件并胜利。",
+    "显示各项库存、拾取与交付反馈。"
+  ],
+  "layoutConstraints": [
+    "有可步行连接的两层。工位与交付点可从上层走到。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "outcome",
+    "ore.position",
+    "ore.collected",
+    "fiber.position",
+    "fiber.collected",
+    "bench.position",
+    "delivery.position",
+    "inventory.ore",
+    "inventory.fiber",
+    "inventory.kit"
+  ],
+  "publicEventData": {
+    "material_collected": "data.id 为 ore 或 fiber，拾取成功时发出。",
+    "kit_crafted": "data.id 为 kit，data.before 与 data.after 为合成前后的库存对象。",
+    "kit_delivered": "data.id 为 kit，data.remaining 为剩余组件数。",
+    "outcome_changed": "data.outcome 为 victory 或 failure。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "bench_with_ore",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在工位旁，持有矿石，缺少纤维和组件。矿石已合法拾取。"
+      ]
+    },
+    {
+      "id": "bench_ready",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在工位旁，持有两份合法拾取的原料各一份，尚未合成。"
+      ]
+    },
+    {
+      "id": "under_delivery",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在交付点正下方，持有一份已合法合成的组件，两种原料已消耗。"
+      ]
+    },
+    {
+      "id": "at_delivery",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层交付点旁，持有一份已合法合成的组件，两种原料已消耗。"
+      ]
+    }
+  ]
+}

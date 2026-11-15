@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a1b">
+  <title>合成与交付 · Workshop 06</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="identity">
+        <div class="logo" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div>
+          <div class="eyebrow">WORKSHOP <span> / </span> 06</div>
+          <h1>合成与交付</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="status"><i></i><span id="status">工位就绪</span></span>
+        <button type="button" class="reset" id="reset" title="重新开始 (R)"><span aria-hidden="true">↻</span> 重新开始</button>
+      </div>
+    </header>
+    <main class="workspace">
+      <section class="view" aria-label="双层工坊">
+        <div id="scene"></div>
+        <div class="view-top">
+          <div class="level"><i></i><span id="level">01 <b>下层</b></span></div>
+          <button type="button" id="sound" class="sound" aria-pressed="true" title="切换音效"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="sound-text">音效开</span></button>
+        </div>
+        <div id="markers" aria-hidden="true">
+          <div class="marker marker-ore" id="marker-ore"><span></span>矿石</div>
+          <div class="marker marker-fiber" id="marker-fiber"><span></span>纤维</div>
+          <div class="marker marker-bench" id="marker-bench"><span></span>合成台</div>
+          <div class="marker marker-delivery" id="marker-delivery"><span></span>交付站</div>
+          <div class="player-marker" id="marker-player">你</div>
+        </div>
+        <div class="view-bottom">
+          <div class="feedback" id="feedback" role="status"><i></i><span id="feedback-text">前往下层托盘，拾取矿石。</span></div>
+          <button type="button" id="action" class="action" hidden><kbd>E</kbd><span id="action-text"></span></button>
+        </div>
+        <div class="touch-controls" aria-label="移动">
+          <button type="button" data-move="KeyW" aria-label="前进">↑</button>
+          <button type="button" data-move="KeyA" aria-label="左移">←</button>
+          <button type="button" data-move="KeyS" aria-label="后退">↓</button>
+          <button type="button" data-move="KeyD" aria-label="右移">→</button>
+        </div>
+        <section class="victory" id="victory" aria-labelledby="victory-title" hidden>
+          <div class="victory-card">
+            <div class="seal" aria-hidden="true">✓</div>
+            <div class="eyebrow">DELIVERY COMPLETE</div>
+            <h2 id="victory-title">交付完成</h2>
+            <p>交付站已接收 1 份组件。</p>
+            <button type="button" id="again">再玩一次 <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+      </section>
+      <aside class="sidebar">
+        <section class="panel inventory" aria-labelledby="inventory-title">
+          <div class="panel-head">
+            <h2 id="inventory-title">库存</h2><span>INVENTORY</span>
+          </div>
+          <div class="item ore" id="item-ore"><div class="item-icon"><i></i></div><div><strong>矿石</strong><small>下层 · 原料</small></div><output id="count-ore">0</output></div>
+          <div class="item fiber" id="item-fiber"><div class="item-icon"><i></i></div><div><strong>纤维</strong><small>上层 · 原料</small></div><output id="count-fiber">0</output></div>
+          <div class="item kit" id="item-kit"><div class="item-icon"><i></i></div><div><strong>组件</strong><small>合成产物</small></div><output id="count-kit">0</output></div>
+          <div class="recipe"><span>配方</span><b>1 矿石 + 1 纤维</b><i>→</i><b>1 组件</b></div>
+        </section>
+        <section class="panel mission" aria-labelledby="mission-title">
+          <div class="panel-head">
+            <h2 id="mission-title">工单</h2><span id="progress">0 / 4</span>
+          </div>
+          <ol>
+            <li id="step-ore"><i></i><span>在下层拾取矿石</span></li>
+            <li id="step-fiber"><i></i><span>沿坡道上楼，拾取纤维</span></li>
+            <li id="step-kit"><i></i><span>在合成台制作组件</span></li>
+            <li id="step-delivery"><i></i><span>在上层交付组件</span></li>
+          </ol>
+        </section>
+      </aside>
+    </main>
+    <footer class="footer">
+      <div class="keys"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动</span><span><kbd>E</kbd> 互动</span></div>
+      <div class="footer-location"><i></i> <span>双层工坊</span> <b> / </b> FABRICATION BAY</div>
+    </footer>
+  </div>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

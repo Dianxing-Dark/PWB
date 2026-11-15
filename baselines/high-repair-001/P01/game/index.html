@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10181b">
+  <title>Dual Relay</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="masthead">
+      <div class="identity">
+        <div class="insignia" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div>
+          <div class="kicker">FIELD TRIAL / 01</div>
+          <h1>Dual Relay</h1>
+        </div>
+      </div>
+      <div class="mast-status"><i></i><span id="system-status">SIMULATION LIVE</span></div>
+    </header>
+
+    <main class="stage" id="stage" aria-label="Dual Relay 3D game">
+      <div class="viewport" id="viewport"></div>
+      <div class="stage-lines" aria-hidden="true"></div>
+
+      <section class="hud brief" aria-label="Objectives">
+        <h2>Objectives</h2>
+        <ol>
+          <li id="step-a" class="current"><span class="step-code">01</span><div><strong>Seat the crate</strong><p>Push the crate onto plate A.</p></div></li>
+          <li id="step-b"><span class="step-code">02</span><div><strong>Close the circuit</strong><p>Take the ramp to plate B. Hold both plates for 2 seconds.</p></div></li>
+          <li id="step-exit"><span class="step-code">03</span><div><strong>Reach the exit</strong><p>Go through the gate to the exit pad.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="hud circuit" aria-label="Relay circuit">
+        <div class="circuit-head"><h2>Gate circuit</h2><span class="gate-status" id="gate-status"><i></i><span>Locked</span></span></div>
+        <div class="signals">
+          <div class="signal signal-a" id="signal-a"><span>A</span><div><b>CARGO</b><small>OFFLINE</small></div></div>
+          <div class="signal signal-b" id="signal-b"><span>B</span><div><b>CREW</b><small>OFFLINE</small></div></div>
+        </div>
+        <div class="charge-meta"><span>CHARGE</span><span id="timer">0.00 / 2.00 s</span></div>
+        <div class="charge-track" id="charge-track" role="progressbar" aria-label="Gate charge" aria-valuemin="0" aria-valuemax="120" aria-valuenow="0"><div id="charge"></div></div>
+      </section>
+
+      <div class="world-label amber" id="label-a" aria-hidden="true"><b>A</b><span>CARGO PLATE</span></div>
+      <div class="world-label aqua" id="label-b" aria-hidden="true"><b>B</b><span>CREW PLATE</span></div>
+      <div class="world-label aqua" id="label-exit" aria-hidden="true"><b>↗</b><span>EXIT PAD</span></div>
+      <div class="ramp-label" id="label-ramp" aria-hidden="true">ACCESS RAMP</div>
+
+      <div class="location"><i></i><span id="location">LOWER DECK</span></div>
+      <div class="axis" aria-hidden="true"><span class="axis-n">W</span><span class="axis-r">D</span><i></i></div>
+
+      <section class="end-screen" id="end-screen" hidden aria-labelledby="end-title">
+        <div class="end-card">
+          <div class="end-icon" id="end-icon" aria-hidden="true"></div>
+          <div class="kicker" id="end-kicker"></div>
+          <h2 id="end-title"></h2>
+          <p id="end-detail"></p>
+          <button id="end-retry" type="button"><kbd>R</kbd> <span>Retry trial</span></button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="controls" aria-label="Controls">
+      <div class="movement"><div class="keys"><kbd data-key="KeyW">W</kbd><kbd data-key="KeyA">A</kbd><kbd data-key="KeyS">S</kbd><kbd data-key="KeyD">D</kbd></div><span>Move / push</span></div>
+      <div class="session"><span id="attempt">ATTEMPT 01</span><button id="restart" type="button"><kbd>R</kbd><span>Restart</span></button></div>
+    </footer>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

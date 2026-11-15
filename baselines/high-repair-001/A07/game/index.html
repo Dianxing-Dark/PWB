@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dbe6e3">
+  <title>Timed Gate · 限时门</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game" aria-label="Timed Gate 3D game">
+    <div id="viewport"></div>
+    <header class="masthead">
+      <div class="identity">
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none"><path d="M5 23V5h18v18M10 9v11m4-11v11m4-11v11" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <div>
+          <div class="eyebrow">WORKSHOP <span></span> A07</div>
+          <h1>Timed Gate</h1>
+        </div>
+      </div>
+      <button id="restart" type="button" aria-label="Restart attempt" title="Restart attempt (R)">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1.8 7.3M4 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Restart</span>
+      </button>
+    </header>
+
+    <aside class="telemetry" id="telemetry" aria-label="Gate status">
+      <div class="telemetry-label"><span class="signal"></span> UPPER GATE <span class="telemetry-id">G–01</span></div>
+      <div class="telemetry-readout"><strong id="gate-state">Closed</strong><span id="gate-time">—</span></div>
+      <div class="meter" aria-hidden="true"><div id="meter-fill"></div></div>
+    </aside>
+
+    <div class="world-label" id="switch-label" aria-hidden="true"><b>01</b> SWITCH</div>
+    <div class="world-label exit-label" id="exit-label" aria-hidden="true"><b>02</b> EXIT <span>↗</span></div>
+    <div id="prompt" hidden><kbd>E</kbd><span>Open gate</span></div>
+
+    <footer class="hud">
+      <div class="mission" id="mission">
+        <div class="mission-icon" aria-hidden="true">
+          <svg class="target-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3" stroke="currentColor" stroke-width="1.5"/></svg>
+          <svg class="check-icon" viewBox="0 0 24 24" fill="none"><path d="m5 12 4.5 4.5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><div class="eyebrow" id="mission-label">OBJECTIVE</div><p id="mission-text" role="status">Take the ramp to the upper switch.</p></div>
+      </div>
+      <div class="controls" aria-label="Keyboard controls">
+        <div class="binding"><div class="key-set"><kbd data-key="KeyW">W</kbd><kbd data-key="KeyA">A</kbd><kbd data-key="KeyS">S</kbd><kbd data-key="KeyD">D</kbd></div><span>Move</span></div>
+        <div class="binding"><kbd data-key="KeyE">E</kbd><span>Interact</span></div>
+      </div>
+    </footer>
+
+    <div class="touch-controls" aria-label="Touch controls">
+      <div class="direction-pad">
+        <button type="button" data-input="KeyW" aria-label="Up">↑</button>
+        <button type="button" data-input="KeyA" aria-label="Left">←</button>
+        <button type="button" data-input="KeyS" aria-label="Down">↓</button>
+        <button type="button" data-input="KeyD" aria-label="Right">→</button>
+      </div>
+      <button type="button" class="touch-action" data-input="KeyE" aria-label="Interact">E</button>
+    </div>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

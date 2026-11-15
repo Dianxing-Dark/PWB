@@ -1,0 +1,299 @@
+{
+  "recordKind": "assisted-repair",
+  "origin": "proposal-baselines-001 high-effort artifacts",
+  "records": [
+    {
+      "taskId": "A07",
+      "originalArtifactVersion": "3d108bd6b2bf503abb1d11c235894c87f0b85b147efb9c1b27ca8eb64c5848de",
+      "originalLaunchStatus": "fail",
+      "missingModule": "game.js",
+      "repairedArtifactVersion": "dbe6f41d8074ad6ae056d61958dc958e6227bc51634bb57f50e2d02a10c450d9",
+      "addedFiles": [
+        "game.js",
+        "repair-view.js"
+      ],
+      "changedFiles": [],
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "7ba1d5c3b8c640a2c3b56ff3207a9e3a86109764db6bb5f3f5a3aef1979a23f2",
+      "reportSha256": "193dea00af30ea0b8985b88585ea803b40860a833c22e919abeb9ee85b55cc0a",
+      "caseCounts": {
+        "prerequisite": 2,
+        "functional": 5,
+        "visual": 1
+      },
+      "strictAfterVisualReview": true,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "blocked_before_open",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "window_boundary",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "cross_open_gate",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "blocked_after_expiry",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "pass_below_gate",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "gate_feedback",
+          "stage": "visual",
+          "automatedStatus": "unverified",
+          "reviewedStatus": "pass"
+        }
+      ],
+      "visualReview": {
+        "gate_feedback": {
+          "frames": [
+            "gate_feedback/gate-closed.png",
+            "gate_feedback/gate-open.png",
+            "gate_feedback/gate-expired.png"
+          ],
+          "reason": "The closed gate blocks the passage visually. The panel clears and the green timer starts after E. At expiry the panel returns and the timer resets.",
+          "status": "pass",
+          "frameDigests": {
+            "gate_feedback/gate-closed.png": "4521ac99dc07dffd3344b4c68aa0f47e3b3a34608630683ee2141f85cddb506f",
+            "gate_feedback/gate-open.png": "dbab7aa8f1112d0b2220b9a5a7231aa987477b35fc18e9793eeac66c0ffc829c",
+            "gate_feedback/gate-expired.png": "4521ac99dc07dffd3344b4c68aa0f47e3b3a34608630683ee2141f85cddb506f"
+          }
+        }
+      }
+    },
+    {
+      "taskId": "C06",
+      "originalArtifactVersion": "554da238aa1ea2aa048f51968d9b3d49c75d1f4098a107de74b04a27a6b70133",
+      "originalLaunchStatus": "fail",
+      "missingModule": "scene.js",
+      "repairedArtifactVersion": "c6e909ca7bbceb85baa33fb5d00e15593c7fd62b504e1a2c57b8fcb01d658d1f",
+      "addedFiles": [
+        "repair-view.js",
+        "scene.js"
+      ],
+      "changedFiles": [],
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "ec5ab38abdc2e97185cfe2ccf0ab946ed8eb0ee54354fcf484a1189df080e40b",
+      "reportSha256": "92669f367ce73cc6547fa633474a66dddd1cb9221a8d878a547c104d922c52d4",
+      "caseCounts": {
+        "prerequisite": 2,
+        "functional": 4,
+        "visual": 1,
+        "journey": 1
+      },
+      "strictAfterVisualReview": true,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "reject_incomplete_recipe",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "craft_once",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "reject_other_floor_delivery",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "deliver_on_same_floor",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "inventory_feedback",
+          "stage": "visual",
+          "automatedStatus": "unverified",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "craft_and_deliver",
+          "stage": "journey",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        }
+      ],
+      "visualReview": {
+        "inventory_feedback": {
+          "frames": [
+            "inventory_feedback/before-crafting.png",
+            "inventory_feedback/after-crafting.png"
+          ],
+          "reason": "Both material counters change from one to zero. The kit counter changes from zero to one and the crafting status updates.",
+          "status": "pass",
+          "frameDigests": {
+            "inventory_feedback/before-crafting.png": "04664aa82b45f31b811ba8d30cca837a821cb4994b74e2b341e48256ce1a9aab",
+            "inventory_feedback/after-crafting.png": "3c54695021911ad2a34f45a24fa22c765b576a281cd069e90d2ad1029b6bd003"
+          }
+        }
+      }
+    },
+    {
+      "taskId": "P01",
+      "originalArtifactVersion": "0bd1465c3081644302178557139a51c64889a560a7d581038abf0b17b2924612",
+      "originalLaunchStatus": "fail",
+      "missingModule": "main.js",
+      "repairedArtifactVersion": "8866840f241cf790dc54eac8905123b8d23edbd42ed79b02801a6db206d1b0d1",
+      "addedFiles": [
+        "main.js",
+        "repair-view.js"
+      ],
+      "changedFiles": [
+        "simulation.js"
+      ],
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "7c961e58ef5d301176858138c927d16660f95369a63d5877ac2d64a4fe37acca",
+      "reportSha256": "d6eab0e48496c3c25dd6037a37b1482001758085475420342b7a72c4aea814b9",
+      "caseCounts": {
+        "prerequisite": 2,
+        "functional": 5,
+        "visual": 2,
+        "journey": 2
+      },
+      "strictAfterVisualReview": true,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "single_plate",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "release_before_threshold",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "unlock_at_threshold",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "closed_collision",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "open_collision",
+          "stage": "functional",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "door_feedback",
+          "stage": "visual",
+          "automatedStatus": "unverified",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "finish",
+          "stage": "journey",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "recover_and_finish",
+          "stage": "journey",
+          "automatedStatus": "pass",
+          "reviewedStatus": "pass"
+        },
+        {
+          "caseId": "terminal_feedback",
+          "stage": "visual",
+          "automatedStatus": "unverified",
+          "reviewedStatus": "pass"
+        }
+      ],
+      "visualReview": {
+        "door_feedback": {
+          "frames": [
+            "door_feedback/closed-gate.png",
+            "door_feedback/open-gate.png"
+          ],
+          "reason": "The gate panel clears the bridge. Both plate indicators show online and the charge bar reaches two seconds.",
+          "status": "pass",
+          "frameDigests": {
+            "door_feedback/closed-gate.png": "0607b7813ae6024148d211c947ce6454ff082b0769a66164f7b4a2a489ba4fff",
+            "door_feedback/open-gate.png": "287b9f47baf328cae7e638a77302d6505fdce567759ab1cb638a6bdb2c50a893"
+          }
+        },
+        "terminal_feedback": {
+          "frames": [
+            "recover_and_finish/failure.png",
+            "recover_and_finish/restart.png",
+            "recover_and_finish/victory-hud.png"
+          ],
+          "reason": "The fall screen offers a retry. The restart restores the crate and both inactive plates. The recovered run ends with the victory screen.",
+          "status": "pass",
+          "frameDigests": {
+            "recover_and_finish/failure.png": "c9b873e328462d193010ab76586836f92bf18bd3b04ab1da3e87531b0ab2abd8",
+            "recover_and_finish/restart.png": "baa3291d5ca8f5017ec2fbb94843573be937eedeb79368b07ed08add287160a2",
+            "recover_and_finish/victory-hud.png": "d89e0a6a8c9a0f3ec2726cd8e368bca6a8acb1ebc485e5fa0c1b1a4828dd7b1c"
+          }
+        }
+      }
+    }
+  ]
+}
