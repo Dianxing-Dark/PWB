@@ -1,0 +1,202 @@
+{
+  "taskId": "A08",
+  "builderContract": "builder/A08.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认入口，无预设结果。"
+      ]
+    },
+    {
+      "id": "low_cover",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在低处且脉冲线段被掩体挡住。"
+      ]
+    },
+    {
+      "id": "upper_exposed",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家与低处掩护点同投影，站在高处，脉冲线段经过掩体上方。"
+      ]
+    },
+    {
+      "id": "side_exposed",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在低处，位于掩体侧边无遮拦。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "integration",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "打开网页并观察到可见的 3D 游戏画面。"
+        }
+      ],
+      "checks": [
+        "打开网页并观察到可见的 3D 游戏画面。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [],
+      "caseType": "positive"
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "control",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按 W 并松开，核对真实输入、位移和时钟。"
+        }
+      ],
+      "checks": [
+        "按 W 并松开，核对真实输入、位移和时钟。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "low_cover",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "cover",
+      "scenario": "low_cover",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "等待脉冲撞到掩体并保持存活。"
+        }
+      ],
+      "checks": [
+        "等待脉冲撞到掩体并保持存活。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "upper_exposed",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "cover",
+      "scenario": "upper_exposed",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "等待脉冲越过掩体并击中同投影上层玩家。"
+        }
+      ],
+      "checks": [
+        "等待脉冲越过掩体并击中同投影上层玩家。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "side_exposed",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "cover",
+      "scenario": "side_exposed",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "等待脉冲命中同层侧边无遮拦的玩家。"
+        }
+      ],
+      "checks": [
+        "等待脉冲命中同层侧边无遮拦的玩家。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "pulse_feedback",
+      "stage": "visual",
+      "priority": "P1",
+      "family": "beam",
+      "scenario": "low_cover",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "比较脉冲前后的画面，核对掩体处的可见命中反馈。"
+        }
+      ],
+      "checks": [
+        "比较脉冲前后的画面，核对掩体处的可见命中反馈。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "完整旅程须从默认入口开始，仅可使用原生输入和只读状态观察。局部场景不得预设评测结果。"
+}

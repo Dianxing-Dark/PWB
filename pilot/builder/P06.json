@@ -1,0 +1,67 @@
+{
+  "id": "P06",
+  "family": "line-of-fire",
+  "tier": "playthrough",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "危险区救援",
+  "goal": "观察掩体提供保护，关闭危险源、救援工人并到达出口。",
+  "controls": {
+    "move": "W/A/S/D",
+    "interact": "E",
+    "retry": "R",
+    "start": "进入默认场景"
+  },
+  "publicRules": [
+    "发射器处于开启状态时，每 90 仿真步向玩家身体发射一次脉冲。掩体拦截时脉冲止于表面，否则命中会使尝试失败。",
+    "靠近安全位置的开关按 E 关闭发射器。关闭后不再发射脉冲。",
+    "仅当危险源已关闭且玩家靠近时，按 E 才能救援工人。完成救援并步行进入出口才胜利。",
+    "失败后按 R，从原起点恢复可操作状态、重新启动危险源并重置任务进度。",
+    "为脉冲、关闭、救援结果与失败提供可见反馈。"
+  ],
+  "layoutConstraints": [
+    "默认位置有掩护，开关可从掩护侧安全步行到达。",
+    "工人在开阔侧，可通过绕行抵达。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "constants": {
+    "pulsePeriodTicks": 90
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "outcome",
+    "emitter.position",
+    "emitter.active",
+    "worker.position",
+    "worker.rescued"
+  ],
+  "publicEventData": {
+    "shot_resolved": "data.source 为 emitter 或 avatar；from 为起点、impact 为首次命中点（均为世界坐标）；hit 为 cover、avatar 或 target。",
+    "outcome_changed": "data.outcome 为 victory 或 failure，data.cause 为 exit 或 pulse。",
+    "emitter_changed": "data.id 为 emitter，active 为 false。",
+    "rescue_changed": "data.id 为 worker，rescued 为 true。",
+    "attempt_restarted": "新 attemptId 下记录重试。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "worker_unsecured",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在工人旁，发射器已开启且还未发射，本次尝试尚未救援。"
+      ]
+    }
+  ]
+}

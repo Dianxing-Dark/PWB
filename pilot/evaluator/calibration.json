@@ -271,5 +271,151 @@
       ]
     }
   },
-  "status": "expected_results_to_verify_in_browser"
+  "status": "expected_results_to_verify_in_browser",
+  "line-of-fire": {
+    "mutationsByTask": {
+      "A08": [
+        {
+          "id": "flat_cover",
+          "mustDetect": [
+            "upper_exposed"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "low_cover",
+            "side_exposed",
+            "pulse_feedback"
+          ]
+        },
+        {
+          "id": "hide_beam",
+          "mustDetect": [
+            "pulse_feedback"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "low_cover",
+            "upper_exposed",
+            "side_exposed"
+          ]
+        }
+      ],
+      "C08": [
+        {
+          "id": "shoot_through_cover",
+          "mustDetect": [
+            "blocked_shot"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "elevated_shot",
+            "locked_exit",
+            "target_feedback",
+            "finish_shooting"
+          ]
+        },
+        {
+          "id": "exit_before_target",
+          "mustDetect": [
+            "locked_exit"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "blocked_shot",
+            "elevated_shot",
+            "target_feedback",
+            "finish_shooting"
+          ]
+        },
+        {
+          "id": "hide_beam",
+          "mustDetect": [
+            "target_feedback"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "blocked_shot",
+            "elevated_shot",
+            "locked_exit",
+            "finish_shooting"
+          ]
+        }
+      ],
+      "P06": [
+        {
+          "id": "rescue_while_armed",
+          "mustDetect": [
+            "rescue_while_armed"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "disable_emitter",
+            "locked_exit_without_worker",
+            "reset_after_hit",
+            "emitter_feedback",
+            "rescue_feedback",
+            "finish_rescue",
+            "retry_rescue"
+          ]
+        },
+        {
+          "id": "exit_without_worker",
+          "mustDetect": [
+            "locked_exit_without_worker"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "rescue_while_armed",
+            "disable_emitter",
+            "reset_after_hit",
+            "emitter_feedback",
+            "rescue_feedback",
+            "finish_rescue",
+            "retry_rescue"
+          ]
+        },
+        {
+          "id": "retry_keeps_position",
+          "mustDetect": [
+            "reset_after_hit",
+            "retry_rescue"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "rescue_while_armed",
+            "disable_emitter",
+            "locked_exit_without_worker",
+            "emitter_feedback",
+            "rescue_feedback",
+            "finish_rescue"
+          ]
+        },
+        {
+          "id": "stale_emitter_feedback",
+          "mustDetect": [
+            "emitter_feedback"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "rescue_while_armed",
+            "disable_emitter",
+            "locked_exit_without_worker",
+            "reset_after_hit",
+            "rescue_feedback",
+            "finish_rescue",
+            "retry_rescue"
+          ]
+        }
+      ]
+    }
+  }
 }

@@ -23,7 +23,10 @@
     "evaluate:pickup": "node scripts/evaluate-spatial-pickup.mjs",
     "calibrate:pickup": "node scripts/evaluate-spatial-pickup.mjs --calibrate",
     "compare:profiles": "node scripts/compare-profiles.mjs",
-    "compare:pairs": "node scripts/compare-pairs.mjs"
+    "compare:pairs": "node scripts/compare-pairs.mjs",
+    "play:line-of-fire": "node scripts/play-line-of-fire.mjs",
+    "evaluate:line-of-fire": "node scripts/evaluate-line-of-fire.mjs",
+    "calibrate:line-of-fire": "node scripts/evaluate-line-of-fire.mjs --calibrate"
   },
   "dependencies": {
     "three": "0.180.0"

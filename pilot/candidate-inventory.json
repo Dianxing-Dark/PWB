@@ -1,6 +1,6 @@
 {
   "count": 30,
-  "specified": 19,
+  "specified": 22,
   "tasks": [
     {
       "id": "A01",
@@ -84,7 +84,9 @@
       "tier": "atom",
       "focus": "危险、遮挡",
       "criterion": "高低站位改变有效掩体，弹道命中与画面一致。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/A08.json",
+      "evaluator": "evaluator/A08.json"
     },
     {
       "id": "A09",
@@ -188,7 +190,9 @@
       "tier": "combination",
       "focus": "遮挡、危险",
       "criterion": "通过空间遮挡判定有效射击，成功后沿通路进入目标区。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/C08.json",
+      "evaluator": "evaluator/C08.json"
     },
     {
       "id": "C09",
@@ -290,7 +294,9 @@
       "tier": "playthrough",
       "focus": "观察掩体→关闭危险源→救援",
       "criterion": "目标、可见反馈和失败后状态恢复齐全。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/P06.json",
+      "evaluator": "evaluator/P06.json"
     },
     {
       "id": "P07",

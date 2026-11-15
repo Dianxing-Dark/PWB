@@ -10,6 +10,21 @@ const ground = ([x, , z]) => [x, z];
 const failed = state => state.outcome === "failure";
 const eventOf = (events, type) => events.filter(event => event.type === type);
 
+function crossesBox(route, motion, floor, target, halfWidth, tick = null) {
+  for (const [i, end] of motion.entries()) {
+    const start = motion[Math.max(0, i - 1)];
+    if (start.attemptId !== end.attemptId || start.tick > end.tick ||
+        (tick !== null && (tick < start.tick || tick > end.tick)) ||
+        !isOn(route, start, floor) || !isOn(route, end, floor)) continue;
+    const [a, b] = [start, end].map(state => ground(position(state)));
+    const [x, z] = ground(target);
+    if (a[0] !== b[0] && a[1] !== b[1]) continue;
+    if (Math.min(a[0], b[0]) <= x + halfWidth && Math.max(a[0], b[0]) >= x - halfWidth &&
+        Math.min(a[1], b[1]) <= z + halfWidth && Math.max(a[1], b[1]) >= z - halfWidth) return true;
+  }
+  return false;
+}
+
 export function checkSetup(state, scenario, route) {
   const floor = scenario.endsWith("lower") || scenario === "lower_trap_route" ? "lower" : "upper";
   const approach = scenario.startsWith("approach");
@@ -24,14 +39,12 @@ async function register(test, floor) {
   const previous = await test.sample();
   const previousEvents = await test.events();
   const target = test.route.checkpoint[floor];
-  await test.go(ground(target));
+  const motion = await test.go(ground(target));
   const state = await test.sample();
   const rows = eventOf(await test.events(), "checkpoint_registered")
     .filter(event => event.attemptId === state.attemptId && event.sequence > (previousEvents.at(-1)?.sequence ?? -1));
-  const contacted = test.trace.some(observed => observed.attemptId === state.attemptId &&
-    observed.tick >= previous.tick && isOn(test.route, observed, floor) &&
-    Math.abs(position(observed)[0] - target[0]) <= (test.route.registrationHalfWidth ?? 0.25) &&
-    Math.abs(position(observed)[2] - target[2]) <= (test.route.registrationHalfWidth ?? 0.25));
+  const contacted = rows.length === 1 && crossesBox(test.route, motion, floor, target,
+    test.route.registrationHalfWidth ?? 0.25, rows[0].tick);
   requireCheck(previous.checkpoint.id !== floor && isOn(test.route, state, floor) && contacted &&
     state.checkpoint.id === floor && rows.length === 1 && rows[0].data.id === floor &&
     distance(state.checkpoint.position, target) < 0.06 &&
@@ -222,13 +235,18 @@ export const cases = {
   },
   async lower_trap_not_upper(test) {
     const start = test.trace.length;
+    const entry = await test.sample();
     for (const point of test.route.safeUpper) await test.go(point);
     const motion = test.trace.slice(start);
     const [x, , z] = test.route.traps.lower;
     const projected = [x, test.route.checkpoint.upper[1], z];
+    const [goalX, goalZ] = test.route.safeUpper.at(-1);
+    const axis = Math.abs(goalX - position(entry)[0]) > Math.abs(goalZ - position(entry)[2]) ? 0 : 2;
+    const direction = Math.sign((axis === 0 ? goalX : goalZ) - position(entry)[axis]);
+    const radius = test.route.trapRadius.lower;
     await test.capture("safe-above-trap");
-    requireCheck(near(motion.at(-1), [test.route.safeUpper.at(-1)[0], projected[1], test.route.safeUpper.at(-1)[1]]) &&
-      motion.some(state => near(state, projected, test.route.trapRadius.lower)) &&
+    requireCheck((position(motion.at(-1))[axis] - projected[axis]) * direction > radius &&
+      crossesBox(test.route, motion, "upper", projected, radius / Math.SQRT2) &&
       motion.every(state => isOn(test.route, state, "upper") && state.outcome === "none") &&
       !eventOf(await test.events(), "outcome_changed").length,
     "An upper route was blocked or hit by the lower trap through projection.");

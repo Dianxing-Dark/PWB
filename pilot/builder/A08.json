@@ -1,0 +1,73 @@
+{
+  "id": "A08",
+  "family": "line-of-fire",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "高低站位与掩体",
+  "goal": "验证同投影的高低站位及侧面开口如何改变掩护。",
+  "controls": {
+    "move": "W/A/S/D",
+    "retry": "R",
+    "start": "进入默认场景"
+  },
+  "publicRules": [
+    "发射器处于开启状态时，每 90 仿真步向玩家身体发射一次脉冲。",
+    "沿 3D 线段判断遮挡。掩体先被击中时玩家存活，脉冲停在掩体表面。无遮拦命中使本次尝试失败。",
+    "绘制脉冲及命中位置，并给出掩护或命中反馈。"
+  ],
+  "layoutConstraints": [
+    "低处掩护点与高处暴露点具有相同 XZ 投影，并可由正常走路到达。",
+    "侧面有同层无掩护点。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "constants": {
+    "pulsePeriodTicks": 90
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "outcome",
+    "emitter.position",
+    "emitter.active"
+  ],
+  "publicEventData": {
+    "shot_resolved": "data.source 为 emitter 或 avatar；from 为起点、impact 为首次命中点（均为世界坐标）；hit 为 cover、avatar 或 target。",
+    "outcome_changed": "data.outcome 为 victory 或 failure，data.cause 为 exit 或 pulse。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "low_cover",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在低处且脉冲线段被掩体挡住。"
+      ]
+    },
+    {
+      "id": "upper_exposed",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家与低处掩护点同投影，站在高处，脉冲线段经过掩体上方。"
+      ]
+    },
+    {
+      "id": "side_exposed",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在低处，位于掩体侧边无遮拦。"
+      ]
+    }
+  ]
+}

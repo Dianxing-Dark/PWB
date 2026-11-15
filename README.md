@@ -82,6 +82,14 @@ A04 records continuous ascent and a side fall from the slope. A09 checks a legal
 
 To run every implemented reference layout and preserve the evaluation logs, use `node scripts/run-reference-suite.mjs <new-output-directory>`. Set `CHROME_PATH` to a specific Chromium-based browser executable for a paired environment comparison.
 
+## Run the 3D line-of-fire family
+
+    npm run play:line-of-fire -- P06
+    npm run evaluate:line-of-fire
+    npm run calibrate:line-of-fire
+
+A08 compares lower cover, the exposed position directly above it, and an exposed side path. C08 checks low and elevated shots and requires the player to walk to the exit after disabling the target. P06 requires the player to observe a blocked pulse, disarm the emitter, rescue the worker, and reach the exit. Its second journey starts with a hit and retries from the restored starting position. Each fault is checked against every case in its task, including those expected to pass. See the [cross-browser calibration](experiments/line-of-fire-001/).
+
 ## Compare evaluation profiles
 
     node scripts/compare-profiles.mjs runs/<run>/P04/report.json
@@ -114,7 +122,7 @@ This pilot uses evaluator-authored waypoints for each layout. If the submission 
 
 ## Pilot contracts and evaluation sources
 
-The [pilot manifest](pilot/manifest.json) indexes 19 runnable tasks and 155 implemented checks, including all three matched 2D controls. Give builders the selected contract and the [shared interface](pilot/builder/shared-runtime-interface.json). The [candidate inventory](pilot/candidate-inventory.json) tracks the remaining designs. The [evaluation protocol](pilot/protocol.json) and [run report schema](pilot/evaluator/run-report.schema.json) define the evidence and reporting.
+The [pilot manifest](pilot/manifest.json) indexes 22 runnable tasks and 178 implemented checks, including all three matched 2D controls. Give builders the selected contract and the [shared interface](pilot/builder/shared-runtime-interface.json). The [candidate inventory](pilot/candidate-inventory.json) tracks the remaining designs. The [evaluation protocol](pilot/protocol.json) and [run report schema](pilot/evaluator/run-report.schema.json) define the evidence and reporting.
 
 - Fresh browser pages per case and legal local setup follow the published [GameASG L2 runner](https://github.com/areal-project/GameASG-Bench/blob/6427cb6517ce11ff350ec45fcae17b67c5aec245/scripts/l2/run.js).
 - Closed-loop journey actions and separate local checks follow [CEGame-Bench](https://arxiv.org/html/2610.26098v1). Family scores use scheduled checks and expose the remaining uncertainty.

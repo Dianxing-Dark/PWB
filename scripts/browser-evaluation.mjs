@@ -99,6 +99,7 @@ function score(plan, rows, stage) {
 
 export async function runVariant(browser, base, {
   layout, route, fault, server, artifactVersion, evaluatorVersion, plan, contract, cases, helpers = {}, setup, profile,
+  replayClock = "real",
 }) {
   const runId = layout + (fault ? "-" + fault : "");
   const root = join(base, runId);
@@ -149,13 +150,17 @@ export async function runVariant(browser, base, {
       return state;
     };
     const events = () => page.evaluate(() => window.__gameTest.getEvents(-1));
+    const advance = ms => replayClock === "virtual" ? page.clock.runFor(ms) : page.waitForTimeout(ms);
+    const pollMs = replayClock === "virtual" ? 16 : 32;
+    const elapsed = replayClock === "virtual"
+      ? () => page.evaluate(() => performance.now()) : () => performance.now();
     async function until(predicate, timeout, reason, milestone) {
-      const deadline = performance.now() + timeout;
+      const deadline = await elapsed() + timeout;
       do {
         const state = await sample();
         if (predicate(state)) return state;
-        await page.waitForTimeout(32);
-      } while (performance.now() < deadline);
+        await advance(pollMs);
+      } while (await elapsed() < deadline);
       throw new CheckFailure(reason, milestone);
     }
     async function move(key, predicate, timeout) {
@@ -163,11 +168,11 @@ export async function runVariant(browser, base, {
       await sample();
       await page.keyboard.down(key);
       try {
-        const deadline = performance.now() + timeout;
+        const deadline = await elapsed() + timeout;
         do {
           if (predicate(await sample())) break;
-          await page.waitForTimeout(32);
-        } while (performance.now() < deadline);
+          await advance(pollMs);
+        } while (await elapsed() < deadline);
       } finally {
         await page.keyboard.up(key);
       }
@@ -187,7 +192,8 @@ export async function runVariant(browser, base, {
     }
 
     async function capture(name, selector) {
-      await page.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
+      if (replayClock === "virtual") await advance(34);
+      else await page.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
       const state = await sample();
       const element = selector ? page.locator(selector) : null;
       const bytes = element ? await element.screenshot({ timeout: 5000 }) : await page.screenshot({ timeout: 5000 });
@@ -199,6 +205,11 @@ export async function runVariant(browser, base, {
     let result;
     try {
       if (page) {
+        if (replayClock === "virtual") {
+          await page.clock.install({ time: new Date("2020-01-01T00:00:00Z") });
+          await page.clock.pauseAt(new Date("2020-01-01T00:00:10Z"));
+          notes.replayClock = replayClock;
+        }
         await page.addInitScript(() => {
           window.__benchmarkInput = [];
           for (const type of ["keydown", "keyup", "blur"]) {
@@ -216,7 +227,8 @@ export async function runVariant(browser, base, {
         const response = await page.goto(url.href, { timeout: 12000 });
         requireCheck(response?.ok(), "The artifact entry page did not return a successful response.");
         try {
-          await page.waitForFunction(() => typeof window.__gameTest?.getSnapshot === "function", undefined, { timeout: 8000 });
+          await page.waitForFunction(() => typeof window.__gameTest?.getSnapshot === "function", undefined,
+            { timeout: 8000, polling: 50 });
           const before = await sample();
           await until(state => state.tick > before.tick, 3000, "Simulation did not start.");
         } catch (error) {

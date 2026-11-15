@@ -44,7 +44,7 @@ try {
       for (const mutation of [null, ...(calibrate ? mutationsByTask[taskId] : [])]) {
         const report = await runVariant(browser, base, {
           layout: submission ? "submission" : starter ? "C12-starter" : layout ? taskId + "-gallery" : taskId,
-          route, fault: mutation?.id,
+          route, fault: mutation?.id, replayClock: "virtual",
           server: { url: url.href }, artifactVersion: submission ? artifactVersion : artifactVersion + "/" + taskId,
           evaluatorVersion: digest(sourceVersion + JSON.stringify(route) + (profile ?? "C")), plan, contract, cases, profile,
           setup: (state, scenario) => checkSetup(state, scenario, route),

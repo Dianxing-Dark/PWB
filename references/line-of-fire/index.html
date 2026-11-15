@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signal Range</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <style>#world { aspect-ratio: 2 / 1; } .hud { grid-template-columns: repeat(3, 1fr); }</style>
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="caption" id="task"></p><h1>Signal Range</h1></div>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><span id="action"></span><kbd>R</kbd><span>Retry</span></div>
+    </header>
+    <div id="world" aria-label="Training range with a low barrier and a narrow observation ramp"></div>
+    <section class="hud" aria-label="Range status">
+      <div><span id="device-label"></span><strong id="device"></strong></div>
+      <div><span>Last action</span><strong id="last-action" role="status"></strong></div>
+      <div><span>Mission</span><strong id="mission"></strong></div>
+    </section>
+    <p class="objective" id="objective"></p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

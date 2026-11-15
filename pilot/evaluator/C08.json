@@ -1,0 +1,227 @@
+{
+  "taskId": "C08",
+  "builderContract": "builder/C08.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认入口，无预设结果。"
+      ]
+    },
+    {
+      "id": "blocked_shot",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在低处，朝靶标的射线被实心掩体挡住。"
+      ]
+    },
+    {
+      "id": "elevated_shot",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家已经站在高台，从这里可以射中仍然启用的靶标。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "integration",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "打开网页并观察到可见的 3D 游戏画面。"
+        }
+      ],
+      "checks": [
+        "打开网页并观察到可见的 3D 游戏画面。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [],
+      "caseType": "positive"
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "control",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按 W 并松开，核对真实输入、位移和时钟。"
+        }
+      ],
+      "checks": [
+        "按 W 并松开，核对真实输入、位移和时钟。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "blocked_shot",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "shooting",
+      "scenario": "blocked_shot",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从低处按 Space，掩体拦截且靶标未变。"
+        }
+      ],
+      "checks": [
+        "从低处按 Space，掩体拦截且靶标未变。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "elevated_shot",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "shooting",
+      "scenario": "elevated_shot",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从高处按 Space 两次，确认靶标只关闭一次。"
+        }
+      ],
+      "checks": [
+        "从高处按 Space 两次，确认靶标只关闭一次。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "locked_exit",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "goal",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "跳过射击，尝试进入出口。"
+        }
+      ],
+      "checks": [
+        "跳过射击，尝试进入出口。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "target_feedback",
+      "stage": "visual",
+      "priority": "P1",
+      "family": "target",
+      "scenario": "elevated_shot",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "对比命中前后真实画面，确认脉冲与靶标反馈。"
+        }
+      ],
+      "checks": [
+        "对比命中前后真实画面，确认脉冲与靶标反馈。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "finish_shooting",
+      "stage": "journey",
+      "priority": "P1",
+      "family": "journey",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口登上高台，射中靶标并走进出口。"
+        }
+      ],
+      "checks": [
+        "从默认入口登上高台，射中靶标并走进出口。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [
+    "finish_shooting"
+  ],
+  "policy": "完整旅程须从默认入口开始，仅可使用原生输入和只读状态观察。局部场景不得预设评测结果。"
+}

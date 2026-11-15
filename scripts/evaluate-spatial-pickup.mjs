@@ -31,7 +31,7 @@ try {
       url.searchParams.set("task", taskId);
       for (const mutation of [null, ...(calibrate ? mutationsByTask[taskId] : [])]) {
         const report = await runVariant(browser, base, {
-          layout: taskId, route: { tolerance: 0.075 }, fault: mutation?.id, server: { url: url.href },
+          layout: taskId, route: { tolerance: 0.075 }, fault: mutation?.id, server: { url: url.href }, replayClock: "virtual",
           artifactVersion: artifactVersion + "/" + taskId, evaluatorVersion: digest(evaluatorVersion + (profile ?? "C")),
           plan, contract, cases, setup: checkSetup, profile,
         });

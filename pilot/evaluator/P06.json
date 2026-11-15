@@ -1,0 +1,307 @@
+{
+  "taskId": "P06",
+  "builderContract": "builder/P06.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认入口，无预设结果。"
+      ]
+    },
+    {
+      "id": "worker_unsecured",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在工人旁，发射器已开启且还未发射，本次尝试尚未救援。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "integration",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "打开网页并观察到可见的 3D 游戏画面。"
+        }
+      ],
+      "checks": [
+        "打开网页并观察到可见的 3D 游戏画面。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [],
+      "caseType": "positive"
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "priority": "P0",
+      "family": "control",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按 W 并松开，核对真实输入、位移和时钟。"
+        }
+      ],
+      "checks": [
+        "按 W 并松开，核对真实输入、位移和时钟。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "rescue_while_armed",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "rescue",
+      "scenario": "worker_unsecured",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在发射器关闭前按 E，救援不能成立。"
+        }
+      ],
+      "checks": [
+        "在发射器关闭前按 E，救援不能成立。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "disable_emitter",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "emitter",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在掩护下等待一次发射，关闭发射器并跨过下一次发射时刻。"
+        }
+      ],
+      "checks": [
+        "在掩护下等待一次发射，关闭发射器并跨过下一次发射时刻。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "locked_exit_without_worker",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "goal",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "只关发射器，不救援，走进出口。"
+        }
+      ],
+      "checks": [
+        "只关发射器，不救援，走进出口。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "reset_after_hit",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "recovery",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "走出掩体被命中，按 R 核对位置、发射器和救援初始状态。"
+        }
+      ],
+      "checks": [
+        "走出掩体被命中，按 R 核对位置、发射器和救援初始状态。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "emitter_feedback",
+      "stage": "visual",
+      "priority": "P1",
+      "family": "emitter",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "对比关闭前后发射器外观和状态反馈。"
+        }
+      ],
+      "checks": [
+        "对比关闭前后发射器外观和状态反馈。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "rescue_feedback",
+      "stage": "visual",
+      "priority": "P1",
+      "family": "rescue",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在关机后走到工人处救援，核对工人外观和状态反馈。"
+        }
+      ],
+      "checks": [
+        "在关机后走到工人处救援，核对工人外观和状态反馈。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "finish_rescue",
+      "stage": "journey",
+      "priority": "P1",
+      "family": "journey",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口观察掩护、关闭危险源、救援工人、走进出口。"
+        }
+      ],
+      "checks": [
+        "从默认入口观察掩护、关闭危险源、救援工人、走进出口。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "retry_rescue",
+      "stage": "journey",
+      "priority": "P1",
+      "family": "recovery",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口触发失败，使用 R 重试，再完整通关。"
+        }
+      ],
+      "checks": [
+        "从默认入口触发失败，使用 R 重试，再完整通关。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [
+    "finish_rescue",
+    "retry_rescue"
+  ],
+  "policy": "完整旅程须从默认入口开始，仅可使用原生输入和只读状态观察。局部场景不得预设评测结果。"
+}

@@ -1,0 +1,65 @@
+{
+  "id": "C08",
+  "family": "line-of-fire",
+  "tier": "combination",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "高台目标射击",
+  "goal": "走上高台射击靶标，再步行进入出口。",
+  "controls": {
+    "move": "W/A/S/D",
+    "fire": "Space",
+    "start": "进入默认场景"
+  },
+  "publicRules": [
+    "按 Space 朝靶标射击。按 3D 线段上的首次命中判断结果。掩体拦截时靶标保持启用。",
+    "有效射击令靶标关闭一次。脉冲和目标反馈与实际命中一致。",
+    "靶标关闭后，玩家须正常步行进入出口才胜利。"
+  ],
+  "layoutConstraints": [
+    "有可步行登上的高台。默认位置和受遮挡射击位置在低处。",
+    "低处射击被掩体拦截，高处有可击中目标的站位。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "constants": {},
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "outcome",
+    "target.position",
+    "target.disabled"
+  ],
+  "publicEventData": {
+    "shot_resolved": "data.source 为 emitter 或 avatar；from 为起点、impact 为首次命中点（均为世界坐标）；hit 为 cover、avatar 或 target。",
+    "outcome_changed": "data.outcome 为 victory 或 failure，data.cause 为 exit 或 pulse。",
+    "target_changed": "data.id 为 target，disabled 为 true。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "blocked_shot",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在低处，朝靶标的射线被实心掩体挡住。"
+      ]
+    },
+    {
+      "id": "elevated_shot",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家已经站在高台，从这里可以射中仍然启用的靶标。"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 export const terraceReplay = {
   tolerance: 0.075,
-  registrationHalfWidth: 0.25,
+  registrationHalfWidth: 0.27,
   probe: { key: "d", axis: 0, direction: 1 },
   checkpoint: { lower: [0, 0, 0], upper: [0, 2.2, 0] },
   floor: { lower: "lower", upper: "upper" },
