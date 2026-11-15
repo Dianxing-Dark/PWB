@@ -10,9 +10,10 @@ import time
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("run_directory", type=Path)
-parser.add_argument("--task", choices=("P01", "P02", "P04", "P05", "C12"), default="P01")
+parser.add_argument("--task", choices=("P01", "P02", "P04", "P05", "C12", "A07", "C06", "C10"), default="P01")
 parser.add_argument("--budget-seconds", type=int, default=600)
 parser.add_argument("--model")
+parser.add_argument("--reasoning-effort", choices=("low", "medium", "high", "xhigh"))
 args = parser.parse_args()
 repo = Path(__file__).resolve().parent.parent
 root = args.run_directory.resolve()
@@ -55,6 +56,9 @@ private_cases = {
     "P04": "platform-cases.mjs",
     "P05": "keys-cases.mjs",
     "C12": "checkpoint-cases.mjs",
+    "A07": "workshop-cases.mjs",
+    "C06": "workshop-cases.mjs",
+    "C10": "workshop-cases.mjs",
 }.get(args.task, "p01-cases.mjs")
 probe = (
     "if (!(Test-Path -LiteralPath " + contract + ")) { exit 8 }; "
@@ -71,6 +75,8 @@ command = [codex, "exec", "--ignore-user-config", "--ignore-rules", "--ephemeral
            "--color", "never", "--json", "-c", 'approval_policy="never"', "-C", str(builder), *policy]
 if args.model:
     command.extend(["-m", args.model])
+if args.reasoning_effort:
+    command.extend(["-c", f'model_reasoning_effort="{args.reasoning_effort}"'])
 command.append("-")
 start = time.monotonic()
 timed_out = False
@@ -86,6 +92,7 @@ metadata = {
     "taskId": args.task,
     "cliVersion": subprocess.check_output([codex, "--version"], text=True).strip(),
     "modelRequested": args.model,
+    "reasoningEffortRequested": args.reasoning_effort,
     "budgetSeconds": args.budget_seconds,
     "elapsedSeconds": round(time.monotonic() - start, 2),
     "timedOut": timed_out,

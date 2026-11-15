@@ -1,0 +1,269 @@
+{
+  "taskId": "C06",
+  "builderContract": "builder/C06.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认可玩入口，未预设结果。"
+      ]
+    },
+    {
+      "id": "bench_with_ore",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在工位旁，持有矿石，缺少纤维和组件。矿石已合法拾取。"
+      ]
+    },
+    {
+      "id": "bench_ready",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在工位旁，持有两份合法拾取的原料各一份，尚未合成。"
+      ]
+    },
+    {
+      "id": "under_delivery",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在交付点正下方，持有一份已合法合成的组件，两种原料已消耗。"
+      ]
+    },
+    {
+      "id": "at_delivery",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层交付点旁，持有一份已合法合成的组件，两种原料已消耗。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "family": "integration",
+      "priority": "P0",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "打开作品并确认可见的 3D 游戏画面。"
+        }
+      ],
+      "checks": [
+        "打开作品并确认可见的 3D 游戏画面。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [],
+      "caseType": "positive"
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "family": "control",
+      "priority": "P0",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "发送原生方向键并确认角色位移与仿真时钟。"
+        }
+      ],
+      "checks": [
+        "发送原生方向键并确认角色位移与仿真时钟。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "reject_incomplete_recipe",
+      "stage": "functional",
+      "family": "recipe",
+      "priority": "P1",
+      "scenario": "bench_with_ore",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "缺一种原料时按 E，库存保持不变。"
+        }
+      ],
+      "checks": [
+        "缺一种原料时按 E，库存保持不变。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "craft_once",
+      "stage": "functional",
+      "family": "recipe",
+      "priority": "P1",
+      "scenario": "bench_ready",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "合成产生组件并消耗原料，再按 E 验证不会重复合成。"
+        }
+      ],
+      "checks": [
+        "合成产生组件并消耗原料，再按 E 验证不会重复合成。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "reject_other_floor_delivery",
+      "stage": "functional",
+      "family": "delivery",
+      "priority": "P1",
+      "scenario": "under_delivery",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从同投影下层按 E；保留组件且保持未胜利。"
+        }
+      ],
+      "checks": [
+        "从同投影下层按 E；保留组件且保持未胜利。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "deliver_on_same_floor",
+      "stage": "functional",
+      "family": "delivery",
+      "priority": "P1",
+      "scenario": "at_delivery",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "在同层按 E，消耗组件后胜利。"
+        }
+      ],
+      "checks": [
+        "在同层按 E，消耗组件后胜利。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "inventory_feedback",
+      "stage": "visual",
+      "family": "inventory",
+      "priority": "P1",
+      "scenario": "bench_ready",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "核对原料消耗和组件增加前后的可见库存。"
+        }
+      ],
+      "checks": [
+        "核对原料消耗和组件增加前后的可见库存。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "craft_and_deliver",
+      "stage": "journey",
+      "family": "journey",
+      "priority": "P1",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认位置收集两层原料，走到工位合成并交付。"
+        }
+      ],
+      "checks": [
+        "从默认位置收集两层原料，走到工位合成并交付。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [
+    "craft_and_deliver"
+  ],
+  "policy": "完整旅程从默认入口开始，使用原生按键及只读观测。局部场景只准备已登记的合法前置条件。"
+}

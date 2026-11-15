@@ -417,5 +417,177 @@
         }
       ]
     }
+  },
+  "workshop": {
+    "mutationsByTask": {
+      "A07": [
+        {
+          "id": "gate_closes_early",
+          "mustDetect": [
+            "window_boundary"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "blocked_before_open",
+            "cross_open_gate",
+            "blocked_after_expiry",
+            "pass_below_gate",
+            "gate_feedback"
+          ]
+        },
+        {
+          "id": "window_extends_on_repeat",
+          "mustDetect": [
+            "window_boundary"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "blocked_before_open",
+            "cross_open_gate",
+            "blocked_after_expiry",
+            "pass_below_gate",
+            "gate_feedback"
+          ]
+        },
+        {
+          "id": "gate_missing_collision",
+          "mustDetect": [
+            "blocked_before_open",
+            "blocked_after_expiry"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "window_boundary",
+            "cross_open_gate",
+            "pass_below_gate",
+            "gate_feedback"
+          ]
+        },
+        {
+          "id": "stale_gate_feedback",
+          "mustDetect": [
+            "gate_feedback"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "blocked_before_open",
+            "window_boundary",
+            "cross_open_gate",
+            "blocked_after_expiry",
+            "pass_below_gate"
+          ]
+        }
+      ],
+      "C06": [
+        {
+          "id": "recipe_ignores_fiber",
+          "mustDetect": [
+            "reject_incomplete_recipe"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "craft_once",
+            "reject_other_floor_delivery",
+            "deliver_on_same_floor",
+            "inventory_feedback",
+            "craft_and_deliver"
+          ]
+        },
+        {
+          "id": "ingredients_retained",
+          "mustDetect": [
+            "craft_once",
+            "inventory_feedback",
+            "craft_and_deliver"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "reject_incomplete_recipe",
+            "reject_other_floor_delivery",
+            "deliver_on_same_floor"
+          ]
+        },
+        {
+          "id": "delivery_ignores_height",
+          "mustDetect": [
+            "reject_other_floor_delivery"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "reject_incomplete_recipe",
+            "craft_once",
+            "deliver_on_same_floor",
+            "inventory_feedback",
+            "craft_and_deliver"
+          ]
+        },
+        {
+          "id": "stale_inventory",
+          "mustDetect": [
+            "inventory_feedback"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "reject_incomplete_recipe",
+            "craft_once",
+            "reject_other_floor_delivery",
+            "deliver_on_same_floor",
+            "craft_and_deliver"
+          ]
+        }
+      ],
+      "C10": [
+        {
+          "id": "hidden_bridge_support",
+          "mustDetect": [
+            "retracted_bridge_has_no_support"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "cross_extended_bridge",
+            "reject_lower_exit",
+            "bridge_feedback",
+            "reroute_to_exit"
+          ]
+        },
+        {
+          "id": "exit_ignores_height",
+          "mustDetect": [
+            "reject_lower_exit"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "cross_extended_bridge",
+            "retracted_bridge_has_no_support",
+            "bridge_feedback",
+            "reroute_to_exit"
+          ]
+        },
+        {
+          "id": "stale_bridge_feedback",
+          "mustDetect": [
+            "bridge_feedback"
+          ],
+          "mustPreserve": [
+            "launch",
+            "probe",
+            "cross_extended_bridge",
+            "retracted_bridge_has_no_support",
+            "reject_lower_exit",
+            "reroute_to_exit"
+          ]
+        }
+      ]
+    }
   }
 }

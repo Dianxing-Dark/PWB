@@ -1,8 +1,8 @@
 {
   "name": "PlayableWorld-Bench pilot task specifications",
   "version": "0.1",
-  "taskCount": 22,
-  "evaluatorCaseCount": 178,
+  "taskCount": 25,
+  "evaluatorCaseCount": 201,
   "tasks": [
     {
       "id": "A01",
@@ -287,6 +287,45 @@
       "implementation": {
         "referenceLayouts": 1,
         "evaluator": "scripts/evaluate-line-of-fire.mjs",
+        "codexRuns": 0
+      }
+    },
+    {
+      "id": "A07",
+      "family": "workshop",
+      "tier": "atom",
+      "dimension": "3D",
+      "builder": "builder/A07.json",
+      "evaluator": "evaluator/A07.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-workshop.mjs",
+        "codexRuns": 0
+      }
+    },
+    {
+      "id": "C06",
+      "family": "workshop",
+      "tier": "combination",
+      "dimension": "3D",
+      "builder": "builder/C06.json",
+      "evaluator": "evaluator/C06.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-workshop.mjs",
+        "codexRuns": 0
+      }
+    },
+    {
+      "id": "C10",
+      "family": "workshop",
+      "tier": "combination",
+      "dimension": "3D",
+      "builder": "builder/C10.json",
+      "evaluator": "evaluator/C10.json",
+      "implementation": {
+        "referenceLayouts": 1,
+        "evaluator": "scripts/evaluate-workshop.mjs",
         "codexRuns": 0
       }
     }

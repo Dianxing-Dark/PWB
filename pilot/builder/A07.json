@@ -1,0 +1,67 @@
+{
+  "id": "A07",
+  "family": "workshop",
+  "tier": "atom",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "限时门",
+  "goal": "按下上层开关，在门关闭前沿上层通道走过门。",
+  "controls": {
+    "move": "W/A/S/D",
+    "interact": "E",
+    "start": "直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "玩家在上层开关旁按 E，门从该仿真步起可通行，持续 120 步。",
+    "恰好 120 步后门关闭并阻挡上层通道。开启期间重复按 E 不延长窗口。门关闭后可再次开启。",
+    "下层与门同投影的位置可以通行。门开关变化有可见反馈。"
+  ],
+  "layoutConstraints": [
+    "上层通道可由下层步行到达，门两侧均有可站立的上层空间。",
+    "下层有穿过门水平投影的通道。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "constants": {
+    "openTicks": 120
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "outcome",
+    "gate.open",
+    "gate.openedAt",
+    "gate.position",
+    "switch.position"
+  ],
+  "publicEventData": {
+    "gate_changed": "data.open 为布尔值。开启事件的 tick 是有效窗口的第一步。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "gate_approach",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "靠近关闭的上层门且在同层开关可操作范围内。"
+      ]
+    },
+    {
+      "id": "below_gate",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "位于门的下方一侧，朝门的水平投影有合法下层通道。"
+      ]
+    }
+  ]
+}

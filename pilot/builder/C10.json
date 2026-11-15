@@ -1,0 +1,59 @@
+{
+  "id": "C10",
+  "family": "workshop",
+  "tier": "combination",
+  "platform": "browser-html-js",
+  "dimension": "3D",
+  "title": "断桥改道",
+  "goal": "撤回上层直连桥，再从下层绕行抵达另一侧上层出口。",
+  "controls": {
+    "move": "W/A/S/D",
+    "interact": "E",
+    "start": "直接进入默认可玩场景"
+  },
+  "publicRules": [
+    "直连桥开始可以行走。在西侧开关旁按 E，桥撤回并失去支撑。",
+    "桥撤回后，尝试走入缺口会落到下层。两端的坡道仍可步行通行。",
+    "到达东侧上层出口获胜。同投影的下层位置不能胜利。",
+    "清楚呈现桥面存在或撤回及当前通路。"
+  ],
+  "layoutConstraints": [
+    "两个上层平台由可撤回桥相连。经西侧坡道下行、走下层后再从东侧坡道登上。"
+  ],
+  "clockAndUnits": {
+    "simulationTickHz": 60,
+    "coordinateUnits": "m",
+    "upAxis": "+Y"
+  },
+  "publicSnapshotFields": [
+    "attemptId",
+    "tick",
+    "avatar.position",
+    "avatar.supportSurface",
+    "outcome",
+    "bridge.extended",
+    "bridge.position",
+    "switch.position",
+    "exit.position"
+  ],
+  "publicEventData": {
+    "bridge_changed": "data.extended 为布尔值。",
+    "contact_changed": "data.objectId 是当前支撑面，无支撑为 null。",
+    "outcome_changed": "data.outcome 为 victory 或 failure。"
+  },
+  "completionBudget": {
+    "localCaseSeconds": 30,
+    "normalJourneySeconds": 75
+  },
+  "designStatus": "awaiting_reference_calibration",
+  "sharedRuntimeInterface": "builder/shared-runtime-interface.json",
+  "publicScenarios": [
+    {
+      "id": "before_bridge",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层桥西端，桥仍可通过。玩家可通过正常步行接近开关。"
+      ]
+    }
+  ]
+}

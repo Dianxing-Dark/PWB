@@ -1,0 +1,251 @@
+{
+  "taskId": "A07",
+  "builderContract": "builder/A07.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认可玩入口，未预设结果。"
+      ]
+    },
+    {
+      "id": "gate_approach",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "靠近关闭的上层门且在同层开关可操作范围内。"
+      ]
+    },
+    {
+      "id": "below_gate",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "位于门的下方一侧，朝门的水平投影有合法下层通道。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "family": "integration",
+      "priority": "P0",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "打开作品并确认可见的 3D 游戏画面。"
+        }
+      ],
+      "checks": [
+        "打开作品并确认可见的 3D 游戏画面。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [],
+      "caseType": "positive"
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "family": "control",
+      "priority": "P0",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "发送原生方向键并确认角色位移与仿真时钟。"
+        }
+      ],
+      "checks": [
+        "发送原生方向键并确认角色位移与仿真时钟。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "blocked_before_open",
+      "stage": "functional",
+      "family": "gate",
+      "priority": "P1",
+      "scenario": "gate_approach",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "不开门，尝试沿上层穿过门。"
+        }
+      ],
+      "checks": [
+        "不开门，尝试沿上层穿过门。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "window_boundary",
+      "stage": "functional",
+      "family": "timing",
+      "priority": "P1",
+      "scenario": "gate_approach",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "开门，重复按 E，核对第 119 步和第 120 步，并重启门。"
+        }
+      ],
+      "checks": [
+        "开门，重复按 E，核对第 119 步和第 120 步，并重启门。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "boundary"
+    },
+    {
+      "id": "cross_open_gate",
+      "stage": "functional",
+      "family": "gate",
+      "priority": "P1",
+      "scenario": "gate_approach",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按 E，在开门窗口内正常穿过。"
+        }
+      ],
+      "checks": [
+        "按 E，在开门窗口内正常穿过。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "blocked_after_expiry",
+      "stage": "functional",
+      "family": "gate",
+      "priority": "P1",
+      "scenario": "gate_approach",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "开门并等待过期后再尝试穿过。"
+        }
+      ],
+      "checks": [
+        "开门并等待过期后再尝试穿过。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "pass_below_gate",
+      "stage": "functional",
+      "family": "space",
+      "priority": "P1",
+      "scenario": "below_gate",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "门关闭时从下层同投影通行。"
+        }
+      ],
+      "checks": [
+        "门关闭时从下层同投影通行。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "gate_feedback",
+      "stage": "visual",
+      "family": "gate",
+      "priority": "P1",
+      "scenario": "gate_approach",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "核对关闭、开启、再关闭的可见状态。"
+        }
+      ],
+      "checks": [
+        "核对关闭、开启、再关闭的可见状态。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [],
+  "policy": "完整旅程从默认入口开始，使用原生按键及只读观测。局部场景只准备已登记的合法前置条件。"
+}

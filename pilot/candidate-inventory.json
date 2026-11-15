@@ -1,6 +1,6 @@
 {
   "count": 30,
-  "specified": 22,
+  "specified": 25,
   "tasks": [
     {
       "id": "A01",
@@ -75,7 +75,9 @@
       "tier": "atom",
       "focus": "时序、碰撞",
       "criterion": "门开启时间窗可量测，过期后阻挡立体通道。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/A07.json",
+      "evaluator": "evaluator/A07.json"
     },
     {
       "id": "A08",
@@ -170,7 +172,9 @@
       "tier": "combination",
       "focus": "资源、目标",
       "criterion": "在两层收集材料，并向正确高度的交付点交付。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/C06.json",
+      "evaluator": "evaluator/C06.json"
     },
     {
       "id": "C07",
@@ -212,7 +216,9 @@
       "tier": "combination",
       "focus": "空间、动态路由",
       "criterion": "跨层连接关闭后，玩家能沿合法替代路抵达。",
-      "status": "candidate"
+      "status": "specified",
+      "builder": "builder/C10.json",
+      "evaluator": "evaluator/C10.json"
     },
     {
       "id": "C11",

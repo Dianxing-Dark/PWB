@@ -1,0 +1,220 @@
+{
+  "taskId": "C10",
+  "builderContract": "builder/C10.json",
+  "scenarios": [
+    {
+      "id": "default",
+      "entry": "normalEntry",
+      "legalPreconditions": [
+        "默认可玩入口，未预设结果。"
+      ]
+    },
+    {
+      "id": "before_bridge",
+      "entry": "localScenario",
+      "legalPreconditions": [
+        "玩家在上层桥西端，桥仍可通过。玩家可通过正常步行接近开关。"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "launch",
+      "stage": "prerequisite",
+      "family": "integration",
+      "priority": "P0",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "observe",
+          "instruction": "打开作品并确认可见的 3D 游戏画面。"
+        }
+      ],
+      "checks": [
+        "打开作品并确认可见的 3D 游戏画面。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [],
+      "caseType": "positive"
+    },
+    {
+      "id": "probe",
+      "stage": "prerequisite",
+      "family": "control",
+      "priority": "P0",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "发送原生方向键并确认角色位移与仿真时钟。"
+        }
+      ],
+      "checks": [
+        "发送原生方向键并确认角色位移与仿真时钟。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "cross_extended_bridge",
+      "stage": "functional",
+      "family": "bridge",
+      "priority": "P1",
+      "scenario": "before_bridge",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从西端步行穿过伸出的桥。"
+        }
+      ],
+      "checks": [
+        "从西端步行穿过伸出的桥。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "retracted_bridge_has_no_support",
+      "stage": "functional",
+      "family": "bridge",
+      "priority": "P1",
+      "scenario": "before_bridge",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "按 E 撤桥，尝试走入缺口并观察跌至下层。"
+        }
+      ],
+      "checks": [
+        "按 E 撤桥，尝试走入缺口并观察跌至下层。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "reject_lower_exit",
+      "stage": "functional",
+      "family": "exit",
+      "priority": "P1",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "撤桥，从西坡下行至出口正下方，保持未胜利。"
+        }
+      ],
+      "checks": [
+        "撤桥，从西坡下行至出口正下方，保持未胜利。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "negative"
+    },
+    {
+      "id": "bridge_feedback",
+      "stage": "visual",
+      "family": "bridge",
+      "priority": "P1",
+      "scenario": "before_bridge",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "核对撤回前后的桥面及提示。"
+        }
+      ],
+      "checks": [
+        "核对撤回前后的桥面及提示。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    },
+    {
+      "id": "reroute_to_exit",
+      "stage": "journey",
+      "family": "journey",
+      "priority": "P1",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "撤桥，从西侧坡道下行，经下层和东侧坡道抵达上层出口。"
+        }
+      ],
+      "checks": [
+        "撤桥，从西侧坡道下行，经下层和东侧坡道抵达上层出口。"
+      ],
+      "evidence": [
+        "native_input_log",
+        "snapshot",
+        "event_log",
+        "simulation_clock_trace",
+        "event_aligned_frames",
+        "full_input_trajectory",
+        "milestone_log"
+      ],
+      "blockedBy": [
+        "launch",
+        "probe"
+      ],
+      "caseType": "positive"
+    }
+  ],
+  "requiredJourneyCases": [
+    "reroute_to_exit"
+  ],
+  "policy": "完整旅程从默认入口开始，使用原生按键及只读观测。局部场景只准备已登记的合法前置条件。"
+}

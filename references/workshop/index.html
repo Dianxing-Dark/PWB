@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workshop | PlayableWorld-Bench</title>
+  <link rel="stylesheet" href="/p01-style.css">
+  <style>#world { aspect-ratio: 2 / 1; } .hud { grid-template-columns: repeat(2, 1fr); }</style>
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1 id="title"></h1>
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Move</span><kbd>E</kbd><span>Interact</span></div>
+    </header>
+    <div id="world" aria-label="Workshop in 3D"></div>
+    <section class="hud" aria-label="Workshop status">
+      <div><span>Mechanism</span><strong id="mechanism" role="status"></strong></div>
+      <div><span>Progress</span><strong id="progress"></strong></div>
+    </section>
+    <p class="objective" id="objective"></p>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>

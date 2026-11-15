@@ -1,0 +1,872 @@
+{
+  "runGroups": {
+    "chrome": "2026-11-15T09-38-01-124Z-21896",
+    "edge": "2026-11-15T09-39-42-905Z-5896"
+  },
+  "runs": {
+    "chrome": [
+      {
+        "runId": "A07",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "471eb66eb46db207d8fa392fd9622386a031e10a9cef93d5bc386a6ef4a0833f",
+        "summary": {
+          "strictTaskSuccess": true,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "pass",
+          "window_boundary": "pass",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "pass",
+          "pass_below_gate": "pass",
+          "gate_feedback": "pass"
+        }
+      },
+      {
+        "runId": "A07-gate_closes_early",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07/gate_closes_early",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "853338f4a6f706f164f484d00a9226d28d532c7c59c84051d09b33929ba3aaca",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "pass",
+          "window_boundary": "fail",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "pass",
+          "pass_below_gate": "pass",
+          "gate_feedback": "pass"
+        }
+      },
+      {
+        "runId": "A07-window_extends_on_repeat",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07/window_extends_on_repeat",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "41cb87534989ff57f9bbbb3739e45a8bd5674f3dfb4e46b959bda6ff85e2f06b",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "pass",
+          "window_boundary": "fail",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "pass",
+          "pass_below_gate": "pass",
+          "gate_feedback": "pass"
+        }
+      },
+      {
+        "runId": "A07-gate_missing_collision",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07/gate_missing_collision",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "79c8b6d066f92609e85e432e44af6283779f98c63000f48e3e524ebad92d1f77",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.7777777777777777,
+            0.7777777777777777
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "fail",
+          "window_boundary": "pass",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "fail",
+          "pass_below_gate": "pass",
+          "gate_feedback": "pass"
+        }
+      },
+      {
+        "runId": "A07-stale_gate_feedback",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07/stale_gate_feedback",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "985cc87f055c6dec3aea8780be537abd6e6687933232cf2eadc5f69c3c912354",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "pass",
+          "window_boundary": "pass",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "pass",
+          "pass_below_gate": "pass",
+          "gate_feedback": "fail"
+        }
+      },
+      {
+        "runId": "C06",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "d0ae93c0a7c2d069919ec99167c317cc194169f5bfa2bcee8e42068230b004bc",
+        "summary": {
+          "strictTaskSuccess": true,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "pass",
+          "craft_once": "pass",
+          "reject_other_floor_delivery": "pass",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "pass",
+          "craft_and_deliver": "pass"
+        }
+      },
+      {
+        "runId": "C06-recipe_ignores_fiber",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06/recipe_ignores_fiber",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "d2690a1eb0c8b0255186a5169e5bd0ee5090138df96590691819d93d45535bba",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.75,
+            0.75
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "fail",
+          "craft_once": "pass",
+          "reject_other_floor_delivery": "pass",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "pass",
+          "craft_and_deliver": "pass"
+        }
+      },
+      {
+        "runId": "C06-ingredients_retained",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06/ingredients_retained",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "f021da53c3bd6a00866a49e4cbd098e8bb92af70d0ca60c3643790f7b7afc71d",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.75,
+            0.75
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "pass",
+          "craft_once": "fail",
+          "reject_other_floor_delivery": "pass",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "fail",
+          "craft_and_deliver": "fail"
+        }
+      },
+      {
+        "runId": "C06-delivery_ignores_height",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06/delivery_ignores_height",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "390275e4988dbe370382405b2f5606ed6e125374de91624120f7c489aeffc426",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.75,
+            0.75
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "pass",
+          "craft_once": "pass",
+          "reject_other_floor_delivery": "fail",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "pass",
+          "craft_and_deliver": "pass"
+        }
+      },
+      {
+        "runId": "C06-stale_inventory",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06/stale_inventory",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "d6eb7b25181e4ad350128fc8092221e4a9b3a9f471b63963589b43851706fe93",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "pass",
+          "craft_once": "pass",
+          "reject_other_floor_delivery": "pass",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "fail",
+          "craft_and_deliver": "pass"
+        }
+      },
+      {
+        "runId": "C10",
+        "taskId": "C10",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10",
+        "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "9cecfc2dbcbf6c5e4ddd07c42f4f90004da4c7a83a38aa85e459dcf7d4a1ab96",
+        "summary": {
+          "strictTaskSuccess": true,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "cross_extended_bridge": "pass",
+          "retracted_bridge_has_no_support": "pass",
+          "reject_lower_exit": "pass",
+          "bridge_feedback": "pass",
+          "reroute_to_exit": "pass"
+        }
+      },
+      {
+        "runId": "C10-hidden_bridge_support",
+        "taskId": "C10",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10/hidden_bridge_support",
+        "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "31657e3470e3f87e27954d38422df568b5ce8055643288b7035a58bcc1a47a14",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.75,
+            0.75
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "cross_extended_bridge": "pass",
+          "retracted_bridge_has_no_support": "fail",
+          "reject_lower_exit": "pass",
+          "bridge_feedback": "pass",
+          "reroute_to_exit": "pass"
+        }
+      },
+      {
+        "runId": "C10-exit_ignores_height",
+        "taskId": "C10",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10/exit_ignores_height",
+        "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "0eed89e7ce52fe6501920a28bd3a4ae98c3aa8cbb14048dceafb7e06ff91e12b",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.5,
+            0.5
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "cross_extended_bridge": "pass",
+          "retracted_bridge_has_no_support": "pass",
+          "reject_lower_exit": "fail",
+          "bridge_feedback": "pass",
+          "reroute_to_exit": "pass"
+        }
+      },
+      {
+        "runId": "C10-stale_bridge_feedback",
+        "taskId": "C10",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10/stale_bridge_feedback",
+        "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+        "browserVersion": "157.0.8103.52",
+        "reportSha256": "9cf461f00f036576fa3468208d1fb4abf5e0ef158a4a9e53448467b201f70196",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "cross_extended_bridge": "pass",
+          "retracted_bridge_has_no_support": "pass",
+          "reject_lower_exit": "pass",
+          "bridge_feedback": "fail",
+          "reroute_to_exit": "pass"
+        }
+      }
+    ],
+    "edge": [
+      {
+        "runId": "A07",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "50b5920938976d7e0ec4408d08266de5db01105e0aeb2d8e5f470ba69f26c45c",
+        "summary": {
+          "strictTaskSuccess": true,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "pass",
+          "window_boundary": "pass",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "pass",
+          "pass_below_gate": "pass",
+          "gate_feedback": "pass"
+        }
+      },
+      {
+        "runId": "A07-gate_closes_early",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07/gate_closes_early",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "c4d883d8e0051d4dc3b747c8387cde00b3d89d0814210238c9b1f0e7d2c7e90a",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "pass",
+          "window_boundary": "fail",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "pass",
+          "pass_below_gate": "pass",
+          "gate_feedback": "pass"
+        }
+      },
+      {
+        "runId": "A07-window_extends_on_repeat",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07/window_extends_on_repeat",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "5f44d8a7d43d0386efb2092239a05784fcaf53f28e30252fe1fd82ef4c7771fc",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "pass",
+          "window_boundary": "fail",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "pass",
+          "pass_below_gate": "pass",
+          "gate_feedback": "pass"
+        }
+      },
+      {
+        "runId": "A07-gate_missing_collision",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07/gate_missing_collision",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "c9e5aafac2d8ad8e9bab21d4740055f8b6a988e4d2453a4105645a4f2171501a",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.7777777777777777,
+            0.7777777777777777
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "fail",
+          "window_boundary": "pass",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "fail",
+          "pass_below_gate": "pass",
+          "gate_feedback": "pass"
+        }
+      },
+      {
+        "runId": "A07-stale_gate_feedback",
+        "taskId": "A07",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07/stale_gate_feedback",
+        "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "7a4ca1a923839ecd6cc3d3545659cb06c27a81ff1e21a5a4837db819bdb44b87",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 0
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "blocked_before_open": "pass",
+          "window_boundary": "pass",
+          "cross_open_gate": "pass",
+          "blocked_after_expiry": "pass",
+          "pass_below_gate": "pass",
+          "gate_feedback": "fail"
+        }
+      },
+      {
+        "runId": "C06",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "f852dc476f1bf1b627f150c81a2895eaee714632f37f004b4488763747f38720",
+        "summary": {
+          "strictTaskSuccess": true,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "pass",
+          "craft_once": "pass",
+          "reject_other_floor_delivery": "pass",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "pass",
+          "craft_and_deliver": "pass"
+        }
+      },
+      {
+        "runId": "C06-recipe_ignores_fiber",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06/recipe_ignores_fiber",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "4e836d6b84d95c3687dd28766e4434f54a57a23a19895c7cd569c9e13f5614f5",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.75,
+            0.75
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "fail",
+          "craft_once": "pass",
+          "reject_other_floor_delivery": "pass",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "pass",
+          "craft_and_deliver": "pass"
+        }
+      },
+      {
+        "runId": "C06-ingredients_retained",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06/ingredients_retained",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "d7952971ae3ff68d1269630382a467cab7b83874a002cd325b10c30d00ccdc92",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.75,
+            0.75
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 0,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "pass",
+          "craft_once": "fail",
+          "reject_other_floor_delivery": "pass",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "fail",
+          "craft_and_deliver": "fail"
+        }
+      },
+      {
+        "runId": "C06-delivery_ignores_height",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06/delivery_ignores_height",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "6b267d84dad6c5a8402d8b6e29b0dd5c5dd54ae5bac66886e277494df787b8c3",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.75,
+            0.75
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "pass",
+          "craft_once": "pass",
+          "reject_other_floor_delivery": "fail",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "pass",
+          "craft_and_deliver": "pass"
+        }
+      },
+      {
+        "runId": "C06-stale_inventory",
+        "taskId": "C06",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06/stale_inventory",
+        "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "05b4ffffb408cc7fad97150ae987340b7905504d751cbb1ec0ed5db49df421a3",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "reject_incomplete_recipe": "pass",
+          "craft_once": "pass",
+          "reject_other_floor_delivery": "pass",
+          "deliver_on_same_floor": "pass",
+          "inventory_feedback": "fail",
+          "craft_and_deliver": "pass"
+        }
+      },
+      {
+        "runId": "C10",
+        "taskId": "C10",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10",
+        "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "0c2a93a6246fea3db1c3ff368f668deef6bd5f66bd8790df6d7116e07af12ed3",
+        "summary": {
+          "strictTaskSuccess": true,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "cross_extended_bridge": "pass",
+          "retracted_bridge_has_no_support": "pass",
+          "reject_lower_exit": "pass",
+          "bridge_feedback": "pass",
+          "reroute_to_exit": "pass"
+        }
+      },
+      {
+        "runId": "C10-hidden_bridge_support",
+        "taskId": "C10",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10/hidden_bridge_support",
+        "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "ea9c354474ede660e48c54f33701a42c3d316a7f25d9433faf4cee5d684ebd20",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.75,
+            0.75
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "cross_extended_bridge": "pass",
+          "retracted_bridge_has_no_support": "fail",
+          "reject_lower_exit": "pass",
+          "bridge_feedback": "pass",
+          "reroute_to_exit": "pass"
+        }
+      },
+      {
+        "runId": "C10-exit_ignores_height",
+        "taskId": "C10",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10/exit_ignores_height",
+        "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "8e8a656ec3f6b1c0f25eb3ed03d04301696993c16e0666ae06a35bb4a6d23daf",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            0.5,
+            0.5
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "cross_extended_bridge": "pass",
+          "retracted_bridge_has_no_support": "pass",
+          "reject_lower_exit": "fail",
+          "bridge_feedback": "pass",
+          "reroute_to_exit": "pass"
+        }
+      },
+      {
+        "runId": "C10-stale_bridge_feedback",
+        "taskId": "C10",
+        "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10/stale_bridge_feedback",
+        "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+        "browserVersion": "157.0.4341.46",
+        "reportSha256": "4badbf154ca461de9ab88159b2f8fbc93c6dd31fca62f37b1e7e3f081f35a641",
+        "summary": {
+          "strictTaskSuccess": false,
+          "functionalInterval": [
+            1,
+            1
+          ],
+          "functionalCoverage": 1,
+          "visualCoverage": 1,
+          "journeys": {
+            "passed": 1,
+            "planned": 1
+          }
+        },
+        "verdicts": {
+          "launch": "pass",
+          "probe": "pass",
+          "cross_extended_bridge": "pass",
+          "retracted_bridge_has_no_support": "pass",
+          "reject_lower_exit": "pass",
+          "bridge_feedback": "fail",
+          "reroute_to_exit": "pass"
+        }
+      }
+    ]
+  }
+}

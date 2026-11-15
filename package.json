@@ -26,7 +26,10 @@
     "compare:pairs": "node scripts/compare-pairs.mjs",
     "play:line-of-fire": "node scripts/play-line-of-fire.mjs",
     "evaluate:line-of-fire": "node scripts/evaluate-line-of-fire.mjs",
-    "calibrate:line-of-fire": "node scripts/evaluate-line-of-fire.mjs --calibrate"
+    "calibrate:line-of-fire": "node scripts/evaluate-line-of-fire.mjs --calibrate",
+    "play:workshop": "node scripts/play-workshop.mjs",
+    "evaluate:workshop": "node scripts/evaluate-workshop.mjs",
+    "calibrate:workshop": "node scripts/evaluate-workshop.mjs --calibrate"
   },
   "dependencies": {
     "three": "0.180.0"
