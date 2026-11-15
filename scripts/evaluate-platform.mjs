@@ -49,7 +49,7 @@ try {
         const report = await runVariant(browser, base, {
           layout: submission ? "submission" : layout === "reference" ? taskId : taskId + "-curve", route,
           fault, server: { url: url.href }, artifactVersion: submission ? artifactVersion : artifactVersion + "/" + taskId,
-          evaluatorVersion, plan, contract, cases,
+          evaluatorVersion, plan, contract, cases, replayClock: "virtual",
           setup(state, scenario) {
             requireCheck(state.outcome === "none" && !state.cargoDelivered &&
               state.avatar.supportSurface !== supportId(route, "lift"),

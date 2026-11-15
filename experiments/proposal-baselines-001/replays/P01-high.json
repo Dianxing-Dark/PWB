@@ -1,0 +1,55 @@
+{
+  "probe": "w",
+  "pushKey": "w",
+  "crateTarget": {
+    "axis": 2,
+    "value": 0.94,
+    "direction": -1
+  },
+  "rampWaypoints": [
+    [
+      -2.69,
+      6.57
+    ],
+    [
+      4.07,
+      6.57
+    ],
+    [
+      4.07,
+      0.36
+    ]
+  ],
+  "plate": [
+    -2.69,
+    -2.18
+  ],
+  "release": [
+    -0.93,
+    -2.18
+  ],
+  "gateBefore": [
+    2.35,
+    -5.13
+  ],
+  "gateAfter": [
+    2.35,
+    -6.9
+  ],
+  "gatePlane": {
+    "axis": 2,
+    "position": -5.98,
+    "direction": -1
+  },
+  "upperHeight": 2.65,
+  "maxStep": 0.085,
+  "tolerance": 0.08,
+  "exit": [
+    2.35,
+    -9.42
+  ],
+  "fall": [
+    -2.69,
+    8.3
+  ]
+}

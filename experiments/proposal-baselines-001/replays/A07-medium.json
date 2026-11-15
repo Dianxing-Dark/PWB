@@ -1,0 +1,31 @@
+{
+  "tolerance": 0.06,
+  "upper": "upper",
+  "lower": "lower",
+  "gateDirection": 1,
+  "gateAxis": 0,
+  "gateKey": "d",
+  "landing": [
+    0.42,
+    2.65,
+    0
+  ],
+  "minimumApproach": 0.32,
+  "poses": {
+    "gate_approach": [
+      -1.35,
+      2.65,
+      0
+    ],
+    "below_gate": [
+      -1.55,
+      0,
+      0
+    ]
+  },
+  "below": [
+    1.45,
+    0,
+    0
+  ]
+}

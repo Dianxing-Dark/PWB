@@ -28,12 +28,14 @@ const selectedLayout = getArg("--layout");
 const submission = getArg("--submission");
 const replayPath = getArg("--replay");
 const calibrate = args.includes("--calibrate");
-if (args.some(arg => !/^--(calibrate$|(layout|fault|submission|replay|task)=.+)/.test(arg)) ||
+const clock = getArg("--clock") ?? "real";
+if (args.some(arg => !/^--(calibrate$|(layout|fault|submission|replay|task|clock)=.+)/.test(arg)) ||
+    !["real", "virtual"].includes(clock) ||
     (selectedFault && (!faultIds.includes(selectedFault) || calibrate)) ||
     (selectedLayout && (task !== "P01" || !Object.hasOwn(replays, selectedLayout))) ||
     Boolean(submission) !== Boolean(replayPath) ||
     (submission && (selectedFault || calibrate || selectedLayout || !["P01", "P02"].includes(task)))) {
-  throw new Error("Use [--task=A01|A02|C01|C02|P01|P02] [--layout=reference|offset] [--fault=<id>|--calibrate] or --submission=<directory> --replay=<file>.");
+  throw new Error("Use [--task=A01|A02|C01|C02|P01|P02] [--layout=reference|offset] [--fault=<id>|--calibrate] or --submission=<directory> --replay=<file>. Optional --clock=real|virtual.");
 }
 const variants = calibrate ? ["", ...faultIds] : [selectedFault ?? ""];
 const layouts = submission
@@ -63,7 +65,7 @@ try {
     const folder = resolve(route.folder);
     const artifactVersion = await artifactDigest(folder);
     const { folder: _folder, ...replay } = route;
-    const runEvaluatorVersion = digest(evaluatorVersion + JSON.stringify(replay));
+    const runEvaluatorVersion = digest(evaluatorVersion + JSON.stringify(replay) + clock);
     const server = await serveReference(0, folder);
     const url = new URL(server.url);
     if (!submission) url.searchParams.set("task", task);
@@ -72,7 +74,7 @@ try {
       const gameVersion = !submission && task !== "P01" ? artifactVersion + "/" + task : artifactVersion;
       for (const fault of variants) {
         reports.push(await runVariant(browser, base, {
-          layout, route, fault, server: { url: url.href }, artifactVersion: gameVersion,
+          layout, route, fault, replayClock: clock, server: { url: url.href }, artifactVersion: gameVersion,
           evaluatorVersion: runEvaluatorVersion, plan, contract, cases: { ...cases, ...contactCases },
           helpers: { gatePixels: countGatePixels },
           setup(initial) {

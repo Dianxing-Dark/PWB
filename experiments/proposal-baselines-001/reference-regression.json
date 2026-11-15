@@ -1,0 +1,296 @@
+{
+  "tasks": 25,
+  "referenceLayouts": 32,
+  "passedChecks": 268,
+  "note": "Full reference sweep followed by controlled-clock replays of both P01 layouts and both layouts of each moving-platform task.",
+  "records": [
+    {
+      "taskId": "A01",
+      "layout": "A01",
+      "caseCount": 5,
+      "reportSha256": "841197f96aeb088bb74ece85b55fe227f96d86b7e6f8568198286818b6f295af",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "f9e62ef995b0df6c7dd86d64065bd44c53fc76b656cdbb9d092a99b3ed715f0c",
+      "runGroup": "2026-11-15T09-40-38-910Z-26784"
+    },
+    {
+      "taskId": "C01",
+      "layout": "C01",
+      "caseCount": 9,
+      "reportSha256": "8e2cdaf59f15cea025a12055caa3ade714a74e72b7a21bd7259548f75497675d",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "9ab4ba1022b185534c111429235a0fadc56c34cc3f49cfe53994a1d864742e68",
+      "runGroup": "2026-11-15T09-40-46-984Z-24184"
+    },
+    {
+      "taskId": "P01",
+      "layout": "reference",
+      "caseCount": 11,
+      "reportSha256": "8407a9a2919d1df3ec7cb472b4b591b0819fe674b2982ff6daae06701b32e996",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "47c52ef3f4f41f25957eb10e98702e89dcd0551e742b67320a48173e9b3e3797",
+      "runGroup": "2026-11-15T09-55-27-942Z-1300"
+    },
+    {
+      "taskId": "P01",
+      "layout": "offset",
+      "caseCount": 11,
+      "reportSha256": "94c3c8d3a62e750c8daee0e84104678a2b67dadafbad0286a34be59ea540d1d6",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "52f4cc814ff53c669bf343d525534fb6ac465f21604f3c1ed4439e5c9b9fa382",
+      "runGroup": "2026-11-15T09-55-27-942Z-1300"
+    },
+    {
+      "taskId": "A03",
+      "layout": "A03",
+      "caseCount": 6,
+      "reportSha256": "788662b9127b5dd1a0e31b5b902a14cd8470ce77da9643e00367cd7c34718a42",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "ee84f01bd96687e5667ee7d4b683d42f06420a5aaf58f9c27419e6247ecdd01d",
+      "runGroup": "2026-11-15T09-57-16-067Z-4860"
+    },
+    {
+      "taskId": "A03",
+      "layout": "A03-curve",
+      "caseCount": 6,
+      "reportSha256": "8d12e3afaadbf5764bbf0d4ebd0e2c9ba3e2b87c95ad9680883df343ba9dd8a5",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "812dacb771f5c188d2fb34dba0cab59ed9a6c5169f598087df748ce7cdce0d85",
+      "runGroup": "2026-11-15T09-54-15-635Z-31740"
+    },
+    {
+      "taskId": "C03",
+      "layout": "C03",
+      "caseCount": 11,
+      "reportSha256": "6b0112d41fc326c510807999c4291b12cb6b71e704fe74cc9c54418d978a9316",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "dad2d0b70040edd6faa748918dac4cf26d0021d257c1bee875e53baff0e6c758",
+      "runGroup": "2026-11-15T09-57-16-067Z-4860"
+    },
+    {
+      "taskId": "C03",
+      "layout": "C03-curve",
+      "caseCount": 11,
+      "reportSha256": "cb5799fb27c83e27ff4c05d8812007455709577a7f405746cd5f5dbb34780d59",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "d14c58c341ceee0a7c8dc7e079f16876776c233a9312cda10021039d0a5ea769",
+      "runGroup": "2026-11-15T09-54-15-635Z-31740"
+    },
+    {
+      "taskId": "P04",
+      "layout": "P04",
+      "caseCount": 14,
+      "reportSha256": "18339b7ee81ae0249c062ae6217fe052d94c976c0c33178925e5b5117fc01fb5",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "a2d80f46575512de2272a0fe7a2de14e49058ebaeed4559a197a5ab9539c6120",
+      "runGroup": "2026-11-15T09-57-16-067Z-4860"
+    },
+    {
+      "taskId": "P04",
+      "layout": "P04-curve",
+      "caseCount": 14,
+      "reportSha256": "abfc8a3bc378e574009f6db22703406e4511f4f88b4ffbd398d6741a9a41a8a4",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "35d67d34634554ca0a6ab52df54a5201967a506bcfebe8c2ba711be9700ed085",
+      "runGroup": "2026-11-15T09-54-15-635Z-31740"
+    },
+    {
+      "taskId": "A06",
+      "layout": "A06",
+      "caseCount": 5,
+      "reportSha256": "dbf03c833b019d604575379dc812ad53e74d79ba9772eb8923291e98ac1ab2b0",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "92c2e36fd50bfa07c14439c7c75609f761f089a696de49291ffc83fc0bce5615",
+      "runGroup": "2026-11-15T09-49-48-784Z-14120"
+    },
+    {
+      "taskId": "C05",
+      "layout": "C05",
+      "caseCount": 8,
+      "reportSha256": "a07368aadd7d44a07903f25172eff44fec3c53793e31a1120c7e8377113efe8e",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "e80502edefd9eaf0a9b9b1538e2fd7c1a70f91d9fbe8898714bfff09d21ae01b",
+      "runGroup": "2026-11-15T09-49-58-097Z-37972"
+    },
+    {
+      "taskId": "P05",
+      "layout": "P05",
+      "caseCount": 10,
+      "reportSha256": "2fb8cac9d482e12d769f9bfe888c7bd1a34314e1e8ab053a82d6343b693843bd",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "3cf43e7c7e915bc69fc0ab7ad00cae7b6507870f4f3f22045db93486bbe8b068",
+      "runGroup": "2026-11-15T09-50-12-849Z-31124"
+    },
+    {
+      "taskId": "A02",
+      "layout": "A02",
+      "caseCount": 5,
+      "reportSha256": "18f50a8478d78699634adc3ace6e8dd9101032002e299f928f77513bd52a03ae",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "290b19860ab845a338ee7e961adef21cb206a2b9f0bfc18235dc85017c543edd",
+      "runGroup": "2026-11-15T09-50-34-519Z-13928"
+    },
+    {
+      "taskId": "C02",
+      "layout": "C02",
+      "caseCount": 9,
+      "reportSha256": "cd81e680704e09aa9d17b3a275684d13cddc9417f75d64b8d766842b1d916e88",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "4f09ab1ce0ec8427b1a6b7431268be12d0d6e1399b9fbac620487b66f64e57db",
+      "runGroup": "2026-11-15T09-50-40-232Z-26856"
+    },
+    {
+      "taskId": "P02",
+      "layout": "P02",
+      "caseCount": 11,
+      "reportSha256": "3272583e6f84af8890f2407f0984c50c813b7a514711db6ec39e98c6d5f10e53",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "85df998ef052fe03f2c550e61190b8ab583de7b72c26ea039cd0465235f64a09",
+      "runGroup": "2026-11-15T09-51-03-912Z-23536"
+    },
+    {
+      "taskId": "A10",
+      "layout": "A10",
+      "caseCount": 6,
+      "reportSha256": "4ad170b51df447eca23c440b69c0af50fe561d3c1f56f23a9d488d74cb248217",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "ae8464c734ed0b74d988d7ff8293b38f625bff1a6c1e06880f3cbdd95cb79a86",
+      "runGroup": "2026-11-15T09-51-36-420Z-30768"
+    },
+    {
+      "taskId": "A10",
+      "layout": "A10-gallery",
+      "caseCount": 6,
+      "reportSha256": "f44ce4bb554211e5640fd70d3283843b1be75c8992f2ec6dc97aaf803545e562",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "d925c8ce6f847e132e518e6307d234b34340ed077dab5796573f4b64c3181dca",
+      "runGroup": "2026-11-15T09-51-44-222Z-30364"
+    },
+    {
+      "taskId": "C07",
+      "layout": "C07",
+      "caseCount": 7,
+      "reportSha256": "78c186f2430bccad708dd3ee20945a794b3a783e5df0a0a2b13728944599ee4e",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "7c5db82d99bc2dd1d621f4bac883b0bc2f55872667d1203c59a6c20bbb45489a",
+      "runGroup": "2026-11-15T09-51-52-351Z-26792"
+    },
+    {
+      "taskId": "C07",
+      "layout": "C07-gallery",
+      "caseCount": 7,
+      "reportSha256": "d9de9613f267b8fd68e1ce8fc713b02617ff75b3fa32c78690ea2668f9387bb4",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "5a109dc47bf723c1692873d3d2d704d5b956b2044cbb4d51d8722a550b607841",
+      "runGroup": "2026-11-15T09-52-05-268Z-19348"
+    },
+    {
+      "taskId": "C12",
+      "layout": "C12",
+      "caseCount": 12,
+      "reportSha256": "ef2701e01161450410cda20b0e83429f6f0ab394155301d6361abc75580666c0",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "356b52aad87768e3efc818c096cd2acaa27b01f98982b4488890f34a23d5894a",
+      "runGroup": "2026-11-15T09-52-18-378Z-2756"
+    },
+    {
+      "taskId": "C12",
+      "layout": "C12-gallery",
+      "caseCount": 12,
+      "reportSha256": "2f8b5853ff0a78266246432f9dcae096dd19f7ccd6dae1840fa84ae64da7ece4",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "e8717d00163ac71cb00a7ec7196bd4aa855426d440d5f4c721e0faf747b2eb51",
+      "runGroup": "2026-11-15T09-52-42-626Z-28384"
+    },
+    {
+      "taskId": "A05",
+      "layout": "A05",
+      "caseCount": 6,
+      "reportSha256": "ffacfb0a02da711dd6782a1c96e51fde479bc22e14a809503fe19d03259a097c",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "af7dea54e719a507cf0e330939a8b8991f9230e6ac1322a2f905c2e12b5c408d",
+      "runGroup": "2026-11-15T09-53-08-855Z-35588"
+    },
+    {
+      "taskId": "C09",
+      "layout": "C09",
+      "caseCount": 10,
+      "reportSha256": "eda23baa16c85e769fe0680ba8913632eb1103de04b36f3c2ef27ea68ad165b1",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "c1d3515f0cddc8254df5f8e8ae84d9540073d19e7fb6e58caa7ee1b99096ee02",
+      "runGroup": "2026-11-15T09-53-12-357Z-30576"
+    },
+    {
+      "taskId": "A04",
+      "layout": "A04",
+      "caseCount": 5,
+      "reportSha256": "9ba32c25e32adab283904caf151a65b8b5a2664c6920d01bf6fa572d0c573a76",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "7f201ed74ccb3fb60c17a2f6d258acbbe6b3550de8d72f4afeaf129788f340d6",
+      "runGroup": "2026-11-15T09-53-20-418Z-19664"
+    },
+    {
+      "taskId": "A09",
+      "layout": "A09",
+      "caseCount": 5,
+      "reportSha256": "134c16380d4965479af09320283b313eaee33fb9d58cd30e8fb34ae78813e4ce",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "bb98004b6688e0556cfc4f6776bf1fa7f6f7e85e76bd272916dea8adf5ecad9f",
+      "runGroup": "2026-11-15T09-53-27-656Z-23096"
+    },
+    {
+      "taskId": "A08",
+      "layout": "A08",
+      "caseCount": 6,
+      "reportSha256": "34616e4e57b0b806fe5d64b5a27052db229f5cc3b19d9321a371b3488bdb298d",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "dbf6295cd45400ff2004f3a0c0f35b56dd052433c386caef0441aeff21e73a1e",
+      "runGroup": "2026-11-15T09-53-34-149Z-2408"
+    },
+    {
+      "taskId": "C08",
+      "layout": "C08",
+      "caseCount": 7,
+      "reportSha256": "b9b532d5d757d2c6d74f821d9b74c76510a840af8e3552c19a1cf6b34443d251",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "6e00cbc7adfe94dcd6a31745c3b4c5817f9f56659a1b0d3618fe87ddd53389d5",
+      "runGroup": "2026-11-15T09-53-39-175Z-30616"
+    },
+    {
+      "taskId": "P06",
+      "layout": "P06",
+      "caseCount": 10,
+      "reportSha256": "356896f2d60f6420111a19b54f0d0f863991f5671421adda017989d4c07160bd",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "44ce2a00d51ca3e579c3a8f6b9982ed8e4b714655a9dd81d4d197ddc95e591b1",
+      "runGroup": "2026-11-15T09-53-45-099Z-30804"
+    },
+    {
+      "taskId": "A07",
+      "layout": "A07",
+      "caseCount": 8,
+      "reportSha256": "a61af899863fdbce6a11dab1d9ec5f09341995e2943532685401b2619b0a30bc",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "342856db65fcf5f013f7163e77371db94313bcab9cdb54d261bdfc0a680db543",
+      "runGroup": "2026-11-15T09-53-55-740Z-31484"
+    },
+    {
+      "taskId": "C06",
+      "layout": "C06",
+      "caseCount": 8,
+      "reportSha256": "2dd6def599af80b74fdea5dee7db36dadceeefedaa39a1b96028eae9aae2ff6e",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "ff63867f588e5eb6904aa98c97b3c8acbc14a8840edc832574aa6d0f4334593d",
+      "runGroup": "2026-11-15T09-54-02-445Z-37152"
+    },
+    {
+      "taskId": "C10",
+      "layout": "C10",
+      "caseCount": 7,
+      "reportSha256": "c28cd0f3c6f97be462547cea73a8d72cd504e5f2ad42e59838d29089274106de",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "ab4a4e86ec3d732383b28b3154a7ea2187110dc8f25ac002e0dea4a28c70f69f",
+      "runGroup": "2026-11-15T09-54-07-827Z-38440"
+    }
+  ]
+}

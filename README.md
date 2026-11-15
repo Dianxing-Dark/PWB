@@ -44,7 +44,7 @@ See the [paired reference calibration](experiments/pressure-plate-pairs-001/) an
 
 A03 evaluates boarding and support across two cycles. C03 adds a gate that opens at phase step 285 and closes at 405. P04 adds cargo transport, delivery and a fall/retry journey. Select one task with `node scripts/evaluate-platform.mjs --task=C03`. The calibration command runs the four registered P04 single faults. The curved shuttle adds a control with moving scenery and an unboardable platform. Both layouts use the same behavior checks with reviewed replay parameters.
 
-The platform and P01 share a browser runner, evidence format, and grading code. The platform cases retain position and phase traces, maximum relative rider and cargo drift, actual keyboard input and screenshots tied to boarding, transit and arrival.
+The platform and P01 share a browser runner, evidence format, and grading code. The platform uses a controlled browser clock with native keyboard input. P01 accepts an explicit `--clock=virtual` for the same timing mode. The platform cases retain position and phase traces, maximum relative rider and cargo drift, actual keyboard input and screenshots tied to boarding, transit and arrival.
 
 ## Run the 3D keys and inventory family
 
@@ -120,7 +120,7 @@ On Windows, install and authenticate Codex CLI, then run this from the checkout 
 
     python scripts/run-codex-p01.py D:/bench-runs/p01-001 --budget-seconds 600
 
-The command stages the two public contracts and optional local Three.js modules. It probes read and write isolation before starting a fresh Codex session, saves the input digests and JSONL transcript, and enforces a wall-clock limit. Use `--model` to pin the model for a series. Keep the evaluator checkout and baseline logs outside the builder directory.
+See the [paired Codex pilot](experiments/proposal-baselines-001/) for three task tiers under two fixed reasoning settings. The command stages the two public contracts and optional local Three.js modules. It probes read and write isolation before starting a fresh Codex session, saves the input digests and JSONL transcript, and enforces a wall-clock limit. Use `--model` to pin the model for a series. Keep the evaluator checkout and baseline logs outside the builder directory.
 
 Use `--task P02` for the planar playthrough. It stages the two public contracts without a rendering library. Select `--task=P02` when evaluating that submission.
 

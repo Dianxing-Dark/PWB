@@ -1,0 +1,729 @@
+{
+  "modelRequested": "gpt-6.1-sol",
+  "budgetSeconds": 600,
+  "attemptsPerTaskAndSetting": 1,
+  "scope": "One paired generation per tier and reasoning setting using Codex CLI. The generated artifact at the time limit is evaluated if it is present. Transport and agent shutdown are included in wall time.",
+  "records": [
+    {
+      "taskId": "A07",
+      "tier": "atom",
+      "reasoningEffort": "medium",
+      "generation": {
+        "elapsedSeconds": 600.11,
+        "exitCode": null,
+        "timedOut": true,
+        "entryExists": true,
+        "cliVersion": "codex-cli 0.169.0-alpha.11.1",
+        "inputDigests": {
+          "A07.json": "ba1a0480b6d166265320c9d18a3003b1e404676df2c6dc47e8990c61dcac4cfe",
+          "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+          "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+          "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+          "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+        }
+      },
+      "staticArtifactPass": true,
+      "artifactVersion": "d23e4b11dd3bf1ace62c496195d4a265e0cb324b953e39743d155f9edea97853",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "809ce7fe43464a0fa059383e0bba6dcbccbaecc6acd31c4a4726b28bbd95392b",
+      "reportSha256": "58611144bd6396988c584814c9786d532e5ba0970047bf350c6c3291dcac52c5",
+      "replaySha256": "751d1b6e76618bb6295b6b95cdc54258c45fe3d128b9c1c41ca8f8d9c7c274c6",
+      "automatedSummary": {
+        "strictTaskSuccess": null,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 0,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "strictWithVisualReview": true,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "blocked_before_open",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "window_boundary",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "cross_open_gate",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "blocked_after_expiry",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "pass_below_gate",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "gate_feedback",
+          "stage": "visual",
+          "status": "unverified",
+          "reason": "Review the captured before and after frames against the task's visible feedback criterion.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        }
+      ],
+      "visualReview": {
+        "gate_feedback": {
+          "status": "pass",
+          "reason": "The barred panel rises and the timer enters its green open state. The panel and the zero timer return after expiry.",
+          "frames": [
+            "gate_feedback/gate-closed.png",
+            "gate_feedback/gate-open.png",
+            "gate_feedback/gate-expired.png"
+          ]
+        }
+      }
+    },
+    {
+      "taskId": "A07",
+      "tier": "atom",
+      "reasoningEffort": "high",
+      "generation": {
+        "elapsedSeconds": 600.17,
+        "exitCode": null,
+        "timedOut": true,
+        "entryExists": true,
+        "cliVersion": "codex-cli 0.169.0-alpha.11.1",
+        "inputDigests": {
+          "A07.json": "ba1a0480b6d166265320c9d18a3003b1e404676df2c6dc47e8990c61dcac4cfe",
+          "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+          "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+          "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+          "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+        }
+      },
+      "staticArtifactPass": true,
+      "artifactVersion": "3d108bd6b2bf503abb1d11c235894c87f0b85b147efb9c1b27ca8eb64c5848de",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "7ba1d5c3b8c640a2c3b56ff3207a9e3a86109764db6bb5f3f5a3aef1979a23f2",
+      "reportSha256": "df1371a4e1f91da436b04d8ea1fd346a071a9663ac779a16843a64349b9c9f17",
+      "replaySha256": "3237e17190c9a5c9d52ba7664b455dbd479a4a0d7f519399d6aca14512a9a481",
+      "automatedSummary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0,
+          0
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 0
+        }
+      },
+      "strictWithVisualReview": false,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "status": "fail",
+          "reason": "Page error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "reviewedStatus": "fail",
+          "milestone": null
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "blocked_before_open",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "window_boundary",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "cross_open_gate",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "blocked_after_expiry",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "pass_below_gate",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "gate_feedback",
+          "stage": "visual",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        }
+      ],
+      "visualReview": {}
+    },
+    {
+      "taskId": "C06",
+      "tier": "combination",
+      "reasoningEffort": "medium",
+      "generation": {
+        "elapsedSeconds": 600.12,
+        "exitCode": null,
+        "timedOut": true,
+        "entryExists": true,
+        "cliVersion": "codex-cli 0.169.0-alpha.11.1",
+        "inputDigests": {
+          "C06.json": "0304b299641e93610697418f56350fb9816bced308d21ac38f1f819e05c4ccd5",
+          "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+          "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+          "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+          "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+        }
+      },
+      "staticArtifactPass": true,
+      "artifactVersion": "052a044403e2c23fcb034d125a4d639a6415f9beae94523315215c364abefdce",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "f3ff14e870740f7c1f5574922d04567bf5d7f80e0a745930edf3a9b753795c2c",
+      "reportSha256": "8927a8aa406f80c9b60e5333dbbedeed14005f4271360f5a01acfc366bec391a",
+      "replaySha256": "46337bdb1f1bb88a85ecc0f50c0156e9f5d03b5954cff330bc6ceb1bf20906fd",
+      "automatedSummary": {
+        "strictTaskSuccess": null,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 0,
+        "journeys": {
+          "passed": 1,
+          "planned": 1
+        }
+      },
+      "strictWithVisualReview": true,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "reject_incomplete_recipe",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "craft_once",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "reject_other_floor_delivery",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "deliver_on_same_floor",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "inventory_feedback",
+          "stage": "visual",
+          "status": "unverified",
+          "reason": "Review the captured before and after frames against the task's visible feedback criterion.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "craft_and_deliver",
+          "stage": "journey",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        }
+      ],
+      "visualReview": {
+        "inventory_feedback": {
+          "status": "pass",
+          "reason": "The visible ore and fiber counters both change from 01 to 00. The kit changes from 00 to 01 with a crafting notification.",
+          "frames": [
+            "inventory_feedback/before-crafting.png",
+            "inventory_feedback/after-crafting.png"
+          ]
+        }
+      }
+    },
+    {
+      "taskId": "C06",
+      "tier": "combination",
+      "reasoningEffort": "high",
+      "generation": {
+        "elapsedSeconds": 600.18,
+        "exitCode": null,
+        "timedOut": true,
+        "entryExists": true,
+        "cliVersion": "codex-cli 0.169.0-alpha.11.1",
+        "inputDigests": {
+          "C06.json": "0304b299641e93610697418f56350fb9816bced308d21ac38f1f819e05c4ccd5",
+          "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+          "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+          "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+          "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+        }
+      },
+      "staticArtifactPass": true,
+      "artifactVersion": "554da238aa1ea2aa048f51968d9b3d49c75d1f4098a107de74b04a27a6b70133",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "ec5ab38abdc2e97185cfe2ccf0ab946ed8eb0ee54354fcf484a1189df080e40b",
+      "reportSha256": "180c72478010b5518ad346273a34a22fdec70dfa4b0e239b0f832c400989c1cc",
+      "replaySha256": "443482d2e83d71d6057856ffee2f19e7e9ae68b7c738bb1c081a6bc7dcc541e6",
+      "automatedSummary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0,
+          0
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 1
+        }
+      },
+      "strictWithVisualReview": false,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "status": "fail",
+          "reason": "Page error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "reviewedStatus": "fail",
+          "milestone": null
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "reject_incomplete_recipe",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "craft_once",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "reject_other_floor_delivery",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "deliver_on_same_floor",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "inventory_feedback",
+          "stage": "visual",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "craft_and_deliver",
+          "stage": "journey",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        }
+      ],
+      "visualReview": {}
+    },
+    {
+      "taskId": "P01",
+      "tier": "playthrough",
+      "reasoningEffort": "medium",
+      "generation": {
+        "elapsedSeconds": 600.12,
+        "exitCode": null,
+        "timedOut": true,
+        "entryExists": true,
+        "cliVersion": "codex-cli 0.169.0-alpha.11.1",
+        "inputDigests": {
+          "P01.json": "7f78ae34ef2b89d305df69fc0d00e503de7f5fa22fee1f6293164740d1446bb4",
+          "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+          "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+          "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+          "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+        }
+      },
+      "staticArtifactPass": true,
+      "artifactVersion": "efd3c7541d3d249e407d33a2c8f2d1fffffd06cb455c4ea03fe6b57a0981811b",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "4dcae6a2a20496b7474dbf7d8988e09e518902563efa05498634ef1a96ebdf16",
+      "reportSha256": "660e42324b549d581ca7e4a73ca651633ded6b89a91a7372b81d140d939d693a",
+      "replaySha256": "4f3cdfc2119eb22e792c1df365194619aa53f70352e45fa32545244251bb3231",
+      "automatedSummary": {
+        "strictTaskSuccess": true,
+        "functionalInterval": [
+          1,
+          1
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 0,
+        "journeys": {
+          "passed": 2,
+          "planned": 2
+        }
+      },
+      "strictWithVisualReview": true,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "single_plate",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "release_before_threshold",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "unlock_at_threshold",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "closed_collision",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "open_collision",
+          "stage": "functional",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "door_feedback",
+          "stage": "visual",
+          "status": "unverified",
+          "reason": "No reviewed visual anchors for the gate. Inspect closed-gate.png and open-gate.png.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "finish",
+          "stage": "journey",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "recover_and_finish",
+          "stage": "journey",
+          "status": "pass",
+          "reason": "Registered checks satisfied.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        },
+        {
+          "caseId": "terminal_feedback",
+          "stage": "visual",
+          "status": "unverified",
+          "reason": "Inspect the failure, restart and victory frames for terminal feedback.",
+          "reviewedStatus": "pass",
+          "milestone": null
+        }
+      ],
+      "visualReview": {
+        "door_feedback": {
+          "status": "pass",
+          "reason": "The panel visibly lifts out of the passage and the relay HUD changes from locked to open.",
+          "frames": [
+            "door_feedback/closed-gate.png",
+            "door_feedback/open-gate.png"
+          ]
+        },
+        "terminal_feedback": {
+          "status": "pass",
+          "reason": "The fall shows the retry prompt, restart restores both plates to idle, and victory shows Access granted.",
+          "frames": [
+            "recover_and_finish/failure.png",
+            "recover_and_finish/restart.png",
+            "recover_and_finish/victory-hud.png"
+          ]
+        }
+      }
+    },
+    {
+      "taskId": "P01",
+      "tier": "playthrough",
+      "reasoningEffort": "high",
+      "generation": {
+        "elapsedSeconds": 600.17,
+        "exitCode": null,
+        "timedOut": true,
+        "entryExists": true,
+        "cliVersion": "codex-cli 0.169.0-alpha.11.1",
+        "inputDigests": {
+          "P01.json": "7f78ae34ef2b89d305df69fc0d00e503de7f5fa22fee1f6293164740d1446bb4",
+          "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+          "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+          "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+          "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+        }
+      },
+      "staticArtifactPass": true,
+      "artifactVersion": "0bd1465c3081644302178557139a51c64889a560a7d581038abf0b17b2924612",
+      "browserVersion": "157.0.8103.52",
+      "evaluatorVersion": "7c961e58ef5d301176858138c927d16660f95369a63d5877ac2d64a4fe37acca",
+      "reportSha256": "309de07da3b74dd6b7757665af8f9c6e18f921a427d16770265daea7bf89721d",
+      "replaySha256": "36b62d7dc3aa8129a0f965d98c6bdf2670b884151ca80fcf2791d1e8a3fadca5",
+      "automatedSummary": {
+        "strictTaskSuccess": false,
+        "functionalInterval": [
+          0,
+          0
+        ],
+        "functionalCoverage": 1,
+        "visualCoverage": 1,
+        "journeys": {
+          "passed": 0,
+          "planned": 2
+        }
+      },
+      "strictWithVisualReview": false,
+      "cases": [
+        {
+          "caseId": "launch",
+          "stage": "prerequisite",
+          "status": "fail",
+          "reason": "Page error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "reviewedStatus": "fail",
+          "milestone": null
+        },
+        {
+          "caseId": "probe",
+          "stage": "prerequisite",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "single_plate",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "release_before_threshold",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "unlock_at_threshold",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "closed_collision",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "open_collision",
+          "stage": "functional",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "door_feedback",
+          "stage": "visual",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "finish",
+          "stage": "journey",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "recover_and_finish",
+          "stage": "journey",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        },
+        {
+          "caseId": "terminal_feedback",
+          "stage": "visual",
+          "status": "product_blocked",
+          "reason": "Required prerequisite launch did not pass.",
+          "reviewedStatus": "product_blocked",
+          "milestone": null
+        }
+      ],
+      "visualReview": {}
+    }
+  ]
+}
