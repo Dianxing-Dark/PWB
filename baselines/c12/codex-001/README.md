@@ -11,6 +11,8 @@ One fresh Codex CLI session generated Relay / 12 from the public contract and sh
 
 The evaluator measured the geometry after generation and supplied the replay coordinates. The browser runs preserved lower power, cleared the transient upper switch on retry, and reached extraction after the switch was activated again. The automated report marks the visual check as unverified. The separate review records the trap overlay and the return to the upper deck.
 
+The controlled-clock recheck on Chrome 157 reproduced all 11 automated passes, including both journeys. The replay records the submission's measured checkpoint half-width of 0.68 m. The recheck frames show the interruption overlay clearing and the player returning to the saved upper checkpoint. The archived evidence and visual review document the original run.
+
 To replay from PowerShell, run `npm ci` and stage the exact scored files outside the checkout.
 
     $staged = 'D:/bench-runs/c12-codex-001-replay'

@@ -1,5 +1,6 @@
 {
   "tolerance": 0.1,
+  "registrationHalfWidth": 0.68,
   "probe": {
     "key": "d",
     "axis": 0,
