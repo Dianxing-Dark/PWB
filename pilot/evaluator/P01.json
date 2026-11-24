@@ -183,6 +183,26 @@
       "caseType": "negative"
     },
     {
+      "id": "no_victory_below_exit",
+      "stage": "functional",
+      "priority": "P1",
+      "family": "goal-guard",
+      "scenario": "default",
+      "inputs": [
+        {
+          "type": "native",
+          "instruction": "从默认入口沿已审核的下层路线尝试靠近上层出口投影，途中保持锁门且不穿门。"
+        }
+      ],
+      "checks": [
+        "门未解锁、角色未穿门时不得触发胜利。",
+        "确认角色实际到达出口投影内的下层位置，或到达已审核的下层尽头并跌落，才可确认此反例通过。"
+      ],
+      "evidence": ["native_input_log", "snapshot", "event_log", "screenshot"],
+      "blockedBy": ["launch", "probe"],
+      "caseType": "negative"
+    },
+    {
       "id": "open_collision",
       "stage": "functional",
       "priority": "P1",

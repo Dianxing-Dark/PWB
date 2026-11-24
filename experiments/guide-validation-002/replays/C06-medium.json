@@ -1,0 +1,60 @@
+{
+  "tolerance": 0.07,
+  "upper": "upper",
+  "lower": "lower",
+  "ramp": "ramp",
+  "poses": {
+    "bench_with_ore": [
+      1,
+      3,
+      0.2
+    ],
+    "bench_ready": [
+      1,
+      3,
+      0.2
+    ],
+    "under_delivery": [
+      5,
+      0,
+      3
+    ],
+    "at_delivery": [
+      5,
+      3,
+      3
+    ]
+  },
+  "toOre": [
+    [
+      -3,
+      2
+    ]
+  ],
+  "toFiber": [
+    [
+      -5,
+      2
+    ],
+    [
+      -5,
+      3.95
+    ],
+    [
+      -5,
+      -3.48
+    ],
+    [
+      4,
+      -3.48
+    ]
+  ],
+  "bench": [
+    1,
+    -1
+  ],
+  "delivery": [
+    5,
+    3
+  ]
+}

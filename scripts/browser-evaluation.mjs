@@ -5,6 +5,8 @@ import { join, relative, resolve } from "node:path";
 import { performance } from "node:perf_hooks";
 import { chromium } from "playwright-core";
 import Ajv2020 from "ajv/dist/2020.js";
+import { checkArtifact } from "./artifact-preflight.mjs";
+import { summarize } from "./evaluation-summary.mjs";
 
 export class CheckFailure extends Error {
   constructor(message, milestone) {
@@ -19,10 +21,15 @@ export function requireCheck(condition, message, milestone) {
 
 export const readJson = async path => JSON.parse(await readFile(new URL("../" + path, import.meta.url), "utf8"));
 const validate = new Ajv2020({ allErrors: true }).compile(await readJson("pilot/evaluator/run-report.schema.json"));
+export function validateReport(report) {
+  if (!validate(report)) throw new Error(JSON.stringify(validate.errors));
+}
+
 export const digest = data => createHash("sha256").update(data).digest("hex");
 
 export async function version(paths) {
-  const source = await Promise.all(paths.map(path => readFile(resolve(path))));
+  const files = [...paths, "scripts/artifact-preflight.mjs", "scripts/evaluation-summary.mjs"];
+  const source = await Promise.all(files.map(path => readFile(resolve(path))));
   return digest(source.map(digest).join(""));
 }
 
@@ -74,31 +81,9 @@ export function selectProfile(plan, profile) {
   return { ...plan, cases: selected, requiredJourneyCases: plan.requiredJourneyCases.filter(id => ids.has(id)) };
 }
 
-function score(plan, rows, stage) {
-  const families = new Map();
-  for (const [i, row] of rows.entries()) {
-    const entry = plan.cases[i];
-    if (entry.stage !== stage) continue;
-    if (!families.has(entry.family)) families.set(entry.family, []);
-    families.get(entry.family).push(row.status);
-  }
-  if (!families.size) return { interval: null, coverage: null };
-  let lower = 0;
-  let upper = 0;
-  let coverage = 0;
-  for (const statuses of families.values()) {
-    const n = statuses.length;
-    const pass = statuses.filter(status => status === "pass").length;
-    const unknown = statuses.filter(status => status === "unverified").length;
-    lower += pass / n;
-    upper += (pass + unknown) / n;
-    coverage += (n - unknown) / n;
-  }
-  return { interval: [lower / families.size, upper / families.size], coverage: coverage / families.size };
-}
-
 export async function runVariant(browser, base, {
-  layout, route, fault, server, artifactVersion, evaluatorVersion, plan, contract, cases, helpers = {}, setup, profile,
+  layout, route, fault, server, artifactDirectory, artifactVersion, evaluatorVersion, plan, contract, cases,
+  helpers = {}, setup, profile,
   replayClock = "real",
 }) {
   const runId = layout + (fault ? "-" + fault : "");
@@ -121,6 +106,8 @@ export async function runVariant(browser, base, {
     return entry;
   }
 
+  const preflight = await checkArtifact(artifactDirectory);
+  await save("launch", "preflight.json", JSON.stringify(preflight, null, 2), "package_preflight", "filesystem");
   for (const entry of plan.cases) {
     const caseId = entry.id;
     const dependency = results.find(result => entry.blockedBy.includes(result.caseId) && result.status !== "pass");
@@ -137,16 +124,30 @@ export async function runVariant(browser, base, {
     const trace = [];
     const pageErrors = [];
     const firstEvidence = evidence.length;
-    const page = entry.inputs.every(step => step.type === "reuse") ? null :
+    const launchEvidence = caseId === "launch" ? ["launch/preflight.json"] : [];
+    const resourceErrors = [];
+    let journeyStart;
+    const budget = entry.stage === "journey" && contract.completionBudget;
+    const budgetSeconds = budget && ((entry.caseType === "recovery" && budget.recoverAndFinishSeconds) ||
+      budget.normalJourneySeconds);
+    const page = !preflight.pass || entry.inputs.every(step => step.type === "reuse") ? null :
       await browser.newPage({ viewport: { width: 960, height: 720 }, deviceScaleFactor: 1 });
     page?.on("pageerror", error => pageErrors.push(error.message));
     page?.on("console", message => {
       if (message.type() === "error") pageErrors.push(message.text());
     });
 
+    page?.on("response", response => {
+      if (response.status() >= 400) resourceErrors.push({ url: response.url(), status: response.status() });
+    });
+    page?.on("requestfailed", request => {
+      resourceErrors.push({ url: request.url(), error: request.failure()?.errorText });
+    });
+
     const sample = async () => {
       const state = await page.evaluate(() => ({ ...window.__gameTest.getSnapshot(), browserMs: performance.now() }));
       trace.push(state);
+      if (journeyStart !== undefined) checkJourneyBudget(replayClock === "virtual" ? state.browserMs : performance.now());
       return state;
     };
     const events = () => page.evaluate(() => window.__gameTest.getEvents(-1));
@@ -154,6 +155,14 @@ export async function runVariant(browser, base, {
     const pollMs = replayClock === "virtual" ? 16 : 32;
     const elapsed = replayClock === "virtual"
       ? () => page.evaluate(() => performance.now()) : () => performance.now();
+    function checkJourneyBudget(now) {
+      const duration = now - journeyStart;
+      notes.journeyElapsedMs = Math.round(duration);
+      if (duration > budgetSeconds * 1000) {
+        throw new CheckFailure("The replay exceeded its " + budgetSeconds + "-second journey budget.", "journey_budget");
+      }
+    }
+
     async function until(predicate, timeout, reason, milestone) {
       const deadline = await elapsed() + timeout;
       do {
@@ -204,6 +213,10 @@ export async function runVariant(browser, base, {
     let outcome;
     let result;
     try {
+      if (!preflight.pass) {
+        throw new CheckFailure("Package preflight failed: " +
+          preflight.cases.filter(row => !row.pass).map(row => row.id).join(", "), "package_preflight");
+      }
       if (page) {
         if (replayClock === "virtual") {
           await page.clock.install({ time: new Date("2020-01-01T00:00:00Z") });
@@ -226,13 +239,26 @@ export async function runVariant(browser, base, {
         });
         const response = await page.goto(url.href, { timeout: 12000 });
         requireCheck(response?.ok(), "The artifact entry page did not return a successful response.");
+        if (route.startButton) {
+          await page.locator(route.startButton).click({ timeout: 4000 });
+        } else {
+          const start = page.getByRole("button", { name: /^(start(?: game)?|play(?: now)?|begin|开始(?:游戏)?|进入游戏)$/i });
+          if (await start.count() === 1 && await start.isVisible()) await start.click({ timeout: 4000 });
+        }
         try {
-          await page.waitForFunction(() => typeof window.__gameTest?.getSnapshot === "function", undefined,
-            { timeout: 8000, polling: 50 });
+          await page.waitForFunction(() => typeof window.__gameTest?.getSnapshot === "function" &&
+              typeof window.__gameTest?.getEvents === "function", undefined, { timeout: 8000, polling: 50 });
           const before = await sample();
           await until(state => state.tick > before.tick, 3000, "Simulation did not start.");
         } catch (error) {
-          if (pageErrors.length) throw new CheckFailure("Page error: " + pageErrors.join("; "));
+          const failedResources = resourceErrors.map(row => (row.status ?? row.error) + " " + row.url);
+          if (pageErrors.length || failedResources.length) {
+            throw new CheckFailure("Browser startup failed: " + [...new Set([...failedResources, ...pageErrors])].join(" | "),
+              "browser_startup");
+          }
+          if (error.name === "TimeoutError" && !await page.locator("button:visible, [role=button]:visible, a[href]:visible").count()) {
+            throw new CheckFailure("The required runtime observation interface was unavailable after startup.", "runtime_interface");
+          }
           throw error;
         }
         if (entry.scenario !== "default") {
@@ -242,8 +268,14 @@ export async function runVariant(browser, base, {
           setup(initial, entry.scenario);
         }
       }
+      if (budgetSeconds) {
+        notes.journeyBudgetSeconds = budgetSeconds;
+        notes.journeyClock = replayClock;
+        journeyStart = await elapsed();
+      }
       result = await cases[caseId]({ page, sample, events, until, move, go, capture, shared, notes, trace,
         route, contract, ...helpers });
+      if (journeyStart !== undefined) checkJourneyBudget(await elapsed());
       outcome = result?.unverified
         ? { status: "unverified", reason: result.unverified }
         : { status: "pass", reason: "Registered checks satisfied." };
@@ -259,31 +291,23 @@ export async function runVariant(browser, base, {
         stateEvents = await events().catch(() => []);
         await page.close().catch(() => {});
       }
-      const payload = JSON.stringify({ caseId, scenarioId: entry.scenario, trace, inputs, stateEvents, pageErrors, notes, elapsedMs: Math.round(performance.now() - caseStarted) }, null, 2);
+      const payload = JSON.stringify({ caseId, scenarioId: entry.scenario, trace, inputs, stateEvents, pageErrors, resourceErrors, notes, elapsedMs: Math.round(performance.now() - caseStarted) }, null, 2);
       await save(caseId, "trace.json", payload, "case_trace", "chromium_and_runtime", trace.at(-1));
     }
-    const evidenceRefs = [...(result?.refs ?? []), ...evidence.slice(firstEvidence).map(record => record.id)];
+    const evidenceRefs = [...launchEvidence, ...(result?.refs ?? []), ...evidence.slice(firstEvidence).map(record => record.id)];
     results.push({ caseId, ...outcome, evidenceRefs });
     console.log(runId, caseId, outcome.status, outcome.reason);
   }
 
-  const required = results.filter((_, i) => plan.cases[i].priority !== "P2" ||
-    plan.requiredJourneyCases.includes(plan.cases[i].id));
-  const strictTaskSuccess = profile && profile !== "C" ? null :
-    required.some(row => row.status === "fail" || row.status === "product_blocked")
-    ? false : required.every(row => row.status === "pass") ? true : null;
-  const functional = score(plan, results, "functional");
-  const visual = score(plan, results, "visual");
   const report = {
     schemaVersion: "pilot-0.1", recordKind: "run", taskId: plan.taskId, runId, ...(profile ? { profile } : {}),
     artifactVersion: artifactVersion + (fault ? "/" + fault : ""), evaluatorVersion,
     browserVersion: browser.version(), seed: null, cases: results, evidence,
-    summary: { strictTaskSuccess, functionalInterval: functional.interval,
-      functionalCoverage: functional.coverage, visualCoverage: visual.coverage,
-      journeys: { passed: results.filter(row => plan.requiredJourneyCases.includes(row.caseId) && row.status === "pass").length,
-        planned: plan.requiredJourneyCases.length } },
+    casePlan: plan.cases.map(({ id, stage, priority, family, caseType }) => ({ id, stage, priority, family, caseType })),
+    requiredJourneyCases: plan.requiredJourneyCases,
+    summary: summarize(plan, results, profile),
   };
-  if (!validate(report)) throw new Error(JSON.stringify(validate.errors));
+  validateReport(report);
   await writeFile(join(root, "report.json"), JSON.stringify(report, null, 2) + "\n");
   console.log(runId, JSON.stringify(report.summary), Math.round(performance.now() - started) + "ms", root);
   return report;

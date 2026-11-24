@@ -5,22 +5,23 @@ import { performance } from "node:perf_hooks";
 import { readJson } from "./browser-evaluation.mjs";
 
 const [output, ...taskIds] = process.argv.slice(2);
-if (!output || !taskIds.length || taskIds.some(id => !["C09", "C12"].includes(id)) ||
+const { tasks } = await readJson("pilot/manifest.json");
+if (!output || !taskIds.length || taskIds.some(id => !tasks.some(task => task.id === id)) ||
     new Set(taskIds).size !== taskIds.length) {
-  throw new Error("Usage: node scripts/benchmark-profile-time.mjs <new-output-directory> C09 C12");
+  throw new Error("Usage: node scripts/benchmark-profile-time.mjs <new-output-directory> <task-id> [<task-id> ...]");
 }
 const outputDir = resolve(output);
 await mkdir(outputDir);
-const { tasks } = await readJson("pilot/manifest.json");
 const records = [];
 
 for (const order of ["ABC", "BCA", "CAB"]) {
   for (const taskId of taskIds) {
     const { implementation } = tasks.find(task => task.id === taskId);
     for (const profile of order) {
+      const options = taskId === "P01" ? ["--layout=reference", "--clock=virtual"] : [];
       const started = performance.now();
       const { exitCode, log } = await new Promise((accept, reject) => {
-        const child = spawn(process.execPath, [implementation.evaluator, "--task=" + taskId, "--profile=" + profile],
+        const child = spawn(process.execPath, [implementation.evaluator, "--task=" + taskId, "--profile=" + profile, ...options],
           { stdio: ["ignore", "pipe", "pipe"], windowsHide: true });
         const chunks = [];
         child.stdout.on("data", chunk => chunks.push(chunk));

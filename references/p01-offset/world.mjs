@@ -142,7 +142,11 @@ export function newWorld(fault) {
       updateSwitch("B", state.avatar.position);
       updateGate();
       const [x, y, z] = state.avatar.position;
-      if (y < elevation - 0.06 || Math.abs(x - airlock.x) > airlock.width / 2) return;
+      if (Math.abs(x - airlock.x) > airlock.width / 2) return;
+      if (y < elevation - 0.06) {
+        if (fault === "wrong_floor_victory" && y === 0 && Math.abs(z - exit[2]) < 0.36) settle("victory");
+        return;
+      }
       if (!state.goalCrossed && state.door.passable && z > airlock.z + 0.3) {
         state.goalCrossed = true;
         emit("door_crossed");

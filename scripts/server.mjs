@@ -10,24 +10,29 @@ const contentTypes = {
   ".mjs": "text/javascript; charset=utf-8", ".js": "text/javascript; charset=utf-8",
   ".json": "application/json", ".png": "image/png", ".svg": "image/svg+xml",
   ".webp": "image/webp", ".jpg": "image/jpeg", ".glb": "model/gltf-binary",
+  ".jpeg": "image/jpeg", ".gif": "image/gif", ".ico": "image/x-icon",
+  ".mp3": "audio/mpeg", ".ogg": "audio/ogg", ".wav": "audio/wav", ".webm": "video/webm",
+  ".woff": "font/woff", ".woff2": "font/woff2", ".wasm": "application/wasm",
 };
 
 export async function serveReference(port = 0, folder = "references/p01") {
   const artifact = await realpath(resolve(repo, folder));
-  const vendor = await realpath(resolve(repo, "node_modules/three/build"));
-  const style = resolve(repo, "references/p01/style.css");
+  const reference = artifact.startsWith(resolve(repo, "references") + sep);
+  const vendor = reference && await realpath(resolve(repo, "node_modules/three/build"));
+  const style = reference && resolve(repo, "references/p01/style.css");
   const server = createServer(async (req, res) => {
     try {
       const url = new URL(req.url, "http://localhost");
       const path = decodeURIComponent(url.pathname);
       const vendorPrefix = "/vendor/";
-      const fromVendor = path.startsWith(vendorPrefix);
+      const fromVendor = reference && path.startsWith(vendorPrefix);
       const root = fromVendor ? vendor : artifact;
       const relativePath = fromVendor ? path.slice(vendorPrefix.length) : path === "/" ? "index.html" : path.slice(1);
-      const requested = path === "/p01-style.css" ? style : resolve(root, relativePath);
+      const useReferenceStyle = reference && path === "/p01-style.css";
+      const requested = useReferenceStyle ? style : resolve(root, relativePath);
       const file = await realpath(requested);
       const type = contentTypes[extname(file)];
-      const allowed = file === style && path === "/p01-style.css" || file.startsWith(root + sep);
+      const allowed = useReferenceStyle && file === style || file.startsWith(root + sep);
       if (req.method !== "GET" || !allowed || !type || !(await stat(file)).isFile()) {
         res.writeHead(404).end();
         return;

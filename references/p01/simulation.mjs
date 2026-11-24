@@ -118,7 +118,9 @@ export function createSimulation(fault = "", task = "P01") {
       state.goalCrossed = true;
       record("door_crossed");
     }
-    if (state.goalCrossed && avatar[1] >= TOP - 0.05 &&
+    const canWin = state.goalCrossed && avatar[1] >= TOP - 0.05 ||
+      fault === "wrong_floor_victory" && avatar[1] === 0;
+    if (canWin &&
         avatar[0] >= 4.6 && Math.abs(avatar[2] - GATE_Z) <= 0.7 && fault !== "dead_goal_trigger") {
       setOutcome("victory");
     }

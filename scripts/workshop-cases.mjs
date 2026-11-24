@@ -45,10 +45,19 @@ export function checkSetup(state, id, route) {
   }
 }
 
-async function interact(test) {
-  const before = await test.sample();
+async function interact(test, before = null) {
+  before ??= await test.sample();
   await test.page.keyboard.press("e");
   return test.until(s => s.tick > before.tick || s.outcome !== before.outcome, 1200, "The interaction was never processed.");
+}
+
+async function observeInteraction(test) {
+  const before = await test.sample();
+  const cursor = (await test.events()).at(-1)?.sequence ?? -1;
+  const after = await interact(test, before);
+  const inputEvents = (await test.events()).filter(event =>
+    event.sequence > cursor && event.attemptId === before.attemptId && event.tick >= before.tick);
+  return { before, after, inputEvents };
 }
 
 async function walk(test, points) {
@@ -82,34 +91,30 @@ async function blockedByGate(test) {
 }
 
 async function craft(test) {
-  const before = await test.sample();
-  const after = await interact(test);
-  const crafted = eventsOf(await test.events(), "kit_crafted", after.attemptId).at(-1);
+  const { before, after, inputEvents } = await observeInteraction(test);
+  const crafted = inputEvents.filter(event => event.type === "kit_crafted");
   requireCheck(matching(before.inventory, 1, 1, 0) && matching(after.inventory, 0, 0, 1) &&
-    crafted?.data.id === "kit" && crafted.tick > before.tick && matching(crafted.data.before, 1, 1, 0) &&
-    matching(crafted.data.after, 0, 0, 1), "Crafting did not consume both materials and create exactly one kit.", "craft");
-  return crafted;
+    crafted.length === 1 && crafted[0].data.id === "kit" && matching(crafted[0].data.before, 1, 1, 0) &&
+    matching(crafted[0].data.after, 0, 0, 1), "Crafting did not consume both materials and create exactly one kit.", "craft");
+  return crafted[0];
 }
 
 async function take(test, id, floor) {
-  const before = await test.sample();
-  const after = await interact(test);
-  const collected = eventsOf(await test.events(), "material_collected", after.attemptId).filter(e => e.data.id === id);
+  const { before, after, inputEvents } = await observeInteraction(test);
+  const collected = inputEvents.filter(e => e.type === "material_collected" && e.data.id === id);
   requireCheck(before.avatar.supportSurface === floor && !before[id].collected && before.inventory[id] === 0 &&
-    after[id].collected && after.inventory[id] === 1 && collected.length === 1 && collected[0].tick > before.tick,
+    after[id].collected && after.inventory[id] === 1 && collected.length === 1,
   "The native input did not collect one copy of the " + id + " on its own floor.", id);
   return collected[0];
 }
 
 async function deliver(test) {
-  const before = await test.sample();
-  const after = await interact(test);
-  const events = await test.events();
-  const delivered = eventsOf(events, "kit_delivered", after.attemptId);
-  const win = eventsOf(events, "outcome_changed", after.attemptId).find(e => e.data.outcome === "victory");
+  const { before, after, inputEvents } = await observeInteraction(test);
+  const delivered = inputEvents.filter(event => event.type === "kit_delivered");
+  const win = inputEvents.find(e => e.type === "outcome_changed" && e.data.outcome === "victory");
   requireCheck(before.avatar.supportSurface === test.route.upper && matching(before.inventory, 0, 0, 1) &&
     after.outcome === "victory" && matching(after.inventory, 0, 0, 0) && delivered.length === 1 &&
-    delivered[0].data.id === "kit" && delivered[0].data.remaining === 0 && delivered[0].tick > before.tick &&
+    delivered[0].data.id === "kit" && delivered[0].data.remaining === 0 &&
     win?.sequence > delivered[0].sequence, "Upper-floor delivery did not consume one component and win.", "deliver");
   return delivered[0];
 }

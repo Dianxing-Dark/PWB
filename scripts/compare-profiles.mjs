@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { reportPlan } from "./evaluation-summary.mjs";
 
 const repo = fileURLToPath(new URL("../", import.meta.url));
 const json = async path => JSON.parse(await readFile(path, "utf8"));
@@ -15,13 +16,9 @@ const stages = {
 async function compare(path) {
   const report = await json(path);
   if (report.profile && report.profile !== "C") throw new Error("Profile projections require a full run report: " + path);
-  const plan = await json(join(repo, "pilot", "evaluator", report.taskId + ".json"));
+  const legacy = report.casePlan ? null : await json(join(repo, "pilot", "evaluator", report.taskId + ".json"));
+  const plan = reportPlan(report, legacy);
   const definitions = new Map(plan.cases.map(entry => [entry.id, entry]));
-  const observed = new Set(report.cases.map(row => row.caseId));
-  if (observed.size !== definitions.size || report.cases.length !== definitions.size ||
-      plan.cases.some(entry => !observed.has(entry.id))) {
-    throw new Error("Full report does not match the current task plan: " + path);
-  }
   const evidence = new Map(report.evidence.map(entry => [entry.id, entry]));
   const cases = await Promise.all(report.cases.map(async row => {
     const definition = definitions.get(row.caseId);
@@ -61,7 +58,7 @@ async function compare(path) {
     strictTaskSuccess: report.summary.strictTaskSuccess,
     functionalInterval: report.summary.functionalInterval,
     functionalCoverage: report.summary.functionalCoverage,
-    functionalByCaseType: Object.fromEntries(["positive", "negative", "boundary"].map(type =>
+    functionalByCaseType: Object.fromEntries(["positive", "negative", "boundary", "recovery"].map(type =>
       [type, count(cases.filter(row => row.stage === "functional" && row.caseType === type))])),
     scriptedJourney: count(cases.filter(row => row.stage === "journey")),
     visual: count(cases.filter(row => row.stage === "visual")),

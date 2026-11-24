@@ -1,8 +1,8 @@
 import { requireCheck } from "./browser-evaluation.mjs";
+import { isPlateContact } from "./plate-contact-cases.mjs";
 
 const hasDoorEvent = event => event.type === "door_state_changed" && event.data.unlocked;
-const plateActivated = (event, id) => event.type === "contact_changed" &&
-  (event.data.plate ?? event.data.plateId ?? event.data.objectId) === id && event.data.active === true;
+const plateActivated = (event, id) => isPlateContact(event, id) && event.data.active === true;
 const activatedB = event => plateActivated(event, "B");
 
 async function standOnB(test) {
@@ -139,6 +139,32 @@ export const cases = {
       motion.every(state => !pastGate(test, state) && !state.door.passable && !state.goalCrossed),
     "The locked gate did not physically block an approach.");
   },
+  async no_victory_below_exit(test) {
+    const { exit, lowerExitWaypoints, tolerance, upperHeight } = test.route;
+    if (!lowerExitWaypoints?.length) {
+      return { unverified: "Register a reachable lower-floor approach to the exit projection for this layout." };
+    }
+
+    for (const waypoint of lowerExitWaypoints) {
+      const motion = await test.go(waypoint);
+      if (motion.some(state => state.outcome === "victory" &&
+          (!state.door.unlocked || !state.goalCrossed || state.avatar.position[1] < upperHeight - 0.1))) {
+        await test.capture("victory-without-required-crossing");
+        requireCheck(false, "Victory occurred without the required open gate and upper-floor crossing.", "enter_goal");
+      }
+    }
+    const final = await test.sample();
+    const [x, y, z] = final.avatar.position;
+    const [startX, startY, startZ] = test.trace[0].avatar.position;
+    const reached = Math.hypot(x - exit[0], z - exit[1]) <= tolerance * 1.5 && y < upperHeight - 0.2;
+    const fellTowardExit = test.route.lowerExitOutcome === "failure" && final.outcome === "failure" &&
+      y < startY - 0.2 && Math.hypot(x - exit[0], z - exit[1]) < Math.hypot(startX - exit[0], startZ - exit[1]);
+    const approach = test.trace.every(state => !state.door.unlocked && !state.goalCrossed && state.outcome !== "victory");
+    await test.capture(fellTowardExit ? "fell-on-lower-approach" : "beneath-exit");
+    if (!(approach && (reached && final.outcome === "none" || fellTowardExit))) {
+      return { unverified: "The reviewed lower approach did not reach the exit projection or its registered fall boundary." };
+    }
+  },
   async open_collision(test) {
     await standOnB(test);
     await waitForGate(test);
@@ -153,10 +179,19 @@ export const cases = {
     const closed = await test.capture("closed-gate");
     await standOnB(test);
     await waitForGate(test);
-    const open = await test.capture("open-gate");
+    const unlocked = (await test.events()).find(hasDoorEvent);
+    await test.capture("open-gate");
+    if (unlocked) {
+      const settledTick = unlocked.tick + test.contract.constants.maxOpeningTicks;
+      await test.until(state => state.tick >= settledTick, 1600, "The opening animation window did not elapse.");
+    }
+    const open = await test.capture("open-gate-settled");
+    await test.go(test.route.gateBefore);
+    const motion = await test.go(test.route.gateAfter);
+    await test.capture(pastGate(test, motion.at(-1)) ? "after-crossing" : "crossing-attempt");
     const feedback = test.route.feedback;
     if (!feedback?.gateLabel || !feedback.gateColor) {
-      return { unverified: "No reviewed visual anchors for the gate. Inspect closed-gate.png and open-gate.png." };
+      return { unverified: "Review the gate before opening, at passability, after its animation, and during traversal." };
     }
     const playerView = await test.page.locator(feedback.gateLabel).filter({ visible: true }).first().textContent({ timeout: 1500 });
     const pixels = { closed: test.gatePixels(closed.bytes, feedback.gateColor),

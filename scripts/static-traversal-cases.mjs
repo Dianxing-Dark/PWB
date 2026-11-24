@@ -4,15 +4,28 @@ import { requireCheck } from "./browser-evaluation.mjs";
 const position = state => state.avatar.position;
 const y = state => position(state)[1];
 const surface = state => state.avatar.supportSurface;
-const conditions = {
-  slope_start: { floor: "lower", height: 0 },
-  slope_mid: { floor: "slope", height: 2.05 * 2.4 / 3.3 },
-  upper_drop: { floor: "upper", height: 2.4 },
-  lower_reverse: { floor: "lower", height: 0 },
+export const primaryReplay = {
+  tolerance: 0.075,
+  probe: "d",
+  surfaces: { lower: "lower", slope: "slope", upper: "upper" },
+  lowerHeight: 0,
+  upperHeight: 2.4,
+  scenarioHeights: { slope_start: 0, slope_mid: 2.05 * 2.4 / 3.3, upper_drop: 2.4, lower_reverse: 0 },
+  climb: { key: "d", target: 1.78, maxRisePerTick: 0.045 },
+  slopeFall: { key: "s", target: 1.31, continueKey: "a" },
+  upperDrop: { key: "d", target: 1.85, continueKey: "a" },
+  reverse: { key: "a", target: 1.45, start: 0.4 },
 };
-export function checkSetup(state, scenario) {
-  const { floor, height } = conditions[scenario];
-  requireCheck(state.outcome === "none" && surface(state) === floor && Math.abs(y(state) - height) < 0.06,
+const scenarioFloor = { slope_start: "lower", slope_mid: "slope", upper_drop: "upper", lower_reverse: "lower" };
+const directions = { d: [0, 1], a: [0, -1], s: [2, 1], w: [2, -1] };
+function progress(state, key) {
+  const [axis, sign] = directions[key];
+  return position(state)[axis] * sign;
+}
+
+export function checkSetup(state, scenario, route) {
+  requireCheck(state.outcome === "none" && surface(state) === route.surfaces[scenarioFloor[scenario]] &&
+    Math.abs(y(state) - route.scenarioHeights[scenario]) < 0.06,
     "The local scenario is missing its intended supporting surface.");
 }
 
@@ -22,36 +35,43 @@ function transitions(events, before, after) {
 }
 
 async function climb(test) {
-  const motion = await test.move("d", state => position(state)[0] > 1.78 && surface(state) === "upper", 3400);
+  const { lowerHeight, upperHeight, surfaces, climb: { key, target, maxRisePerTick } } = test.route;
+  const motion = await test.move(key, state => progress(state, key) > target && surface(state) === surfaces.upper, 3400);
   const final = motion.at(-1);
-  const slope = motion.filter(state => surface(state) === "slope");
+  const slope = motion.filter(state => surface(state) === surfaces.slope);
+  const rise = upperHeight - lowerHeight;
+  const atFraction = (lo, hi) => slope.some(state => y(state) > lowerHeight + rise * lo && y(state) < lowerHeight + rise * hi);
   const continuous = motion.slice(1).every((state, i) => {
     const prior = motion[i];
     const ticks = state.tick - prior.tick;
-    return ticks >= 0 && y(state) >= y(prior) - 0.001 && y(state) - y(prior) <= 0.045 * ticks + 0.001;
+    return ticks >= 0 && y(state) >= y(prior) - 0.001 && y(state) - y(prior) <= maxRisePerTick * ticks + 0.001;
   });
   const events = await test.events();
-  requireCheck(y(motion[0]) === 0 && surface(final) === "upper" && Math.abs(y(final) - 2.4) < 0.05 &&
-    slope.some(s => y(s) > 0.35 && y(s) < 1) && slope.some(s => y(s) > 1.4 && y(s) < 2.15) &&
+  requireCheck(Math.abs(y(motion[0]) - lowerHeight) < 0.05 && surface(final) === surfaces.upper &&
+    Math.abs(y(final) - upperHeight) < 0.05 && atFraction(0.14, 0.42) && atFraction(0.58, 0.9) &&
     continuous && motion.every(state => state.outcome === "none") &&
-    transitions(events, "lower", "slope") && transitions(events, "slope", "upper"),
+    transitions(events, surfaces.lower, surfaces.slope) && transitions(events, surfaces.slope, surfaces.upper),
   "The player did not advance over continuous ramp heights and onto the upper deck.", "ascend");
   await test.capture("top");
 }
 
-async function land(test, key, before, axis, target) {
+async function land(test, before, { key, target, continueKey }) {
+  const { lowerHeight, surfaces } = test.route;
   const start = await test.sample();
-  const motion = await test.move(key, state => position(state)[axis] >= target && surface(state) === "lower", 1600);
+  const motion = await test.move(key, state => progress(state, key) >= target && surface(state) === surfaces.lower, 1600);
   const final = motion.at(-1);
   const falling = motion.filter(state => surface(state) === null);
   const events = await test.events();
-  requireCheck(surface(start) === before && y(start) > 1 && y(final) === 0 && surface(final) === "lower" &&
-    position(final)[axis] >= target - 0.04 && falling.some(state => y(state) < y(start) - 0.23 && y(state) > 0.22) &&
-    transitions(events, before, null) && transitions(events, null, "lower") &&
+  const height = y(start) - lowerHeight;
+  requireCheck(surface(start) === surfaces[before] && height > 0.1 && Math.abs(y(final) - lowerHeight) < 0.05 &&
+    surface(final) === surfaces.lower && progress(final, key) >= target - 0.04 &&
+    falling.some(state => y(state) < y(start) - height * 0.13 && y(state) > lowerHeight + height * 0.13) &&
+    transitions(events, surfaces[before], null) && transitions(events, null, surfaces.lower) &&
     motion.every(state => state.outcome === "none"), "The trajectory did not leave support and land on the lower deck.", "land_lower");
-  const continued = await test.move("a", state => position(state)[0] <= position(final)[0] - 0.25, 760);
-  requireCheck(continued.every(state => surface(state) === "lower" && state.outcome === "none") &&
-    position(continued.at(-1))[0] < position(final)[0] - 0.2, "Lower deck did not remain playable after landing.");
+  const continued = await test.move(continueKey, state => progress(state, continueKey) >= progress(final, continueKey) + 0.25, 760);
+  requireCheck(continued.every(state => surface(state) === surfaces.lower && state.outcome === "none") &&
+    progress(continued.at(-1), continueKey) > progress(final, continueKey) + 0.2,
+  "Lower deck did not remain playable after landing.");
   await test.capture("landed");
 }
 
@@ -69,6 +89,12 @@ function markerY(frame) {
 }
 
 async function checkVisual(test, action, difference, from, to) {
+  if (test.submission) {
+    await test.capture("before");
+    await action(test);
+    await test.capture("after");
+    return { unverified: "Review both frames for the visible change of height and support." };
+  }
   const before = await test.capture("before", "#world canvas");
   const initial = await test.page.locator("#surface").innerText();
   await action(test);
@@ -82,30 +108,32 @@ async function checkVisual(test, action, difference, from, to) {
 export const cases = {
   async launch(test) {
     await test.capture("entry");
-    requireCheck(await test.page.locator("#world canvas").isVisible(), "WebGL viewport missing.");
+    requireCheck(await test.page.locator(test.route.viewportSelector ?? (test.submission ? "canvas" : "#world canvas")).first().isVisible(), "WebGL viewport missing.");
   },
   async probe(test) {
     const first = await test.sample();
-    await test.move("d", state => position(state)[0] > position(first)[0] + 0.25, 800);
+    const key = test.route.probe;
+    await test.move(key, state => progress(state, key) > progress(first, key) + 0.25, 800);
     const final = await test.sample();
     const received = await test.page.evaluate(() => window.__benchmarkInput);
     requireCheck(final.tick > first.tick && final.attemptId === first.attemptId &&
-      position(final)[0] > position(first)[0] + 0.2 &&
-      ["keydown", "keyup"].every(type => received.some(e => e.type === type && e.code === "KeyD" && e.trusted)),
+      progress(final, key) > progress(first, key) + 0.2 &&
+      ["keydown", "keyup"].every(type => received.some(e => e.type === type && e.code === "Key" + key.toUpperCase() && e.trusted)),
     "The browser input did not move the player in the running simulation.");
   },
   climb_continuously: climb,
-  fall_to_lower: test => land(test, "s", "slope", 2, 1.31),
+  fall_to_lower: test => land(test, "slope", test.route.slopeFall),
   slope_feedback: test => checkVisual(test, climb, -1, "Lower deck", "Upper deck"),
-  drop_and_land: test => land(test, "d", "upper", 0, 1.85),
+  drop_and_land: test => land(test, "upper", test.route.upperDrop),
   async reject_reverse(test) {
-    const motion = await test.move("a", state => position(state)[0] < -1.45, 1700);
+    const { lowerHeight, surfaces, reverse: { key, target, start } } = test.route;
+    const motion = await test.move(key, state => progress(state, key) > target, 1700);
     const final = motion.at(-1);
     await test.capture("under-ledge");
-    requireCheck(position(motion[0])[0] > 0.4 && position(final)[0] < -1.34 &&
-      motion.every(state => surface(state) === "lower" && y(state) === 0 && state.outcome === "none") &&
-      !(await test.events()).some(event => event.type === "contact_changed" && event.data.objectId === "upper"),
+    requireCheck(progress(motion[0], key) < -start && progress(final, key) > target - 0.11 &&
+      motion.every(state => surface(state) === surfaces.lower && Math.abs(y(state) - lowerHeight) < 0.05 && state.outcome === "none") &&
+      !(await test.events()).some(event => event.type === "contact_changed" && event.data.objectId === surfaces.upper),
     "Reverse walking did not stay on the low deck below the ledge.");
   },
-  ledge_feedback: test => checkVisual(test, run => land(run, "d", "upper", 0, 1.85), 1, "Upper deck", "Lower deck"),
+  ledge_feedback: test => checkVisual(test, run => land(run, "upper", run.route.upperDrop), 1, "Upper deck", "Lower deck"),
 };

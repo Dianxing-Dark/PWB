@@ -1,0 +1,2136 @@
+{
+  "date": "2026-11-24",
+  "references": {
+    "tasks": 25,
+    "layouts": 32,
+    "caseCounts": {
+      "pass": 270
+    },
+    "journeysPassed": 27,
+    "journeysPlanned": 27,
+    "layoutsByTask": [
+      {
+        "taskId": "A01",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a86f8d99933d9018050393f03979e6736f4e01acee2fa3c9799275f4f22126b9/A01",
+            "evaluatorVersion": "ebb6df9a3e5604860da78389b4b9386a5f6f2cc362283735f86d214ee836648e",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 5
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C01",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a86f8d99933d9018050393f03979e6736f4e01acee2fa3c9799275f4f22126b9/C01",
+            "evaluatorVersion": "3a4d653053b7a74b89a1bf377fc7a45f140c8c87daf2a086c7a132ad3083fbd3",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 9
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "P01",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a86f8d99933d9018050393f03979e6736f4e01acee2fa3c9799275f4f22126b9",
+            "evaluatorVersion": "5ae974cf1f70f14b6989449a4cbb2ca6063df4515fc0293ead17a880241d2a6e",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 12
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          },
+          {
+            "artifactVersion": "b9b2f460f3acc38847b466f909b0847f382252a488bc99707bd965cc859fcaa6",
+            "evaluatorVersion": "a6be08837f635fe24cc68cb713c85c3fe82a70237809531062ed7cbeaca3dddb",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 12
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A03",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/A03",
+            "evaluatorVersion": "b17f70ab7eb11f61f385246f1a6bb2973a1cc1faaa9738fe2c0e4081c947f8fa",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 6
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A03",
+        "layout": "curve",
+        "reports": [
+          {
+            "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/A03",
+            "evaluatorVersion": "0af64208b7e6c48406e5d70d4792032aa4d881dd057de750aece85dae92f879a",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 6
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C03",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/C03",
+            "evaluatorVersion": "376f61c2c858b83e0364c1a7b77a7819057f89e2ecaa95f3602321d64bdc3ea0",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 11
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C03",
+        "layout": "curve",
+        "reports": [
+          {
+            "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/C03",
+            "evaluatorVersion": "1d2d6a1b1aaf7edaafabe48b8b76d7558fd0e2244cd9efd230a28b30404f6ccc",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 11
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "P04",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "8d919dc7e087bddcc6bfaa353e736d1f0bbb046b189a98fbb0a195b156bb0c8a/P04",
+            "evaluatorVersion": "4a3037b6e57f6b3da6970a7f81947b39cc15404947388584801be7e2572a5fc9",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 14
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "P04",
+        "layout": "curve",
+        "reports": [
+          {
+            "artifactVersion": "4c3064797806988236e87af94108f996e732cba31f0b20e8537780a02ef679a9/P04",
+            "evaluatorVersion": "95f902744018bc9e31312d89ca5e3910d39750197fde57140b78075993cd75a9",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 14
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A06",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/A06",
+            "evaluatorVersion": "08d66daa6ac5b854be4a7b46af61eaf552c9af59f4ddccee9ac1fb14401cab8e",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 5
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C05",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/C05",
+            "evaluatorVersion": "86ed0d40cdcc4eecfb86382b242731d4762d92a22e15e051026c93ef5dfb4060",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 8
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "P05",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a312e8a94d2157615cde093c08a63b227c88483c5ccd170096972a03844c8f18/P05",
+            "evaluatorVersion": "6b9e510a54226109bf0d4971c7d9716c37529e629abdc973a28ce14ffa002715",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 10
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A02",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/A02",
+            "evaluatorVersion": "bb12f2e445a1370412b75a8e6cc3876dce21199ac95cceeb6945ac653cd02235",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 5
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C02",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/C02",
+            "evaluatorVersion": "798e003199d08f3c7e833e71eaf9e79976f48ee34185857187f98280ac24e042",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 9
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "P02",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "a6dd97f52f0b34e1f1a3a3c6f2d0833cb68228d9ead5ec6b2d3cddfe8145dda9/P02",
+            "evaluatorVersion": "fc6e02679678b7e69f79b5ddb4edf2b64641beaf97248d1abb930d77718597b3",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 11
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A10",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/A10",
+            "evaluatorVersion": "2075d4d3f1654c99d3d6bdc712700a96e8255fcefa4621310631106077575763",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 6
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A10",
+        "layout": "gallery",
+        "reports": [
+          {
+            "artifactVersion": "bd70797af8fa390da469219ed6d219617573abf36932dc0aae07efe842651edc/A10",
+            "evaluatorVersion": "c52116ab91f57a2557505e85b170ba2f6ed438942193517449aba3b6766c559a",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 6
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C07",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C07",
+            "evaluatorVersion": "3cd62f9e466f65151e23b36521fb731cddc5a211bfdf4cc3d006821178a7c50d",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 7
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C07",
+        "layout": "gallery",
+        "reports": [
+          {
+            "artifactVersion": "bd70797af8fa390da469219ed6d219617573abf36932dc0aae07efe842651edc/C07",
+            "evaluatorVersion": "92ef3f583c34a940509c0de0e5efa4df9d0488193e6b0936e82c1b85331284c8",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 7
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C12",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "ea59359052b6bd33926a88bccc9c46fa718406a7e7c8c6d4da75fc0f63169dec/C12",
+            "evaluatorVersion": "5ea6f7b909667057a7b99022045a6849852f7d7f68117a693cb4cc181324f911",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 12
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C12",
+        "layout": "gallery",
+        "reports": [
+          {
+            "artifactVersion": "bd70797af8fa390da469219ed6d219617573abf36932dc0aae07efe842651edc/C12",
+            "evaluatorVersion": "07c8de9d3a790f2d4a84d19ef2bd24745679ac8aab164197abec8c65bb49a24c",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 12
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A05",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/A05",
+            "evaluatorVersion": "d42448aa7596aaf563ca58250c5adccff59c410d46980b8bdbaa00a255d7ee45",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 6
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C09",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "53c62aebcc848b9834b648a680c98d88b9c4fc63d2a22bb0fbeefd3ac16942ed/C09",
+            "evaluatorVersion": "a02a857b77bf014b091728a97aa0e4ef33ffe6c740eb30b7a26ee12ef8d52175",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 10
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A04",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A04",
+            "evaluatorVersion": "bfcf355d6db4e0ac61e6e284017845e06d207b731a6f11181b4fea127108414b",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 5
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A09",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "eeee0eeec211ee128e8e5a9e198c4a2d5f553ed9186e2ec76c861f7aea353cfa/A09",
+            "evaluatorVersion": "957a6f734ae1d45ad6481b604043cd17fb3e4617862d48fa4799d4a91b67a14f",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 5
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A08",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "7a13db892196cf22faef500c875613cb2eaab00d39c18fee9813e94748e386d2/A08",
+            "evaluatorVersion": "9e4950e9fd8ae094f572c66f2fe74b5e4616846277e0b32069aab63ec6fb61ba",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 6
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C08",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "7a13db892196cf22faef500c875613cb2eaab00d39c18fee9813e94748e386d2/C08",
+            "evaluatorVersion": "c1d6554bdff12c1793b3b6821bce9a97d30ed78ab68995f4bfa9f6a9ecc1f269",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 7
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "P06",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "7a13db892196cf22faef500c875613cb2eaab00d39c18fee9813e94748e386d2/P06",
+            "evaluatorVersion": "1688bfca8884f1c2819e07bb8a74d0f0e95f685a7f3abe3afac0d9ab05eac7ba",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 10
+            },
+            "journeys": {
+              "passed": 2,
+              "planned": 2
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "A07",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/A07",
+            "evaluatorVersion": "f769556e605f4013290955add3b1bcba33abaf9935f8fe37438580efea1b8d12",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 8
+            },
+            "journeys": {
+              "passed": 0,
+              "planned": 0
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C06",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C06",
+            "evaluatorVersion": "49cd6945b1df9f8e2a57b47fdf4a478bc56b5c33a4d43756295bb3a2a317709d",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 8
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      },
+      {
+        "taskId": "C10",
+        "layout": "primary",
+        "reports": [
+          {
+            "artifactVersion": "6c108159c29e6d2866f948d03a40be9b5f1e20ba6e8c32861cac6e792c5d3236/C10",
+            "evaluatorVersion": "470169fdf7327ad46a103d9d0ecf1b812e200367f89c4ddf68af4a19c77358a9",
+            "browserVersion": "158.0.8127.38",
+            "caseCounts": {
+              "pass": 7
+            },
+            "journeys": {
+              "passed": 1,
+              "planned": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "externalEntrySmoke": {
+    "submissions": 15,
+    "caseCounts": {
+      "pass": 91,
+      "unverified": 16
+    },
+    "fixtureKind": "Packaged benchmark reference fixtures as standalone submissions",
+    "tasks": [
+      {
+        "taskId": "A01",
+        "caseCounts": {
+          "pass": 4,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "plate_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "C01",
+        "caseCounts": {
+          "pass": 8,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "door_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "A02",
+        "caseCounts": {
+          "pass": 4,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "plate_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "C02",
+        "caseCounts": {
+          "pass": 8,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "door_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "A03",
+        "caseCounts": {
+          "pass": 5,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "platform_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "C03",
+        "caseCounts": {
+          "pass": 9,
+          "unverified": 2
+        },
+        "otherVerdicts": {
+          "platform_feedback": "unverified",
+          "gate_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "A06",
+        "caseCounts": {
+          "pass": 5
+        },
+        "otherVerdicts": {}
+      },
+      {
+        "taskId": "C05",
+        "caseCounts": {
+          "pass": 7,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "inventory_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "A05",
+        "caseCounts": {
+          "pass": 5,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "pickup_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "C09",
+        "caseCounts": {
+          "pass": 9,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "pickup_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "A04",
+        "caseCounts": {
+          "pass": 4,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "slope_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "A09",
+        "caseCounts": {
+          "pass": 4,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "ledge_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "A08",
+        "caseCounts": {
+          "pass": 5,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "pulse_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "C08",
+        "caseCounts": {
+          "pass": 6,
+          "unverified": 1
+        },
+        "otherVerdicts": {
+          "target_feedback": "unverified"
+        }
+      },
+      {
+        "taskId": "P06",
+        "caseCounts": {
+          "pass": 8,
+          "unverified": 2
+        },
+        "otherVerdicts": {
+          "emitter_feedback": "unverified",
+          "rescue_feedback": "unverified"
+        }
+      }
+    ]
+  },
+  "evaluationProfiles": {
+    "A": [
+      "launch",
+      "functional"
+    ],
+    "B": [
+      "launch",
+      "journey",
+      "visual"
+    ],
+    "C": [
+      "launch",
+      "functional",
+      "journey",
+      "visual"
+    ]
+  },
+  "paired": {
+    "archived": {
+      "submissions": 11,
+      "profiles": {
+        "A": {
+          "submissionsWithFailure": 3,
+          "submissionsWithUnverifiedCases": 0,
+          "confirmedStrictSuccesses": null,
+          "unverifiedStrictVerdicts": null,
+          "medianWallMs": 31454,
+          "medianLaunchPassedWallMs": 36588
+        },
+        "B": {
+          "submissionsWithFailure": 3,
+          "submissionsWithUnverifiedCases": 0,
+          "confirmedStrictSuccesses": null,
+          "unverifiedStrictVerdicts": null,
+          "medianWallMs": 27737,
+          "medianLaunchPassedWallMs": 38493
+        },
+        "C": {
+          "submissionsWithFailure": 3,
+          "submissionsWithUnverifiedCases": 0,
+          "confirmedStrictSuccesses": 8,
+          "unverifiedStrictVerdicts": 0,
+          "medianWallMs": 37949,
+          "medianLaunchPassedWallMs": 69114
+        }
+      },
+      "submissionsWithFailuresOutsideA": 0,
+      "submissionsWithFailuresOutsideB": 0,
+      "overlappingCaseDisagreements": 0,
+      "results": [
+        {
+          "id": "A07-high",
+          "taskId": "A07",
+          "cohort": "fixed-config-archived",
+          "artifactVersion": "3d108bd6b2bf503abb1d11c235894c87f0b85b147efb9c1b27ca8eb64c5848de",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 9786,
+              "launchPassed": false,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "blocked_before_open": "product_blocked",
+                "window_boundary": "product_blocked",
+                "cross_open_gate": "product_blocked",
+                "blocked_after_expiry": "product_blocked",
+                "pass_below_gate": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:61295/game.js | net::ERR_ABORTED http://127.0.0.1:61295/game.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            },
+            "B": {
+              "wallMs": 9757,
+              "launchPassed": false,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "gate_feedback": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:51319/game.js | net::ERR_ABORTED http://127.0.0.1:51319/game.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            },
+            "C": {
+              "wallMs": 9757,
+              "launchPassed": false,
+              "strictTaskSuccess": false,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "blocked_before_open": "product_blocked",
+                "window_boundary": "product_blocked",
+                "cross_open_gate": "product_blocked",
+                "blocked_after_expiry": "product_blocked",
+                "pass_below_gate": "product_blocked",
+                "gate_feedback": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:56420/game.js | net::ERR_ABORTED http://127.0.0.1:56420/game.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "A07-medium",
+          "taskId": "A07",
+          "cohort": "fixed-config-archived",
+          "artifactVersion": "d23e4b11dd3bf1ace62c496195d4a265e0cb324b953e39743d155f9edea97853",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 31545,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "blocked_before_open": "pass",
+                "window_boundary": "pass",
+                "cross_open_gate": "pass",
+                "blocked_after_expiry": "pass",
+                "pass_below_gate": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 10081,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "gate_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 37949,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "blocked_before_open": "pass",
+                "window_boundary": "pass",
+                "cross_open_gate": "pass",
+                "blocked_after_expiry": "pass",
+                "pass_below_gate": "pass",
+                "gate_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "C06-high",
+          "taskId": "C06",
+          "cohort": "fixed-config-archived",
+          "artifactVersion": "554da238aa1ea2aa048f51968d9b3d49c75d1f4098a107de74b04a27a6b70133",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 9805,
+              "launchPassed": false,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "reject_incomplete_recipe": "product_blocked",
+                "craft_once": "product_blocked",
+                "reject_other_floor_delivery": "product_blocked",
+                "deliver_on_same_floor": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:52959/scene.js | net::ERR_ABORTED http://127.0.0.1:52959/scene.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            },
+            "B": {
+              "wallMs": 9798,
+              "launchPassed": false,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "inventory_feedback": "product_blocked",
+                "craft_and_deliver": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:61184/scene.js | net::ERR_ABORTED http://127.0.0.1:61184/scene.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            },
+            "C": {
+              "wallMs": 9787,
+              "launchPassed": false,
+              "strictTaskSuccess": false,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "reject_incomplete_recipe": "product_blocked",
+                "craft_once": "product_blocked",
+                "reject_other_floor_delivery": "product_blocked",
+                "deliver_on_same_floor": "product_blocked",
+                "inventory_feedback": "product_blocked",
+                "craft_and_deliver": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:62070/scene.js | net::ERR_ABORTED http://127.0.0.1:62070/scene.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "C06-medium",
+          "taskId": "C06",
+          "cohort": "fixed-config-archived",
+          "artifactVersion": "052a044403e2c23fcb034d125a4d639a6415f9beae94523315215c364abefdce",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 6740,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "reject_incomplete_recipe": "pass",
+                "craft_once": "pass",
+                "reject_other_floor_delivery": "pass",
+                "deliver_on_same_floor": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 27737,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "inventory_feedback": "pass",
+                "craft_and_deliver": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 30897,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "reject_incomplete_recipe": "pass",
+                "craft_once": "pass",
+                "reject_other_floor_delivery": "pass",
+                "deliver_on_same_floor": "pass",
+                "inventory_feedback": "pass",
+                "craft_and_deliver": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "P01-high",
+          "taskId": "P01",
+          "cohort": "fixed-config-archived",
+          "artifactVersion": "0bd1465c3081644302178557139a51c64889a560a7d581038abf0b17b2924612",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 9751,
+              "launchPassed": false,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "single_plate": "product_blocked",
+                "release_before_threshold": "product_blocked",
+                "unlock_at_threshold": "product_blocked",
+                "closed_collision": "product_blocked",
+                "no_victory_below_exit": "product_blocked",
+                "open_collision": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:61347/main.js | net::ERR_ABORTED http://127.0.0.1:61347/main.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            },
+            "B": {
+              "wallMs": 9851,
+              "launchPassed": false,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "door_feedback": "product_blocked",
+                "finish": "product_blocked",
+                "recover_and_finish": "product_blocked",
+                "terminal_feedback": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:65275/main.js | net::ERR_ABORTED http://127.0.0.1:65275/main.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            },
+            "C": {
+              "wallMs": 9730,
+              "launchPassed": false,
+              "strictTaskSuccess": false,
+              "caseStatuses": {
+                "launch": "fail",
+                "probe": "product_blocked",
+                "single_plate": "product_blocked",
+                "release_before_threshold": "product_blocked",
+                "unlock_at_threshold": "product_blocked",
+                "closed_collision": "product_blocked",
+                "no_victory_below_exit": "product_blocked",
+                "open_collision": "product_blocked",
+                "door_feedback": "product_blocked",
+                "finish": "product_blocked",
+                "recover_and_finish": "product_blocked",
+                "terminal_feedback": "product_blocked"
+              },
+              "failures": [
+                {
+                  "caseId": "launch",
+                  "stage": "prerequisite",
+                  "reason": "Browser startup failed: 404 http://127.0.0.1:56612/main.js | net::ERR_ABORTED http://127.0.0.1:56612/main.js | Failed to load resource: the server responded with a status of 404 (Not Found)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "P01-medium",
+          "taskId": "P01",
+          "cohort": "fixed-config-archived",
+          "artifactVersion": "efd3c7541d3d249e407d33a2c8f2d1fffffd06cb455c4ea03fe6b57a0981811b",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 31454,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "no_victory_below_exit": "pass",
+                "open_collision": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 38143,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 62946,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "no_victory_below_exit": "pass",
+                "open_collision": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "P01-early",
+          "taskId": "P01",
+          "cohort": "account-default-archived",
+          "artifactVersion": "8fed037aaf77ad44054f9b159272b3592ae8d9d6cae6c6be59d6349a224d83ee",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 12647,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "no_victory_below_exit": "pass",
+                "open_collision": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 15133,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 25043,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "no_victory_below_exit": "pass",
+                "open_collision": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "P02-early",
+          "taskId": "P02",
+          "cohort": "account-default-archived",
+          "artifactVersion": "922d993e8a825088653eec970b3b2171116eb0da2c53ffcd53a23a2199d976d8",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 46822,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "open_collision": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 46949,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 85143,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "open_collision": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "P04-early",
+          "taskId": "P04",
+          "cohort": "account-default-archived",
+          "artifactVersion": "9aa636176558460e24475cb5701d21be2387cf7303dca1176b0efb29fec169c6",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 139508,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "platform_trajectory": "pass",
+                "actual_support": "pass",
+                "no_remote_carry": "pass",
+                "blocked_outside_window": "pass",
+                "pass_during_window": "pass",
+                "blocks_when_closed_again": "pass",
+                "cargo_motion": "pass",
+                "no_empty_delivery": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 67672,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "platform_feedback": "pass",
+                "gate_feedback": "pass",
+                "deliver": "pass",
+                "recover_and_deliver": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 160334,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "platform_trajectory": "pass",
+                "actual_support": "pass",
+                "no_remote_carry": "pass",
+                "platform_feedback": "pass",
+                "blocked_outside_window": "pass",
+                "pass_during_window": "pass",
+                "blocks_when_closed_again": "pass",
+                "gate_feedback": "pass",
+                "cargo_motion": "pass",
+                "no_empty_delivery": "pass",
+                "deliver": "pass",
+                "recover_and_deliver": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "P05-early",
+          "taskId": "P05",
+          "cohort": "account-default-archived",
+          "artifactVersion": "662d510e5c4eb98edad5ff770bdd41969aea9cf08f753b9de6864cc54f338a18",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 41631,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "pickup_unique": "pass",
+                "reject_wrong_color": "pass",
+                "unlock_correct_and_cross": "pass",
+                "reject_bypass": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 38843,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "inventory_feedback": "pass",
+                "finish_upper": "pass",
+                "finish_lower": "pass",
+                "unlock_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 75282,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "pickup_unique": "pass",
+                "reject_wrong_color": "pass",
+                "unlock_correct_and_cross": "pass",
+                "reject_bypass": "pass",
+                "inventory_feedback": "pass",
+                "finish_upper": "pass",
+                "finish_lower": "pass",
+                "unlock_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "C12-early",
+          "taskId": "C12",
+          "cohort": "account-default-archived",
+          "artifactVersion": "cb7a3cf6a90b074042dc5f529dab139a16e22c17228c7b2e7df55a42f0780eb4",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 77427,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "lower_trap_restart": "pass",
+                "upper_trap_restart": "pass",
+                "lower_trap_not_upper": "pass",
+                "latest_checkpoint_wins": "pass",
+                "exit_requires_both": "pass",
+                "exit_requires_relay": "pass",
+                "retry_keeps_power_clears_switch": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 97190,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "trap_feedback": "pass",
+                "finish_direct": "pass",
+                "finish_after_retry": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 206444,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "lower_trap_restart": "pass",
+                "upper_trap_restart": "pass",
+                "lower_trap_not_upper": "pass",
+                "latest_checkpoint_wins": "pass",
+                "trap_feedback": "pass",
+                "exit_requires_both": "pass",
+                "exit_requires_relay": "pass",
+                "retry_keeps_power_clears_switch": "pass",
+                "finish_direct": "pass",
+                "finish_after_retry": "pass"
+              },
+              "failures": []
+            }
+          }
+        }
+      ]
+    },
+    "fresh": {
+      "submissions": 6,
+      "profiles": {
+        "A": {
+          "submissionsWithFailure": 0,
+          "submissionsWithUnverifiedCases": 0,
+          "confirmedStrictSuccesses": null,
+          "unverifiedStrictVerdicts": null,
+          "medianWallMs": 33409,
+          "medianLaunchPassedWallMs": 33409
+        },
+        "B": {
+          "submissionsWithFailure": 0,
+          "submissionsWithUnverifiedCases": 0,
+          "confirmedStrictSuccesses": null,
+          "unverifiedStrictVerdicts": null,
+          "medianWallMs": 65761,
+          "medianLaunchPassedWallMs": 65761
+        },
+        "C": {
+          "submissionsWithFailure": 0,
+          "submissionsWithUnverifiedCases": 0,
+          "confirmedStrictSuccesses": 6,
+          "unverifiedStrictVerdicts": 0,
+          "medianWallMs": 78219,
+          "medianLaunchPassedWallMs": 78219
+        }
+      },
+      "submissionsWithFailuresOutsideA": 0,
+      "submissionsWithFailuresOutsideB": 0,
+      "overlappingCaseDisagreements": 0,
+      "results": [
+        {
+          "id": "A07-medium",
+          "taskId": "A07",
+          "cohort": "fixed-config-repeat",
+          "artifactVersion": "c500006bb3fa2e69f34d0ce699f9fa9d6547fd3dca4d73a083460d1135d5c8e6",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 44107,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "blocked_before_open": "pass",
+                "window_boundary": "pass",
+                "cross_open_gate": "pass",
+                "blocked_after_expiry": "pass",
+                "pass_below_gate": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 12826,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "gate_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 58242,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "blocked_before_open": "pass",
+                "window_boundary": "pass",
+                "cross_open_gate": "pass",
+                "blocked_after_expiry": "pass",
+                "pass_below_gate": "pass",
+                "gate_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "A07-high",
+          "taskId": "A07",
+          "cohort": "fixed-config-repeat",
+          "artifactVersion": "666ca4fa9ee2dafb19186f480c1c073182f554ca8e4835ccdae3801621a8150d",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 53344,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "blocked_before_open": "pass",
+                "window_boundary": "pass",
+                "cross_open_gate": "pass",
+                "blocked_after_expiry": "pass",
+                "pass_below_gate": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 25340,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "gate_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 50273,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "blocked_before_open": "pass",
+                "window_boundary": "pass",
+                "cross_open_gate": "pass",
+                "blocked_after_expiry": "pass",
+                "pass_below_gate": "pass",
+                "gate_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "C06-medium",
+          "taskId": "C06",
+          "cohort": "fixed-config-repeat",
+          "artifactVersion": "f28ceef4a62deab7dfe1733685ae9f071a6f5e08abc55c87f2faafa81fc5ed2f",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 22492,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "reject_incomplete_recipe": "pass",
+                "craft_once": "pass",
+                "reject_other_floor_delivery": "pass",
+                "deliver_on_same_floor": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 72096,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "inventory_feedback": "pass",
+                "craft_and_deliver": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 60045,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "reject_incomplete_recipe": "pass",
+                "craft_once": "pass",
+                "reject_other_floor_delivery": "pass",
+                "deliver_on_same_floor": "pass",
+                "inventory_feedback": "pass",
+                "craft_and_deliver": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "C06-high",
+          "taskId": "C06",
+          "cohort": "fixed-config-repeat",
+          "artifactVersion": "fa84126b19ff5c6118a74318b2de257731f48821b5c26c724c7dacb95f4bc59e",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 19394,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "reject_incomplete_recipe": "pass",
+                "craft_once": "pass",
+                "reject_other_floor_delivery": "pass",
+                "deliver_on_same_floor": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 101559,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "inventory_feedback": "pass",
+                "craft_and_deliver": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 116259,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "reject_incomplete_recipe": "pass",
+                "craft_once": "pass",
+                "reject_other_floor_delivery": "pass",
+                "deliver_on_same_floor": "pass",
+                "inventory_feedback": "pass",
+                "craft_and_deliver": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "P01-medium",
+          "taskId": "P01",
+          "cohort": "fixed-config-repeat",
+          "artifactVersion": "ce1cdd2caeffada5e0ac06730e5e93f8cfd1a8c50f1fc4a53bf20072452cf35c",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 32005,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "no_victory_below_exit": "pass",
+                "open_collision": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 59426,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 97632,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "no_victory_below_exit": "pass",
+                "open_collision": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        },
+        {
+          "id": "P01-high",
+          "taskId": "P01",
+          "cohort": "fixed-config-repeat",
+          "artifactVersion": "93c676f2d507d25052f2dcc297595a2134998b0f016ce4c4ab9c24dfdaaff348",
+          "failuresOutsideA": [],
+          "failuresOutsideB": [],
+          "overlappingCaseDisagreements": [],
+          "profiles": {
+            "A": {
+              "wallMs": 34813,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "no_victory_below_exit": "pass",
+                "open_collision": "pass"
+              },
+              "failures": []
+            },
+            "B": {
+              "wallMs": 88833,
+              "launchPassed": true,
+              "strictTaskSuccess": null,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            },
+            "C": {
+              "wallMs": 96393,
+              "launchPassed": true,
+              "strictTaskSuccess": true,
+              "caseStatuses": {
+                "launch": "pass",
+                "probe": "pass",
+                "single_plate": "pass",
+                "release_before_threshold": "pass",
+                "unlock_at_threshold": "pass",
+                "closed_collision": "pass",
+                "no_victory_below_exit": "pass",
+                "open_collision": "pass",
+                "door_feedback": "pass",
+                "finish": "pass",
+                "recover_and_finish": "pass",
+                "terminal_feedback": "pass"
+              },
+              "failures": []
+            }
+          }
+        }
+      ]
+    },
+    "controlledFaultProjection": {
+      "method": "Paired projection from the same full runs. Case times exclude browser startup and are estimates for standalone profiles.",
+      "results": [
+        {
+          "taskId": "P01",
+          "runId": "reference-wrong_floor_victory",
+          "artifactVersion": "a86f8d99933d9018050393f03979e6736f4e01acee2fa3c9799275f4f22126b9/wrong_floor_victory",
+          "profiles": {
+            "A": [
+              "no_victory_below_exit"
+            ],
+            "B": [],
+            "C": [
+              "no_victory_below_exit"
+            ]
+          }
+        },
+        {
+          "taskId": "P01",
+          "runId": "reference-missing_door_feedback",
+          "artifactVersion": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/missing_door_feedback",
+          "profiles": {
+            "A": [],
+            "B": [
+              "door_feedback"
+            ],
+            "C": [
+              "door_feedback"
+            ]
+          }
+        },
+        {
+          "taskId": "P01",
+          "runId": "reference-dead_goal_trigger",
+          "artifactVersion": "8a4d07c79db05e51c90b02de3c51a5831a086f7cd0076b6f683a575ce3eca465/dead_goal_trigger",
+          "profiles": {
+            "A": [],
+            "B": [
+              "finish",
+              "recover_and_finish"
+            ],
+            "C": [
+              "finish",
+              "recover_and_finish"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "fixedConfigurations": {
+    "medium": {
+      "attempts": 3,
+      "delivered": 3,
+      "strictPass": 3,
+      "medianGenerationSeconds": 150.17,
+      "medianOutputTokens": 5731,
+      "trials": [
+        {
+          "taskId": "A07",
+          "seconds": 130.16,
+          "budgetSeconds": 600,
+          "modelRequested": "gpt-6.1-sol",
+          "cliVersion": "codex-cli 0.171.0-alpha.13.2",
+          "delivered": true,
+          "strict": true,
+          "usage": {
+            "input_tokens": 85995,
+            "cached_input_tokens": 77824,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5215,
+            "reasoning_output_tokens": 467
+          },
+          "inputDigests": {
+            "A07.json": "ba1a0480b6d166265320c9d18a3003b1e404676df2c6dc47e8990c61dcac4cfe",
+            "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+            "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+            "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+            "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+          },
+          "replay": "replays/A07-medium.json"
+        },
+        {
+          "taskId": "C06",
+          "seconds": 150.17,
+          "budgetSeconds": 600,
+          "modelRequested": "gpt-6.1-sol",
+          "cliVersion": "codex-cli 0.171.0-alpha.13.2",
+          "delivered": true,
+          "strict": true,
+          "usage": {
+            "input_tokens": 109205,
+            "cached_input_tokens": 100736,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5731,
+            "reasoning_output_tokens": 337
+          },
+          "inputDigests": {
+            "C06.json": "0304b299641e93610697418f56350fb9816bced308d21ac38f1f819e05c4ccd5",
+            "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+            "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+            "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+            "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+          },
+          "replay": "replays/C06-medium.json"
+        },
+        {
+          "taskId": "P01",
+          "seconds": 188.96,
+          "budgetSeconds": 600,
+          "modelRequested": "gpt-6.1-sol",
+          "cliVersion": "codex-cli 0.171.0-alpha.13.2",
+          "delivered": true,
+          "strict": true,
+          "usage": {
+            "input_tokens": 230392,
+            "cached_input_tokens": 202752,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6393,
+            "reasoning_output_tokens": 617
+          },
+          "inputDigests": {
+            "P01.json": "7f78ae34ef2b89d305df69fc0d00e503de7f5fa22fee1f6293164740d1446bb4",
+            "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+            "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+            "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+            "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+          },
+          "replay": "replays/P01-medium.json"
+        }
+      ]
+    },
+    "high": {
+      "attempts": 3,
+      "delivered": 3,
+      "strictPass": 3,
+      "medianGenerationSeconds": 466.72,
+      "medianOutputTokens": 17695,
+      "trials": [
+        {
+          "taskId": "A07",
+          "seconds": 305.73,
+          "budgetSeconds": 600,
+          "modelRequested": "gpt-6.1-sol",
+          "cliVersion": "codex-cli 0.171.0-alpha.13.2",
+          "delivered": true,
+          "strict": true,
+          "usage": {
+            "input_tokens": 256227,
+            "cached_input_tokens": 241024,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 11564,
+            "reasoning_output_tokens": 1991
+          },
+          "inputDigests": {
+            "A07.json": "ba1a0480b6d166265320c9d18a3003b1e404676df2c6dc47e8990c61dcac4cfe",
+            "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+            "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+            "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+            "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+          },
+          "replay": "replays/A07-high.json"
+        },
+        {
+          "taskId": "C06",
+          "seconds": 466.72,
+          "budgetSeconds": 600,
+          "modelRequested": "gpt-6.1-sol",
+          "cliVersion": "codex-cli 0.171.0-alpha.13.2",
+          "delivered": true,
+          "strict": true,
+          "usage": {
+            "input_tokens": 428377,
+            "cached_input_tokens": 416256,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 17695,
+            "reasoning_output_tokens": 2618
+          },
+          "inputDigests": {
+            "C06.json": "0304b299641e93610697418f56350fb9816bced308d21ac38f1f819e05c4ccd5",
+            "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+            "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+            "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+            "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+          },
+          "replay": "replays/C06-high.json"
+        },
+        {
+          "taskId": "P01",
+          "seconds": 489.57,
+          "budgetSeconds": 600,
+          "modelRequested": "gpt-6.1-sol",
+          "cliVersion": "codex-cli 0.171.0-alpha.13.2",
+          "delivered": true,
+          "strict": true,
+          "usage": {
+            "input_tokens": 477454,
+            "cached_input_tokens": 463104,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 18055,
+            "reasoning_output_tokens": 4300
+          },
+          "inputDigests": {
+            "P01.json": "7f78ae34ef2b89d305df69fc0d00e503de7f5fa22fee1f6293164740d1446bb4",
+            "shared-runtime-interface.json": "d9d63f564d4f2e81af0e2bbf236255023b8ea0d0cf9fdad8b2990011c4f1b808",
+            "three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+            "three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+            "LICENSE": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+          },
+          "replay": "replays/P01-high.json"
+        }
+      ]
+    }
+  },
+  "gameAsg": {
+    "task": "capys-flight-adventure",
+    "upstreamRevision": "6427cb6517ce11ff350ec45fcae17b67c5aec245",
+    "upstreamRuns": [
+      {
+        "artifactSha256": "9126f657c17ef4ed872a296183833e020c16b0ed26b9673dcaf803e0e32beefd",
+        "l1Passed": 5,
+        "l1Total": 5,
+        "l2Passed": 12,
+        "l2Total": 13,
+        "l2Failed": [
+          "p1-real-mouse-drag-launch-opposite-direction"
+        ],
+        "browser": "Chrome/158.0.8127.38",
+        "runtimeDurationSeconds": 30,
+        "upstreamSha256": {
+          "scripts/l1/run_l1.py": "9d37253b2d63cdd88950f857fba8acae5014e753cc49a20d9911d0b964ae8a1e",
+          "scripts/l2/run.js": "514a7d4f78d1a1fc7a98e94719ff6507806e6c764469b39fa1b2a50466c7033f",
+          "tests/capys-flight-adventure/checks.json": "669a176f3a511d24cddeeb1facc4fedd374b1ffb9a92ed9837fb03bdd07023fc",
+          "tests/capys-flight-adventure/checks.js": "4c5fb20cdb8f6bb1c645fb4d23935a5d9bb5137961e5be322786347580511484",
+          "scripts/l2/result_summary.js": "3dd273b5424b7fc0e0befe3e9c291143168f2d94bea2523708462f32ea2bcc28"
+        }
+      },
+      {
+        "artifactSha256": "9126f657c17ef4ed872a296183833e020c16b0ed26b9673dcaf803e0e32beefd",
+        "l1Passed": 5,
+        "l1Total": 5,
+        "l2Passed": 12,
+        "l2Total": 13,
+        "l2Failed": [
+          "p1-real-mouse-drag-launch-opposite-direction"
+        ],
+        "browser": "Chrome/158.0.8127.38",
+        "runtimeDurationSeconds": 30,
+        "upstreamSha256": {
+          "scripts/l1/run_l1.py": "9d37253b2d63cdd88950f857fba8acae5014e753cc49a20d9911d0b964ae8a1e",
+          "scripts/l2/run.js": "514a7d4f78d1a1fc7a98e94719ff6507806e6c764469b39fa1b2a50466c7033f",
+          "tests/capys-flight-adventure/checks.json": "669a176f3a511d24cddeeb1facc4fedd374b1ffb9a92ed9837fb03bdd07023fc",
+          "tests/capys-flight-adventure/checks.js": "4c5fb20cdb8f6bb1c645fb4d23935a5d9bb5137961e5be322786347580511484",
+          "scripts/l2/result_summary.js": "3dd273b5424b7fc0e0befe3e9c291143168f2d94bea2523708462f32ea2bcc28"
+        }
+      }
+    ],
+    "companionReplays": [
+      {
+        "artifactSha256": "9126f657c17ef4ed872a296183833e020c16b0ed26b9673dcaf803e0e32beefd",
+        "checksPassed": 7,
+        "checksTotal": 7,
+        "releasedY": 468,
+        "nextScreenYs": [
+          460.096,
+          456.192,
+          452.32
+        ]
+      },
+      {
+        "artifactSha256": "9126f657c17ef4ed872a296183833e020c16b0ed26b9673dcaf803e0e32beefd",
+        "checksPassed": 7,
+        "checksTotal": 7,
+        "releasedY": 468,
+        "nextScreenYs": [
+          460.096,
+          456.192,
+          452.32
+        ]
+      }
+    ]
+  }
+}

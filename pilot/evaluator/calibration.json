@@ -42,6 +42,12 @@
         ]
       },
       {
+        "id": "wrong_floor_victory",
+        "change": "在下层到达出口的平面投影也会胜利",
+        "mustDetect": ["no_victory_below_exit"],
+        "mustPreserve": ["closed_collision", "finish", "recover_and_finish"]
+      },
+      {
         "id": "dead_goal_trigger",
         "change": "角色通过门并进入出口，胜利触发器失效",
         "mustDetect": [

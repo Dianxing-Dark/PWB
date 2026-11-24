@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { serveReference } from "./server.mjs";
-import { artifactDigest, digest, readJson, requireCheck, runVariant, startBrowser, version } from "./browser-evaluation.mjs";
+import { artifactDigest, digest, readJson, requireCheck, runVariant, selectProfile, startBrowser, version } from "./browser-evaluation.mjs";
 import { cases, supportId } from "./platform-cases.mjs";
 import { layouts } from "./platform-replays.mjs";
 
@@ -14,15 +14,16 @@ const layout = selectedLayout ?? "reference";
 const submission = args.find(arg => arg.startsWith("--submission="))?.slice(13);
 const replayPath = args.find(arg => arg.startsWith("--replay="))?.slice(9);
 const calibrate = args.includes("--calibrate");
+const profile = args.find(arg => arg.startsWith("--profile="))?.slice(10);
 const { mutations, emptyControlChecks } = (await readJson("pilot/evaluator/calibration.json"))["moving-platform"];
 const calibration = layout === "curve" ? [...mutations, emptyControlChecks] : mutations;
-if (args.some(arg => !/^--(calibrate$|(task|fault|layout|submission|replay)=.+)/.test(arg)) ||
-    (selected && !tasks.includes(selected)) ||
+if (args.some(arg => !/^--(calibrate$|(task|fault|layout|submission|replay|profile)=.+)/.test(arg)) ||
+    (selected && !tasks.includes(selected)) || (profile && (selectedFault || calibrate)) ||
     !Object.hasOwn(layouts, layout) ||
     Boolean(submission) !== Boolean(replayPath) ||
-    (submission && (selected !== "P04" || selectedLayout || selectedFault || calibrate)) ||
+    (submission && (!selected || selectedLayout || selectedFault || calibrate)) ||
     (selectedFault && (calibrate || selected !== "P04" || !calibration.some(fault => fault.id === selectedFault)))) {
-  throw new Error("Use --task=A03|C03|P04, --layout=reference|curve, --calibrate, or --task=P04 --submission=<directory> --replay=<file>.");
+  throw new Error("Use --task=A03|C03|P04, --layout=reference|curve, --calibrate, or --task=<id> --submission=<directory> --replay=<file>. Optional --profile=A|B|C.");
 }
 
 const { folder: gameFolder, ...referenceRoute } = layouts[layout];
@@ -34,12 +35,12 @@ try {
   for (const taskId of selected ? [selected] : tasks) {
     const planFile = "pilot/evaluator/" + taskId + ".json";
     const contractFile = "pilot/builder/" + taskId + ".json";
-    const plan = await readJson(planFile);
+    const plan = selectProfile(await readJson(planFile), profile);
     const contract = await readJson(contractFile);
     const sourceVersion = await version([planFile, contractFile, "scripts/platform-cases.mjs",
       "scripts/evaluate-platform.mjs", "scripts/platform-replays.mjs", "scripts/browser-evaluation.mjs", "scripts/server.mjs",
       "pilot/evaluator/run-report.schema.json", "pilot/evaluator/calibration.json", "package-lock.json"]);
-    const evaluatorVersion = digest(sourceVersion + JSON.stringify(route));
+    const evaluatorVersion = digest(sourceVersion + JSON.stringify(route) + (profile ?? "C"));
     const server = await serveReference(0, folder);
     try {
       const url = new URL(server.url);
@@ -47,9 +48,10 @@ try {
       const faults = calibrate && taskId === "P04" ? ["", ...calibration.map(fault => fault.id)] : [selectedFault ?? ""];
       for (const fault of faults) {
         const report = await runVariant(browser, base, {
+          artifactDirectory: folder,
           layout: submission ? "submission" : layout === "reference" ? taskId : taskId + "-curve", route,
           fault, server: { url: url.href }, artifactVersion: submission ? artifactVersion : artifactVersion + "/" + taskId,
-          evaluatorVersion, plan, contract, cases, replayClock: "virtual",
+          evaluatorVersion, plan, contract, cases, profile, replayClock: "virtual",
           setup(state, scenario) {
             requireCheck(state.outcome === "none" && !state.cargoDelivered &&
               state.avatar.supportSurface !== supportId(route, "lift"),

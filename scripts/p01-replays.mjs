@@ -16,6 +16,7 @@ export const replays = {
     maxStep: 0.061,
     tolerance: 0.10,
     exit: [4.85, 1.5],
+    lowerExitWaypoints: [[-3, 1.5], [4.85, 1.5]],
     fall: [-3, -4],
     feedback: { gateLabel: "#gate", open: "Open", gateColor: [241, 35, 131],
       statusLabel: "#status", outcomes: ["Fall detected. Press R to retry.", "In progress", "Exit reached"] },
@@ -35,24 +36,34 @@ export const replays = {
     maxStep: 0.05,
     tolerance: 0.10,
     exit: [2, 5.6],
+    lowerExitWaypoints: [[-0.75, -3.5], [-0.75, 5.6], [2, 5.6]],
     fall: [0.35, -6.5],
     feedback: { gateLabel: "#airlock", open: "Unsealed", gateColor: [231, 91, 43],
       statusLabel: "#attempt", outcomes: ["You fell. Press R.", "Reach the exit", "Chamber cleared"] },
   },
 };
 
+const contactReplay = {
+  plateA: [0, 0, -1],
+  plateHalfWidth: 0.34,
+  contactPush: { key: "d", axis: 0, direction: 1, contactAt: -0.21, alignedAt: -0.14, pastPlate: 0.85 },
+};
+
 export const flatReplay = {
   ...replays.reference,
+  ...contactReplay,
   folder: "references/plates-flat",
   rampWaypoints: [[-0.71, 1.5]],
   upperHeight: 0,
   fall: [-3, -2.8],
-  plateA: [0, 0, -1],
   plateSupport: "floor",
+  nearMiss: { minGap: 0.64, maxOffset: 0.8 },
 };
 
 export const atomReplay = {
   ...replays.reference,
-  plateA: [0, 0, -1],
+  ...contactReplay,
   plateSupport: "lower",
+  otherPlateSupport: "upper",
+  minVerticalGap: 0.25,
 };

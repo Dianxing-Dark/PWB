@@ -296,7 +296,7 @@
         "launch",
         "probe"
       ],
-      "caseType": "positive"
+      "caseType": "recovery"
     }
   ],
   "requiredJourneyCases": [

@@ -1,3 +1,4 @@
+import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { artifactDigest, digest, readJson, runVariant, selectProfile, startBrowser, version } from "./browser-evaluation.mjs";
 import { cases, checkSetup, primaryReplay } from "./line-of-fire-cases.mjs";
@@ -8,12 +9,16 @@ const args = process.argv.slice(2);
 const selected = args.find(arg => arg.startsWith("--task="))?.slice(7);
 const calibrate = args.includes("--calibrate");
 const profile = args.find(arg => arg.startsWith("--profile="))?.slice(10);
-if (args.some(arg => !/^--(calibrate$|task=.+|profile=.+)/.test(arg)) || (selected && !tasks.includes(selected)) ||
-    (profile && (!["A", "B", "C"].includes(profile) || calibrate))) {
-  throw new Error("Use --task=A08|C08|P06 with optional --calibrate or --profile=A|B|C.");
+const submission = args.find(arg => arg.startsWith("--submission="))?.slice(13);
+const replay = args.find(arg => arg.startsWith("--replay="))?.slice(9);
+if (args.some(arg => !/^--(calibrate$|(task|profile|submission|replay)=.+)/.test(arg)) ||
+    (selected && !tasks.includes(selected)) || Boolean(submission) !== Boolean(replay) ||
+    (submission && (!selected || calibrate)) || (profile && calibrate)) {
+  throw new Error("Use --task=A08|C08|P06 with optional --calibrate or --profile=A|B|C. For an external game supply --submission and --replay.");
 }
 const { mutationsByTask } = (await readJson("pilot/evaluator/calibration.json"))["line-of-fire"];
-const folder = resolve("references/line-of-fire");
+const folder = resolve(submission ?? "references/line-of-fire");
+const route = submission ? JSON.parse((await readFile(replay, "utf8")).replace(/^\uFEFF/, "")) : primaryReplay;
 const artifactVersion = await artifactDigest(folder);
 const { browser, base } = await startBrowser();
 try {
@@ -28,15 +33,16 @@ try {
         "scripts/line-of-fire-cases.mjs", "scripts/browser-evaluation.mjs", "scripts/server.mjs",
         "pilot/evaluator/run-report.schema.json", "pilot/evaluator/calibration.json", "package-lock.json"]);
       const url = new URL(server.url);
-      url.searchParams.set("task", taskId);
+      if (!submission) url.searchParams.set("task", taskId);
       for (const mutation of [null, ...(calibrate ? mutationsByTask[taskId] : [])]) {
         const report = await runVariant(browser, base, {
-          layout: taskId, route: primaryReplay, fault: mutation?.id, server: { url: url.href }, replayClock: "virtual",
-          artifactVersion: artifactVersion + "/" + taskId, evaluatorVersion: digest(evaluatorVersion + (profile ?? "C")),
-          plan, contract, cases, setup: (state, scenario) => checkSetup(state, scenario, primaryReplay), profile,
+          artifactDirectory: folder,
+          layout: submission ? "submission" : taskId, route, fault: mutation?.id, server: { url: url.href }, replayClock: "virtual",
+          artifactVersion: submission ? artifactVersion : artifactVersion + "/" + taskId, evaluatorVersion: digest(evaluatorVersion + JSON.stringify(route) + (profile ?? "C")),
+          plan, contract, cases, setup: (state, scenario) => checkSetup(state, scenario, route, contract), profile, helpers: { submission },
         });
         if (!mutation) {
-          if (report.cases.some(row => row.status !== "pass")) process.exitCode = 1;
+          if (!submission && report.cases.some(row => row.status !== "pass")) process.exitCode = 1;
           continue;
         }
         const statuses = new Map(report.cases.map(row => [row.caseId, row.status]));

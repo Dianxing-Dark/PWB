@@ -2,7 +2,7 @@
   "name": "PlayableWorld-Bench pilot task specifications",
   "version": "0.1",
   "taskCount": 25,
-  "evaluatorCaseCount": 201,
+  "evaluatorCaseCount": 202,
   "tasks": [
     {
       "id": "A01",

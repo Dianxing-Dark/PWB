@@ -10,6 +10,7 @@ const outcomeEvent = (events, attemptId, outcome, cause) => events.find(e => e.a
   e.type === "outcome_changed" && e.data.outcome === outcome && e.data.cause === cause);
 
 export const primaryReplay = {
+  probeKey: "w",
   tolerance: 0.07,
   cover: [[-0.12, 0.12], [0, 1.85], [-0.88, 0.88]],
   start: [-2.55, 0, 0],
@@ -190,9 +191,10 @@ const safe = [125, 227, 177];
 const worker = [247, 212, 137];
 
 async function visibleChange(test, action, label, text, colors) {
-  const before = await test.capture("before", canvas);
+  const before = await test.capture("before", test.submission ? undefined : canvas);
   await action();
-  const after = await test.capture("after", canvas);
+  const after = await test.capture("after", test.submission ? undefined : canvas);
+  if (test.submission) return { unverified: "Review visible feedback against the observed event." };
   const counts = colors.map(color => [colorPixels(before, color), colorPixels(after, color)]);
   test.notes.matchingPixels = counts;
   requireCheck(await test.page.locator(label).innerText() === text &&
@@ -204,24 +206,27 @@ async function visibleChange(test, action, label, text, colors) {
 export const cases = {
   async launch(test) {
     await test.capture("entry");
-    requireCheck(await test.page.locator(canvas).isVisible(), "The 3D viewport is missing.");
+    requireCheck(await test.page.locator(test.route.viewportSelector ?? (test.submission ? "canvas" : canvas)).first().isVisible(), "The 3D viewport is missing.");
   },
   async probe(test) {
     const first = await test.sample();
-    await test.move("w", state => pos(first)[2] - pos(state)[2] >= 0.25, 850);
+    const key = test.route.probeKey ?? "w";
+    const moved = state => distance(ground(pos(first)), ground(pos(state))) >= 0.25;
+    await test.move(key, moved, 850);
     const final = await test.sample();
     const inputs = await test.page.evaluate(() => window.__benchmarkInput);
-    requireCheck(pos(first)[2] - pos(final)[2] >= 0.25 && final.tick > first.tick && final.attemptId === first.attemptId &&
-      ["keydown", "keyup"].every(type => inputs.some(e => e.type === type && e.trusted && e.code === "KeyW")),
+    requireCheck(moved(final) && final.tick > first.tick && final.attemptId === first.attemptId &&
+      ["keydown", "keyup"].every(type => inputs.some(e => e.type === type && e.trusted && e.code === "Key" + key.toUpperCase())),
     "The player did not respond to trusted movement input.");
   },
   low_cover: test => pulse(test, "cover"),
   upper_exposed: test => pulse(test, "avatar"),
   side_exposed: test => pulse(test, "avatar"),
   async pulse_feedback(test) {
-    const before = await test.capture("before-pulse", canvas);
+    const before = await test.capture("before-pulse", test.submission ? undefined : canvas);
     await pulse(test, "cover");
-    const after = await test.capture("pulse-hit", canvas);
+    const after = await test.capture("pulse-hit", test.submission ? undefined : canvas);
+    if (test.submission) return { unverified: "Review both frames for visible pulse and cover feedback." };
     const counts = [before, after].map(frame => colorPixels(frame, beam));
     test.notes.beamPixels = counts;
     requireCheck(counts[0] < 3 && counts[1] > 20 && await test.page.locator("#last-action").innerText() === "Cover blocked the pulse",
@@ -279,7 +284,7 @@ export const cases = {
   emitter_feedback: test => visibleChange(test, () => cutPower(test), "#device", "Disabled", [armed, safe]),
   async rescue_feedback(test) {
     await cutPower(test);
-    await visibleChange(test, () => rescue(test), "#last-action", "Worker rescued", [worker, safe]);
+    return visibleChange(test, () => rescue(test), "#last-action", "Worker rescued", [worker, safe]);
   },
   finish_rescue: test => rescueJourney(test, 0),
   async retry_rescue(test) {

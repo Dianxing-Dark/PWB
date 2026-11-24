@@ -2,6 +2,21 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "PlayableWorld-Bench run report",
   "type": "object",
+  "$defs": {
+    "checkCounts": {
+      "type": "object",
+      "required": ["planned", "passed", "failed", "blocked", "unverified", "verifiedPassRate"],
+      "properties": {
+        "planned": { "type": "integer", "minimum": 0 },
+        "passed": { "type": "integer", "minimum": 0 },
+        "failed": { "type": "integer", "minimum": 0 },
+        "blocked": { "type": "integer", "minimum": 0 },
+        "unverified": { "type": "integer", "minimum": 0 },
+        "verifiedPassRate": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
   "properties": {
     "schemaVersion": {
       "const": "pilot-0.1"
@@ -195,6 +210,28 @@
         "additionalProperties": false
       }
     },
+    "casePlan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "stage", "priority", "family"],
+        "properties": {
+          "id": { "type": "string" },
+          "stage": { "enum": ["prerequisite", "functional", "journey", "visual"] },
+          "priority": { "enum": ["P0", "P1", "P2"] },
+          "family": { "type": "string" },
+          "caseType": { "enum": ["positive", "negative", "boundary", "recovery"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "requiredJourneyCases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "sourceRunReportDigest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "visualReviewDigest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
     "summary": {
       "type": "object",
       "properties": {
@@ -223,6 +260,24 @@
           "type": ["number", "null"],
           "minimum": 0,
           "maximum": 1
+        },
+        "stages": {
+          "type": "object",
+          "required": ["buildAndLaunch", "functionalChecks", "functionalByCaseType", "scriptedPlaythrough",
+            "visualFeedback", "completenessAndRecovery"],
+          "properties": {
+            "buildAndLaunch": { "$ref": "#/$defs/checkCounts" },
+            "functionalChecks": { "$ref": "#/$defs/checkCounts" },
+            "functionalByCaseType": {
+              "type": "object",
+              "required": ["positive", "negative", "boundary", "recovery"],
+              "additionalProperties": { "$ref": "#/$defs/checkCounts" }
+            },
+            "scriptedPlaythrough": { "$ref": "#/$defs/checkCounts" },
+            "visualFeedback": { "$ref": "#/$defs/checkCounts" },
+            "completenessAndRecovery": { "$ref": "#/$defs/checkCounts" }
+          },
+          "additionalProperties": false
         },
         "journeys": {
           "type": "object",
